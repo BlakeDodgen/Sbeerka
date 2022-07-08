@@ -4,7 +4,6 @@
 @import 'styles/forms';
 @import 'styles/home';
 
-
 html {
     box-sizing: border-box;
 }
@@ -16,5 +15,7 @@ html {
 
 body {
     margin: 0;
-    font-family: $font;
+    font-family: $primary-font;
+    color: $secondary-blue;
+    background-color: $primary-yellow;
 }
