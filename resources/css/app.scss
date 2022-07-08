@@ -1,0 +1,20 @@
+@import 'styles/variables';
+@import 'styles/nav';
+@import 'styles/footer';
+@import 'styles/forms';
+@import 'styles/home';
+
+
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: $font;
+}
