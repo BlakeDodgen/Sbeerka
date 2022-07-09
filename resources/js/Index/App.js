@@ -6,7 +6,15 @@ const App = () => {
     return (
         <>
             <Nav />
-            "hello from react"
+            <div className="">
+
+            {/* Left side -- Featured beer */}
+            <HomePageMainProduct />
+
+            {/* Right Side -- Beers you might light */}
+            <HomePageMainProductList />
+            </div>
+            
             <Footer />
         </>
     )
