@@ -2,10 +2,11 @@
 @import 'styles/nav';
 @import 'styles/footer';
 @import 'styles/forms';
-@import 'styles/home';
+@import 'styles/main';
 
 html {
     box-sizing: border-box;
+    position: relative;
 }
 *,
 *:before,

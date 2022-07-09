@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary-orange;
+    color: $secondary-blue;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
