@@ -5,11 +5,11 @@ function Nav() {
 
     return (
         <div className='nav'>
-            <a href="/">LOGO</a>
+            <a href="/homepage">LOGO</a>
             <SearchBar />
-            <a href="/">About</a>
-            <a href="/">Log In</a>
-            <a href="/">Sign Up</a>
+            <a href="/homepage">About</a>
+            <a href="/homepage">Log In</a>
+            <a href="/homepage">Sign Up</a>
         </div>
     )
 }
