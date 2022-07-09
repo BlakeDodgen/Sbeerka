@@ -3,6 +3,7 @@ function SearchBar() {
         <div className="search">
             {/* create a new component ?? */}
             <select>
+            <option selected disabled>ALL</option>
                 <option>Breweries</option>
                 <option>Beer</option>
                 <option>Flavors</option>
