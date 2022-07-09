@@ -2,3 +2,11 @@
     display: flex;
     width: 100%;
 }
+
+.main-product {
+    color: blue;
+
+    &img {
+        height: 500px;
+    }
+}
