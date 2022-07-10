@@ -1,16 +1,20 @@
 import { useState } from "react";
 
-function SearchInput({ placeholder, data }) {
+function SearchInput({ placeholder, data, search }) {
 
     const [searchItems, setSearchItems] = useState([])
+    const [searchOption, setSearchOption] = useState(search);
 
     //function triggered after each keystroke and runs the filter, results saved in new array
     const handleSearchQuery = (e) => {
         const searchItem = e.target.value;
+        const prop = searchOption;
         const newSearch = data.filter((item) => {
             //return value if true-> if object.name includes search items 
             //compare the user input and data-> lowercase both values
-            return item.name.toLowerCase().includes(searchItem.toLowerCase())
+            console.log(prop);
+            return item.beername.toLowerCase().includes(searchItem.toLowerCase())
+            
         });
         
         //array with results is updated in state
@@ -34,7 +38,7 @@ function SearchInput({ placeholder, data }) {
                     {/* for less displayed results use splice method on array .splice(0,10) */}
                     {searchItems.map((value, index) => {
 
-                        return <a className="search__items" key={index} target="_blank">{value.name} / {value.city}</a>
+                        return <a className="search__items" key={index} target="_blank">{value.beername} / {value.city}</a>
 
                     })}
                 </div>
