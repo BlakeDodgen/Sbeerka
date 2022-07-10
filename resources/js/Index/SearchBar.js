@@ -11,7 +11,7 @@ function SearchBar() {
         console.log(e.target.value);
     }
 
-    
+
     return (
         <div className="search">
             {/* create a new component ?? */}
@@ -21,8 +21,8 @@ function SearchBar() {
                 <option value="beer">Beer</option>
                 <option value="flavors">Flavors</option>
                 <option value="alcohol-content">Alcohol Content</option>
-                <option value="beer-type">Beer Type</option>  
-                <option value="random-beer">Random Beer</option>               
+                <option value="beer-type">Beer Type</option>
+                <option value="random-beer">Random Beer</option>
             </select>
             <input name="search" onChange={(event) => setSearchQuery(event.target.value)} value="" />
         </div>
