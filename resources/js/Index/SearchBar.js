@@ -1,6 +1,8 @@
 import { useState } from "react";
+import SearchInput from "./SearchInput";
+import BeerData from "./Data.json"; 
 
-function SearchBar() {
+function SearchBar({placeholder, data}) {
 
     // default value after render is set as Search All
     const [search, setSearch] = useState("All");
@@ -10,6 +12,8 @@ function SearchBar() {
         setSearch(e.target.value);
         console.log(e.target.value);
     }
+
+////////// logic for fetch request will go here and pass the data via props/////////////////
 
     
     return (
@@ -24,7 +28,9 @@ function SearchBar() {
                 <option value="beer-type">Beer Type</option>  
                 <option value="random-beer">Random Beer</option>               
             </select>
-            <input type="text" name="search" onChange={(event) => setSearchQuery(event.target.value)} value="" />
+
+            {/*input elemement as Component , data are passed with props ?? */}
+            <SearchInput data={BeerData} placeholder="Sbeerka beer search"/>
         </div>
     )
 }
