@@ -4,10 +4,11 @@ const HomePageProductList = () => {
 
     return (
         <>
-            <h3 className="product-list__title">BEERS YOU WOULD MIGHT LIKE</h3>
+            
 
              {/* container for whole list of products */}
             <div className="product-list">
+            <h3 className="product-list__title">BEERS YOU WOULD MIGHT LIKE</h3>
 
                 <Product />
                 <Product />
