@@ -24,7 +24,7 @@ function SearchBar() {
                 <option value="beer-type">Beer Type</option>  
                 <option value="random-beer">Random Beer</option>               
             </select>
-            <input name="search" onChange={(event) => setSearchQuery(event.target.value)} value="" />
+            <input type="text" name="search" onChange={(event) => setSearchQuery(event.target.value)} value="" />
         </div>
     )
 }
