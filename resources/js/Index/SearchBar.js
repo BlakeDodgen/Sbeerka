@@ -19,6 +19,7 @@ function SearchBar({placeholder, data}) {
 ////////// logic for fetch request will go here and pass the data via props/////////////////
 
     
+
     return (
         <div className="search">
             {/* create a new component ?? */}
@@ -29,8 +30,8 @@ function SearchBar({placeholder, data}) {
                 <option value="city">City</option>
                 <option value="flavors">Flavors</option>
                 <option value="alcohol-content">Alcohol Content</option>
-                <option value="beer-type">Beer Type</option>  
-                <option value="random-beer">Random Beer</option>               
+                <option value="beer-type">Beer Type</option>
+                <option value="random-beer">Random Beer</option>
             </select>
 
             {/*input elemement as Component , data are passed with props ?? */}
