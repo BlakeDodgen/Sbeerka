@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('beer_id');
             $table->foreignId('user_id');
             $table->text('review')->nullable();
-            $table->int('rating');
+            $table->integer('rating');
             $table->boolean('favorite');
             $table->integer('body')->nullable();
             $table->integer('linger')->nullable();
