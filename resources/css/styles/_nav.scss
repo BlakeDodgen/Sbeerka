@@ -4,15 +4,27 @@
     align-items: center;
     justify-content: space-around;
     align-content: center;
-    background-color: $secondary-orange;
+    background-color: $primary-grey;
     height: 4rem;
 }
 
 a {
     text-decoration: none;
-    color: $secondary-blue;
+    color: $secondary-grey;
 
     &:hover {
-        font-weight: bold;
+        color: $primary-yellow;
   }
+}
+
+.nav__log-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 4rem;
+    
+}
+
+.nav__icon {
+    width: 1rem;
 }
