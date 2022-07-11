@@ -1,12 +1,13 @@
-import Nav from "./Nav";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 
 
 const SearchResults = () => {
 
     return (
         <>
-                <Nav />      
-            
+                 
+         <p>hello</p>
         </>
     )
 }

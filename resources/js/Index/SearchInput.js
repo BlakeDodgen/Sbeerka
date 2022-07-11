@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SearchResults from "./SearchResults";
 
@@ -6,6 +6,7 @@ function SearchInput({ placeholder, data, search }) {
 
     const [searchItems, setSearchItems] = useState([])
     const [searchOption, setSearchOption] = useState(search);
+    const navigate = useNavigate();
 
     //function triggered after each keystroke and runs the filter, results saved in new array
     const handleSearchQuery = (e) => {
@@ -28,11 +29,14 @@ function SearchInput({ placeholder, data, search }) {
         }
     }
 
+    const redirect = () => {
+        navigate("/results")
+    }
     // console.log(data);
 
     return (
         <>
-            <input type="text" placeholder={placeholder} name="search" onChange={handleSearchQuery} />
+            <input type="text" placeholder={placeholder} name="search" onChange={handleSearchQuery} onKeyDown={(e) => e.keyCode == '13' && redirect()}/>
 
             {searchItems && (
                 <div>
@@ -47,9 +51,10 @@ function SearchInput({ placeholder, data, search }) {
             )}
 
             {/* new route , not defined yet, for search results listed and rendered, filltered array passed via props */}
-            <Routes>
-                <Route path="/results" element={<SearchResults results={searchItems} />} />
-            </Routes>
+            
+            {/* <Routes >
+                <Redirect to="/results" element={<SearchResults results={searchItems} />} />
+            </Routes> */}
         </>
 
 

@@ -7,7 +7,7 @@ function Nav() {
     return (
         <div className='nav'>
             <Link to="/homepage">LOGO</Link>
-            <SearchDropDown />
+            {/* <SearchDropDown /> */}
             <SearchBar />
             <Link to="/homepage">About</Link>
             <div className='dropdown'>
@@ -18,9 +18,9 @@ function Nav() {
                     </div>
                 </button>
                 <div className='dropdown-content'>
-                    <Link to="#">Settings</Link>
-                    <Link to="#">Beer Collection</Link>
-                    <Link to="#">Log Out</Link>
+                    <Link to="/homepage">Settings</Link>
+                    <Link to="/homepage">Beer Collection</Link>
+                    <Link to="/homepage">Log Out</Link>
                 </div>
             </div>
             <a href="/homepage">Sign Up</a>
