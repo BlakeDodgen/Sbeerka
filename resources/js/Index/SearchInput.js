@@ -7,6 +7,7 @@ function SearchInput({ placeholder, data, search }) {
     const [searchString, setSearchString] = useState("")
     //from this state are data are mapped and rendered
     const [searchItems, setSearchItems] = useState("")
+
     const [searchOption, setSearchOption] = useState(search);
     const navigate = useNavigate();
     console.log("searchitems: "+searchItems);
@@ -34,10 +35,12 @@ function SearchInput({ placeholder, data, search }) {
     const handleSearchBarChange = (e) => {
         handleSearchQuery(e);
         setSearchString(e.target.value);
+        
     }
 
     const redirect = () => {
         navigate(`/results/${searchString}`)
+       //clearinput func
     }
     // console.log(data);
 
@@ -46,12 +49,12 @@ function SearchInput({ placeholder, data, search }) {
             <input type="text" placeholder={placeholder} name="search" value={searchString} onChange={handleSearchBarChange} onKeyDown={(e) => e.keyCode == '13' && redirect()} />
 
             {searchItems && (
-                <div>
+                <div className="search__result">
                     {/* loops in the array which contains updated search items */}
                     {/* for less displayed results use splice method on array .splice(0,10) */}
                     {searchItems.map((value, index) => {
 
-                        return <a className="search__items" key={index} target="_blank">{value.name} / {value.city}</a>
+                        return <a className="search__items" key={index} href={value.brewery.website} target="_blank">{value.name} / {value.city}</a>
 
                     })}
                 </div>

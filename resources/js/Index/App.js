@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import HomePage from "./HomePage";
 import SearchResults from "./SearchResults";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { DataContext } from "./SearchBar";
 
 
 const App = () => {
@@ -13,8 +14,10 @@ const App = () => {
             <div className="main">
             {/* new Component Homepage needed for routing  */}
             <Routes>
-                <Route path="/" element={<HomePage />} />                         
-                <Route path="/results/:searchString" element={<SearchResults />} />
+                <Route path="/" element={<HomePage />} />             
+                
+                <Route path="/results/:searchType/:searchString" element={<SearchResults />} />
+                
             </Routes>
 
             </div>

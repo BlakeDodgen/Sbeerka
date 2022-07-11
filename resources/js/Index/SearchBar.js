@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import SearchInput from "./SearchInput";
-import BeerData from "./Data.json"; 
+
+
 
 function SearchBar() {
 
@@ -8,7 +9,9 @@ function SearchBar() {
     const [search, setSearch] = useState("all");
 
     //fetched response is saved as an array in this state
-    const [data, setData] = useState(BeerData)
+    const [data, setData] = useState([])
+
+    
 
     //function changes state of search req in select
     const handleSearchChange = (e) => {
