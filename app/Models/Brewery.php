@@ -4,9 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-// use app\Models\Beer;
-// use app\Models\User;
-// use app\Models\BreweryPic;
 
 class Brewery extends Model
 {
