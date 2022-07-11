@@ -1,4 +1,47 @@
 .main {
     display: flex;
+    justify-content: center;
     width: 100%;
+}
+
+//featured beer -left side
+.main-product {
+    border-right:  solid black;
+    
+
+    &__img {
+       
+        
+    }
+    
+}
+
+// list of beers - right side, 6items + headline
+.product-list {
+    display: flex;
+
+
+    //headline
+    &__title {
+        
+
+    }
+    
+  //one item = beer
+    &__item {
+        border: solid 1px;
+    } 
+
+    //name - bottom left corner of item
+    &__name{
+        
+        
+    }
+
+    //rating - bottom right corner of item
+    &__rating{
+
+    }
+
+
 }
