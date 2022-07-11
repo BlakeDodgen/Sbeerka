@@ -4,11 +4,12 @@ import SearchResults from "./SearchResults";
 
 function SearchInput({ placeholder, data, search }) {
 
-    const [searchString, setSearchString] = useState('')
-    const [searchItems, setSearchItems] = useState([])
+    const [searchString, setSearchString] = useState("")
+    //from this state are data are mapped and rendered
+    const [searchItems, setSearchItems] = useState("")
     const [searchOption, setSearchOption] = useState(search);
     const navigate = useNavigate();
-
+    console.log("searchitems: "+searchItems);
     //function triggered after each keystroke and runs the filter, results saved in new array
     const handleSearchQuery = (e) => {
         const searchItem = e.target.value;
@@ -16,8 +17,8 @@ function SearchInput({ placeholder, data, search }) {
         const newSearch = data.filter((item) => {
             //return value if true-> if object.name includes search items 
             //compare the user input and data-> lowercase both values
-            console.log(prop);
-            return item.beername.toLowerCase().includes(searchItem.toLowerCase())
+            console.log(item);
+            return item.name.toLowerCase().includes(searchItem.toLowerCase())
 
         });
 
@@ -31,7 +32,8 @@ function SearchInput({ placeholder, data, search }) {
     }
 
     const handleSearchBarChange = (e) => {
-        setSearchString(e.target.value)
+        handleSearchQuery(e);
+        setSearchString(e.target.value);
     }
 
     const redirect = () => {
@@ -49,7 +51,7 @@ function SearchInput({ placeholder, data, search }) {
                     {/* for less displayed results use splice method on array .splice(0,10) */}
                     {searchItems.map((value, index) => {
 
-                        return <a className="search__items" key={index} target="_blank">{value.beername} / {value.city}</a>
+                        return <a className="search__items" key={index} target="_blank">{value.name} / {value.city}</a>
 
                     })}
                 </div>

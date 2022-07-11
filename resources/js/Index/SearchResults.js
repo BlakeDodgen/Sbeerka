@@ -6,7 +6,7 @@ const SearchResults = () => {
 
     const { searchString } = useParams()
 
-    console.log(searchString)
+    console.log("searchstring: "searchString)
 
     return (
         <>
