@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('size')->nullable();
             $table->text('history')->nullable();
             $table->foreignId('brewery_pic_id')->nullable();
+            $table->timestamps();
         });
     }
 

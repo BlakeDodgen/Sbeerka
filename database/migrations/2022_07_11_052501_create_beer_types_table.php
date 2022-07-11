@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('beer_types', function (Blueprint $table) {
             $table->id();
             $table->string('type');
+            $table->timestamps();
         });
     }
 
