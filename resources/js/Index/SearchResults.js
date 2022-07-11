@@ -1,14 +1,11 @@
 import Nav from "./Nav";
 
-
 const SearchResults = () => {
-
     return (
         <>
-                <Nav />      
-            
+            <Nav />
         </>
-    )
-}
+    );
+};
 
 export default SearchResults;
