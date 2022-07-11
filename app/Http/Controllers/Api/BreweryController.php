@@ -10,14 +10,14 @@ class BreweryController extends Controller
 {
     public function breweryinfo($id)
     {
-        $brewery = Brewery::findOrFail($id);
+        $brewery = Brewery::with('user', 'beers')->findOrFail($id);
 
         return $brewery;
     }
 
     public function breweryindex()
     {
-        $breweries = Brewery::get();
+        $breweries = Brewery::with('user', 'beers')->get();
 
         return $breweries;
     }
