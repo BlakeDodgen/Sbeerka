@@ -10,6 +10,8 @@ class BeerType extends Model
 {
     use HasFactory;
 
+    // protected $table = 'beer_types';
+
     public function beer()
     {
         return $this->hasMany(Beer::class);
