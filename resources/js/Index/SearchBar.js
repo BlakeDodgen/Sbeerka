@@ -6,7 +6,7 @@ function SearchBar() {
 
     // default value after render is set as Search All
     const [search, setSearch] = useState("beername");
-    const [data, setData] = useState([])
+    const [data, setData] = useState(BeerData)
 
     //function changes state when option is selected
     const handleSearchChange = (e) => {
@@ -18,12 +18,15 @@ function SearchBar() {
    
 
 ////////// logic for fetch request will go here and pass the data via props/////////////////
-    const url = '';
+//choose url according to selected value
+    const urlSpecific = '';
+    const urlAll = ''; 
 
     const fetchData = async() => {
-        const response = await fetch(BeerData);
+        const response = await fetch( !search === "all" ? urlSpecific : urlAll);
         const parsedData = await response.json();
         setData(parsedData);
+        console.log(parsedData);
     }
     
     useEffect(()=> {
