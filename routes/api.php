@@ -19,3 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/beers/{id}', ['App\Http\Controllers\Api\BeerController', 'beerinfo']);
 Route::get('/beers', ['App\Http\Controllers\Api\BeerController', 'beerindex']);
+
+Route::get('/breweries/{id}', ['App\Http\Controllers\Api\BreweryController', 'breweryinfo']);
+Route::get('/breweries', ['App\Http\Controllers\Api\BreweryController', 'breweryindex']);
