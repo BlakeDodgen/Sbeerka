@@ -17,11 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('first_name')->nullable();
             $table->string('surname')->nullable();
+            $table->boolean('over18');
             $table->string('brewery_name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('username')->nullable();
-            $table->int('user_type');
+            $table->integer('user_type');
             $table->timestamps();
         });
     }

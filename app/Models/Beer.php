@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use app\Models\BeerType;
 use app\Models\Brewery;
 use app\Models\Review;
+use app\Models\BeerPic;
 
 class Beer extends Model
 {
@@ -25,5 +26,10 @@ class Beer extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function beerPic()
+    {
+        return $this->belongsTo(BeerPic::class);
     }
 }

@@ -16,13 +16,12 @@ return new class extends Migration
         Schema::create('breweries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('name');
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->string('website')->nullable();
             $table->string('size')->nullable();
             $table->text('history')->nullable();
-            $table->foreignId('image_id')->nullable();
+            $table->foreignId('brewery_pic_id')->nullable();
         });
     }
 
