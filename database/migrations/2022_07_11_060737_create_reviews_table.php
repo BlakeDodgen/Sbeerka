@@ -20,13 +20,13 @@ return new class extends Migration
             $table->text('review')->nullable();
             $table->int('rating');
             $table->boolean('favorite');
-            $table->int('body')->nullable();
-            $table->int('linger')->nullable();
-            $table->int('herbal')->nullable();
-            $table->int('citrus')->nullable();
-            $table->int('hoppy')->nullable();
-            $table->int('bitter')->nullable();
-            $table->int('sour')->nullable();
+            $table->integer('body')->nullable();
+            $table->integer('linger')->nullable();
+            $table->integer('herbal')->nullable();
+            $table->integer('citrus')->nullable();
+            $table->integer('hoppy')->nullable();
+            $table->integer('bitter')->nullable();
+            $table->integer('sour')->nullable();
             $table->timestamps();
         });
     }
