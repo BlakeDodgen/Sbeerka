@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
 import BeerData from "./Data.json"; 
 
@@ -18,7 +17,7 @@ function SearchBar() {
 
    
 
-////////// logic for fetch request will go here and pass the data via props/////////////////
+// logic for fetch request will go here and pass the data via props//
 //choose url according to selected value
     const urlSpecific = '';
     const urlAll = ''; 

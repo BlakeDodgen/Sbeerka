@@ -11,7 +11,7 @@ const App = () => {
         <BrowserRouter>
             <Nav />
             <div className="main">
-            {/*  */}
+            {/* new Component Homepage needed for routing  */}
             <Routes>
                 <Route path="/" element={<HomePage />} />                         
                 <Route path="/results/:searchString" element={<SearchResults />} />

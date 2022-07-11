@@ -1,29 +1,31 @@
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
-import SearchDropDown from './SearchDropDown';
+
 
 function Nav() {
 
     return (
         <div className='nav'>
-            <Link to="/homepage">LOGO</Link>
-            {/* <SearchDropDown /> */}
+            <Link to="/">LOGO</Link>
+            
             <SearchBar />
-            <Link to="/homepage">About</Link>
+
+            <Link to="/">About</Link>
+            
             <div className='dropdown'>
                 <button className='dropbtn'>
                     <div className='nav__log-in'>
                         <img className='nav__icon' src='./img/profile.svg' alt='profile' />
-                        <Link to='/homepage'>Log In</Link>
+                        <Link to='/'>Log In</Link>
                     </div>
                 </button>
                 <div className='dropdown-content'>
-                    <Link to="/homepage">Settings</Link>
-                    <Link to="/homepage">Beer Collection</Link>
-                    <Link to="/homepage">Log Out</Link>
+                    <Link to="/">Settings</Link>
+                    <Link to="/">Beer Collection</Link>
+                    <Link to="/">Log Out</Link>
                 </div>
             </div>
-            <a href="/homepage">Sign Up</a>
+            <Link to="/">Sign Up</Link>
         </div>
     )
 }
