@@ -16,14 +16,14 @@ const App = () => {
 
 
                 {/* Left side -- Featured beer */}
-                <HomePageMainProduct />
+                {/* <HomePageMainProduct /> */}
 
                 {/* Right Side -- Beers you might light */}
-                <HomePageProductList />
+                {/* <HomePageProductList /> */}
 
-            <Routes >
-                <Route path="/results" element={<SearchResults />} />
-            </Routes>
+                <Routes>
+                    <Route path="/results/:searchString" element={<SearchResults />} />
+                </Routes>
             </div>
 
             <Footer />

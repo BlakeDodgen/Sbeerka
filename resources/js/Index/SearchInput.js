@@ -4,6 +4,7 @@ import SearchResults from "./SearchResults";
 
 function SearchInput({ placeholder, data, search }) {
 
+    const [searchString, setSearchString] = useState('')
     const [searchItems, setSearchItems] = useState([])
     const [searchOption, setSearchOption] = useState(search);
     const navigate = useNavigate();
@@ -17,26 +18,30 @@ function SearchInput({ placeholder, data, search }) {
             //compare the user input and data-> lowercase both values
             console.log(prop);
             return item.beername.toLowerCase().includes(searchItem.toLowerCase())
-            
+
         });
-        
+
         //array with results is updated in state
         //if search imput is empty nothing is show
-        if ( searchItems === "") {
+        if (searchItems === "") {
             setSearchItems([]);
         } else {
             setSearchItems(newSearch);
         }
     }
 
+    const handleSearchBarChange = (e) => {
+        setSearchString(e.target.value)
+    }
+
     const redirect = () => {
-        navigate("/results")
+        navigate(`/results/${searchString}`)
     }
     // console.log(data);
 
     return (
         <>
-            <input type="text" placeholder={placeholder} name="search" onChange={handleSearchQuery} onKeyDown={(e) => e.keyCode == '13' && redirect()}/>
+            <input type="text" placeholder={placeholder} name="search" value={searchString} onChange={handleSearchBarChange} onKeyDown={(e) => e.keyCode == '13' && redirect()} />
 
             {searchItems && (
                 <div>
@@ -51,7 +56,7 @@ function SearchInput({ placeholder, data, search }) {
             )}
 
             {/* new route , not defined yet, for search results listed and rendered, filltered array passed via props */}
-            
+
             {/* <Routes >
                 <Redirect to="/results" element={<SearchResults results={searchItems} />} />
             </Routes> */}
