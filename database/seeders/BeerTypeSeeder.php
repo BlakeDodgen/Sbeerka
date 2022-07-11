@@ -40,7 +40,7 @@ class BeerTypeSeeder extends Seeder
             "Imperial Pastry Sour Ale", 
             "Imperial Stout with Peanut Butter", 
             "Imperial Stout with Prunes", 
-            "Session IPA", 
+            "Spiced Sour Ale", 
             "Tasmanian IPA", 
             "American Pale Ale", 
             "Double Black IPA", 

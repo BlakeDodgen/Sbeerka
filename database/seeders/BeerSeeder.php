@@ -212,10 +212,10 @@ class BeerSeeder extends Seeder
             [
                 'brewery_id' => '2',
                 'beer_type_id' => '22',
-                'name' => 'All Night Long',
-                'alcohol_volume' => '13',
-                'degree' => '5.5',
-                'description' => "This Hels Bells Indian Pale Ale is already the fifth piece in the Hels Bells Beers series, but the first that we have brewed for you with real hard rock dedication ourselves.",
+                'name' => 'Arrakis',
+                'alcohol_volume' => '12',
+                'degree' => '5.1',
+                'description' => "Arrakis, home of the spice, greatest of treasure in the universe. And he who drinks it, drinks to our destiny. Saffron, coming from the desert region of old Persia, is by far the rarest of spices. Together with maracuja, they form an aromatic sour experience worthy of any noble house.",
                 'beer_pic_id' => '22'
             ],
             [
