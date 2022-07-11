@@ -50,7 +50,7 @@ function SearchBar() {
                 <option value="random-beer">Random Beer</option>
             </select>
 
-            {/*input elemement as Component , data are passed with props ?? */}
+            {/*input element as Component , data are passed with props */}
             <SearchInput search={search} data={data} placeholder="Sbeerka beer search"/>
         </div>
     )

@@ -6,21 +6,21 @@ function Nav() {
 
     return (
         <div className='nav'>
-            <a href="/homepage">LOGO</a>
+            <Link to="/homepage">LOGO</Link>
             <SearchDropDown />
             <SearchBar />
-            <a href="/homepage">About</a>
+            <Link to="/homepage">About</Link>
             <div className='dropdown'>
                 <button className='dropbtn'>
                     <div className='nav__log-in'>
                         <img className='nav__icon' src='./img/profile.svg' alt='profile' />
-                        <a href='/homepage'>Log In</a>
+                        <Link to='/homepage'>Log In</Link>
                     </div>
                 </button>
                 <div className='dropdown-content'>
-                    <a href="#">Settings</a>
-                    <a href="#">Beer Collection</a>
-                    <a href="#">Log Out</a>
+                    <Link to="#">Settings</Link>
+                    <Link to="#">Beer Collection</Link>
+                    <Link to="#">Log Out</Link>
                 </div>
             </div>
             <a href="/homepage">Sign Up</a>

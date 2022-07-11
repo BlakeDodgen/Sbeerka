@@ -48,7 +48,7 @@ function SearchInput({ placeholder, data, search }) {
 
             {/* new route , not defined yet, for search results listed and rendered, filltered array passed via props */}
             <Routes>
-                <Route path="/" element={<SearchResults results={searchItems} />} />
+                <Route path="/results" element={<SearchResults results={searchItems} />} />
             </Routes>
         </>
 
