@@ -2,11 +2,13 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import HomePageMainProduct from "./HomePageMainProduct";
 import HomePageProductList from "./HomePageProductList";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
 
 const App = () => {
 
     return (
-        <>
+        <BrowserRouter>
             <Nav />
             <div className="main">
 
@@ -21,7 +23,7 @@ const App = () => {
             </div>
 
             <Footer />
-        </>
+        </BrowserRouter>
     )
 }
 

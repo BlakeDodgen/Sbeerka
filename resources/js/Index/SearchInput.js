@@ -1,4 +1,6 @@
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
+import SearchResults from "./SearchResults";
 
 function SearchInput({ placeholder, data, search }) {
 
@@ -43,6 +45,11 @@ function SearchInput({ placeholder, data, search }) {
                     })}
                 </div>
             )}
+
+            {/* new route , not defined yet, for search results listed and rendered, filltered array passed via props */}
+            <Routes>
+                <Route path="/" element={<SearchResults results={searchItems} />} />
+            </Routes>
         </>
 
 
