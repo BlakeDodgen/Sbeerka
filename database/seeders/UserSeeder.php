@@ -19,23 +19,66 @@ class UserSeeder extends Seeder
         DB::table('users')->truncate();
 
         $users = [
-            ['first_name' => ,
-            'surname' => ,
-            'over18' => ,
-            'brewery_name' => ,
-            'email' => ,
-            'password' => ,
-            'username' => ,
-            'user_type' => 
-        ], ['first_name' => ,
-            'surname' => ,
-            'over18' => ,
-            'brewery_name' => ,
-            'email' => ,
-            'password' => ,
-            'username' => ,
-            'user_type' => 
-            ]
+            [
+                'first_name' => "Blake",
+                'surname' => "Dodgen",
+                'over18' => TRUE,
+                'brewery_name' => "",
+                'email' => "blake@sbeerka.beer",
+                'password' => "password",
+                'username' => "Blake42069",
+                'user_type' => "1",
+            ], 
+            [
+                'first_name' => "Ben",
+                'surname' => "Herbert",
+                'over18' => TRUE,
+                'brewery_name' => "",
+                'email' => "ben@sbeerka.beer",
+                'password' => "password",
+                'username' => "Ben",
+                'user_type' => "1",
+            ],
+            [
+                'first_name' => "Tomáš",
+                'surname' => "Kravčík",
+                'over18' => TRUE,
+                'brewery_name' => "",
+                'email' => "tomas@sbeerka.beer",
+                'password' => "password",
+                'username' => "Tomáš",
+                'user_type' => "1",
+            ],
+            [
+                'first_name' => "Ivan",
+                'surname' => "Vukšić",
+                'over18' => TRUE,
+                'brewery_name' => "",
+                'email' => "ivan@sbeerka.beer",
+                'password' => "password",
+                'username' => "Vukšić",
+                'user_type' => "1",
+            ],
+            [
+                'first_name' => "",
+                'surname' => "",
+                'over18' => TRUE,
+                'brewery_name' => "Sibeeria",
+                'email' => "sibeeria@sibeeria.com",
+                'password' => "password",
+                'username' => "",
+                'user_type' => "2",
+            ],
+            [
+                'first_name' => "",
+                'surname' => "",
+                'over18' => TRUE,
+                'brewery_name' => "Raven",
+                'email' => "raven@raven.com",
+                'password' => "password",
+                'username' => "",
+                'user_type' => "2",
+            ],
         ];
 
         foreach($users as $userex) {
