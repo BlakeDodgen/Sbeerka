@@ -19,8 +19,10 @@ class BreweryPicSeeder extends Seeder
         DB::table('brewery_pics')->truncate();
 
         $pics = [
-            "1.png",
-            "2.png",
+            "sibeeria.png",
+            "raven.png",
+            "rogue.png",
+            "mobcraft.png",
         ];
 
         foreach($pics as $pic) {

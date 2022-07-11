@@ -345,6 +345,267 @@ class BeerSeeder extends Seeder
                 'description' => "Together with Tanker from Estonia, we have crafted a unique take on a West Coast IPA, with equal measures of American and Bohemian hops. West Boast IPA had its world premiere at Braukunst Live! 2017 in Munich.",
                 'beer_pic_id' => '36'
             ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '37',
+                'name' => 'Dead Guy Ale',
+                'alcohol_volume' => '6.8',
+                'degree' => '',
+                'description' => "In the style of a German Maibock, using our proprietary Pacman yeast, Dead Guy is deep honey in color with a malty aroma and a rich, hearty flavor.",
+                'beer_pic_id' => '37'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '38',
+                'name' => 'Batsquatch',
+                'alcohol_volume' => '6.7',
+                'degree' => '',
+                'description' => "For years, rumors have circled that deep in the woods on Mount St. Helens lives the fabled Batsquatch. While there are many tales of Batsquatch, they are all a bit hazy on the details, which makes the truth such a juicy mystery. So what better way to honor the elusive legend than with a hazy IPA? Perfect for camping and potentially making a new friend. This juicy, cloudy IPA features intense tropical flavors and aromas.",
+                'beer_pic_id' => '38'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '39',
+                'name' => 'Gumberoo',
+                'alcohol_volume' => '6.8',
+                'degree' => '',
+                'description' => "Ever hear the story of the Gumberoo? As the story goes, three loggers were camped in the woods drinking beers and entertaining the idea of illegally harvesting old growth sequoias for extra cash when the ground suddenly shook with a heavy footstep. Bigger than a bear with wild eyes and jagged teeth, the Gumberoo rose from behind a stump with a mighty roar. As the loggers scrambled to escape, beer spilled onto the fire causing smoke to fill the air. Some say the forest only wanted to send them a warning that night as this stroke of smokey fortune helped hold off the Gumberoo while the loggers got away. So remember to respect our forests, put out your fires and always bring cold beer camping.",
+                'beer_pic_id' => '39'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '40',
+                'name' => 'Colossal Claude',
+                'alcohol_volume' => '8.2',
+                'degree' => '',
+                'description' => "It's been a few decades since a Colossal Claude sighting has been reported, but we're fairly certain the massive sea monster has been laying low off the coast of his favorite brewery. Word has it that after years of terrifying sailors and feasting on salmon he acquired a taste for hops. So we brewed this Imperial IPA with a colossal dose of Cascade, Chinook, Citra and Strata hops in hope of coaxing Claude out to join us for a pint.",
+                'beer_pic_id' => '40'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '41',
+                'name' => 'Dreamland',
+                'alcohol_volume' => '4.8',
+                'degree' => '',
+                'description' => "This beer was born from a dream. A dream to renovate our hometown skatepark in Newport, Oregon to give our community a safe and clean place to skate. The incredible people at Dreamland Skateparks helped make our dream a reality and with them we want to help others realize their dream. So we brewed Dreamland American Lager, a simple, crisp lager from which a portion of the proceeds will go toward building skateparks around the world. Welcome to Dreamland.",
+                'beer_pic_id' => '41'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '42',
+                'name' => 'Honey Kolsch',
+                'alcohol_volume' => '5',
+                'degree' => '',
+                'description' => "Brewed with wildflower honey, this Kolsch-style ale has layers of subtle floral notes accented by the honey's natural sweetness that create a refreshing balance with the hops and malts. Honey Kolsch is our liquid ode to bees for all the wonderful work they do to keep the cycle of life turning.",
+                'beer_pic_id' => '42'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '43',
+                'name' => 'Newport Daze',
+                'alcohol_volume' => '5.5',
+                'degree' => '',
+                'description' => "The morning after a long night, we like to hit the beach for some R&R. Newport Daze Hazy Pale Ale is the perfect day sipper for such an occasion. It's an easy, mellow brew to get you through. This hazy pale gives off aromas of pineapple & stone fruit, features tangerine & peach flavors, and finishes off slightly sweet and very smooth.",
+                'beer_pic_id' => '43'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '44',
+                'name' => 'Hazelnut Brown Nectar',
+                'alcohol_volume' => '5.6',
+                'degree' => '',
+                'description' => "From the hazelnut capital of the United States, this nutty twist on a European brown ale was originally crafted by Rogue Brewmaster John Maier's good friend and avid home-brewer, Chris Studach. Hazelnut Brown Nectar offers a hazelnut aroma with rich nutty flavor and a smooth malty finish.",
+                'beer_pic_id' => '44'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '45',
+                'name' => 'Outta Line',
+                'alcohol_volume' => '6.9',
+                'degree' => '',
+                'description' => "At the very core of Rogue is the idea of getting outta line. That is to say you don't need to follow the plan laid out in front of you, you don't have to fit in and you don't have to follow the crowd. We brewed this IPA as a reminder that there is no limit when you have the courage to stand out. Available year round, Outta Line IPA is a bright honey-colored West Coast IPA with an enticing fruit aroma.",
+                'beer_pic_id' => '45'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '46',
+                'name' => 'Chocolate Stout Nitro',
+                'alcohol_volume' => '5.8',
+                'degree' => '',
+                'description' => "The addition of a nitro charge to our classic Chocolate Stout blends up chocolate and malt flavors into a smooth creamy chocolate experience that you'll never want to end.",
+                'beer_pic_id' => '46'
+            ],
+            [
+                'brewery_id' => '3',
+                'beer_type_id' => '47',
+                'name' => 'Shakespeare Stout Nitro',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Rogue Ales was originally founded in Ashland, a Southern Oregon college town home to the world-renowned Oregon Shakespeare Festival. Inspired by this festival, we introduced this English-style oatmeal stout as one of our three original beers when our first pub opened in Ashland in 1988. It has remained in our product line ever since, earning the most awards and highest ratings of any of our beers.",
+                'beer_pic_id' => '47'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '48',
+                'name' => 'Oddball',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Oddball is a Kölsch-Style Ale boasting a pale golden color with a refreshing crisp finish. Most of our beers are a far cry from normal, this beer simply tastes like beer! Making it our oddball.",
+                'beer_pic_id' => '48'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '49',
+                'name' => 'Bat\$h!t Crazy',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Bat\$it Crazy is a Coffee Brown Ale. Balanced milk sugar sweetness gives way to robust coffee flavors. Perfect for all of your nocturnal exploits!",
+                'beer_pic_id' => '49'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '50',
+                'name' => 'Rhubarb IPA',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Rhubarb IPA celebrates Wisconsin's early crop harvest. Pleasant rhubarb tartness blends with a medley of bittering and aromatic hops creating a true Wisconsin IPA.",
+                'beer_pic_id' => '50'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '51',
+                'name' => 'Vanilla Wafer Porter',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Vanilla Wafer Porter is a vanilla porter swirling with chocolate malt notes that will leave you floating in bliss. Smooth vanilla melds perfectly for a porter that's outtasight!",
+                'beer_pic_id' => '51'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '52',
+                'name' => 'Grasshopper Milk Stout',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "This beer is inspired by the classic supper club dessert drink brewed with mint, vanilla beans, cacao nibs, lactose, and lots of chocolate malts. Eat your veggies! Only clean plates get dessert.",
+                'beer_pic_id' => '52'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '53',
+                'name' => 'Low Phunk Rad Berry',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Sour Ale with raspberries and ginger to electrify your tastebuds. Balanced tart character gives way to raspberry with a hint of ginger spice.",
+                'beer_pic_id' => '53'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '54',
+                'name' => 'Peanuttin Butter than this Chocolate Porter',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "A dark, chocolatey Porter with oodles of peanuts, this sweet and smooth peanut butter cup-style beer will easily satisfy that sweet tooth. Even your dentist can't resist it.",
+                'beer_pic_id' => '54'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '55',
+                'name' => 'Mobcraft Amber',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Break it down with this Amber Ale, boasting a robust copper hue with a malt forward backbone and balanced hop bitterness.",
+                'beer_pic_id' => '55'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '56',
+                'name' => 'Gier Bier',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Crisp and refreshing Lager fermented with yeast collected from the historic Falk beer caves dating back to the 1800s.",
+                'beer_pic_id' => '56'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '57',
+                'name' => 'Ahopalypse',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Embracing the haze, we find ourselves in a prehistoric era dodging juicy hop meteorites as bitter dinos fight for survival. Hazy, juicy, citrusy - we raise a glass of this hazy IPA to honor these fallen creatures.",
+                'beer_pic_id' => '57'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '58',
+                'name' => 'Padishah',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "From these humble barrels an empire was born. This Imperial Stout aged in Heaven Hill Bourbon Barrels is the ruler of all palates. Its royal lineage boasts a rich and complex character fit for a king. All hail Padishah!",
+                'beer_pic_id' => '58'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '59',
+                'name' => 'Low Phink Sour Ale',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Sour Ale conditioned with lactobacillus using a solera blending method: refreshingly tart with hints of lemon and Belgian esters. Allow your taste buds to boogie down with this pHunky pleasure.",
+                'beer_pic_id' => '59'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '60',
+                'name' => 'Mobcraft IPA',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "MobCraft IPA is a classic India Pale Ale. Aromas of ripe citrus and resinous pine are abundant while pleasant malt character fills your palate. Brewed with Wisconsin grown hops, this IPA is a proud product of Brew City.",
+                'beer_pic_id' => '60'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '61',
+                'name' => 'Oktoberfest Lager',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "A classic Oktoberfest-style Lager boasting a golden amber hue with bountiful malt character. Prost!",
+                'beer_pic_id' => '61'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '62',
+                'name' => 'Moo-waukee White Chocolate Milk Stout',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "A sMOOth White Chocolate Milk Stout - brewed with white chocolate, vanilla, cacao nibs and just the right amount of lactose sweetness. Hay, in case you haven't herd, this beer is udderly fantastic...",
+                'beer_pic_id' => '62'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '63',
+                'name' => 'Flanders Red',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "A Flanders-Style Red Ale aged in French and American oak. Displaying notes of cherries, dried fruit, and kilned malts.",
+                'beer_pic_id' => '63'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '64',
+                'name' => 'Existence',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "A Belgian-Style Sour Ale aged in American and French oak with Brettanomyces and Lactobacillus.",
+                'beer_pic_id' => '64'
+            ],
+            [
+                'brewery_id' => '4',
+                'beer_type_id' => '65',
+                'name' => 'Too Legit To Wit',
+                'alcohol_volume' => '5.7',
+                'degree' => '',
+                'description' => "Unfiltered Belgian-style Witbier. Easy going with a smooth finish and subtle notes of fruit and spice.",
+                'beer_pic_id' => '65'
+            ],
 
 ];
 
