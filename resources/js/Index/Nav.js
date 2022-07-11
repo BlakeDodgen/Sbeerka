@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
-import SearchDropDown from './SearchDropDown';
+import Dropdown from './Dropdown';
 
 function Nav() {
 
     return (
         <div className='nav'>
             <a href="/homepage">LOGO</a>
-            <SearchDropDown />
+            <Dropdown />
             <SearchBar />
             <a href="/homepage">About</a>
             <div className='dropdown'>
