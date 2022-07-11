@@ -18,9 +18,10 @@ return new class extends Migration
             $table->foreignId('brewery_id');
             $table->foreignId('beer_type_id');
             $table->string('name');
-            $table->int('alcohol_volume')->nullable();
-            $table->int('degree')->nullable();
+            $table->float('alcohol_volume')->nullable();
+            $table->integer('degree')->nullable();
             $table->text('description')->nullable();
+            $table->foreignId('beer_pic_id')->nullable();
             $table->timestamps();
         });
     }
