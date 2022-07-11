@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('username')->nullable();
-            $table->int('user_type');
+            $table->integer('user_type');
             $table->timestamps();
         });
     }
