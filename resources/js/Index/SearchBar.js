@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import SearchInput from "./SearchInput";
 import BeerData from "./Data.json"; 
 
-function SearchBar({placeholder, data}) {
+function SearchBar() {
 
     // default value after render is set as Search All
     const [search, setSearch] = useState("beername");
+    const [data, setData] = useState([])
 
     //function changes state when option is selected
     const handleSearchChange = (e) => {
@@ -17,8 +18,19 @@ function SearchBar({placeholder, data}) {
    
 
 ////////// logic for fetch request will go here and pass the data via props/////////////////
+    const url = '';
 
+    const fetchData = async() => {
+        const response = await fetch(BeerData);
+        const parsedData = await response.json();
+        setData(parsedData);
+    }
     
+    useEffect(()=> {
+        fetchData();
+
+    },[search])
+
 
     return (
         <div className="search">
@@ -35,7 +47,7 @@ function SearchBar({placeholder, data}) {
             </select>
 
             {/*input elemement as Component , data are passed with props ?? */}
-            <SearchInput search={search} data={BeerData} placeholder="Sbeerka beer search"/>
+            <SearchInput search={search} data={data} placeholder="Sbeerka beer search"/>
         </div>
     )
 }
