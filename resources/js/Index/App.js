@@ -1,7 +1,6 @@
 import Nav from "./Nav";
 import Footer from "./Footer";
-import HomePageMainProduct from "./HomePageMainProduct";
-import HomePageProductList from "./HomePageProductList";
+import HomePage from "./HomePage";
 import SearchResults from "./SearchResults";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
@@ -12,18 +11,12 @@ const App = () => {
         <BrowserRouter>
             <Nav />
             <div className="main">
+            {/*  */}
+            <Routes>
+                <Route path="/" element={<HomePage />} />                         
+                <Route path="/results/:searchString" element={<SearchResults />} />
+            </Routes>
 
-
-
-                {/* Left side -- Featured beer */}
-                {/* <HomePageMainProduct /> */}
-
-                {/* Right Side -- Beers you might light */}
-                {/* <HomePageProductList /> */}
-
-                <Routes>
-                    <Route path="/results/:searchString" element={<SearchResults />} />
-                </Routes>
             </div>
 
             <Footer />
