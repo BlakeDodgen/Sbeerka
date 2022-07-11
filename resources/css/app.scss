@@ -2,11 +2,11 @@
 @import 'styles/nav';
 @import 'styles/footer';
 @import 'styles/forms';
-@import 'styles/home';
-
+@import 'styles/main';
 
 html {
     box-sizing: border-box;
+    position: relative;
 }
 *,
 *:before,
@@ -16,5 +16,7 @@ html {
 
 body {
     margin: 0;
-    font-family: $font;
+    font-family: $primary-font;
+    color: $secondary-blue;
+    background-color: $primary-yellow;
 }
