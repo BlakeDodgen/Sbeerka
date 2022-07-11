@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('beers', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();
-            $table->string('surname')->nullable();
-            $table->string('brewery_name')->nullable();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('username')->nullable();
-            $table->int('user_type');
+            $table->foreignId('brewery_id');
+            $table->foreignId('beer_type_id');
+            $table->string('name');
+            $table->int('alcohol_volume')->nullable();
+            $table->int('degree')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('beers');
     }
 };
