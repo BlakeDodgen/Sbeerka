@@ -31,25 +31,25 @@ a {
 }
 
 
- .search__result{
-         margin-top: 5px;
-        width: 300px;
-        height: 200px;
-        background-color: white;
-        box-shadow: rgba(0,0,0,0.2) 0px 5px 15px;
-        overflow: hidden;
-        overflow-y: auto;
-   }
+/// styles for input a results
 
-   //removes scrollbar
-   .search__result::-webkit-scrollbar {
-        display: none;
-   }
-
-   .search__item{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    color: black;
-     }
+//  .search__result{
+//          margin-top: 5px;
+//         width: 300px;
+//         height: 200px;
+//         background-color: white;
+//         box-shadow: rgba(0,0,0,0.2) 0px 5px 15px;
+//         overflow: hidden;
+//         overflow-y: auto;
+//  }
+//    //removes scrollbar
+//    .search__result::-webkit-scrollbar {
+//         display: none;
+//    }
+//    .search__item{
+//     width: 100%;
+//     height: 50px;
+//     display: flex;
+//     align-items: center;
+//     color: black;
+//      }
