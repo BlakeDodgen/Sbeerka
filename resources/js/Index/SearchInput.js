@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import SearchResults from "./SearchResults";
+
 
 function SearchInput({ placeholder, data, search }) {
 
     const [searchString, setSearchString] = useState("")
-    //from this state are data are mapped and rendered
+    
+    //from this state are data  mapped and rendered
     const [searchItems, setSearchItems] = useState([])
 
     const [searchOption, setSearchOption] = useState(search);
@@ -15,13 +16,13 @@ function SearchInput({ placeholder, data, search }) {
     console.log("searchitems: "+ searchItems);
     //function triggered after each keystroke and runs the filter, results saved in new array
     const handleSearchQuery = (e) => {
-        const searchItem = e.target.value;
+        //const searchItem = e.target.value;
         const prop = searchOption;
         const newSearch = data.filter((item) => {
             //return value if true-> if object.name includes search items 
             //compare the user input and data-> lowercase both values
             // console.log(item);
-            return (item.name?item.name.toLowerCase().includes(searchItem.toLowerCase()):"noitem")
+            return (item.name?item.name.toLowerCase().includes(searchString.toLowerCase()): item.name="noitem")
 
         });
 
@@ -37,6 +38,7 @@ function SearchInput({ placeholder, data, search }) {
     const handleSearchBarChange = (e) => {
         handleSearchQuery(e);
         setSearchString(e.target.value);
+        
         
     }
 

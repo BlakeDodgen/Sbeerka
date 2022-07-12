@@ -1,6 +1,6 @@
 const Product = (props) => {
 
-    //beertype , alcohol, degree, brewery review
+    //add the rating
 
     console.log(props);
 

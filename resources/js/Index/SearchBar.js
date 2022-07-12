@@ -1,19 +1,17 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect } from "react";
 import SearchInput from "./SearchInput";
 
 
 
 function SearchBar() {
 
-    // default value is set as Search All - state handles different options
+    // default value is set as Search Beers - Select handles different options
     const [search, setSearch] = useState("beers");
 
     //fetched response is saved as an array in this state
     const [data, setData] = useState([])
 
-    
-
-    //function changes state of search req in select
+    //function updates state after select is made 
     const handleSearchChange = (e) => {
         
         setSearch(e.target.value);
@@ -22,8 +20,7 @@ function SearchBar() {
 
    
 
-    // logic for fetch request will go here and pass the data via props//
-    //choose url according to selected value
+    //chooses url according to selected value in state ,,search,,
     const urlSpecific = `http://www.sbeerka.beer/api/search?search=${search}`;
     //www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
     const urlAll = ''; 
