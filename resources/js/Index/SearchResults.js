@@ -18,7 +18,7 @@ const SearchResults = () => {
 
 // Search
 // General form: http://www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
-// Beer search: http://www.sbeerka.beer/api/search?search=beername&text=[search_query]
+// Beer search: http://www.sbeerka.beer/api/search?search=beers&text=[search_query]
 // Brewery search: http://www.sbeerka.beer/api/search?search=breweries&text=[search_query]
 // Beer type search: http://www.sbeerka.beer/api/search?search=beer-type&text=[search_query]
 // City search: http://www.sbeerka.beer/api/search?search=city&text=[search_query]
@@ -58,13 +58,14 @@ const SearchResults = () => {
 
     return (
         <>  
+            <h1>{search}</h1>
          {searchItems && (
                 <div className="search__result">
                     {/* loops in the array which contains updated search items */}
                     {/* for less displayed results use splice method on array .splice(0,10) */}
                     {newSearch.map((value, index) => {
 
-                        return <p className="search__items" key={index} >{value.name} </p>
+                        return <a className="search__items" key={index} >{value.name} </a>
 
                     })}
                 </div>

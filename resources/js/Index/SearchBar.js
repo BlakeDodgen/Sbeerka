@@ -6,7 +6,7 @@ import SearchInput from "./SearchInput";
 function SearchBar() {
 
     // default value is set as Search All - state handles different options
-    const [search, setSearch] = useState("all");
+    const [search, setSearch] = useState("beers");
 
     //fetched response is saved as an array in this state
     const [data, setData] = useState([])
@@ -24,7 +24,8 @@ function SearchBar() {
 
     // logic for fetch request will go here and pass the data via props//
     //choose url according to selected value
-    const urlSpecific = `http://www.sbeerka.beer/api/${search}`;
+    const urlSpecific = `http://www.sbeerka.beer/api/search?search=${search}`;
+    //www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
     const urlAll = ''; 
     // console.log("search:"+ search);
     // console.log("urlspecific:"+ urlSpecific);
@@ -52,10 +53,9 @@ function SearchBar() {
                 <option value="breweries">Breweries</option>
                 <option value="beers">Beer</option>
                 <option value="city">City</option>
-                <option value="flavors">Flavors</option>
-                <option value="alcohol-content">Alcohol Content</option>
+                <option value="country">Country</option>
                 <option value="beer-type">Beer Type</option>
-                <option value="random-beer">Random Beer</option>
+                {/* <option value="random-beer">Random Beer</option> */}
             </select>
 
             {/*input element as Component , data are passed with props */}

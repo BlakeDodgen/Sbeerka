@@ -21,7 +21,7 @@ function SearchInput({ placeholder, data, search }) {
             //return value if true-> if object.name includes search items 
             //compare the user input and data-> lowercase both values
             // console.log(item);
-            return item.name.toLowerCase().includes(searchItem.toLowerCase())
+            return (item.name?item.name.toLowerCase().includes(searchItem.toLowerCase()):"noitem")
 
         });
 
