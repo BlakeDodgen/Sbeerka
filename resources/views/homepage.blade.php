@@ -19,8 +19,9 @@
 <body>
 
     <div id="root">
-        <script src="{{ mix('/js/index.js') }}"></script>
+        
     </div>
+    <script src="{{ mix('/js/index.js') }}"></script>
 
 </body>
 

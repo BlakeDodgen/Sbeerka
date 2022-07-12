@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('beer_pics', function (Blueprint $table) {
             $table->id();
             $table->string('picture');
+            $table->timestamps();
         });
     }
 

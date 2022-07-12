@@ -3,8 +3,9 @@
 @import 'styles/footer';
 @import 'styles/form';
 @import 'styles/main';
-@import 'styles/searchdropdown';
-@import 'styles/logindropdown';
+// @import 'styles/searchdropdown';
+// @import 'styles/logindropdown';
+@import 'styles/dropdown';
 
 html {
     box-sizing: border-box;
@@ -15,10 +16,24 @@ html {
 *:after {
     box-sizing: inherit;
 }
+body, #root {
+    height: 100%;
+}
 
 body {
     margin: 0;
     font-family: $primary-font;
     color: $secondary-blue;
     background-color: $primary-yellow;
+}
+h2, h3 {
+    font-weight: $secondary-font-weight;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
 }

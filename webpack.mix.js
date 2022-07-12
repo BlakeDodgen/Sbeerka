@@ -26,7 +26,7 @@ mix
     .options({
         processCssUrls: false
     })
-
+    // .setResourceRoot("")
     // open and serve with browsersync
     .browserSync({
         host: 'localhost',
@@ -38,6 +38,7 @@ mix
 
     // add versioning
     .version();
+    
 
 // ADD ASSETS TO COMPILE HERE:
 
