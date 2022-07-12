@@ -1,16 +1,22 @@
 .main {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    height: 100vmin;
+    position: relative;
 }
 
 //featured beer -left side
 .main-product {
-    border-right:  solid black;
+    padding: 4rem;
+    border: 2px solid red;
+    width: 35%;
     
 
     &__img {
-       
+       width: 6rem;
         
     }
     
@@ -42,6 +48,15 @@
     &__rating{
 
     }
+}
 
+.product-list {
+    padding: 4rem;
+    border: 2px solid red;
+    width: 35%;
+    
 
+    &__img {
+       width: 6rem;   
+    }
 }
