@@ -24,21 +24,19 @@ const HomePageProductList = () => {
 
     return (
         <div className="product-list">
+            <div className="product-list__container">
 
+                {/* container for whole list of products */}
 
-            {/* container for whole list of products */}
+                <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
+                <div className="product-list__products-container">
+                    {data.slice(0, 12).map((item, index) => {
+                        return <Product key={index} name={item.name} id={item.beer_pic_id} />
+                        console.log(item.name);
 
-            <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
-
-            {data.slice(0, 6).map((item, index) => {
-                return <Product key={index} name={item.name} id={item.beer_pic_id} />
-                console.log(item.name);
-
-            })}
-
-
-
-
+                    })}
+                </div>
+            </div>
         </div>
     )
 }
