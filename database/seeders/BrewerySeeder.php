@@ -34,11 +34,35 @@ class BrewerySeeder extends Seeder
                 'country' => "Czech Republic",
                 'website' => "https://www.pivovar-raven.cz/",
                 'size' => "",
-                'history' => "Madhouse. That would describe our first year. In October 2015, we sent you our first beers. The logo was being finalized the night before the first shipment and we were nervously waiting for the first reactions. Like a proper startup, we rented two garages and filled them with beer. In retrospect, we're not entirely sure how it happened, but suddenly we were sold out. The brewery began to grow rapidly, and the three of us spent around 15 hours a day there.</br>
+                'history' => "Madhouse. That would describe our first year. In October 2015, we sent you our first beers. The logo was being finalized the night before the first shipment and we were nervously waiting for the first reactions. Like a proper startup, we rented two garages and filled them with beer. In retrospect, we're not entirely sure how it happened, but suddenly we were sold out. The brewery began to grow rapidly, and the three of us spent around 15 hours a day there.
 
                 After classic beers such as APA, IPA and Stout, we started doing what we founded the brewery for - experimenting. We brewed the first Czech White IPA, Cream porter and later added the first Czech sour 'Pilsener Weisse', which started an avalanche of Czech sours and finally answered the question of whether the Czechs are ready for these styles - definitely. The biggest surprise for us was when, after 6 months, we rose to fifth place in the Czech Republic on Untappd.com and immediately became one of the top Czechs in Forbes magazine.",
-                'brewery_pic_id' => "1"
-            ]
+                'brewery_pic_id' => "2"
+            ],
+            [
+                'user_id' => "7",
+                'city' => "Portland",
+                'country' => "United States",
+                'website' => "https://www.rogue.com/",
+                'size' => "",
+                'history' => "Rogue Ales was founded in Ashland, Oregon in 1988 by three Nike, Inc. executives: Jack Joyce, Rob Strasser, and Bob Woodell.
+
+                In 1987, Jack Joyce, Bob Woodell, past University of Oregon fraternity brothers, and another friend, Rob Strasser, were approached by Jeff Schultz, Woodell's accountant and avid home brewer, with an idea to open a brewpub.
+                
+                Brewmaster John C. Maier joined the company in 1989 from Alaskan Brewing. Rogue has produced more than 60 different ales. The company uses a proprietary yeast known as 'Pacman'.",
+                'brewery_pic_id' => "3"
+            ],
+            [
+                'user_id' => "8",
+                'city' => "Milwaukee",
+                'country' => "United States",
+                'website' => "https://www.mobcraftbeer.com/",
+                'size' => "",
+                'history' => "At MobCraft we turn ideas into beer. Submit your idea, vote on what's next. In 2011, MobCraft founders Henry Schwartz and Andrew Gierczak dreamt up an idea for a crowdsourced brewery where the people decide what's brewed. We quickly outgrew our space in Madison and made our move to Milwaukee, WI in 2016! We love being a part of the Walker's Point Community!
+                
+                Several times throughout the year we leverage the power of the crowd to generate ideas for unique craft beers. Beer fans across the US submit ideas ranging from a couple flavors to tried and true homebrew recipes. The ideas go up for vote on our website. Votes are cast by placing a pre-order for the beer you would like to see brewed. The beer with the most pre-orders wins and is brewed, packaged and available for pickup at the brewery.",
+                'brewery_pic_id' => "4"
+            ],
         ];
 
         foreach($breweries as $breweryex) {

@@ -79,6 +79,26 @@ class UserSeeder extends Seeder
                 'username' => "",
                 'user_type' => "2",
             ],
+            [
+                'first_name' => "",
+                'surname' => "",
+                'over18' => TRUE,
+                'brewery_name' => "Rogue",
+                'email' => "rogue@rogue.com",
+                'password' => "password",
+                'username' => "",
+                'user_type' => "2",
+            ],
+            [
+                'first_name' => "",
+                'surname' => "",
+                'over18' => TRUE,
+                'brewery_name' => "Mobcraft",
+                'email' => "mobcraft@mobcraft.com",
+                'password' => "password",
+                'username' => "",
+                'user_type' => "2",
+            ],
         ];
 
         foreach($users as $userex) {

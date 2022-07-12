@@ -1,0 +1,15 @@
+.dropdown {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.dropdown .dropdown__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+    font-weight: $secondary-font-weight;
+    color: #333;
+}
