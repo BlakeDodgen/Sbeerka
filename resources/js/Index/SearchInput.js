@@ -59,7 +59,7 @@ function SearchInput({ placeholder, data, search }) {
                     {/* for less displayed results use splice method on array .splice(0,10) */}
                     {searchItems.map((value, index) => {
 
-                        return <a className="search__items" key={index} href='' target="_blank">{value}</a>
+                        return <a className="search__items" key={index}>{value}</a>
 
                     })}
                 </div>
