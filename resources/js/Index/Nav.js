@@ -1,13 +1,14 @@
 import SearchBar from "./SearchBar";
-import Dropdown from "./Dropdown";
+import { Link } from "react-router-dom";
 
 function Nav() {
     return (
         <div className="nav">
             <a href="/homepage">LOGO</a>
-            <Dropdown />
             <SearchBar />
-            <a href="/homepage">About</a>
+
+            <Link to="/">About</Link>
+
             <div className="dropdown">
                 <button className="dropbtn">
                     <div className="nav__log-in">
@@ -16,16 +17,16 @@ function Nav() {
                             src="./img/profile.svg"
                             alt="profile"
                         />
-                        <a href="/homepage">Log In</a>
+                        <Link to="/">Log In</Link>
                     </div>
                 </button>
                 <div className="dropdown-content">
-                    <a href="#">Settings</a>
-                    <a href="#">Beer Collection</a>
-                    <a href="#">Log Out</a>
+                    <Link to="/">Settings</Link>
+                    <Link to="/">Beer Collection</Link>
+                    <Link to="/">Log Out</Link>
                 </div>
             </div>
-            <a href="/homepage">Sign Up</a>
+            <Link to="/">Sign Up</Link>
         </div>
     );
 }
