@@ -12,13 +12,13 @@ const App = () => {
         <BrowserRouter>
             <Nav />
             <div className="main">
-            {/* new Component Homepage needed for routing  */}
-            <Routes>
-                <Route path="/" element={<HomePage />} />             
-                
-                <Route path="/results/:searchType/:searchString" element={<SearchResults />} />
-                
-            </Routes>
+                {/* new Component Homepage needed for routing  */}
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+
+                    <Route path="/results/:search/:searchString" element={<SearchResults />} />
+
+                </Routes>
 
             </div>
 
