@@ -12,7 +12,7 @@ const HomePageMainProduct = () => {
     
         const parsedData = await response.json();
         setData(parsedData);
-        console.log(parsedData);
+       
     }
     
     //data are fetch after each selection in searchbar

@@ -1,4 +1,4 @@
-const Product = (props) => {
+const SearchResult = (props) => {
 
     //beertype , alcohol, degree, brewery review
 
@@ -18,4 +18,4 @@ const Product = (props) => {
     )
 }
 
-export default Product;
+export default SearchResult;

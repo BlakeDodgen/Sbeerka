@@ -26,15 +26,15 @@ function SearchBar() {
     //choose url according to selected value
     const urlSpecific = `http://www.sbeerka.beer/api/${search}`;
     const urlAll = ''; 
-    console.log("search:"+ search);
-    console.log("urlspecific:"+ urlSpecific);
+    // console.log("search:"+ search);
+    // console.log("urlspecific:"+ urlSpecific);
 
     const fetchData = async() => {
         const response = await fetch(urlSpecific);
      //   !search === "all" ? urlSpecific : urlAll
         const parsedData = await response.json();
         setData(parsedData);
-        console.log(parsedData);
+      
     }
     
     //data are fetch after each selection in searchbar

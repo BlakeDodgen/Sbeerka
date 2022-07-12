@@ -6,7 +6,7 @@ function SearchInput({ placeholder, data, search }) {
 
     const [searchString, setSearchString] = useState("")
     //from this state are data are mapped and rendered
-    const [searchItems, setSearchItems] = useState("")
+    const [searchItems, setSearchItems] = useState([])
 
     const [searchOption, setSearchOption] = useState(search);
     //responsible for redirection
