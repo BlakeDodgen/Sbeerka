@@ -1,27 +1,29 @@
 import Nav from "./Nav";
 import Footer from "./Footer";
-import HomePageMainProduct from "./HomePageMainProduct";
-import HomePageProductList from "./HomePageProductList";
+import HomePage from "./HomePage";
+import SearchResults from "./SearchResults";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { DataContext } from "./SearchBar";
+
 
 const App = () => {
 
     return (
-        <>
+        <BrowserRouter>
             <Nav />
             <div className="main">
-
-
-
-                {/* Left side -- Featured beer */}
-                <HomePageMainProduct />
-
-                {/* Right Side -- Beers you might light */}
-                <HomePageProductList />
+            {/* new Component Homepage needed for routing  */}
+            <Routes>
+                <Route path="/" element={<HomePage />} />             
+                
+                <Route path="/results/:searchType/:searchString" element={<SearchResults />} />
+                
+            </Routes>
 
             </div>
 
             <Footer />
-        </>
+        </BrowserRouter>
     )
 }
 
