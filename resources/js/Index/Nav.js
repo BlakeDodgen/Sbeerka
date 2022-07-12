@@ -1,11 +1,11 @@
 import SearchBar from './SearchBar';
+import { Link } from 'react-router-dom';
 
 function Nav() {
 
     return (
         <div className='nav'>
             <a href="/homepage">LOGO</a>
-            {/* <Dropdown /> */}
             <SearchBar />
 
             <Link to="/">About</Link>
