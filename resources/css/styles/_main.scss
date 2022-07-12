@@ -48,6 +48,15 @@
     &__rating{
 
     }
+}
 
+.product-list {
+    padding: 4rem;
+    border: 2px solid red;
+    width: 35%;
+    
 
+    &__img {
+       width: 6rem;   
+    }
 }
