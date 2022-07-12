@@ -19,4 +19,3 @@ Route::get('/', function () {
 
 
 Route::get('/homepage', ['App\Http\Controllers\HomepageController', 'index']);
-
