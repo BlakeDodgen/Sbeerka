@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import SearchDropDown from "./SearchDropDown";
-=======
-import SearchBar from './SearchBar';
-import Dropdown from './Dropdown';
->>>>>>> 27785783f7baaa07489266aae48e0298a7b18012
+import Dropdown from "./Dropdown";
 
 function Nav() {
     return (
