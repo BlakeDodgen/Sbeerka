@@ -24,3 +24,9 @@ Route::get('/breweries/{id}', ['App\Http\Controllers\Api\BreweryController', 'br
 Route::get('/breweries', ['App\Http\Controllers\Api\BreweryController', 'breweryindex']);
 
 Route::get('/search', ['App\Http\Controllers\Api\SearchController', 'search']);
+
+Route::get('/string/beers', ['App\Http\Controllers\Api\SearchStringController', 'beers']);
+Route::get('/string/beertypes', ['App\Http\Controllers\Api\SearchStringController', 'beertypes']);
+Route::get('/string/breweries', ['App\Http\Controllers\Api\SearchStringController', 'breweries']);
+Route::get('/string/cities', ['App\Http\Controllers\Api\SearchStringController', 'cities']);
+Route::get('/string/countries', ['App\Http\Controllers\Api\SearchStringController', 'countries']);
