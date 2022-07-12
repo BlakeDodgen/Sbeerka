@@ -16,6 +16,9 @@ html {
 *:after {
     box-sizing: inherit;
 }
+body, #root {
+    height: 100%;
+}
 
 body {
     margin: 0;
