@@ -22,8 +22,9 @@ function SearchInput({ placeholder, data, search }) {
             //return value if true-> if object.name includes search items 
             //compare the user input and data-> lowercase both values
             // console.log(item);
-            return (item.name?item.name.toLowerCase().includes(searchString.toLowerCase()): item.name="noitem")
-
+            console.log(item)
+            return item.toLowerCase().match(searchString.toLowerCase())
+            
         });
 
         //array with results is updated in state
@@ -58,7 +59,7 @@ function SearchInput({ placeholder, data, search }) {
                     {/* for less displayed results use splice method on array .splice(0,10) */}
                     {searchItems.map((value, index) => {
 
-                        return <a className="search__items" key={index} href={value.brewery.website} target="_blank">{value.name} / {value.city}</a>
+                        return <a className="search__items" key={index} href='' target="_blank">{value}</a>
 
                     })}
                 </div>
