@@ -11,15 +11,30 @@ class BeerController extends Controller
 {
     public function beerinfo($id)
     {
-        $beer = Beer::with('beerType', 'brewery')->findOrFail($id);
+        $beer = Beer::with([
+                    'beerType',
+                    'beerPic',
+                    'brewery',
+                    'brewery.breweryPic',
+                    'brewery.user',
+                    'reviews'
+                    ])
+                    ->findOrFail($id);
 
         return $beer;
     }
 
     public function beerindex()
     {
-        $beers = Beer::with('beerType', 'brewery')->get();
-
+        $beers = Beer::with([
+                    'beerType',
+                    'beerPic',
+                    'brewery',
+                    'brewery.breweryPic',
+                    'brewery.user',
+                    'reviews'
+                    ])
+                    ->get();
         return $beers;
     }
 }
