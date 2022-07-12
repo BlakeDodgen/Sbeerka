@@ -32,7 +32,7 @@ const HomePageProductList = () => {
             
             {data.slice(0,6).map((item,index)=>{
                 return <Product key={index} name={item.name} id={item.beer_pic_id}/>
-                 console.log(item.name);
+                 
                
             })}
                </div>
