@@ -17,7 +17,7 @@ function SearchBar() {
     const handleSearchChange = (e) => {
         
         setSearch(e.target.value);
-        console.log("select:"+e.target.value);
+        console.log("select:"+ e.target.value);
     }
 
    

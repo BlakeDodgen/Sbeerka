@@ -5,13 +5,16 @@ import { useContext } from "react";
 
 const SearchResults = () => {
 
-    const { searchString } = useParams();
-    const data = useContext(DataContext);
+    const { search, searchString} = useParams();
+    // const data = useContext(DataContext);
+   
 
-    console.log("searchstring:"+searchString)
+    
+    // console.log("searchstring:"+ searchString)
 
     //parameter search + text
-
+    const url = `http://www.sbeerka.beer/${search}/${searchString}`;
+    console.log("url:" + url);
 
     return (
         <>
