@@ -1,12 +1,16 @@
 .main {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
+    height: 100vmin;
+    position: relative;
 }
 
 //featured beer -left side
 .main-product {
-    border-right:  solid black;
+    padding: 4rem;
+    border: 2px solid red;
     
 
     &__img {
