@@ -9,19 +9,19 @@ const [values, setValues]  = useState({
     surname: "",
     username: "",
     brewery_name: "",
-    password: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-    over18: 'false',
-    user_type: ""
+    
+    // email: "",
+    // password: "",
+    // password_confirmation: "",
+    // over18: 'false',
+    // user_type: ""
 })
 console.log(values);
 
     const handleSignUp = async (e)=>{
         e.preventDefault();
         try {
-            const response = await axios.post('/register', values);
+            const response = await axios.post('/testing/create', values);
             const response_data = response.data;
         } catch(err) {
             console.log(err);

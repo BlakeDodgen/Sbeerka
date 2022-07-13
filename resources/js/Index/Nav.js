@@ -14,7 +14,7 @@ function Nav() {
 
 
 
-            <div style={{ margin: "16px", position: "relative" }}>
+            {/* <div style={{ margin: "16px", position: "relative" }}>
                 <SelectBox
                     items={[
                         { value: "United States", id: 1 },
@@ -23,7 +23,7 @@ function Nav() {
                         { value: "Japan", id: 4 }
                     ]}
                 />
-            </div>
+            </div> */}
 
 
 
