@@ -33,7 +33,8 @@ class User extends Authenticatable
         'remember_token',
         'email',
         'first_name',
-        'surname'
+        'surname',
+        'remember_token'
     ];
 
     /**

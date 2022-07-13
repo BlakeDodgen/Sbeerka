@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/testing', ['App\Http\Controllers\Api\UserController', 'main']);
-Route::post('/testing/create', ['App\Http\Controllers\Api\UserController', 'create']);
+// Route::post('/testing/create', ['App\Http\Controllers\Api\UserController', 'create']);
 Route::get('/{path?}', ['App\Http\Controllers\HomepageController', 'index']);
+
+
 
 
