@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from 'axios';
 
 
 function SignUp() {
@@ -9,25 +9,30 @@ const [values, setValues]  = useState({
     surname: "",
     username: "",
     brewery_name: "",
-    password: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-    over18: false,
-    user_type: 1
+    
+    // email: "",
+    // password: "",
+    // password_confirmation: "",
+    // over18: 'false',
+    // user_type: ""
 })
 console.log(values);
+
     const handleSignUp = async (e)=>{
         e.preventDefault();
-
-         const response = await axios.post('/register', values);
-         const response_data = response.data;
+        try {
+            const response = await axios.post('/testing/create', values);
+            const response_data = response.data;
+        } catch(err) {
+            console.log(err);
+        }
+         
     }
 
-    const handleChange = (event) => {
+    const handleChange = (e) => {
         setValues(previous_values => {
             return ({...previous_values,
-                [event.target.name]: event.target.value
+                [e.target.name]: e.target.value
             });
         });
     }
@@ -52,12 +57,12 @@ console.log(values);
                 <label>Confirm Password </label>  
                 <input type="password" name="password_confirmation" value={ values.password_confirmation } onChange={ handleChange } />
                 <label>I'am over 18 </label>  
-                <input type="checkbox" name="no" value={ values.brewery_name } onChange={ handleChange } />
+                <input type="checkbox" name="over18"   onChange={ handleChange } />
                 
                 <label>Sbeerka Member</label>
-                <input type="radio" name="1" value={ values.brewery_name } onChange={ handleChange } />
+                <input type="radio" id="1" name="user_type" value="1" onChange={ handleChange } />
                 <label>Sbeerka Brewery</label>
-                <input type="radio" name="2" value={ values.brewery_name } onChange={ handleChange } />
+                <input type="radio" id="2" name="user_type" value="2" onChange={ handleChange } />
 
 
 
