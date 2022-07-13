@@ -1,12 +1,13 @@
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import SearchTest from "./SearchTest";
 
 function Nav() {
     return (
         <div className="nav">
             <a href="/homepage">LOGO</a>
-            <SearchBar />
-
+            {/* <SearchBar /> */}
+            <SearchTest />
             <Link to="/">About</Link>
 
             <div className="dropdown">
@@ -17,9 +18,11 @@ function Nav() {
                             src="./img/profile.svg"
                             alt="profile"
                         />
+
                         <Link to="/">Log In</Link>
                     </div>
                 </button>
+
                 <div className="dropdown-content">
                     <Link to="/">Settings</Link>
                     <Link to="/">Beer Collection</Link>
