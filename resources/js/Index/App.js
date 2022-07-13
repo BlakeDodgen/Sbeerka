@@ -13,29 +13,36 @@ import UserContext from "./UserContext";
 const App = () => {
 
     const [user, setUser] = useState(null);
+    const [loadingUser, setLoadingUser] = useState(false);
 
     const loadUser = async () => {
-        const response = await axios.get('/api/user');
-        if (response) {
-            setUser(response)
-        }
-        // Get request to api/user
-        // If data: update state (user)
-
-        // Sep: create context file, import in this file, and wrap everything in instanceof.
-
-        // In value of context -User, function loaduser, function setUser
+        const res = await axios.get('/api/user');
+        return res.data;
+        
     }
+    // const loadUser = async () => {
+    //     const response = await axios.get('/api/user');
+    //     if (response) {
+    //         setUser(response)
+    //     }
+    //     Get request to api/user
+    //     If data: update state (user)
+
+    //     Sep: create context file, import in this file, and wrap everything in instanceof.
+
+    //     In value of context -User, function loaduser, function setUser
+    // }
 
     useEffect(() => {
-        loadUser();
+        const res =loadUser();
+        setUser(res);
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, setUser, loadUser }}>
-        <BrowserRouter>
-            <Nav />
-            <div className="main">
+        <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser }}>
+            <BrowserRouter>
+                <Nav />
+                    <div className="main">
                 
                 <Routes>
                     <Route path="/" element={<HomePage />} />

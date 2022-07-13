@@ -21,7 +21,7 @@ console.log(values);
     const handleSignUp = async (e)=>{
         e.preventDefault();
         try {
-            const response = await axios.post('/testing/create', values);
+            const response = await axios.post('/register', values);
             const response_data = response.data;
         } catch(err) {
             console.log(err);
