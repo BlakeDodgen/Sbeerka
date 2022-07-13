@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from 'axios';
 
 
 function SignUp() {
@@ -52,12 +52,13 @@ console.log(values);
                 <label>Confirm Password </label>  
                 <input type="password" name="password_confirmation" value={ values.password_confirmation } onChange={ handleChange } />
                 <label>I'am over 18 </label>  
-                <input type="checkbox" name="no" value={ values.brewery_name } onChange={ handleChange } />
-                
-                <label>Sbeerka Member</label>
-                <input type="radio" name="1" value={ values.brewery_name } onChange={ handleChange } />
+                <input type="checkbox" name="over18" value={ values.over18 } onChange={ handleChange } />
+                <label>1)User 2)Brewery </label>  
+                <input type="number" name="user_type" value={ values.user_type } onChange={ handleChange } />
+                {/* <label>Sbeerka Member</label>
+                <input type="radio" name="1" value={ values.user_type } onChange={ handleChange } />
                 <label>Sbeerka Brewery</label>
-                <input type="radio" name="2" value={ values.brewery_name } onChange={ handleChange } />
+                <input type="radio" name="2" value={ values.user_type } onChange={ handleChange } /> */}
 
 
 
