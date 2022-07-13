@@ -8,13 +8,10 @@ const HomePageProductList = () => {
 
     const fetchData = async () => {
         const response = await fetch(urlAll);
-
         const parsedData = await response.json();
         setData(parsedData);
-        console.log(parsedData);
     };
 
-    //data are fetch after each selection in searchbar
     useEffect(() => {
         fetchData();
     }, []);
@@ -22,7 +19,7 @@ const HomePageProductList = () => {
     return (
         <div className="product-list">
             <div className="product-list__container">
-                {/* container for whole list of products */}
+                {/* container for whole list of products, slice can set the range of products per page */}
 
                 <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
                 <div className="product-list__products-container">
@@ -34,7 +31,6 @@ const HomePageProductList = () => {
                                 id={item.beer_pic_id}
                             />
                         );
-                        console.log(item.name);
                     })}
                 </div>
             </div>

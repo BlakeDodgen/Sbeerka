@@ -1,4 +1,4 @@
-import Product from "./Product";
+
 import { useState, useEffect } from "react";
 const HomePageMainProduct = () => {
 
@@ -9,23 +9,27 @@ const HomePageMainProduct = () => {
 
     const fetchData = async () => {
         const response = await fetch(urlAll);
-
         const parsedData = await response.json();
         setData(parsedData);
-        console.log(parsedData);
+       
     }
 
-    //data are fetch after each selection in searchbar
     useEffect(() => {
         fetchData();
 
     }, [])
+
+    //uses random number 1-30 to select from database for each render, later for carousel maybe
+    const randomNum = Math.floor(Math.random() * 30)
+    
+
     return (
         <div className="main-product">
             <div className="main-product__container">
                 {/* container for featured beer */}
                 {/* refactor as carousel */}
-                {data.slice(0, 1).map((item, index) => {
+                
+                {data.slice(randomNum, randomNum+1).map((item) => {
                     return (<>
                         <h2 className="main-product__title">FEATURED BEER</h2>
                         <div className="main-product__image-container">
