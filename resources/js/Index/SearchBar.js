@@ -22,7 +22,7 @@ function SearchBar() {
 
 
     //chooses url according to selected value in state ,,search,,
-    const urlSpecific = `http://www.sbeerka.beer/api/string/${search}`;
+    // const urlSpecific = `http://www.sbeerka.beer/api/string/${search}`;
     //www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
     const urlAll = '';
     // console.log("search:"+ search);
