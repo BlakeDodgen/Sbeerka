@@ -14,38 +14,38 @@ function SearchBar() {
 
     //function updates state after select is made 
     const handleSearchChange = (e) => {
-        
+
         setSearch(e.target.value);
-        console.log("select:"+ e.target.value);
+        console.log("select:" + e.target.value);
     }
 
-   
+
 
     //chooses url according to selected value in state ,,search,,
-    const urlSpecific = `http://www.sbeerka.beer/api/string/${search}`;
+    // const urlSpecific = `http://www.sbeerka.beer/api/string/${search}`;
     //www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
-    const urlAll = ''; 
+    const urlAll = '';
     // console.log("search:"+ search);
     // console.log("urlspecific:"+ urlSpecific);
 
-    const fetchData = async() => {
+    const fetchData = async () => {
         const response = await fetch(urlSpecific);
-     //   !search === "all" ? urlSpecific : urlAll
+        //   !search === "all" ? urlSpecific : urlAll
         const parsedData = await response.json();
-        const dataLowerCase = parsedData.map((item)=>{
+        const dataLowerCase = parsedData.map((item) => {
             return item.toLowerCase();
         })
-        
-        
+
+
         setData(parsedData);
-      
+
     }
-    
+
     //data are fetch after each selection in searchbar
-    useEffect(()=> {
+    useEffect(() => {
         fetchData();
 
-    },[search])
+    }, [search])
 
     console.log(data)
     return (
@@ -62,7 +62,7 @@ function SearchBar() {
             </select>
 
             {/*input element as Component , data are passed with props */}
-            <SearchInput search={search} data={data} placeholder="Sbeerka beer search"/>
+            <SearchInput search={search} data={data} placeholder="Sbeerka beer search" />
         </div>
     )
 }
