@@ -51,10 +51,8 @@ console.log(values);
                 <input type="password" name="password" value={ values.password } onChange={ handleChange } />
                 <label>Confirm Password </label>  
                 <input type="password" name="password_confirmation" value={ values.password_confirmation } onChange={ handleChange } />
-                <label>Under 18 - No</label>  
-                <input type="radio" name="no" value={ values.brewery_name } onChange={ handleChange } />
-                <label>Under 18 - Yes</label>
-                <input type="radio" name="yes" value={ values.brewery_name } onChange={ handleChange } />
+                <label>I'am over 18 </label>  
+                <input type="checkbox" name="no" value={ values.brewery_name } onChange={ handleChange } />
                 
                 <label>Sbeerka Member</label>
                 <input type="radio" name="1" value={ values.brewery_name } onChange={ handleChange } />
