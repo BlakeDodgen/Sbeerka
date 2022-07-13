@@ -11,37 +11,37 @@ function SearchBar() {
     //fetched response is saved as an array in this state
     const [data, setData] = useState([])
 
-    
+
 
     //function changes state of search req in select
     const handleSearchChange = (e) => {
-        
+
         setSearch(e.target.value);
-        console.log("select:"+ e.target.value);
+        console.log("select:" + e.target.value);
     }
 
-   
+
 
     // logic for fetch request will go here and pass the data via props//
     //choose url according to selected value
     const urlSpecific = `http://www.sbeerka.beer/api/${search}`;
-    const urlAll = ''; 
-    console.log("search:"+ search);
-    console.log("urlspecific:"+ urlSpecific);
+    const urlAll = '';
+    console.log("search:" + search);
+    console.log("urlspecific:" + urlSpecific);
 
-    const fetchData = async() => {
+    const fetchData = async () => {
         const response = await fetch(urlSpecific);
-     //   !search === "all" ? urlSpecific : urlAll
+        //   !search === "all" ? urlSpecific : urlAll
         const parsedData = await response.json();
         setData(parsedData);
         console.log(parsedData);
     }
-    
+
     //data are fetch after each selection in searchbar
-    useEffect(()=> {
+    useEffect(() => {
         fetchData();
 
-    },[search])
+    }, [search])
 
 
     return (
@@ -59,7 +59,7 @@ function SearchBar() {
             </select>
 
             {/*input element as Component , data are passed with props */}
-            <SearchInput search={search} data={data} placeholder="Sbeerka beer search"/>
+            <SearchInput search={search} data={data} placeholder="Sbeerka beer search" />
         </div>
     )
 }
