@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SearchInput from "./SearchInput";
 import axios from "axios";
+import SearchTest from "./SearchTest";
 
 function SearchBar() {
     // default value is set as Search Beers - Select handles different options
@@ -16,7 +17,7 @@ function SearchBar() {
     };
 
     //chooses url according to selected value in state ,,search,,
-    const urlSpecific = `http://www.sbeerka.beer/api/string/${search}`;
+    // const urlSpecific = `http://www.sbeerka.beer/api/string/${search}`;
     //www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
     const urlAll = "";
     // console.log("search:"+ search);
@@ -53,11 +54,12 @@ function SearchBar() {
             </select>
 
             {/*input element as Component , data are passed with props */}
-            <SearchInput
+            {/* <SearchInput
                 search={search}
                 data={data}
                 placeholder="Sbeerka beer search"
-            />
+            /> */}
+            <SearchTest search={search} data={data} />
         </div>
     );
 }

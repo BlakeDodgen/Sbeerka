@@ -7,6 +7,7 @@ function Nav() {
         <div className="nav">
             <a href="/">LOGO</a>
             <SearchBar />
+            <SearchTest />
 
             <Link to="/">About</Link>
 
