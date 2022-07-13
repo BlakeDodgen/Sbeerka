@@ -28,6 +28,7 @@ const HomePageMainProduct = () => {
             <div className="main-product__container">
                 {/* container for featured beer */}
                 {/* refactor as carousel */}
+                
                 {data.slice(randomNum, randomNum+1).map((item) => {
                     return (<>
                         <h2 className="main-product__title">FEATURED BEER</h2>
