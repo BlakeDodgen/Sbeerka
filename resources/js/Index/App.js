@@ -46,13 +46,7 @@ const App = () => {
     }, []);
 
     return (
-<<<<<<< HEAD
-        <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser, text }}>
-=======
-        <UserContext.Provider
-            value={{ user, setUser, loadingUser, setLoadingUser }}
-        >
->>>>>>> main
+        <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser }} >
             <BrowserRouter>
                 <Nav />
                 <div className="main">
