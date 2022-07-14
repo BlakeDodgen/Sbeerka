@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-// DOESNT WORK!!!
-
 // const selectedItems = [
 //     { key: 'page', text: 'This Page', value: 'page' },
 //     { key: 'org', text: 'This Organization', value: 'org' },

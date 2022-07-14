@@ -4,36 +4,14 @@ import { Link } from "react-router-dom";
 function Nav() {
     return (
         <div className="nav">
-            <a href="/">LOGO</a>
+            <a className="nav__logo" href="/">
+                LOGO
+            </a>
+
             <SearchBar />
 
             <Link to="/">About</Link>
 
-            {/* <div style={{ margin: "16px", position: "relative" }}>
-                <SelectBox
-                    items={[
-                        { value: "United States", id: 1 },
-                        { value: "Canada", id: 2 },
-                        { value: "Mexico", id: 3 },
-                        { value: "Japan", id: 4 }
-                    ]}
-                />
-            </div> */}
-
-            <div className="nav__dropdown">
-                <input type="checkbox" id="drop" hidden />
-                <label className="nav__header" htmlFor="drop">
-                    Click Me
-                </label>
-                <div className="nav__list">
-                    <div className="nav__item">Option one</div>
-                    <div className="nav__item">Option two</div>
-                    <div className="nav__item">Option three</div>
-                    <div className="nav__item">Option four</div>
-                </div>
-            </div>
-
-            <Link to="/">Sign Up</Link>
             <div className="dropdown">
                 <button className="dropbtn">
                     <div className="nav__log-in">
@@ -42,7 +20,9 @@ function Nav() {
                             src="./img/profile.svg"
                             alt="profile"
                         />
-                        <Link to="/login">Log In</Link>
+                        <Link className="nav__login" to="/login">
+                            Log In
+                        </Link>
                     </div>
                 </button>
 
@@ -52,7 +32,9 @@ function Nav() {
                     <Link to="/logout">Log Out</Link>
                 </div>
             </div>
-            <Link to="/signup">Sign Up</Link>
+            <Link className="nav__signup" to="/signup">
+                Sign Up
+            </Link>
         </div>
     );
 }
@@ -73,4 +55,30 @@ export default Nav;
     <Link to="/">Log Out</Link>
 </div>
 </div> */
+}
+
+{
+    /* <div className="nav__dropdown">
+                <input type="checkbox" id="drop" hidden />
+                <label className="nav__header" htmlFor="drop">Click Me</label>
+                <div className="nav__list">
+                    <div className="nav__item">Option one</div>
+                    <div className="nav__item">Option two</div>
+                    <div className="nav__item">Option three</div>
+                    <div className="nav__item">Option four</div>
+                </div>
+            </div> */
+}
+
+{
+    /* <div style={{ margin: "16px", position: "relative" }}>
+                <SelectBox
+                    items={[
+                        { value: "United States", id: 1 },
+                        { value: "Canada", id: 2 },
+                        { value: "Mexico", id: 3 },
+                        { value: "Japan", id: 4 }
+                    ]}
+                />
+            </div> */
 }

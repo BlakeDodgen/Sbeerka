@@ -45,10 +45,11 @@ function SearchInput({ placeholder, data, search }) {
     // console.log(data);
 
     return (
-        <>
+        <div className="search">
             <input
+                className="search__input"
                 type="text"
-                placeholder={placeholder}
+                placeholder="go through sbeerka"
                 name="search"
                 value={searchString}
                 onChange={handleSearchBarChange}
@@ -74,7 +75,7 @@ function SearchInput({ placeholder, data, search }) {
             {/* <Routes >
                 <Redirect to="/results" element={<SearchResults results={searchItems} />} />
             </Routes> */}
-        </>
+        </div>
     );
 }
 

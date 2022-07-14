@@ -1,35 +1,37 @@
+.search {
+    width: 100%;
+    display: flex;
+    gap: 3px;
+}
+
+.search__input {
+    border-color: transparent;
+    outline-color: $primary-yellow;
+    color: $primary-grey;
+    font-family: $primary-font;
+    width: 60%;
+    height: 2rem;
+    padding: 0;
+    text-align: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.search__categories {
+    border-color: transparent;
+    outline-color: $primary-yellow;
+    color: $primary-grey;
+    font-family: $primary-font;
+}
+
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    appearance: none;
-    -webkit-padding-end: 20px;
-    -moz-padding-end: 20px;
-    -webkit-padding-start: 2px;
-    -moz-padding-start: 2px;
-    background-color: #f07575; /* Fallback color if gradients are not supported */
-    background-image: url(../images/select-arrow.png),
-        -webkit-linear-gradient(top, #e5e5e5, #f4f4f4); /* For Chrome and Safari */
-    background-image: url(../images/select-arrow.png),
-        -moz-linear-gradient(top, #e5e5e5, #f4f4f4); /* For old Firefox (3.6 to 15) */
-    background-image: url(../images/select-arrow.png),
-        -ms-linear-gradient(top, #e5e5e5, #f4f4f4); /* For pre-releases of Internet Explorer  10*/
-    background-image: url(../images/select-arrow.png),
-        -o-linear-gradient(top, #e5e5e5, #f4f4f4); /* For old Opera (11.1 to 12.0) */
-    background-image: url(../images/select-arrow.png),
-        linear-gradient(to bottom, #e5e5e5, #f4f4f4); /* Standard syntax; must be last */
-    background-position: center right;
-    background-repeat: no-repeat;
-    border: 1px solid #aaa;
-    border-radius: 2px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-    color: #555;
-    font-size: inherit;
-    margin: 0;
-    overflow: hidden;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    color: $primary-grey;
+    font-family: $primary-font;
+    border-color: transparent;
+    text-align: center;
+    outline-color: $primary-yellow;
+    height: 2rem;
+    padding: 0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
