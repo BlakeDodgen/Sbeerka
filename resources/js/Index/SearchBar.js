@@ -56,7 +56,7 @@ function SearchBar(props) {
                 <option value="breweries">Breweries</option>
                 <option value="beers">Beer</option>
                 <option value="city">City</option>
-                <option value="countries">Country</option>
+                <option value="country">Country</option>
                 <option value="beer-type">Beer Type</option>
                 {/* <option value="random-beer">Random Beer</option> */}
             </select>

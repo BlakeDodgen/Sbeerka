@@ -11,7 +11,11 @@ import axios from 'axios';
 import UserContext from "./UserContext";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
-import BreweryResults from "./BreweryResults";
+import BreweryResults from "./searchresults-parts/BreweryResults";
+import CityResults from "./searchresults-parts/CityResults";
+import CountryResults from "./searchresults-parts/CountryResults";
+import BeerTypeResults from "./searchresults-parts/BeerTypeResults";
+
 
 const App = () => {
 
@@ -56,6 +60,9 @@ const App = () => {
                     <Route path="/beers/:id" element={<BeerProfile />} />
                     <Route path="/breweries/:id" element={<BreweryProfile />} />
                     <Route exact path="/results/breweries/:searchString" element={<BreweryResults searchType={searchType}/>} />
+                    <Route exact path="/results/city/:searchString" element={<CityResults searchType={searchType}/>} />
+                    <Route exact path="/results/country/:searchString" element={<CountryResults searchType={searchType}/>} />
+                    <Route exact path="/results/beer-type/:searchString" element={<BeerTypeResults searchType={searchType}/>} />
                     <Route path="/results/:search/:searchString" element={<SearchResults searchType={searchType}/>} />
                     
                     <Route path="/login" element={<Login />} />
