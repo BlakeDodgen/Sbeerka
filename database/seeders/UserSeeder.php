@@ -100,6 +100,16 @@ class UserSeeder extends Seeder
                 'username' => "",
                 'user_type' => "2",
             ],
+            [
+                'first_name' => "Pavel",
+                'surname' => "Pivo",
+                'over18' => TRUE,
+                'brewery_name' => "",
+                'email' => "admin@sbeerka.beer",
+                'password' => Hash::make("password"),
+                'username' => "Admin",
+                'user_type' => "3",
+            ]
         ];
 
         foreach($users as $userex) {
