@@ -8,22 +8,25 @@ const Settings = () => {
     const { id } = useParams();
 
     const { user, setUser } = useContext(UserContext);
-
+    console.log(user.user_type)
     const navigate = useNavigate();
 
+    const test = 3
+
     const clickHandler = async () => {
-        const res = await axios.post(`/api/user/${user.id}/settings/delete`);
-        console.log(res);
-        await setUser(null);
-        return navigate("/");
+        // const res = await axios.post(`/api/user/${user.id}/settings/delete`);
+        console.log(user);
+        // await setUser(null);
+        // return navigate("/");
     }
 
     return (
         <>
         <h1>SETTINGS</h1>
-        <h1>User ID: {id}</h1>
         <h2>Username: {user.username}</h2>
-        <p onClick={clickHandler}>DELETE PROFILE</p>
+        {user.user_type != 3 &&
+            <p onClick={clickHandler}>DELETE PROFILE</p>
+        }
         </>
     )
 }
