@@ -55,7 +55,7 @@ function SearchInput({ placeholder, data, search }) {
                 value={searchString}
                 onChange={handleSearchBarChange}
                 onKeyDown={(e) => e.keyCode == "13" && redirect()}
-                autocomplete="off"
+                autoComplete="off"
             />
 
             {searchItems && (

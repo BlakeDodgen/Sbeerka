@@ -3,10 +3,22 @@
     background-color: white;
     border: 2px solid red;
     flex-direction: column;
+    align-items: center;
     color: $secondary-blue;
+    justify-content: space-around;
+    height: 40rem;
+    position: absolute;
+    top: 10rem;
+    width: 60%;
 }
 
 .form__form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid red;
+    align-items: flex-start;
+    width: 80%;
 }
 
 .form__label {

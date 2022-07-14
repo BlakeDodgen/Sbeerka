@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loadUser } from "../actions/auth";
 import UserContext from "../UserContext";
-// import Radio from "../Radio";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -60,8 +59,10 @@ function SignUp() {
 
         return (
             <div>
-                <input type="radio" name="release" checked={status === 1} onClick={(e) => radioHandler(1)} />
-                <input type="radio" name="release" checked={status === 2} onClick={(e) => radioHandler(2)} />
+                <input className="radio" type="radio" name="user-radio" value={values.user_type} checked={status === 1} onClick={(e) => radioHandler(1)} />
+                <label>Sbeerka Member</label>
+                <input className="radio" type="radio" name="member-radio" value={values.user_type} checked={status === 2} onClick={(e) => radioHandler(2)} />
+                <label>Sbeerka Brewery</label>
                 {status === 1 && Status1()}
                 {status === 2 && Status2()}
             </div>
@@ -96,41 +97,12 @@ function SignUp() {
         )
     }
 
-
     return (
         <div className="form">
-            <h2>Sign Up</h2>
-            <Radio />
             <form className="form__form" action="/register" method="post" onSubmit={handleSignUp}>
-                {/* <label>Sbeerka Member</label>
-                <input className="radio" id="radio-member" type="radio" name="user-radio" value={values.user_type} onChange={handleChange} checked="checked" />
-                <label>Sbeerka Brewery</label>
-                <input className="radio" id="radio-brewery" type="radio" name="user-radio" value={values.user_type} onChange={handleChange} /> */}
+                <h2>Sign Up</h2>
+                <Radio />
 
-                {/* <div className="form__container">
-                    <label id="first-name" className="form__label form__label-name">First Name</label>
-                    <input className="form__input form__input-name" type="text" name="first_name" value={values.first_name} onChange={handleChange} />
-                </div>
-                <div className="form__container">
-                    <label className="form__label form__label-surname">
-                        Surname
-                    </label>
-                    <input
-                        className="form__input form__input-surname"
-                        type="text"
-                        name="surname"
-                        value={values.surname}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form__container">
-                    <label className="form__label form__label-username">Username</label>
-                    <input className="form__input form__input-username" type="text" name="username" value={values.username} onChange={handleChange} />
-                </div> */}
-                {/* <div className="form__container">
-                    <label className="form__label form__label-breweryname">Brewery Name</label>
-                    <input className="form__input form__input-breweryname" type="text" name="brewery_name" value={values.brewery_name} onChange={handleChange} />
-                </div> */}
                 <div className="form__container">
                     <label className="form__label form__label-email">
                         Email
@@ -183,7 +155,7 @@ function SignUp() {
                     onChange={handleChange}
                 />
 
-                <button>Create Sbeerka Account</button>
+                <button className="form__button">Create Sbeerka Account</button>
             </form>
         </div>
     );
