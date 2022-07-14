@@ -7,7 +7,7 @@ function Nav() {
         <div className="nav">
             <a href="/">LOGO</a>
             <SearchBar />
-            <SearchTest />
+            {/* <SearchTest /> */}
 
             <Link to="/">About</Link>
 
@@ -17,7 +17,7 @@ function Nav() {
                         { value: "United States", id: 1 },
                         { value: "Canada", id: 2 },
                         { value: "Mexico", id: 3 },
-                        { value: "Japan", id: 4 }
+                        { value: "Japan", id: 4 },
                     ]}
                 />
             </div> */}

@@ -107,18 +107,12 @@ const Wrapper = styled.div`
             text-transform: capitalize;
             letter-spacing: var(--spacing);
         }
-        svg {
-            color: var(--clr-grey-5);
-        }
-        input,
-        button,
-        svg {
+
+        input {
             font-size: 1.3rem;
         }
         @media (max-width: 800px) {
-            button,
-            input,
-            svg {
+            input {
                 font-size: 0.85rem;
             }
         }

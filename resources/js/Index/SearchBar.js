@@ -43,15 +43,17 @@ function SearchBar() {
     return (
         <div className="search">
             {/* create a new component ?? */}
-            <select value={search} onChange={handleSearchChange}>
-                <option value="all">ALL</option>
-                <option value="breweries">Breweries</option>
-                <option value="beers">Beer</option>
-                <option value="cities">City</option>
-                <option value="countries">Country</option>
-                <option value="beertypes">Beer Type</option>
-                {/* <option value="random-beer">Random Beer</option> */}
-            </select>
+            <div className="search__categories">
+                <select value={search} onChange={handleSearchChange}>
+                    <option value="all">ALL</option>
+                    <option value="breweries">Breweries</option>
+                    <option value="beers">Beer</option>
+                    <option value="cities">City</option>
+                    <option value="countries">Country</option>
+                    <option value="beertypes">Beer Type</option>
+                    {/* <option value="random-beer">Random Beer</option> */}
+                </select>
+            </div>
 
             {/*input element as Component , data are passed with props */}
             {/* <SearchInput
@@ -59,7 +61,9 @@ function SearchBar() {
                 data={data}
                 placeholder="Sbeerka beer search"
             /> */}
-            <SearchTest search={search} data={data} />
+            <div className="search__input">
+                <SearchInput search={search} data={data} />
+            </div>
         </div>
     );
 }
