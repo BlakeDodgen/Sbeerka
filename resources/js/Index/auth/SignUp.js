@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { loadUser } from "../actions/auth";
+import UserContext from "../UserContext";
 
 
 function SignUp() {
+
+    const navigate = useNavigate()
+    const { setUser, setLoadingUser } = useContext(UserContext);
 
     const [values, setValues] = useState({
         first_name: "",
@@ -26,6 +32,14 @@ function SignUp() {
             console.log(err);
         }
 
+        const userData = await loadUser();
+        
+
+        await setUser(userData);
+
+        await setLoadingUser(false);
+
+        return navigate('/');
     }
 
     const handleChange = (e) => {
