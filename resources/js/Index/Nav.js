@@ -29,7 +29,7 @@ function Nav() {
                                     src="./img/profile.svg"
                                     alt="profile"
                                 />
-                                <span>User</span>
+                                <span>{user.username}</span>
                             </div>
                         </button>
 

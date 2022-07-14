@@ -15,7 +15,7 @@ import {
 import { useReducer, useEffect, useState, useContext } from "react";
 import UserContext from "./UserContext";
 import BreweryForm from "./BreweryForm";
-import BeerForm from "./BeerForm";
+// import BeerForm from "./BeerForm";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
 import { loadUser } from "./actions/auth";

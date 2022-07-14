@@ -19,7 +19,7 @@ function Logout() {
     // if (!user) return null;
 
     return (
-        <button onClick={clickHandler}>Click</button>
+        <p onClick={clickHandler}>Logout</p>
     )
 }
 
