@@ -1,5 +1,4 @@
 const SearchResult = (props) => {
-
     //beertype , alcohol, degree, brewery review
 
  //change the path beer_pic.
@@ -21,7 +20,7 @@ const SearchResult = (props) => {
 
 
         </>
-    )
-}
+    );
+};
 
 export default SearchResult;

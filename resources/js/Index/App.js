@@ -5,10 +5,17 @@ import Login from "./auth/Login";
 import Logout from "./auth/Logout";
 import SignUp from "./auth/SignUp";
 import SearchResults from "./SearchResults";
-import { BrowserRouter, Routes, Route, Link, UNSAFE_RouteContext } from "react-router-dom";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link,
+    UNSAFE_RouteContext,
+} from "react-router-dom";
 import { useReducer, useEffect, useState, useContext } from "react";
-import axios from 'axios';
 import UserContext from "./UserContext";
+import BreweryForm from "./BreweryForm";
+// import BeerForm from "./BeerForm";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
 import BreweryResults from "./searchresults-parts/BreweryResults";
@@ -16,20 +23,15 @@ import CityResults from "./searchresults-parts/CityResults";
 import CountryResults from "./searchresults-parts/CountryResults";
 import BeerTypeResults from "./searchresults-parts/BeerTypeResults";
 
+import { loadUser } from "./actions/auth";
+import UserProfile from "./UserProfile";
+import Settings from "./Settings";
 
 const App = () => {
-
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState("");
     const [loadingUser, setLoadingUser] = useState(false);
     const [searchType, setSearchType] = useState("beers")
 
-    
-    console.log('state from App:' + searchType);
-    //  const loadUser = async () => {
-    //     const res = await axios.get('/api/user');
-    //    return res.data;
-        
-    //  }
     // const loadUser = async () => {
     //     const response = await axios.get('/api/user');
     //     if (response) {
@@ -43,14 +45,18 @@ const App = () => {
     //     In value of context -User, function loaduser, function setUser
     // }
 
+    useEffect(() => {
+        (async () => {
+            const res = await loadUser();
 
-    // useEffect(() => {
-    //     const res =loadUser();
-    //     setUser(res);
-    // }, []);
+            setUser(res);
+        })();
+    }, []);
 
     return (
-        <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser }}>
+        <UserContext.Provider
+            value={{ user, setUser, loadingUser, setLoadingUser }}
+        >
             <BrowserRouter>
                 <Nav setSearchType={setSearchType} />
                     <div className="main">
@@ -72,10 +78,10 @@ const App = () => {
                 <Link to="/breweries/1" >Link</Link>
             </div>
 
-            <Footer />
-        </BrowserRouter>
+                <Footer />
+            </BrowserRouter>
         </UserContext.Provider>
-    )
-}
+    );
+};
 
 export default App;

@@ -1,23 +1,23 @@
 import React from "react";
-//import "./styles/selectBox.scss";
+// import "./styles/selectBox.scss";
 
 class SelectBox extends React.Component {
     state = {
         items: this.props.items || [],
         showItems: false,
-        selectedItem: this.props.items && this.props.items[0]
+        selectedItem: this.props.items && this.props.items[0],
     };
 
     dropDown = () => {
-        this.setState(prevState => ({
-            showItems: !prevState.showItems
+        this.setState((prevState) => ({
+            showItems: !prevState.showItems,
         }));
     };
 
-    selectItem = item => {
+    selectItem = (item) => {
         this.setState({
             selectedItem: item,
-            showItems: false
+            showItems: false,
         });
     };
 
@@ -30,22 +30,29 @@ class SelectBox extends React.Component {
                     </div>
                     <div className="select-box--arrow" onClick={this.dropDown}>
                         <span
-                            className={`${this.state.showItems
-                                ? "select-box--arrow-up"
-                                : "select-box--arrow-down"
-                                }`}
+                            className={`${
+                                this.state.showItems
+                                    ? "select-box--arrow-up"
+                                    : "select-box--arrow-down"
+                            }`}
                         />
                     </div>
 
                     <div
-                        style={{ display: this.state.showItems ? "block" : "none" }}
+                        style={{
+                            display: this.state.showItems ? "block" : "none",
+                        }}
                         className={"select-box--items"}
                     >
-                        {this.state.items.map(item => (
+                        {this.state.items.map((item) => (
                             <div
                                 key={item.id}
                                 onClick={() => this.selectItem(item)}
-                                className={this.state.selectedItem === item ? "selected" : ""}
+                                className={
+                                    this.state.selectedItem === item
+                                        ? "selected"
+                                        : ""
+                                }
                             >
                                 {item.value}
                             </div>

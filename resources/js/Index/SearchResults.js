@@ -45,7 +45,7 @@ const SearchResults = (props) => {
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-        //return value if true-> if object.name includes search items 
+        //return value if true-> if object.name includes search items
         //compare the user input and data-> lowercase both values
         // console.log(item);
         // if (search === "beer-type") {
@@ -98,7 +98,7 @@ const SearchResults = (props) => {
 
 
         </>
-    )
-}
+    );
+};
 
 export default SearchResults;

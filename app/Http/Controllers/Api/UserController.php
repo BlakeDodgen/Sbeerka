@@ -40,6 +40,15 @@ class UserController extends Controller
 
         // session()->flash('success_message', 'The client was successfully created.');
 
-        return 'Something worked';
+        return 'Something worked';  
+    }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        
+        $user->delete();
+
+        return 'user deleted';
     }
 }
