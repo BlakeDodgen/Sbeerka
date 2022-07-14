@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-
-
 // const selectedItems = [
 //     { key: 'page', text: 'This Page', value: 'page' },
 //     { key: 'org', text: 'This Organization', value: 'org' },
@@ -15,7 +13,7 @@ const selectItems = [
     "Flavors",
     "Alcohol Content",
     "Beer Type",
-    "Random Beer"
+    "Random Beer",
 ];
 
 function SearchDropDown() {
@@ -32,25 +30,35 @@ function SearchDropDown() {
     return (
         <div>
             <div className="custom-select">
-                <div className={`select-selected ${active ? 'select-arrow-active' : ''}`} onClick={toggle}>
+                <div
+                    className={`select-selected ${
+                        active ? "select-arrow-active" : ""
+                    }`}
+                    onClick={toggle}
+                >
                     {selected}
                 </div>
                 <div className="select-items">
-                    {active && selectItems.map((item, i) => {
-                        return (
-                            <div
-                                key={i}
-                                onClick={() => handleItemClick(item)}
-                                className={`${item === selected ? "same-as-selected" : ""}`}
-                            >
-                                {item}
-                            </div>
-                        )
-                    })}
+                    {active &&
+                        selectItems.map((item, i) => {
+                            return (
+                                <div
+                                    key={i}
+                                    onClick={() => handleItemClick(item)}
+                                    className={`${
+                                        item === selected
+                                            ? "same-as-selected"
+                                            : ""
+                                    }`}
+                                >
+                                    {item}
+                                </div>
+                            );
+                        })}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default SearchDropDown;

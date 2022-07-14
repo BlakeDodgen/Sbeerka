@@ -1,5 +1,9 @@
 .form {
     display: flex;
+    background-color: white;
+    border: 2px solid red;
+    flex-direction: column;
+    color: $secondary-blue;
 }
 
 .form__form {
