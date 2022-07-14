@@ -21,7 +21,7 @@ class SearchController extends Controller
         // Different searches
 
 
-        if ($searchType == "beername") {
+        if ($searchType == "beers") {
             $beers = Beer::where('name', 'like', ('%'.$searchText.'%'))
                     // ->with('beerType', 'brewery', 'beerPic')
                     ->with([

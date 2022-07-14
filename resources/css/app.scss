@@ -4,17 +4,22 @@
 @import 'styles/form';
 @import 'styles/main';
 // @import 'styles/searchdropdown';
-// @import 'styles/logindropdown';
+@import 'styles/navDropdown';
 @import 'styles/dropdown';
 
 html {
     box-sizing: border-box;
     position: relative;
+    height: 100%;
 }
 *,
 *:before,
 *:after {
     box-sizing: inherit;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 body, #root {
     height: 100%;

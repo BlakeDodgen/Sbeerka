@@ -3,9 +3,13 @@
     height: 2.5rem;
     align-items: center;
     justify-content: center;
-    background-color: $secondary-orange;
-    color: $secondary-blue;
-    position: absolute;
+    background-color: $primary-grey;
+    font-weight: 200;
+    color: white;
+    position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
