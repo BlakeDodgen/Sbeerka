@@ -9,20 +9,21 @@ const [values, setValues]  = useState({
     surname: "",
     username: "",
     brewery_name: "",
-    
-    // email: "",
-    // password: "",
-    // password_confirmation: "",
-    // over18: 'false',
-    // user_type: ""
+    email: "",
+    password: "",
+    password_confirmation: "",
+    over18: "",
+    user_type: ""
 })
-console.log(values);
+console.log();
 
     const handleSignUp = async (e)=>{
         e.preventDefault();
         try {
             const response = await axios.post('/register', values);
             const response_data = response.data;
+            console.log("RD:" + response_data)
+
         } catch(err) {
             console.log(err);
         }

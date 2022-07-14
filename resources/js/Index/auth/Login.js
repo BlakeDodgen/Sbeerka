@@ -11,7 +11,7 @@ function Login() {
     const { setUser } =useContext(UserContext);
     //user has to be loaded
     const loadUser = async () => {
-        const res = await axios.get('/api/user');
+        // const res = await axios.get('/api/user');
         return res.data;
         
     }

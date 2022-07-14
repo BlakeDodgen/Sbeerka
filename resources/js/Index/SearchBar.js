@@ -24,28 +24,28 @@ function SearchBar() {
     //chooses url according to selected value in state ,,search,,
     // const urlSpecific = `http://www.sbeerka.beer/api/string/${search}`;
     //www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
-    const urlAll = '';
+    //const urlAll = '';
     // console.log("search:"+ search);
     // console.log("urlspecific:"+ urlSpecific);
 
-    const fetchData = async () => {
-        const response = await fetch(urlSpecific);
-        //   !search === "all" ? urlSpecific : urlAll
-        const parsedData = await response.json();
-        const dataLowerCase = parsedData.map((item) => {
-            return item.toLowerCase();
-        })
+    // const fetchData = async () => {
+    //     const response = await fetch(urlSpecific);
+    //     //   !search === "all" ? urlSpecific : urlAll
+    //     const parsedData = await response.json();
+    //     const dataLowerCase = parsedData.map((item) => {
+    //         return item.toLowerCase();
+    //     })
 
 
-        setData(parsedData);
+    //     setData(parsedData);
 
-    }
+    // }
 
     //data are fetch after each selection in searchbar
-    useEffect(() => {
-        fetchData();
+    // useEffect(() => {
+    //     fetchData();
 
-    }, [search])
+    // }, [search])
 
     console.log(data)
     return (
