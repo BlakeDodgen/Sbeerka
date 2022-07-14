@@ -24,13 +24,13 @@ function Nav() {
                             Log In
                         </Link>
                     </div>
+                    <div className="dropdown-content">
+                        <Link to="/">Settings</Link>
+                        <Link to="/">Beer Collection</Link>
+                        <Link to="/logout">Log Out</Link>
+                    </div>
                 </button>
 
-                <div className="dropdown-content">
-                    <Link to="/">Settings</Link>
-                    <Link to="/">Beer Collection</Link>
-                    <Link to="/logout">Log Out</Link>
-                </div>
             </div>
             <Link className="nav__signup" to="/signup">
                 Sign Up
