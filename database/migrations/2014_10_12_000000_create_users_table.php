@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('brewery_name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->rememberToken();
             $table->string('username')->nullable();
             $table->integer('user_type');
             $table->timestamps();
