@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loadUser } from "../actions/auth";
 import UserContext from "../UserContext";
+import RadarChart from "../SpiderGraphTest";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -157,7 +158,11 @@ function SignUp() {
 
                 <button className="form__button">Create Sbeerka Account</button>
             </form>
+
+            <RadarChart />
         </div>
+
+
     );
 }
 

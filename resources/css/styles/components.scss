@@ -1,57 +1,11 @@
- //THIS IS THE CUSTOM CODE
- input[type="radio"]{
-    opacity:0;
-    z-index:-1;
-    position:absolute;
-    width:auto;
-    
-    & + label{
-      &:before{
-        @include fontawesome;
-        content:" ";
-        display:block;
-        width:20px;
-        height:20px;
-        background:$c-white;
-        position:absolute;
-        left:0;
-        top:50%;
-        transform:translateY(-50%);
-        border-radius:10px;
-        transition:back-ground .3s linear;
-        //vertical-align:middle;
-      }
-      
-      &:after{
-        content:" ";
-        display:block;
-        width:10px;
-        height:10px;
-        background:$c-white;
-        position:absolute;
-        left:5px;
-        top:50%;
-        border-radius:5px;
-        transform:translateY(-50%) scale(0);
-        transform-origin:center;
-      }
-      
-      &:hover, &:focus{
-        cursor:pointer;
-        &:before{
-          background:#25A5D9;
-        }
-      }
+.graph-data__1 {
+    opacity: 0.2;
+    border-radius: 7px;
+    transition: all .5s ease-in-out;
+
+    &:hover {
+        opacity: 0.5;
+        transform: scale(1.01);
     }
-    
-    &:checked + label{
-      &:before{
-        background:#25A5D9;
-      }
-      &:after{
-        animation: radio-button 0.3s normal forwards;
-        
-      }
-    }
-  }
+}
 
