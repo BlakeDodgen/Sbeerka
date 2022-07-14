@@ -15,6 +15,8 @@ import {
 import { useReducer, useEffect, useState, useContext } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
+import BreweryForm from "./BreweryForm";
+import BeerForm from "./BeerForm";
 
 const App = () => {
     const [user, setUser] = useState(null);
@@ -58,9 +60,12 @@ const App = () => {
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/logout" element={<Logout />} />
+                        <Route path="/breweryform" element={<BreweryForm />} />
+                        <Route path="/beerform" element={<BeerForm />} />
                     </Routes>
                 </div>
-
+                <Link to="/breweryform">Link</Link>
+                <Link to="/beerform">Link</Link>
                 <Footer />
             </BrowserRouter>
         </UserContext.Provider>
