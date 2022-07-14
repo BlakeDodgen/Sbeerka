@@ -35,7 +35,7 @@ const BreweryForm = () => {
 
     return (
         <div className="form">
-            <h2> Sign-up Form </h2>
+            <h2> Brewery Form </h2>
             <form
                 className="form__form"
                 // action=""
