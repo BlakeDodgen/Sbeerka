@@ -14,7 +14,7 @@ function Nav(props) {
                 SBEERKA
             </a>
 
-            <SearchBar />
+            <SearchBar setSearchType={props.setSearchType}/>
 
             <Link className="nav__about" to="/">About</Link>
 

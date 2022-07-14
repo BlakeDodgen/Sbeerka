@@ -61,6 +61,8 @@ function SearchBar(props) {
                 </select>
             </div>
 
+            
+
             {/*input element as Component , data are passed with props */}
             {/* <SearchInput
                 search={search}
