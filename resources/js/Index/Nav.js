@@ -7,8 +7,8 @@ function Nav() {
             <a className="nav__logo" href="/">
                 LOGO
             </a>
+
             <SearchBar />
-            {/* <SearchTest /> */}
 
             <Link to="/">About</Link>
 

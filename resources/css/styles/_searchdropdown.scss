@@ -1,19 +1,37 @@
+.search {
+    width: 100%;
+    display: flex;
+    gap: 3px;
+}
+
 .search__input {
     border-color: transparent;
     outline-color: $primary-yellow;
     color: $primary-grey;
     font-family: $primary-font;
-    width: 80%;
+    width: 60%;
+    height: 2rem;
+    padding: 0;
+    text-align: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
-.search {
-    width: 100%;
-    position: center;
-    display: flex;
-}
 .search__categories {
     border-color: transparent;
     outline-color: $primary-yellow;
     color: $primary-grey;
     font-family: $primary-font;
+}
+
+select {
+    color: $primary-grey;
+    font-family: $primary-font;
+    border-color: transparent;
+    text-align: center;
+    outline-color: $primary-yellow;
+    height: 2rem;
+    padding: 0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }

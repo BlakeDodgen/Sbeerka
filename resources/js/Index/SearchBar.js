@@ -60,9 +60,8 @@ function SearchBar() {
                 data={data}
                 placeholder="Sbeerka beer search"
             /> */}
-            <div className="search__input">
-                <SearchInput search={search} data={data} />
-            </div>
+
+            <SearchInput search={search} data={data} />
         </div>
     );
 }
