@@ -9,19 +9,18 @@ const [values, setValues]  = useState({
     surname: "",
     username: "",
     brewery_name: "",
-    
-    // email: "",
-    // password: "",
-    // password_confirmation: "",
-    // over18: 'false',
-    // user_type: ""
+    email: "",
+    password: "",
+    password_confirmation: "",
+    over18: false,
+    user_type: ""
 })
 console.log(values);
 
     const handleSignUp = async (e)=>{
         e.preventDefault();
         try {
-            const response = await axios.post('/testing/create', values);
+            const response = await axios.post('/register', values);
             const response_data = response.data;
         } catch(err) {
             console.log(err);
@@ -57,12 +56,13 @@ console.log(values);
                 <label>Confirm Password </label>  
                 <input type="password" name="password_confirmation" value={ values.password_confirmation } onChange={ handleChange } />
                 <label>I'am over 18 </label>  
-                <input type="checkbox" name="over18"   onChange={ handleChange } />
-                
-                <label>Sbeerka Member</label>
-                <input type="radio" id="1" name="user_type" value="1" onChange={ handleChange } />
+                <input type="checkbox" name="over18" value={ values.over18 } onChange={ handleChange } />
+                <label>1)User 2)Brewery </label>  
+                <input type="number" name="user_type" value={ values.user_type } onChange={ handleChange } />
+                {/* <label>Sbeerka Member</label>
+                <input type="radio" name="1" value={ values.user_type } onChange={ handleChange } />
                 <label>Sbeerka Brewery</label>
-                <input type="radio" id="2" name="user_type" value="2" onChange={ handleChange } />
+                <input type="radio" name="2" value={ values.user_type } onChange={ handleChange } /> */}
 
 
 
