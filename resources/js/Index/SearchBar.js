@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import SearchInput from "./SearchInput";
 import axios from "axios";
-import SearchTest from "./SearchTest";
 
 function SearchBar() {
     // default value is set as Search Beers - Select handles different options
