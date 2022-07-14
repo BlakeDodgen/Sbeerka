@@ -14,9 +14,13 @@ import {
 } from "react-router-dom";
 import { useReducer, useEffect, useState, useContext } from "react";
 import UserContext from "./UserContext";
+import BreweryForm from "./BreweryForm";
+// import BeerForm from "./BeerForm";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
 import { loadUser } from "./actions/auth";
+import UserProfile from "./UserProfile";
+import Settings from "./Settings";
 
 const App = () => {
     const [user, setUser] = useState("");
@@ -37,24 +41,32 @@ const App = () => {
 
     useEffect(() => {
         (async () => {
-
             const res = await loadUser();
-        
+
             setUser(res);
-        })()
+        })();
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser }} >
+        <UserContext.Provider
+            value={{ user, setUser, loadingUser, setLoadingUser }}
+        >
             <BrowserRouter>
                 <Nav />
                 <div className="main">
-                    
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/beers/:id" element={<BeerProfile />} />
-                        <Route path="/breweries/:id" element={<BreweryProfile />} />
-                        <Route path="/results/:search/:searchString" element={<SearchResults />} />
+                        <Route
+                            path="/breweries/:id"
+                            element={<BreweryProfile />}
+                        />
+                        <Route
+                            path="/results/:search/:searchString"
+                            element={<SearchResults />}
+                        />
+                        <Route path="/user/:id" element={<UserProfile />} />
+                        <Route path="/user/:id/settings" element={<Settings />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                     </Routes>

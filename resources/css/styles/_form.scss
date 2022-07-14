@@ -7,15 +7,17 @@
 }
 
 .form__form {
-
 }
 
 .form__label {
-
 }
 
 .form__input {
-
+    // border-color: transparent;
+    // outline-color: $primary-yellow;
+    // color: $primary-grey;
+    // border-top-right-radius: 15px;
+    // border-bottom-right-radius: 15px;
 }
 
 // .form__label-name {
@@ -27,14 +29,14 @@
 // }
 
 // .form__label-surname {
-//     display:block;   
+//     display:block;
 // }
 // .form__input-surname {
 //     display:block;
 // }
 
 // .form__label-username {
-//     display:block;    
+//     display:block;
 // }
 
 // .form__input-username {
@@ -42,7 +44,7 @@
 // }
 
 // .form__label-breweryname {
-//     display:none; 
+//     display:none;
 // }
 
 // .form__input-breweryname {
@@ -50,67 +52,60 @@
 // }
 
 .form__label-email {
-    
 }
 
 .form__label-password {
-    
 }
 
 .form__label-confirm {
-    
 }
 
 .form__label-member {
-    
 }
 
 .form__label-brewery {
-    
 }
 
-// #radio-member:checked~ 
+// #radio-member:checked~
 // div .form__label-name,
 // div .form__input-name,
 // div .form__label-surname,
 // div .form__input-surname,
 // div .form__label-username,
 // div .form__input-username {
-//     display:block;  
+//     display:block;
 // }
 
 // #radio-member:checked~
 // div .form__label-breweryname,
 // div .form__input-breweryname {
-//     display:none; 
+//     display:none;
 // }
 
-// #radio-brewery:checked~ 
+// #radio-brewery:checked~
 // .form__label-name,
 // .form__input-name,
 // .form__label-surname,
 // .form__input-surname,
 // .form__label-username,
 // .form__input-username {
-//     display:none; 
+//     display:none;
 // }
 
 // #radio-brewery:checked~
 // .form__label-breweryname,
 // .form__input-breweryname {
-//     display:block; 
+//     display:block;
 // }
-
-
 
 // #radio-member:checked ~
 // #first-name {
-//     display:none; 
+//     display:none;
 // }
 
 // #radio-brewery:checked ~
 // #first-name {
-//     display:block; 
+//     display:block;
 // }
 
 // input#radio-member:checked + div #first-name {
@@ -121,11 +116,9 @@
 //     color: blue;
 // }
 
-input[type="radio"]#radio-brewery:checked + div #first-name {display: hidden;}
-
-
-
-
+input[type="radio"]#radio-brewery:checked + div #first-name {
+    display: hidden;
+}
 
 // //add just some hover effect
 // #radio-member:hover~ .nav__list {
@@ -134,7 +127,6 @@ input[type="radio"]#radio-brewery:checked + div #first-name {display: hidden;}
 //     -webkit-transform: translateY(0px);
 //     transform: translateY(0px);
 // }
-
 
 // #radio-brewery:checked~ .nav__list {
 //     visibility: visible;
