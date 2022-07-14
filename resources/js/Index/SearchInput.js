@@ -9,7 +9,7 @@ function SearchInput({ placeholder, data, search }) {
     //from this state are data  mapped and rendered
     const [searchItems, setSearchItems] = useState([])
 
-    const [searchOption, setSearchOption] = useState(search);
+    //const [searchOption, setSearchOption] = useState(search);
     //responsible for redirection
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ function SearchInput({ placeholder, data, search }) {
     //function triggered after each keystroke and runs the filter, results saved in new array
     const handleSearchQuery = (e) => {
         //const searchItem = e.target.value;
-        const prop = searchOption;
+        //const prop = searchOption;
         const newSearch = data.filter((item) => {
             //return value if true-> if object.name includes search items 
             //compare the user input and data-> lowercase both values
@@ -39,8 +39,7 @@ function SearchInput({ placeholder, data, search }) {
     const handleSearchBarChange = (e) => {
         handleSearchQuery(e);
         setSearchString(e.target.value);
-        
-        
+                
     }
 
     const redirect = () => {

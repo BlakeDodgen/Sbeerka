@@ -2,12 +2,12 @@ import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
 import SelectBox from './SelectBox';
 
-function Nav() {
+function Nav(props) {
 
     return (
         <div className='nav'>
             <a href="/">LOGO</a>
-            <SearchBar />
+            <SearchBar setSearchType={props.setSearchType}/>
 
             <Link to="/">About</Link>
 

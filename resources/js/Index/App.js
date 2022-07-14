@@ -16,12 +16,15 @@ const App = () => {
 
     const [user, setUser] = useState(null);
     const [loadingUser, setLoadingUser] = useState(false);
+    const [searchType, setSearchType] = useState("beers")
 
-    const loadUser = async () => {
-        const res = await axios.get('/api/user');
-        return res.data;
+    
+    console.log('state from App:' + searchType);
+    //  const loadUser = async () => {
+    //     const res = await axios.get('/api/user');
+    //    return res.data;
         
-    }
+    //  }
     // const loadUser = async () => {
     //     const response = await axios.get('/api/user');
     //     if (response) {
@@ -35,22 +38,23 @@ const App = () => {
     //     In value of context -User, function loaduser, function setUser
     // }
 
-    useEffect(() => {
-        const res =loadUser();
-        setUser(res);
-    }, []);
+
+    // useEffect(() => {
+    //     const res =loadUser();
+    //     setUser(res);
+    // }, []);
 
     return (
         <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser }}>
             <BrowserRouter>
-                <Nav />
+                <Nav setSearchType={setSearchType} />
                     <div className="main">
                 
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/beers/:id" element={<BeerProfile />} />
                     <Route path="/breweries/:id" element={<BreweryProfile />} />
-                    <Route path="/results/:search/:searchString" element={<SearchResults />} />
+                    <Route path="/results/:search/:searchString" element={<SearchResults searchType={searchType}/>} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/logout" element={<Logout />} />

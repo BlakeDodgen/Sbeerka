@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 
-function SearchBar() {
+function SearchBar(props) {
 
     // default value is set as Search Beers - Select handles different options
     const [search, setSearch] = useState("beers");
@@ -14,7 +14,7 @@ function SearchBar() {
 
     //function updates state after select is made 
     const handleSearchChange = (e) => {
-
+        props.setSearchType(e.target.value)
         setSearch(e.target.value);
         console.log("select:" + e.target.value);
     }
@@ -62,7 +62,7 @@ function SearchBar() {
             </select>
 
             {/*input element as Component , data are passed with props */}
-            <SearchInput search={search} data={data} placeholder="Sbeerka beer search" />
+        <SearchInput search={search} data={data} placeholder="Sbeerka beer search" />
         </div>
     )
 }
