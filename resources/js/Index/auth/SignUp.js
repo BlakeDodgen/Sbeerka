@@ -12,7 +12,7 @@ const [values, setValues]  = useState({
     email: "",
     password: "",
     password_confirmation: "",
-    over18: "",
+    over18: false,
     user_type: ""
 })
 console.log();
