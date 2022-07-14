@@ -9,12 +9,11 @@ const [values, setValues]  = useState({
     surname: "",
     username: "",
     brewery_name: "",
-    
-    // email: "",
-    // password: "",
-    // password_confirmation: "",
-    // over18: 'false',
-    // user_type: ""
+    email: "",
+    password: "",
+    password_confirmation: "",
+    over18: false,
+    user_type: ""
 })
 console.log(values);
 
