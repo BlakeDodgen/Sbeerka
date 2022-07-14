@@ -4,15 +4,15 @@ const data = [
     { Sour: 0.7, Bitter: 1.0, Herbal: 0.9, Body: 0.6, Linger: 0.8, Citrus: 0.5, Hoppy: 0.7 },
     { Sour: 0.6, Bitter: 0.9, Herbal: 0.8, Body: 0.7, Linger: 0.6, Citrus: 0.4, Hoppy: 0.9 }
 ];
-const chartSize = 450;
-const numberOfScales = 10;
+const chartSize = 300;
+const numberOfScales = 5;
 const scale = value => (
     <circle
         key={`scale-${value}`}
         cx={0}
         cy={0}
         r={((value / numberOfScales) * chartSize) / 2}
-        fill="#31475e"
+        fill="white"
         stroke="#999"
         strokeWidth="0.2"
     />
@@ -40,9 +40,8 @@ const shape = columns => (chartData, i) => {
                     ];
                 })
             )}
-            stroke={`#edc951`}
-            fill={`#edc951`}
-            // fillOpacity=".5"
+            stroke={`#edc951-${1}`}
+            fill={`#c2702a`}
             className="graph-data__1"
         />
     );
@@ -52,6 +51,7 @@ const points = points => {
         .map(point => point[0].toFixed(4) + ',' + point[1].toFixed(4))
         .join(' ');
 };
+
 const axis = () => (col, i) => (
     <polyline
         key={`poly-axis-${i}`}
@@ -63,6 +63,7 @@ const axis = () => (col, i) => (
         strokeWidth=".2"
     />
 );
+
 const RadarChart = props => {
     const groups = [];
     const scales = [];
@@ -80,6 +81,7 @@ const RadarChart = props => {
     });
     groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>);
     groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>);
+    groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>);
     return (
         <svg
             version="1"
@@ -99,11 +101,11 @@ const RadarChart = props => {
 const caption = () => col => (
     <text
         key={`caption-of-${col.key}`}
-        x={polarToX(col.angle, (chartSize / 2) * 0.95).toFixed(4)}
-        y={polarToY(col.angle, (chartSize / 2) * 0.95).toFixed(4)}
+        x={polarToX(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
+        y={polarToY(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
         dy={10 / 2}
         fill="#444"
-        fontWeight="400"
+        fontWeight="300"
         textShadow="1px 1px 0 #fff"
     >
         {col.key}
