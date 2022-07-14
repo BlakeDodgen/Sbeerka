@@ -63,17 +63,27 @@ const SearchResults = () => {
                 <div className="search__result">
                     {/* loops in the array which contains updated search items */}
                     {/* for less displayed results use splice method on array .splice(0,10) */}
-                    {newSearch.map((value, index) => {
+                   
+                    {!!newSearch.length ?(
+                    newSearch.map((value, index) => {
+                        
+                        
+                        return ( newSearch===[]?"no items":
+                            <SearchResult key={index}
+                             name={value.name}
+                             beer_pic_id={value.beer_pic_id}
+                              />
+                           // <a className="search__items" key={index} >{value.name} </a>
+                        )
 
-                        return <a className="search__items" key={index} >{value.name} </a>
-
-                    })}
+                    })
+                    ): <h2>No {search} found</h2>}
                 </div>
             )}
-            {/* map function for list of results */}
-            {/* <SearchResult /> */}
-            {/* <p>hello </p> */}
-            <p>hello, we're searching for {searchString}</p>
+            
+            
+           
+           
             
 
         </>
