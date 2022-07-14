@@ -45,15 +45,16 @@ function SearchInput({ placeholder, data, search }) {
     // console.log(data);
 
     return (
-        <div className="search">
+        <div className="search__container">
             <input
                 className="search__input"
                 type="text"
-                placeholder="go through sbeerka"
+                placeholder="Search Sbeerka"
                 name="search"
                 value={searchString}
                 onChange={handleSearchBarChange}
                 onKeyDown={(e) => e.keyCode == "13" && redirect()}
+                autocomplete="off"
             />
 
             {searchItems && (
