@@ -1,3 +1,5 @@
+//Can this be deleted???
+
 import { useState } from "react";
 
 // const selectedItems = [
@@ -31,9 +33,8 @@ function SearchDropDown() {
         <div>
             <div className="custom-select">
                 <div
-                    className={`select-selected ${
-                        active ? "select-arrow-active" : ""
-                    }`}
+                    className={`select-selected ${active ? "select-arrow-active" : ""
+                        }`}
                     onClick={toggle}
                 >
                     {selected}
@@ -45,11 +46,10 @@ function SearchDropDown() {
                                 <div
                                     key={i}
                                     onClick={() => handleItemClick(item)}
-                                    className={`${
-                                        item === selected
+                                    className={`${item === selected
                                             ? "same-as-selected"
                                             : ""
-                                    }`}
+                                        }`}
                                 >
                                     {item}
                                 </div>

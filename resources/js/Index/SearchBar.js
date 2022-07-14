@@ -45,7 +45,6 @@ function SearchBar() {
             {/* create a new component ?? */}
             <div className="search__categories">
                 <select value={search} onChange={handleSearchChange}>
-                    <option value="all">ALL</option>
                     <option value="breweries">Breweries</option>
                     <option value="beers">Beer</option>
                     <option value="cities">City</option>
