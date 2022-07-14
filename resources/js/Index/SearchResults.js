@@ -2,11 +2,29 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SearchResult from "./SearchResult";
 
+<<<<<<< HEAD
 const SearchResults = () => {
     const { search, searchString } = useParams();
 
     const [data, setData] = useState([]);
     const [searchItems, setSearchItems] = useState([]);
+=======
+
+const SearchResults = () => {
+<<<<<<< HEAD
+<<<<<<< HEAD
+    return (
+        <>
+            <Nav />
+=======
+    const [data, setData] = useState([])
+    const { search, searchString} = useParams();
+    // const data = useContext(DataContext);
+   
+=======
+    const {search, searchString} = useParams();
+>>>>>>> 2c3c2656fe80d3b86b84fb3e4c7de11f36fc69ec
+>>>>>>> feat/homepage
 
     // console.log("searchstring:"+ searchString)
 
@@ -70,6 +88,12 @@ const SearchResults = () => {
             {/* <SearchResult /> */}
             {/* <p>hello </p> */}
             <p>hello, we're searching for {searchString}</p>
+<<<<<<< HEAD
+=======
+            
+
+>>>>>>> 7ebf932ea7045c847cde81f9250e4410529d0b74
+>>>>>>> feat/homepage
         </>
     );
 };
