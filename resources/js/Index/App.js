@@ -16,6 +16,7 @@ const App = () => {
 
     const [user, setUser] = useState(null);
     const [loadingUser, setLoadingUser] = useState(false);
+    const text = "Hello!";
 
     const loadUser = async () => {
         const res = await axios.get('/api/user');
@@ -41,7 +42,7 @@ const App = () => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser }}>
+        <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser, text }}>
             <BrowserRouter>
                 <Nav />
                     <div className="main">
