@@ -9,6 +9,8 @@ import { BrowserRouter, Routes, Route, Link, UNSAFE_RouteContext } from "react-r
 import { useReducer, useEffect, useState, useContext } from "react";
 import axios from 'axios';
 import UserContext from "./UserContext";
+import BeerProfile from "./BeerProfile";
+import BreweryProfile from "./BreweryProfile";
 
 const App = () => {
 
@@ -46,12 +48,14 @@ const App = () => {
                 
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/beers/:id" element={<BeerProfile />} />
+                    <Route path="/breweries/:id" element={<BreweryProfile />} />
                     <Route path="/results/:search/:searchString" element={<SearchResults />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/logout" element={<Logout />} />
                 </Routes>
-
+                <Link to="/breweries/1" >Link</Link>
             </div>
 
             <Footer />

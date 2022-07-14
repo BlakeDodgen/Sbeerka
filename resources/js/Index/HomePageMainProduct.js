@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 const HomePageMainProduct = () => {
 
@@ -33,7 +33,7 @@ const HomePageMainProduct = () => {
                     return (<>
                         <h2 className="main-product__title">FEATURED BEER</h2>
                         <div className="main-product__image-container">
-                            <img src={`img/beers/${item.beer_pic_id}.png`} className="main-product__img" alt="featured-beer-img" />
+                            <Link to={`/beers/${item.id}`}><img src={`img/beers/${item.beer_pic_id}.png`} className="main-product__img" alt="featured-beer-img" /></Link>
                         </div>
                         <div className="main-product__detail">
                             <p className="main-product__name">{item.name}</p>
