@@ -11,6 +11,7 @@ import axios from 'axios';
 import UserContext from "./UserContext";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
+import BreweryResults from "./BreweryResults";
 
 const App = () => {
 
@@ -54,7 +55,9 @@ const App = () => {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/beers/:id" element={<BeerProfile />} />
                     <Route path="/breweries/:id" element={<BreweryProfile />} />
+                    <Route exact path="/results/breweries/:searchString" element={<BreweryResults searchType={searchType}/>} />
                     <Route path="/results/:search/:searchString" element={<SearchResults searchType={searchType}/>} />
+                    
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/logout" element={<Logout />} />
