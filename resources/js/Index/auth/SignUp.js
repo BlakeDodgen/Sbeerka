@@ -42,6 +42,11 @@ function SignUp() {
         <div className="form">
             <h2>Sign Up</h2>
             <form className="form__form" action="/register" method="post" onSubmit={handleSignUp}>
+                <label>Sbeerka Member</label>
+                <input className="radio" id="radio-member" type="radio" name="user-radio" value={values.user_type} onChange={handleChange} checked="checked" />
+                <label>Sbeerka Brewery</label>
+                <input className="radio" id="radio-brewery" type="radio" name="user-radio" value={values.user_type} onChange={handleChange} />
+
                 <div className="form__container">
                     <label id="first-name" className="form__label form__label-name">First Name</label>
                     <input className="form__input form__input-name" type="text" name="first_name" value={values.first_name} onChange={handleChange} />
@@ -75,11 +80,6 @@ function SignUp() {
                 <label classname="form__label-member">User</label>
                 <label classname="form__label-brewery">Brewery</label>
                 <input type="number" name="user_type" value={values.user_type} onChange={handleChange} />
-                {/* To be grouped so they toggle back and forth, the radio buttons have to share a common name */}
-                <label>Sbeerka Member</label>
-                <input className="radio" id="radio-member" type="radio" name="user-radio" value={values.user_type} onChange={handleChange} checked="checked" />
-                <label>Sbeerka Brewery</label>
-                <input className="radio" id="radio-brewery" type="radio" name="user-radio" value={values.user_type} onChange={handleChange} />
 
                 <button>Create Sbeerka Account</button>
 
