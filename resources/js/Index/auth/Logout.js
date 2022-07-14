@@ -8,13 +8,18 @@ function Logout() {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
 
+    
     const logout = async () => {
         const res = await axios.post('/logout');
         return res.data;
     }
 
     const clickHandler = async () => {
-        const resp = await logout();
+        const res = await logout();
+
+        if (res) {
+            return console.log(res)
+        }
         setUser(null);
         return navigate("/");
     }

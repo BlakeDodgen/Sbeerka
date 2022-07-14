@@ -32,7 +32,7 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
             ->name('logout');
 
-Route::get('/{path?}', ['App\Http\Controllers\HomepageController', 'index']);
+Route::get('/{path?}', ['App\Http\Controllers\HomepageController', 'index'])->where('path', '.*');
 
 
 

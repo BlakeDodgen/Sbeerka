@@ -1,12 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import SearchResult from "./SearchResult";
+import { Link } from "react-router-dom";
 
-
-
-
-const SearchResults = (props) => {
-    const { search, searchString } = useParams();
+const CountryResults = (props) => {
+    const { search,searchString } = useParams();
 
 
     const [data, setData] = useState([])
@@ -14,11 +11,11 @@ const SearchResults = (props) => {
     // const [searchType, setSearchType] = useState(props.searchType);
 
 
-    console.log("props from SR:" + props.searchType)
+    console.log("props from CoutryR:" + props.searchType)
 
 
     //parameters search + text passed into the string
-    const url = `http://www.sbeerka.beer/api/search?search=${search}&text=${searchString}`;
+    const url = `http://www.sbeerka.beer/api/search?search=country&text=${searchString}`;
 
     // Search
     // General form: http://www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
@@ -28,7 +25,7 @@ const SearchResults = (props) => {
     // City search: http://www.sbeerka.beer/api/search?search=city&text=[search_query]
     // Country search: http://www.sbeerka.beer/api/search?search=country&text=[search_query]
 
-    console.log("url from SR:" + url);
+    console.log("url from CountryR:" + url);
 
     const fetchData = async () => {
         const response = await fetch(url);
@@ -39,20 +36,20 @@ const SearchResults = (props) => {
     useEffect(() => {
         fetchData();
 
-    }, [search, searchString])
+    }, [props.searchType, searchString])
 
     console.log(data);
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-        //return value if true-> if object.name includes search items
+        //return value if true-> if object.name includes search items 
         //compare the user input and data-> lowercase both values
         // console.log(item);
         // if (search === "beer-type") {
         //     return item.type.toLowerCase().includes(searchString.toLowerCase())
         // } if (search === "beers") {
-         return item.name.toLowerCase().includes(searchString.toLowerCase())
-       // }
+        return item.country.toLowerCase().includes(searchString.toLowerCase())
+        // }
 
     });
 
@@ -78,12 +75,7 @@ const SearchResults = (props) => {
 
 
                             return (
-                                <SearchResult key={index}
-                                    name={search === "beer-type" ? value.type : value.name}
-                                    beer_pic_id={value.beer_pic_id}
-                                    brewery={value.brewery.user.brewery_name}
-                                    type={value.beer_type.type}
-                                />
+                                <Link to={`/breweries/${value.brewery.id}`}><p>{value.country}</p></Link>
                                 // <a className="search__items" key={index} >{value.name} </a>
                             )
 
@@ -98,7 +90,7 @@ const SearchResults = (props) => {
 
 
         </>
-    );
-};
+    )
+}
 
-export default SearchResults;
+export default CountryResults;

@@ -4,7 +4,7 @@ import { Fragment, useContext, useState } from "react";
 import UserContext from "./UserContext";
 import Logout from "./auth/Logout";
 
-function Nav() {
+function Nav(props) {
 
     const { user, text } = useContext(UserContext);
 
