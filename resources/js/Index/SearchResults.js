@@ -6,6 +6,7 @@ import SearchResult from "./SearchResult";
 
 const SearchResults = () => {
     const {search, searchString} = useParams();
+    
 
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
@@ -45,8 +46,12 @@ const SearchResults = () => {
         //return value if true-> if object.name includes search items 
         //compare the user input and data-> lowercase both values
         // console.log(item);
-        return item.name.toLowerCase().includes(searchString.toLowerCase())
-
+        if(search==="beer-type"){
+            return item.type.toLowerCase().includes(searchString.toLowerCase())
+        } if(search==="beers"){
+        
+         return item.name.toLowerCase().includes(searchString.toLowerCase())
+        }
     });
     
     // setSearchItems(newSearch);
@@ -70,7 +75,7 @@ const SearchResults = () => {
                         
                         return ( newSearch===[]?"no items":
                             <SearchResult key={index}
-                             name={value.name}
+                             name={search==="beer-type"? value.type:value.name}
                              beer_pic_id={value.beer_pic_id}
                               />
                            // <a className="search__items" key={index} >{value.name} </a>

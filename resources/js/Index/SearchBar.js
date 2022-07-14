@@ -55,9 +55,9 @@ function SearchBar() {
                 <option value="all">ALL</option>
                 <option value="breweries">Breweries</option>
                 <option value="beers">Beer</option>
-                <option value="cities">City</option>
+                <option value="city">City</option>
                 <option value="countries">Country</option>
-                <option value="beertypes">Beer Type</option>
+                <option value="beer-type">Beer Type</option>
                 {/* <option value="random-beer">Random Beer</option> */}
             </select>
 
