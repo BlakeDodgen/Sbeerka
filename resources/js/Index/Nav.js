@@ -5,12 +5,12 @@ function Nav() {
     return (
         <div className="nav">
             <a className="nav__logo" href="/">
-                LOGO
+                SBEERKA
             </a>
 
             <SearchBar />
 
-            <Link to="/">About</Link>
+            <Link className="nav__about" to="/">About</Link>
 
             <div className="dropdown">
                 <button className="dropbtn">
