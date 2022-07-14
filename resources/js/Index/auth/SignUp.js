@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { loadUser } from "../actions/auth";
+import UserContext from "../UserContext";
 
 function SignUp() {
+    const navigate = useNavigate();
+    const { setUser, setLoadingUser } = useContext(UserContext);
+
     const [values, setValues] = useState({
         first_name: "",
         surname: "",
@@ -23,6 +29,14 @@ function SignUp() {
         } catch (err) {
             console.log(err);
         }
+
+        const userData = await loadUser();
+
+        await setUser(userData);
+
+        await setLoadingUser(false);
+
+        return navigate("/");
     };
 
     const handleChange = (e) => {
@@ -43,6 +57,26 @@ function SignUp() {
                 method="post"
                 onSubmit={handleSignUp}
             >
+                <label>Sbeerka Member</label>
+                <input
+                    className="radio"
+                    id="radio-member"
+                    type="radio"
+                    name="user-radio"
+                    value={values.user_type}
+                    onChange={handleChange}
+                    checked="checked"
+                />
+                <label>Sbeerka Brewery</label>
+                <input
+                    className="radio"
+                    id="radio-brewery"
+                    type="radio"
+                    name="user-radio"
+                    value={values.user_type}
+                    onChange={handleChange}
+                />
+
                 <div className="form__container">
                     <label
                         id="first-name"
@@ -142,26 +176,6 @@ function SignUp() {
                 <input
                     type="number"
                     name="user_type"
-                    value={values.user_type}
-                    onChange={handleChange}
-                />
-                {/* To be grouped so they toggle back and forth, the radio buttons have to share a common name */}
-                <label>Sbeerka Member</label>
-                <input
-                    className="radio"
-                    id="radio-member"
-                    type="radio"
-                    name="user-radio"
-                    value={values.user_type}
-                    onChange={handleChange}
-                    checked="checked"
-                />
-                <label>Sbeerka Brewery</label>
-                <input
-                    className="radio"
-                    id="radio-brewery"
-                    type="radio"
-                    name="user-radio"
                     value={values.user_type}
                     onChange={handleChange}
                 />

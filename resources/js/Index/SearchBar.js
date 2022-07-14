@@ -40,6 +40,7 @@ function SearchBar() {
 
     console.log(data);
     return (
+
         <div className="search">
             {/* create a new component ?? */}
             <div className="search__categories">
@@ -60,9 +61,11 @@ function SearchBar() {
                 data={data}
                 placeholder="Sbeerka beer search"
             /> */}
+            <SearchInput search={search} data={data} autocomplete="off" />
 
-            <SearchInput search={search} data={data} />
         </div>
+
+
     );
 }
 

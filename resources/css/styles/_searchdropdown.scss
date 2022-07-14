@@ -1,7 +1,13 @@
 .search {
-    width: 100%;
+    width: 50%;
     display: flex;
     gap: 3px;
+    position: relative;
+    border: 2px solid red;
+
+    &__container {
+        width: 100%;
+    }
 }
 
 .search__input {
@@ -9,12 +15,17 @@
     outline-color: $primary-yellow;
     color: $primary-grey;
     font-family: $primary-font;
-    width: 60%;
+    width: 100%;
     height: 2rem;
     padding: 0;
-    text-align: center;
+    text-indent: 6px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+.search__input-container {
+    width: 60%;
+
 }
 
 .search__categories {
@@ -30,8 +41,31 @@ select {
     border-color: transparent;
     text-align: center;
     outline-color: $primary-yellow;
+    background-color: $primary-yellow;
     height: 2rem;
     padding: 0;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.search__result {
+    margin-top: 5px;
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.2) 0px 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 2.2rem;
+    left: 0;
+    color: black;
+}
+//    //removes scrollbar
+.search__result::-webkit-scrollbar {
+    display: none;
 }
