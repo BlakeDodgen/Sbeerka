@@ -1,7 +1,13 @@
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import { Fragment, useContext, useState } from "react";
+import UserContext from "./UserContext";
+import Logout from "./auth/Logout";
 
 function Nav() {
+
+    const { user, text } = useContext(UserContext);
+
     return (
         <div className="nav">
             <a className="nav__logo" href="/">
@@ -12,29 +18,47 @@ function Nav() {
 
             <Link className="nav__about" to="/">About</Link>
 
-            <div className="dropdown">
-                <button className="dropbtn">
-                    <div className="nav__log-in">
+            
+
+            {
+                user ?
+                    
+                    <div className="dropdown">
+                        <button className="dropbtn">
+                            <div>
+                                <img
+                                    className="nav__icon"
+                                    src="./img/profile.svg"
+                                    alt="profile"
+                                />
+                                <span>User</span>
+                            </div>
+                        </button>
+
+                        <div className="dropdown-content">
+                            <Link to="/">Settings</Link>
+                            <Link to="/">Beer Collection</Link>
+                            <Logout />
+                        </div>
+                    </div>
+
+                :
+                <Fragment>
+                    <Link className="nav__login" to="/login">
                         <img
                             className="nav__icon"
                             src="./img/profile.svg"
                             alt="profile"
                         />
-                        <Link className="nav__login" to="/login">
-                            Log In
-                        </Link>
-                    </div>
-                </button>
+                        Log In
+                    </Link>
 
-                <div className="dropdown-content">
-                    <Link to="/">Settings</Link>
-                    <Link to="/">Beer Collection</Link>
-                    <Link to="/logout">Log Out</Link>
-                </div>
-            </div>
-            <Link className="nav__signup" to="/signup">
-                Sign Up
-            </Link>
+                    <Link className="nav__signup" to="/signup">
+                        Sign Up
+                    </Link>
+                </Fragment>
+            }
+            
         </div>
     );
 }

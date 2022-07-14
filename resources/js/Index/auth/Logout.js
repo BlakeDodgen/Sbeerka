@@ -16,7 +16,7 @@ function Logout() {
         setUser(null);
     }
 
-    if (!user) return null;
+    // if (!user) return null;
 
     return (
         <button onClick={clickHandler}>Click</button>

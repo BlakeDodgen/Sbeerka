@@ -13,20 +13,15 @@ import {
     UNSAFE_RouteContext,
 } from "react-router-dom";
 import { useReducer, useEffect, useState, useContext } from "react";
-import axios from "axios";
 import UserContext from "./UserContext";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
+import { loadUser } from "./actions/auth";
 
 const App = () => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState("");
     const [loadingUser, setLoadingUser] = useState(false);
-    const text = "Hello!";
 
-    const loadUser = async () => {
-        const res = await axios.get("/api/user");
-        return res.data;
-    };
     // const loadUser = async () => {
     //     const response = await axios.get('/api/user');
     //     if (response) {
@@ -41,8 +36,12 @@ const App = () => {
     // }
 
     useEffect(() => {
-        const res = loadUser();
-        setUser(res);
+        (async () => {
+
+            const res = await loadUser();
+        
+            setUser(res);
+        })()
     }, []);
 
     return (
@@ -50,7 +49,7 @@ const App = () => {
             <BrowserRouter>
                 <Nav />
                 <div className="main">
-
+                    
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/beers/:id" element={<BeerProfile />} />
@@ -58,7 +57,6 @@ const App = () => {
                         <Route path="/results/:search/:searchString" element={<SearchResults />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
-                        <Route path="/logout" element={<Logout />} />
                     </Routes>
                 </div>
 

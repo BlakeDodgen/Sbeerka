@@ -1,12 +1,13 @@
 import axios from "axios";
+import {loadUser} from './Functions.js';
 
 function Footer() {
 
-    const loadUser = async () => {
-        const res = await axios.get('/api/user');
-        return res.data;
+    // const loadUser = async () => {
+    //     const res = await axios.get('/api/user');
+    //     return res.data;
         
-    }
+    // }
 
     return (
         <div className="footer">
