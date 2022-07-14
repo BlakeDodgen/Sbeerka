@@ -5,23 +5,27 @@ import Login from "./auth/Login";
 import Logout from "./auth/Logout";
 import SignUp from "./auth/SignUp";
 import SearchResults from "./SearchResults";
-import { BrowserRouter, Routes, Route, Link, UNSAFE_RouteContext } from "react-router-dom";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link,
+    UNSAFE_RouteContext,
+} from "react-router-dom";
 import { useReducer, useEffect, useState, useContext } from "react";
-import axios from 'axios';
 import UserContext from "./UserContext";
+import BreweryForm from "./BreweryForm";
+// import BeerForm from "./BeerForm";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
+import { loadUser } from "./actions/auth";
+import UserProfile from "./UserProfile";
+import Settings from "./Settings";
 
 const App = () => {
-
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState("");
     const [loadingUser, setLoadingUser] = useState(false);
 
-    const loadUser = async () => {
-        const res = await axios.get('/api/user');
-        return res.data;
-        
-    }
     // const loadUser = async () => {
     //     const response = await axios.get('/api/user');
     //     if (response) {
@@ -36,32 +40,42 @@ const App = () => {
     // }
 
     useEffect(() => {
-        const res =loadUser();
-        setUser(res);
+        (async () => {
+            const res = await loadUser();
+
+            setUser(res);
+        })();
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, setUser, loadingUser, setLoadingUser }}>
+        <UserContext.Provider
+            value={{ user, setUser, loadingUser, setLoadingUser }}
+        >
             <BrowserRouter>
                 <Nav />
-                    <div className="main">
-                
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/beers/:id" element={<BeerProfile />} />
-                    <Route path="/breweries/:id" element={<BreweryProfile />} />
-                    <Route path="/results/:search/:searchString" element={<SearchResults />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/logout" element={<Logout />} />
-                </Routes>
-                <Link to="/breweries/1" >Link</Link>
-            </div>
+                <div className="main">
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/beers/:id" element={<BeerProfile />} />
+                        <Route
+                            path="/breweries/:id"
+                            element={<BreweryProfile />}
+                        />
+                        <Route
+                            path="/results/:search/:searchString"
+                            element={<SearchResults />}
+                        />
+                        <Route path="/user/:id" element={<UserProfile />} />
+                        <Route path="/user/:id/settings" element={<Settings />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<SignUp />} />
+                    </Routes>
+                </div>
 
-            <Footer />
-        </BrowserRouter>
+                <Footer />
+            </BrowserRouter>
         </UserContext.Provider>
-    )
-}
+    );
+};
 
 export default App;

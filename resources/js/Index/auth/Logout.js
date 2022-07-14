@@ -1,10 +1,12 @@
 import UserContext from "../UserContext";
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Logout() {
 
     const { user, setUser } = useContext(UserContext);
+    const navigate = useNavigate();
 
     
     const logout = async () => {
@@ -19,17 +21,13 @@ function Logout() {
             return console.log(res)
         }
         setUser(null);
+        return navigate("/");
     }
 
-   
-
-    if (!user) return null;
+    // if (!user) return null;
 
     return (
-        <>
-        <p>User: {user.email || "no user"}</p>
-        <button onClick={clickHandler}>Click</button>
-        </>
+        <p onClick={clickHandler}>Logout</p>
     )
 }
 

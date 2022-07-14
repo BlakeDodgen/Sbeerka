@@ -1,11 +1,10 @@
-@import 'styles/variables';
-@import 'styles/nav';
-@import 'styles/footer';
-@import 'styles/form';
-@import 'styles/main';
-// @import 'styles/searchdropdown';
-@import 'styles/navDropdown';
-@import 'styles/dropdown';
+@import "styles/variables";
+@import "styles/nav";
+@import "styles/footer";
+@import "styles/form";
+@import "styles/main";
+@import "styles/searchdropdown";
+@import "styles/navDropdown";
 
 html {
     box-sizing: border-box;
@@ -21,7 +20,8 @@ html {
     -ms-user-select: none;
     user-select: none;
 }
-body, #root {
+body,
+#root {
     height: 100%;
 }
 
@@ -31,7 +31,8 @@ body {
     color: $secondary-blue;
     background-color: $primary-yellow;
 }
-h2, h3 {
+h2,
+h3 {
     font-weight: $secondary-font-weight;
 }
 
@@ -41,4 +42,12 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+
+    &:visited {
+        text-decoration: none;
+    }
 }
