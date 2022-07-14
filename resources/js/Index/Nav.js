@@ -34,7 +34,8 @@ function Nav() {
                         </button>
 
                         <div className="dropdown-content">
-                            <Link to="/">Settings</Link>
+                            <Link to={`/user/${user.id}/settings`}>Settings</Link>
+                            <Link to={`/user/${user.id}`}>Profile</Link>
                             <Link to="/">Beer Collection</Link>
                             <Logout />
                         </div>

@@ -19,6 +19,8 @@ import BreweryForm from "./BreweryForm";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
 import { loadUser } from "./actions/auth";
+import UserProfile from "./UserProfile";
+import Settings from "./Settings";
 
 const App = () => {
     const [user, setUser] = useState("");
@@ -63,6 +65,8 @@ const App = () => {
                             path="/results/:search/:searchString"
                             element={<SearchResults />}
                         />
+                        <Route path="/user/:id" element={<UserProfile />} />
+                        <Route path="/user/:id/settings" element={<Settings />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                     </Routes>
