@@ -45,9 +45,9 @@ function SearchInput({ placeholder, data, search }) {
     // console.log(data);
 
     return (
-        <div>
+        <div className="search">
             <input
-                className="input"
+                className="search__input"
                 type="text"
                 placeholder="go through sbeerka"
                 name="search"
