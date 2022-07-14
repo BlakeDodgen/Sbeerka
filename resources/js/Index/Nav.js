@@ -1,6 +1,5 @@
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
-import SearchTest from "./SearchTest";
 
 function Nav() {
     return (
