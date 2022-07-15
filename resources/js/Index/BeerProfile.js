@@ -112,7 +112,7 @@ const BeerProfile = () => {
 
     useEffect(() => {
         loadData();
-    }, []);
+    }, [reviewed]);
 
     return (
         beer && (
