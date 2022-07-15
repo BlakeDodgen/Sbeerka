@@ -2,31 +2,16 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 const BeerForm = () => {
-    const [beerTypeId, setBeerTypeId] = useState("");
-    const [name, setName] = useState("");
-    const [alcoholVolume, setAlcoholVolume] = useState("");
-    const [degree, setDegree] = useState("");
-    const [description, setDescription] = useState("");
-    const [beerPicId, setBeerPicId] = useState("");
+    const navigate = useNavigate();
+    const  [values, setValues]  = useContext(UserContext);
 
-    const handleBeerTypeId = (e) => {
-        setBeerTypeId(e.target.value);
-    };
-    const handleName = (e) => {
-        setName(e.target.value);
-    };
-    const handleAlcoholVolume = (e) => {
-        setAlcoholVolume(e.target.value);
-    };
-    const handleDegree = (e) => {
-        setDegree(e.target.value);
-    };
-    const handleDescription = (e) => {
-        setDescription(e.target.value);
-    };
-    // const handleBeerPicId = (e) => {
-    //     setBeerPicId(e.target.value);
-    // };
+    const handleChange = (e) => {
+        setValues((previous_values) => {
+            return {
+                ...previous_values,
+                [e.target.name]: e.target.value,
+            };
+        });
 
     return (
         <div className="form">

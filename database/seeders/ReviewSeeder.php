@@ -71,12 +71,82 @@ class ReviewSeeder extends Seeder
                 'hoppy' => 4,
                 'bitter' => 2,
                 'sour' => 4
-            ],            
+            ],
+            [
+                'beer_id' => '2',
+                'user_id' => '4',
+                'review' => "Nice colour, quite attractive looking liquid...",
+                'rating' => 4,
+                'favorite' => false,
+                'body' => 2,
+                'linger' => 2,
+                'herbal' => 2,
+                'citrus' => 3,
+                'hoppy' => 5,
+                'bitter' => 1,
+                'sour' => 1
+            ],
+            [
+                'beer_id' => '13',
+                'user_id' => '4',
+                'review' => "Probaly the best beer I ever tasted, but I feel that waiteress was flirting with my partner so I deducted 3 stars",
+                'rating' => 2,
+                'favorite' => false,
+                'body' => 3,
+                'linger' => 2,
+                'herbal' => 1,
+                'citrus' => 4,
+                'hoppy' => 5,
+                'bitter' => 2,
+                'sour' => 3
+            ],
+            [
+                'beer_id' => '23',
+                'user_id' => '4',
+                'review' => "Made me feel like a God, I woke up 3 days later",
+                'rating' => 5,
+                'favorite' => true,
+                'body' => 5,
+                'linger' => 4,
+                'herbal' => 4,
+                'citrus' => 2,
+                'hoppy' => 2,
+                'bitter' => 3,
+                'sour' => 2
+            ],
+            [
+                'beer_id' => '33',
+                'user_id' => '4',
+                'review' => "Remindes me of a sunset in Giza, where I was visiting pyramides. I visited 92 countries so far and swam with dolphines. Quite sure that I saw a yeti, but not in Giza, in Nepal which I also visited",
+                'rating' => 5,
+                'favorite' => true,
+                'body' => 2,
+                'linger' => 3,
+                'herbal' => 1,
+                'citrus' => 5,
+                'hoppy' => 2,
+                'bitter' => 2,
+                'sour' => 3
+            ], [
+                'beer_id' => '27',
+                'user_id' => '4',
+                'review' => "It's good!!",
+                'rating' => 5,
+                'favorite' => true,
+                'body' => 2,
+                'linger' => 2,
+                'herbal' => 4,
+                'citrus' => 2,
+                'hoppy' => 3,
+                'bitter' => 5,
+                'sour' => 2
+            ]
+
         ];
 
-        foreach($reviews as $reviewex) {
+        foreach ($reviews as $reviewex) {
             $review = new Review;
-            
+
             $review->beer_id = $reviewex['beer_id'];
             $review->user_id = $reviewex['user_id'];
             $review->review = $reviewex['review'];
