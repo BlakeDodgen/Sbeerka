@@ -15,49 +15,73 @@ const BeerProfile = () => {
         response.data.reviews.forEach((review) => {
             ratingScore += review.rating;
         });
-        const avRating = ratingScore / response.data.reviews.length.toFixed(1);
+        let avRating = ratingScore / response.data.reviews.length.toFixed(1);
+        if (isNaN(avRating)) {
+            avRating = 0;
+        }
 
         let bodyScore = 0;
         response.data.reviews.forEach((review) => {
             bodyScore += review.body;
         });
-        const avBody = bodyScore / response.data.reviews.length.toFixed(1);
+        let avBody = bodyScore / response.data.reviews.length.toFixed(1);
+        if (isNaN(avBody)) {
+            avBody = 0;
+        }
 
         let lingerScore = 0;
         response.data.reviews.forEach((review) => {
             lingerScore += review.linger;
         });
-        const avLinger = lingerScore / response.data.reviews.length.toFixed(1);
+        let avLinger = lingerScore / response.data.reviews.length.toFixed(1);
+        if (isNaN(avLinger)) {
+            avLinger = 0;
+        }
 
         let herbalScore = 0;
         response.data.reviews.forEach((review) => {
             herbalScore += review.herbal;
         });
-        const avHerbal = herbalScore / response.data.reviews.length.toFixed(1);
+        let avHerbal = herbalScore / response.data.reviews.length.toFixed(1);
+        if (isNaN(avHerbal)) {
+            avHerbal = 0;
+        }
 
         let citrusScore = 0;
         response.data.reviews.forEach((review) => {
             citrusScore += review.citrus;
         });
-        const avCitrus = citrusScore / response.data.reviews.length.toFixed(1);
+        let avCitrus = citrusScore / response.data.reviews.length.toFixed(1);
+        if (isNaN(avCitrus)) {
+            avCitrus = 0;
+        }
 
         let hoppyScore = 0;
         response.data.reviews.forEach((review) => {
             hoppyScore += review.hoppy;
         });
-        const avHoppy = hoppyScore / response.data.reviews.length.toFixed(1);
+        let avHoppy = hoppyScore / response.data.reviews.length.toFixed(1);
+        if (isNaN(avHoppy)) {
+            avHoppy = 0;
+        }
 
         let bitterScore = 0;
         response.data.reviews.forEach((review) => {
             bitterScore += review.bitter;
         });
-        const avBitter = bitterScore / response.data.reviews.length.toFixed(1);
+        let avBitter = bitterScore / response.data.reviews.length.toFixed(1);
+        if (isNaN(avBitter)) {
+            avBitter = 0;
+        }
 
         let sourScore = 0;
         response.data.reviews.forEach((review) => {
             sourScore += review.sour;
         });
-        const avSour = sourScore / response.data.reviews.length.toFixed(1);
+        let avSour = sourScore / response.data.reviews.length.toFixed(1);
+        if (isNaN(avSour)) {
+            avSour = 0;
+        }
 
         setBeer({
             data: response.data,
