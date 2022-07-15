@@ -25,7 +25,14 @@ const ReviewForm = () => {
     };
     return (
         <div className="formRating">
-            <form className="form__form" action="/beers/review" method="post">
+            <form
+                className="form__form"
+                action="/beers/review"
+                method="post"
+                onSubmit={(e) => {
+                    handleSubmit(e);
+                }}
+            >
                 <div className="form__container">
                     <label className="form__label form__label-review">
                         Review:
