@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Product = (props) => {
-    console.log(props.data.reviews)
+    
     //add the rating
     let ratingScore = 0;
         props.data.reviews.forEach(review => {

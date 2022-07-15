@@ -29,12 +29,12 @@ function Nav(props) {
                                     src="./img/profile.svg"
                                     alt="profile"
                                 />
-                                <span>{user.username}</span>
+                                {user.username ? <span>{user.username}</span> :
+                                <span>{user.brewery_name}</span>}
                             </div>
                         </button>
 
                         <div className="dropdown-content">
-                            <Link to={`/user/${user.id}/settings`}>Settings</Link>
                             <Link to={`/user/${user.id}`}>Profile</Link>
                             <Link to="/">Beer Collection</Link>
                             <Logout />

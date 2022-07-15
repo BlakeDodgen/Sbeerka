@@ -26,7 +26,6 @@ import ReviewForm from "./forms/ReviewForm";
 
 import { loadUser } from "./actions/auth";
 import UserProfile from "./UserProfile";
-import Settings from "./Settings";
 
 const App = () => {
     const [user, setUser] = useState("");
@@ -72,7 +71,7 @@ const App = () => {
                     <Route exact path="/results/country/:searchString" element={<CountryResults searchType={searchType}/>} />
                     <Route exact path="/results/beer-type/:searchString" element={<BeerTypeResults searchType={searchType}/>} />
                     <Route path="/results/:search/:searchString" element={<SearchResults searchType={searchType}/>} />
-                    
+                    <Route path="user/:id" element={<UserProfile />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/logout" element={<Logout />} />
