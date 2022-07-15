@@ -101,7 +101,6 @@ function SignUp() {
     return (
         <div className="form">
             <form className="form__form" action="/register" method="post" onSubmit={handleSignUp}>
-                <RadarChart />
                 <h2>Sign Up</h2>
                 <Radio />
 
