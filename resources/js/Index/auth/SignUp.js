@@ -84,6 +84,7 @@ function SignUp() {
                     >
                         First Name
                     </label>
+                    <br />
                     <input
                         className="form__input form__input-name"
                         type="text"
@@ -92,10 +93,12 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
+                <br />
                 <div className="form__container">
                     <label className="form__label form__label-surname">
                         Surname
                     </label>
+                    <br />
                     <input
                         className="form__input form__input-surname"
                         type="text"
@@ -104,10 +107,12 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
+                <br />
                 <div className="form__container">
                     <label className="form__label form__label-username">
                         Username
                     </label>
+                    <br />
                     <input
                         className="form__input form__input-username"
                         type="text"
@@ -116,22 +121,46 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form__container">
-                    <label className="form__label form__label-breweryname">
-                        Brewery Name
-                    </label>
-                    <input
-                        className="form__input form__input-breweryname"
-                        type="text"
-                        name="brewery_name"
-                        value={values.brewery_name}
-                        onChange={handleChange}
-                    />
-                </div>
+                <br />
+            </form>
+        </div>
+    );
+}
+const Status2 = () => {
+    return (
+        <>
+            <div className="form__container">
+                <label className="form__label form__label-breweryname">
+                    Brewery Name
+                </label>
+                <br />
+                <input
+                    className="form__input form__input-breweryname"
+                    type="text"
+                    name="brewery_name"
+                    value={values.brewery_name}
+                    onChange={handleChange}
+                />
+            </div>
+        </>
+    );
+
+    return (
+        <div className="form">
+            <form
+                className="form__form"
+                action="/register"
+                method="post"
+                onSubmit={handleSignUp}
+            >
+                <h2>Sign Up</h2>
+                <Radio />
+
                 <div className="form__container">
                     <label className="form__label form__label-email">
                         Email
                     </label>
+                    <br />
                     <input
                         className="form__input form__input-email"
                         type="email"
@@ -140,10 +169,12 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
+                <br />
                 <div className="form__container">
                     <label className="form__label form__label-password">
                         Password
                     </label>
+                    <br />
                     <input
                         className="form__input form__input-password"
                         type="password"
@@ -152,10 +183,12 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
+                <br />
                 <div className="form__container">
                     <label className="form__label form__label-confirm">
                         Confirm Password
                     </label>
+                    <br />
                     <input
                         className="form__input form__input-confirm"
                         type="password"
@@ -164,6 +197,7 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
+                <br />
                 <label>I'm over 18</label>
                 <input
                     type="checkbox"
@@ -171,6 +205,7 @@ function SignUp() {
                     value={values.over18}
                     onChange={handleChange}
                 />
+                <br />
                 <label classname="form__label-member">User</label>
                 <label classname="form__label-brewery">Brewery</label>
                 <input
@@ -179,11 +214,11 @@ function SignUp() {
                     value={values.user_type}
                     onChange={handleChange}
                 />
+                <br />
 
                 <button>Create Sbeerka Account</button>
             </form>
         </div>
     );
-}
-
+};
 export default SignUp;
