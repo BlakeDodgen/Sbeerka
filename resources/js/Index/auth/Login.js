@@ -50,7 +50,7 @@ function Login() {
     return (
         <div className="form">
             <form className="form__form" onSubmit={handleSubmit}>
-                <h2>Login</h2>
+                <h2 className="form__h2">Login</h2>
 
                 <div className="form__container">
                     <label>User name </label>
