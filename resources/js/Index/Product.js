@@ -4,7 +4,7 @@ const Product = (props) => {
 
     //add the rating
 
-    
+
 
     return (
         <>

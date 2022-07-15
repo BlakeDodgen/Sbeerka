@@ -4,7 +4,7 @@ import { Fragment, useContext, useState } from "react";
 import UserContext from "./UserContext";
 import Logout from "./auth/Logout";
 
-function Nav() {
+function Nav(props) {
 
     const { user, text } = useContext(UserContext);
 
@@ -14,7 +14,7 @@ function Nav() {
                 SBEERKA
             </a>
 
-            <SearchBar />
+            <SearchBar setSearchType={props.setSearchType}/>
 
             <Link className="nav__about" to="/">About</Link>
 
@@ -29,12 +29,13 @@ function Nav() {
                                     src="./img/profile.svg"
                                     alt="profile"
                                 />
-                                <span>User</span>
+                                <span>{user.username}</span>
                             </div>
                         </button>
 
                         <div className="dropdown-content">
-                            <Link to="/">Settings</Link>
+                            <Link to={`/user/${user.id}/settings`}>Settings</Link>
+                            <Link to={`/user/${user.id}`}>Profile</Link>
                             <Link to="/">Beer Collection</Link>
                             <Logout />
                         </div>

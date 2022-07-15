@@ -12,48 +12,42 @@
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     z-index: 1;
-    border: 2px solid red;
 
-    &__logo, &__log-in, &__signup, &__about {
+    &__logo, &__signup, &__about {
         color: white;
-        text-decoration: none;
+        text-decoration: none; 
         
-    }
+        &:hover {
+            color: $primary-yellow;
+        }
+        &:visited {
+            text-decoration: none; 
+        }
+    }  
+}
+
+.nav__login {
+    text-decoration: none;
+    color: white;
+
     &:hover {
         color: $primary-yellow;
     }
-    &:visited {
-        text-decoration: none; 
-    }
-}
 
-.nav__log-in {
-    display: flex;
-    align-items: center;
-    //justify-content: space-between;
-    width: 4rem;
-    border: 2px solid red; 
-}
+    // &:visited {
+    //     //text-decoration: none;
+    // // color: white;
+    // }
+  }
 
 .nav__icon {
     width: 1rem;
 }
 
-.nav__about {
-    border: 2px solid red;
-}
+// .nav__log-in {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 4rem;
+// }
 
-.nav__logo {
-    border: 2px solid red;
-
-}
-
-.nav__signup {
-    border: 2px solid red;
-
-}
-
-.dropdown-content {
-    border: 2px solid red;
-
-}

@@ -15,14 +15,22 @@ import {
 import { useReducer, useEffect, useState, useContext } from "react";
 import UserContext from "./UserContext";
 import BreweryForm from "./BreweryForm";
-import BeerForm from "./BeerForm";
+// import BeerForm from "./BeerForm";
 import BeerProfile from "./BeerProfile";
 import BreweryProfile from "./BreweryProfile";
+import BreweryResults from "./searchresults-parts/BreweryResults";
+import CityResults from "./searchresults-parts/CityResults";
+import CountryResults from "./searchresults-parts/CountryResults";
+import BeerTypeResults from "./searchresults-parts/BeerTypeResults";
+
 import { loadUser } from "./actions/auth";
+import UserProfile from "./UserProfile";
+import Settings from "./Settings";
 
 const App = () => {
     const [user, setUser] = useState("");
     const [loadingUser, setLoadingUser] = useState(false);
+    const [searchType, setSearchType] = useState("beers")
 
     // const loadUser = async () => {
     //     const response = await axios.get('/api/user');
@@ -50,23 +58,25 @@ const App = () => {
             value={{ user, setUser, loadingUser, setLoadingUser }}
         >
             <BrowserRouter>
-                <Nav />
-                <div className="main">
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/beers/:id" element={<BeerProfile />} />
-                        <Route
-                            path="/breweries/:id"
-                            element={<BreweryProfile />}
-                        />
-                        <Route
-                            path="/results/:search/:searchString"
-                            element={<SearchResults />}
-                        />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/signup" element={<SignUp />} />
-                    </Routes>
-                </div>
+                <Nav setSearchType={setSearchType} />
+                    <div className="main">
+                
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/beers/:id" element={<BeerProfile />} />
+                    <Route path="/breweries/:id" element={<BreweryProfile />} />
+                    <Route exact path="/results/breweries/:searchString" element={<BreweryResults searchType={searchType}/>} />
+                    <Route exact path="/results/city/:searchString" element={<CityResults searchType={searchType}/>} />
+                    <Route exact path="/results/country/:searchString" element={<CountryResults searchType={searchType}/>} />
+                    <Route exact path="/results/beer-type/:searchString" element={<BeerTypeResults searchType={searchType}/>} />
+                    <Route path="/results/:search/:searchString" element={<SearchResults searchType={searchType}/>} />
+                    
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/logout" element={<Logout />} />
+                </Routes>
+                <Link to="/breweries/1" >Link</Link>
+            </div>
 
                 <Footer />
             </BrowserRouter>
