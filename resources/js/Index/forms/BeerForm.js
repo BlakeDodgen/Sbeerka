@@ -30,7 +30,7 @@ const BeerForm = () => {
                     handleSubmit(e);
                 }}
             >
-                <h2>Beer Form</h2>
+                <h2 className="form__h2">Beer Form</h2>
                 <div className="form__container">
                     <label className="form__label form__label-beerType">
                         Beer Type:
@@ -83,7 +83,7 @@ const BeerForm = () => {
                     </label>
                     <input
                         className="form__input form__input-degree"
-                        type="text"
+                        type="number"
                         value={values.degree}
                         onChange={(e) => {
                             handleChange(e);
@@ -107,11 +107,11 @@ const BeerForm = () => {
                 </div>
                 {/* <br />
                 <div className="form__container">
-                    <label className="form__label form__label-beerPicId">
-                        Image:
+                    <label className="form__label form__label-image">
+                        Upload Image:
                     </label>
                     <input
-                        className="form__input form__input-beerPicId"
+                        className="form__input form__input-image"
                         type="number"
                         value={values.beer_pic_id}
                         required
