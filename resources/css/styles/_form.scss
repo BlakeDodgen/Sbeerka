@@ -12,6 +12,10 @@
     width: 60%;
 }
 
+.form__h2 {
+    font-weight: 600;
+}
+
 .form__form {
     display: flex;
     flex-direction: column;
@@ -19,6 +23,8 @@
     border: 2px solid red;
     align-items: flex-start;
     width: 80%;
+    position: absolute;
+    top: 0;
 }
 
 .form__label {

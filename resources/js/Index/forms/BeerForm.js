@@ -30,7 +30,7 @@ const BeerForm = () => {
                     handleSubmit(e);
                 }}
             >
-                <h2>Beer Form</h2>
+                <h2 className="form__h2">Beer Form</h2>
                 <div className="form__container">
                     <label className="form__label form__label-beerType">
                         Beer Type:

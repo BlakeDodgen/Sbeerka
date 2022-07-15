@@ -59,9 +59,9 @@ function SignUp() {
 
         return (
             <div>
-                <input className="radio" type="radio" name="user-radio" value={values.user_type} checked={status === 1} onClick={(e) => radioHandler(1)} />
+                <input className="radio" type="radio" name="user-radio" value={values.user_type} checked={status === 1} onClick={(e) => radioHandler(1)} onChange={handleChange} />
                 <label>Sbeerka Member</label>
-                <input className="radio" type="radio" name="member-radio" value={values.user_type} checked={status === 2} onClick={(e) => radioHandler(2)} />
+                <input className="radio" type="radio" name="member-radio" value={values.user_type} checked={status === 2} onClick={(e) => radioHandler(2)} onChange={handleChange} />
                 <label>Sbeerka Brewery</label>
                 {status === 1 && Status1()}
                 {status === 2 && Status2()}
@@ -109,7 +109,7 @@ function SignUp() {
     return (
         <div className="form">
             <form className="form__form" action="/register" method="post" onSubmit={handleSignUp}>
-                <h2>Sign Up</h2>
+                <h2 className="form__h2">Sign Up</h2>
                 <Radio />
 
                 <div className="form__container">
@@ -155,8 +155,8 @@ function SignUp() {
                     onChange={handleChange}
                 />
                 <br />
-                <label classname="form__label-member">User</label>
-                <label classname="form__label-brewery">Brewery</label>
+                <label className="form__label-member">User</label>
+                <label className="form__label-brewery">Brewery</label>
                 <input
                     type="number"
                     name="user_type"
@@ -167,10 +167,7 @@ function SignUp() {
 
                 <button className="form__button">Create Sbeerka Account</button>
             </form>
-
         </div>
-
-
     );
 }
 
