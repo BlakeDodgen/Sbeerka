@@ -3,7 +3,14 @@ import ReactDOM from "react-dom";
 
 const BeerForm = () => {
     const navigate = useNavigate();
-    const  [values, setValues]  = useContext(UserContext);
+    const [values, setValues] = useContext({
+        // beer_type_id: "",
+        name: "",
+        alcohol_volume: 0,
+        degree: 0,
+        description: "",
+        // beer_pic_id: 0,
+    });
 
     const handleChange = (e) => {
         setValues((previous_values) => {
@@ -12,7 +19,7 @@ const BeerForm = () => {
                 [e.target.name]: e.target.value,
             };
         });
-
+    };
     return (
         <div className="form">
             <h2> Beer Form </h2>
@@ -24,7 +31,7 @@ const BeerForm = () => {
                     handleSubmit(e);
                 }}
             >
-                <div className="form__container">
+                {/* <div className="form__container">
                     <label className="form__label form__label-beerType">
                         Beer Type:
                     </label>
@@ -34,10 +41,10 @@ const BeerForm = () => {
                         value={beerTypeId}
                         required
                         onChange={(e) => {
-                            handleBeerTypeId(e);
+                            handleChange(e);
                         }}
                     />
-                </div>
+                </div> */}
                 <br />
                 <div className="form__container">
                     <label className="form__label form__label-name">
@@ -47,10 +54,10 @@ const BeerForm = () => {
                     <input
                         className="form__input form__input-name"
                         type="text"
-                        value={name}
+                        value={values.name}
                         required
                         onChange={(e) => {
-                            handleName(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
@@ -61,11 +68,11 @@ const BeerForm = () => {
                     </label>
                     <input
                         className="form__input form__input-alcoholVolume"
-                        type="text"
-                        value={alcoholVolume}
+                        type="number"
+                        value={values.alcohol_volume}
                         required
                         onChange={(e) => {
-                            handleAlcoholVolume(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
@@ -77,10 +84,9 @@ const BeerForm = () => {
                     <input
                         className="form__input form__input-degree"
                         type="text"
-                        value={degree}
-                        required
+                        value={values.degree}
                         onChange={(e) => {
-                            handleDegree(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
@@ -92,31 +98,31 @@ const BeerForm = () => {
                     <input
                         className="form__input form__input-description"
                         type="text"
-                        value={description}
+                        value={values.description}
                         required
                         onChange={(e) => {
-                            handleDescription(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
                 {/* <br />
                 <div className="form__container">
                     <label className="form__label form__label-beerPicId">
-                        History:
+                        Image:
                     </label>
                     <input
                         className="form__input form__input-beerPicId"
-                        type="text"
-                        value={beerPicId}
+                        type="number"
+                        value={values.beer_pic_id}
                         required
                         onChange={(e) => {
-                            handleBeerPicId(e);
+                            handleChange(e);
                         }}
                     />
                 </div> */}
                 <br />
             </form>
-            <button>Cheers</button>
+            <button className="form__button">Submit</button>
         </div>
     );
 };
