@@ -6,9 +6,7 @@ import axios from "axios";
 const UserProfile = () => {
 
     const { id } = useParams();
-
     const { user, setUser } = useContext(UserContext);
-
     const navigate = useNavigate();
 
     const clickHandler = async () => {
@@ -17,15 +15,34 @@ const UserProfile = () => {
         return navigate("/");
     }
 
-    return (
-        <>
-        <h1>User ID: {id}</h1>
-        <h2>Username: {user.username}</h2>
-        {user.user_type != 3 &&
-            <p onClick={clickHandler}>DELETE PROFILE</p>
-        }
-        </>
-    )
+    // const loadData = async () => {
+    //     const response = await axios.get(`/api/beers/${id}`);
+    //     setBeer(); 
+    // }
+
+    // useEffect(() => {
+    //     loadData();
+    // }, []);
+    
+    if (user.user_type == 1) {
+        return (
+            <>
+            <p>User ID: {id}</p>
+            <p>Username: {user.username}</p>
+            <p>First Name: {user.first_name}</p>
+            <p>Surname: {user.surname}</p>
+            <p><strong>Reviewed Beers: </strong></p>
+            {user.user_type != 3 &&
+                <p onClick={clickHandler}>DELETE PROFILE</p>
+            }
+            </>
+        )
+    } else {
+        return (
+            <h1>Not Beer User</h1>
+        )
+    }
+    
 }
 
 export default UserProfile;
