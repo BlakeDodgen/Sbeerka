@@ -3,6 +3,9 @@ import axios from 'axios';
 import UserContext from "../UserContext";
 import { loadUser, login } from "../actions/auth";
 import { useNavigate } from "react-router-dom";
+import BasicSwitches from "../mui/BasicSwitches";
+import FormPropsTextFields from "../mui/FormPropsTextFields";
+import Buttons from "../mui/Buttons";
 
 function Login() {
     const [values, setValues] = useState({
@@ -59,6 +62,9 @@ function Login() {
             {
                 !!errorResponse && <span>errorResponse</span>
             }
+            {/* <BasicSwitches /> */}
+            {/* <FormPropsTextFields email={values.email}  pass={values.password}/> */}
+            <Buttons/>
         </form>
         {/* <button onClick={async () => {
             const user = await loadUser()

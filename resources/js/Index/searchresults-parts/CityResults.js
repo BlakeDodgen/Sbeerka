@@ -75,7 +75,7 @@ const CityResults = (props) => {
 
 
                             return (
-                                <Link to={`/breweries/${value.brewery.id}`}><p>{value.city}</p></Link>
+                                <Link to={`/breweries/${value.id}`}><p>{value.city}</p></Link>
                                 // <a className="search__items" key={index} >{value.name} </a>
                             )
 
