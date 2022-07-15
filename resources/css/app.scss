@@ -25,7 +25,7 @@ html {
 
 body,
 #root {
-    height: 100%;
+    height: 200%;
 }
 
 body {
@@ -33,6 +33,9 @@ body {
     font-family: $primary-font;
     color: $secondary-blue;
     background-color: $primary-yellow;
+    position: relative;
+    height: auto;
+    min-height: 100% !important;
 }
 
 h2,
