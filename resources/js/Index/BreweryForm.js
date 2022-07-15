@@ -2,36 +2,23 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 const BreweryForm = () => {
-    const [city, setCity] = useState("");
-    const [country, setCountry] = useState("");
-    const [website, setWebsite] = useState("");
-    const [email, setEmail] = useState("");
-    const [size, setSize] = useState("");
-    const [history, setHistory] = useState("");
-    // const [image, setimage] = useState("");
+    const [values, setValues] = useState({
+        city: "",
+        country: "",
+        website: "",
+        size: "",
+        history: "",
+        brewery_pic_id: "",
+    });
 
-    const handleCity = (e) => {
-        setCity(e.target.value);
+    const handleChange = (e) => {
+        setValues((previous_values) => {
+            return {
+                ...previous_values,
+                [e.target.name]: e.target.value,
+            };
+        });
     };
-    const handleCountry = (e) => {
-        setCountry(e.target.value);
-    };
-    const handleWebsite = (e) => {
-        setWebsite(e.target.value);
-    };
-    const handleEmail = (e) => {
-        setEmail(e.target.value);
-    };
-    const handleSize = (e) => {
-        setSize(e.target.value);
-    };
-    const handleHistory = (e) => {
-        setHistory(e.target.value);
-    };
-
-    // const handleImage = (e) => {
-    //     setImage(e.target.value);
-    // };
 
     return (
         <div className="form">
@@ -51,10 +38,10 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-city"
                         type="text"
-                        value={city}
+                        value={values.city}
                         required
                         onChange={(e) => {
-                            handleCity(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
@@ -67,10 +54,10 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-country"
                         type="text"
-                        value={country}
+                        value={values.country}
                         required
                         onChange={(e) => {
-                            handleCountry(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
@@ -82,28 +69,15 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-website"
                         type="text"
-                        value={website}
+                        value={values.website}
                         required
                         onChange={(e) => {
-                            handleWebsite(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
                 <br />
-                <div className="form__container">
-                    <label className="form__label form__label-email">
-                        Email:
-                    </label>
-                    <input
-                        className="form__input form__input-email"
-                        type="text"
-                        value={email}
-                        required
-                        onChange={(e) => {
-                            handleEmail(e);
-                        }}
-                    />
-                </div>
+
                 <br />
                 <div className="form__container">
                     <label className="form__label form__label-size">
@@ -112,14 +86,13 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-size"
                         type="text"
-                        value={size}
+                        value={values.size}
                         required
                         onChange={(e) => {
-                            handleSize(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
-                <br />
                 <div className="form__container">
                     <label className="form__label form__label-history">
                         History:
@@ -127,13 +100,15 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-history"
                         type="text"
-                        value={history}
+                        value={values.history}
                         required
                         onChange={(e) => {
-                            handleHistory(e);
+                            handleChange(e);
                         }}
                     />
                 </div>
+                <br />
+
                 {/* <br />
                 <div className="form__container">
                 <label
@@ -142,10 +117,10 @@ const BreweryForm = () => {
                 <input
                     className="breweryform__input"
                     type="text"
-                    value={image}
+                    value={value.brewery_pic_id}
                     required
                     onChange={(e) => {
-                        handleImage(e);
+                        handleChange(e);
                     }}
                 /> </div>*/}
                 <br />

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Fragment, useContext, useState } from "react";
 import UserContext from "./UserContext";
 import Logout from "./auth/Logout";
+import About from "./about-page/About";
 
 function Nav(props) {
-
     const { user, text } = useContext(UserContext);
 
     return (
@@ -14,50 +14,51 @@ function Nav(props) {
                 SBEERKA
             </a>
 
-            <SearchBar setSearchType={props.setSearchType}/>
+            <SearchBar setSearchType={props.setSearchType} />
 
-            <Link className="nav__about" to="/">About</Link>
+            <Link className="nav__about" to="/about">
+                About
+            </Link>
 
-            {
-                user ?
-
-                    <div className="dropdown">
-                        <button className="dropbtn">
-                            <div>
-                                <img
-                                    className="nav__icon"
-                                    src="./img/profile.svg"
-                                    alt="profile"
-                                />
-                                {user.username ? <span>{user.username}</span> :
-                                <span>{user.brewery_name}</span>}
-                            </div>
-                        </button>
-
-                        <div className="dropdown-content">
-                            <Link to={`/user/${user.id}`}>Profile</Link>
-                            <Link to="/">Beer Collection</Link>
-                            <Logout />
-                        </div>
-                    </div>
-
-                    :
-                    <Fragment>
-                        <Link className="nav__login" to="/login">
+            {user ? (
+                <div className="dropdown">
+                    <button className="dropbtn">
+                        <div>
                             <img
                                 className="nav__icon"
                                 src="./img/profile.svg"
                                 alt="profile"
                             />
-                            Log In
-                        </Link>
+                            {user.username ? (
+                                <span>{user.username}</span>
+                            ) : (
+                                <span>{user.brewery_name}</span>
+                            )}
+                        </div>
+                    </button>
 
-                        <Link className="nav__signup" to="/signup">
-                            Sign Up
-                        </Link>
-                    </Fragment>
-            }
+                    <div className="dropdown-content">
+                        <Link to={`/user/${user.id}`}>Profile</Link>
+                        <Link to="/">Beer Collection</Link>
+                        <Logout />
+                    </div>
+                </div>
+            ) : (
+                <Fragment>
+                    <Link className="nav__login" to="/login">
+                        <img
+                            className="nav__icon"
+                            src="./img/profile.svg"
+                            alt="profile"
+                        />
+                        Log In
+                    </Link>
 
+                    <Link className="nav__signup" to="/signup">
+                        Sign Up
+                    </Link>
+                </Fragment>
+            )}
         </div>
     );
 }

@@ -5,6 +5,120 @@ import axios from "axios";
 import { loadUser } from "../actions/auth";
 import UserContext from "../UserContext";
 
+const Radio = (props) => {
+    // const [status, setStatus] = React.useState(1);
+
+    return (
+        <div>
+            <input
+                className="radio"
+                type="radio"
+                name="user_type"
+                value="user"
+                checked={props.values.user_type === 'user'}
+                onChange={props.handleChange}
+            />
+            <label>Sbeerka Member</label>
+            <input
+                className="radio"
+                type="radio"
+                name="user_type"
+                value="brewery"
+                checked={props.values.user_type === 'brewery'}
+                onChange={props.handleChange}
+            />
+            <label>Sbeerka Brewery</label>
+            {props.values.user_type === 'user' ?
+                <Status1 values={props.values} handleChange={props.handleChange} setValues={props.setValues} /> :
+                <Status2 values={props.values} handleChange={props.handleChange} />
+            }
+        </div>
+    );
+};
+
+const Status1 = (props) => {
+    const [lol, setLol] = useState(true)
+
+    console.log(props.values)
+
+    return (
+        <>
+            <div className="form__container">
+                <label
+                    id="first-name"
+                    className="form__label form__label-name"
+                >
+                    First Name
+                </label>
+                <br />
+                <input
+                    className="form__input form__input-name"
+                    type="text"
+                    name="first_name"
+                    value={props.values.first_name}
+                    onChange={(e) => {
+                        props.setValues((previous_values) => {
+                            return {
+                                ...previous_values,
+                                [e.target.name]: e.target.value,
+                            };
+                        })
+                    }}
+                />
+            </div>
+            <br />
+            <div className="form__container">
+                <label className="form__label form__label-surname">
+                    Surname
+                </label>
+                <br />
+                <input
+                    className="form__input form__input-surname"
+                    type="text"
+                    name="surname"
+                    value={props.values.surname}
+                    onChange={props.handleChange}
+                />
+            </div>
+            <br />
+            <div className="form__container">
+                <label className="form__label form__label-username">
+                    Username
+                </label>
+                <br />
+                <input
+                    className="form__input form__input-username"
+                    type="text"
+                    name="username"
+                    value={props.values.username}
+                    onChange={props.handleChange}
+                />
+            </div>
+            <br />
+        </>
+    );
+};
+
+const Status2 = (props) => {
+    return (
+        <>
+            <div className="form__container">
+                <label className="form__label form__label-breweryname">
+                    Brewery Name
+                </label>
+                <br />
+                <input
+                    className="form__input form__input-breweryname"
+                    type="text"
+                    name="brewery_name"
+                    value={props.values.brewery_name}
+                    onChange={props.handleChange}
+                />
+            </div>
+        </>
+    );
+};
+
 function SignUp() {
     const navigate = useNavigate();
     const { setUser, setLoadingUser } = useContext(UserContext);
@@ -18,9 +132,8 @@ function SignUp() {
         password: "",
         password_confirmation: "",
         over18: false,
-        user_type: "",
+        user_type: "user",
     });
-    console.log(values);
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -47,73 +160,23 @@ function SignUp() {
                 [e.target.name]: e.target.value,
             };
         });
-    }
-
-    const Radio = () => {
-        const [status, setStatus] = React.useState(1)
-
-
-        const radioHandler = (status) => {
-            setStatus(status);
-        };
-
-        return (
-            <div>
-                <input className="radio" type="radio" name="user-radio" value={values.user_type} checked={status === 1} onClick={(e) => radioHandler(1)} />
-                <label>Sbeerka Member</label>
-                <input className="radio" type="radio" name="member-radio" value={values.user_type} checked={status === 2} onClick={(e) => radioHandler(2)} />
-                <label>Sbeerka Brewery</label>
-                {status === 1 && Status1()}
-                {status === 2 && Status2()}
-            </div>
-        )
-    }
-
-    const Status1 = () => {
-        return (
-            <>
-                <div className="form__container">
-                    <label id="first-name" className="form__label form__label-name">First Name</label>
-                    <br />
-                    <input className="form__input form__input-name" type="text" name="first_name" value={values.first_name} onChange={handleChange} />
-                </div>
-                <br />
-                <div className="form__container">
-                    <label className="form__label form__label-surname">Surname</label>
-                    <br />
-                    <input className="form__input form__input-surname" type="text" name="surname" value={values.surname} onChange={handleChange} />
-                </div>
-                <br />
-                <div className="form__container">
-                    <label className="form__label form__label-username">Username</label>
-                    <br />
-                    <input className="form__input form__input-username" type="text" name="username" value={values.username} onChange={handleChange} />
-                </div>
-                <br />
-            </>
-        )
-    }
-
-    const Status2 = () => {
-        return (
-            <>
-                <div className="form__container">
-                    <label className="form__label form__label-breweryname">Brewery Name</label>
-                    <br />
-                    <input className="form__input form__input-breweryname" type="text" name="brewery_name" value={values.brewery_name} onChange={handleChange} />
-                </div>
-            </>
-        )
-    }
+    };
 
     return (
         <div className="form">
-            <form className="form__form" action="/register" method="post" onSubmit={handleSignUp}>
-                <h2>Sign Up</h2>
-                <Radio />
+            <form
+                className="form__form"
+                action="/register"
+                method="post"
+                onSubmit={handleSignUp}
+            >
+                <h2 className="form__h2">Sign Up</h2>
+                <Radio values={values} handleChange={handleChange} setValues={setValues} />
 
                 <div className="form__container">
-                    <label className="form__label form__label-email">Email</label>
+                    <label className="form__label form__label-email">
+                        Email
+                    </label>
                     <br />
                     <input
                         className="form__input form__input-email"
@@ -125,7 +188,9 @@ function SignUp() {
                 </div>
                 <br />
                 <div className="form__container">
-                    <label className="form__label form__label-password">Password</label>
+                    <label className="form__label form__label-password">
+                        Password
+                    </label>
                     <br />
                     <input
                         className="form__input form__input-password"
@@ -137,9 +202,12 @@ function SignUp() {
                 </div>
                 <br />
                 <div className="form__container">
-                    <label className="form__label form__label-confirm">Confirm Password</label>
+                    <label className="form__label form__label-confirm">
+                        Confirm Password
+                    </label>
                     <br />
-                    <input className="form__input form__input-confirm"
+                    <input
+                        className="form__input form__input-confirm"
                         type="password"
                         name="password_confirmation"
                         value={values.password_confirmation}
@@ -155,8 +223,8 @@ function SignUp() {
                     onChange={handleChange}
                 />
                 <br />
-                <label classname="form__label-member">User</label>
-                <label classname="form__label-brewery">Brewery</label>
+                <label className="form__label-member">User</label>
+                <label className="form__label-brewery">Brewery</label>
                 <input
                     type="number"
                     name="user_type"
@@ -167,10 +235,7 @@ function SignUp() {
 
                 <button className="form__button">Create Sbeerka Account</button>
             </form>
-
         </div>
-
-
     );
 }
 
