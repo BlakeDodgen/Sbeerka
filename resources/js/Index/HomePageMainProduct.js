@@ -10,6 +10,16 @@ const HomePageMainProduct = () => {
     const fetchData = async () => {
         const response = await fetch(urlAll);
         const parsedData = await response.json();
+
+        // let ratingScore = 0;
+        // props.data.reviews.forEach(review => {
+        //         ratingScore += review.rating;
+        // })
+        // let avRating = ratingScore/props.data.reviews.length
+        // if (isNaN(avRating)) {
+        //     avRating = 0;
+        // }
+
         setData(parsedData);
        
     }
