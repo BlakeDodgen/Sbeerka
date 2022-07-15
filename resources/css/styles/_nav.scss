@@ -6,24 +6,26 @@
     align-content: center;
     background-color: $primary-grey;
     height: 4rem;
-    position: fixed;
+    position: sticky;
     left: 0;
     top: 0;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     z-index: 1;
 
-    &__logo, &__signup, &__about {
+    &__logo,
+    &__signup,
+    &__about {
         color: white;
-        text-decoration: none; 
-        
+        text-decoration: none;
+
         &:hover {
             color: $primary-yellow;
         }
         &:visited {
-            text-decoration: none; 
+            text-decoration: none;
         }
-    }  
+    }
 }
 
 .nav__login {
@@ -38,7 +40,7 @@
     //     //text-decoration: none;
     // // color: white;
     // }
-  }
+}
 
 .nav__icon {
     width: 1rem;
@@ -50,4 +52,3 @@
 //     justify-content: space-between;
 //     width: 4rem;
 // }
-
