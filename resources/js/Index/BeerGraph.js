@@ -4,6 +4,8 @@ const data = [
     { Sour: 0.7, Bitter: 1.0, Herbal: 0.9, Body: 0.6, Linger: 0.8, Citrus: 0.5, Hoppy: 0.7 },
     { Sour: 0.6, Bitter: 0.9, Herbal: 0.8, Body: 0.7, Linger: 0.6, Citrus: 0.4, Hoppy: 0.9 }
 ];
+
+// Circle size and concentric cirles 
 const chartSize = 300;
 const numberOfScales = 5;
 const scale = value => (
@@ -26,6 +28,8 @@ const pathDefinition = points => {
     }
     return d + 'z';
 };
+
+// shaping of graph ratings
 const shape = columns => (chartData, i) => {
     const data = chartData;
     return (
@@ -64,7 +68,7 @@ const axis = () => (col, i) => (
     />
 );
 
-const RadarChart = props => {
+const BeerGraph = props => {
     const groups = [];
     const scales = [];
     for (let i = numberOfScales; i > 0; i--) {
@@ -79,6 +83,8 @@ const RadarChart = props => {
             angle: (Math.PI * 2 * i) / all.length
         };
     });
+
+    //axis, graph, and names
     groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>);
     groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>);
     groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>);
@@ -112,8 +118,4 @@ const caption = () => col => (
     </text>
 );
 
-// groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>);
-
-
-
-export default RadarChart;
+export default BeerGraph;

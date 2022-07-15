@@ -59,25 +59,25 @@ const App = () => {
         >
             <BrowserRouter>
                 <Nav setSearchType={setSearchType} />
-                    <div className="main">
-                
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/beers/review" element ={<ReviewForm />} />
-                    <Route path="/beers/:id" element={<BeerProfile />} />
-                    <Route path="/breweries/:id" element={<BreweryProfile />} />
-                    <Route exact path="/results/breweries/:searchString" element={<BreweryResults searchType={searchType}/>} />
-                    <Route exact path="/results/city/:searchString" element={<CityResults searchType={searchType}/>} />
-                    <Route exact path="/results/country/:searchString" element={<CountryResults searchType={searchType}/>} />
-                    <Route exact path="/results/beer-type/:searchString" element={<BeerTypeResults searchType={searchType}/>} />
-                    <Route path="/results/:search/:searchString" element={<SearchResults searchType={searchType}/>} />
-                    <Route path="user/:id" element={<UserProfile />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/logout" element={<Logout />} />
-                </Routes>
-                <Link to="/beers/review" >Link</Link>
-            </div>
+                <div className="main">
+
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/beers/review" element={<ReviewForm />} />
+                        <Route path="/beers/:id" element={<BeerProfile />} />
+                        <Route path="/breweries/:id" element={<BreweryProfile />} />
+                        <Route exact path="/results/breweries/:searchString" element={<BreweryResults searchType={searchType} />} />
+                        <Route exact path="/results/city/:searchString" element={<CityResults searchType={searchType} />} />
+                        <Route exact path="/results/country/:searchString" element={<CountryResults searchType={searchType} />} />
+                        <Route exact path="/results/beer-type/:searchString" element={<BeerTypeResults searchType={searchType} />} />
+                        <Route path="/results/:search/:searchString" element={<SearchResults searchType={searchType} />} />
+                        <Route path="user/:id" element={<UserProfile />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/logout" element={<Logout />} />
+                    </Routes>
+                    <Link to="/beers/review" >Link</Link>
+                </div>
 
                 <Footer />
             </BrowserRouter>
