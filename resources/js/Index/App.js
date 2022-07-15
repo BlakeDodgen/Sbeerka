@@ -22,6 +22,7 @@ import BreweryResults from "./searchresults-parts/BreweryResults";
 import CityResults from "./searchresults-parts/CityResults";
 import CountryResults from "./searchresults-parts/CountryResults";
 import BeerTypeResults from "./searchresults-parts/BeerTypeResults";
+import ReviewForm from "./forms/ReviewForm";
 
 import { loadUser } from "./actions/auth";
 import UserProfile from "./UserProfile";
@@ -63,6 +64,7 @@ const App = () => {
                 
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/beers/review" element ={<ReviewForm />} />
                     <Route path="/beers/:id" element={<BeerProfile />} />
                     <Route path="/breweries/:id" element={<BreweryProfile />} />
                     <Route exact path="/results/breweries/:searchString" element={<BreweryResults searchType={searchType}/>} />
@@ -75,7 +77,7 @@ const App = () => {
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/logout" element={<Logout />} />
                 </Routes>
-                <Link to="/breweries/1" >Link</Link>
+                <Link to="/beers/review" >Link</Link>
             </div>
 
                 <Footer />
