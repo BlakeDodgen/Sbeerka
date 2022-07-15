@@ -20,7 +20,7 @@ const Product = (props) => {
                 <div className="product-list__image-container">
                     <Link to={`/beers/${props.data.id}`}><img src={`/img/beers/${props.data.beer_pic.picture}`} className="product-list__img" alt="beer-item-img" /></Link>                   
                 </div>
-                <p className="product-list__name">{props.data.name}</p>
+                <Link to={`/beers/${props.data.id}`}><p className="product-list__name">{props.data.name}</p></Link>
                 <p className="product-list__rating">Rating: {avRating.toFixed(1)}</p>
 
 

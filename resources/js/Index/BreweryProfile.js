@@ -23,12 +23,12 @@ const BreweryProfile = () => {
             <p>Name: {brewery.user.brewery_name}</p>
             <p>City: {brewery.city}</p>
             <p>Country: {brewery.country}</p>
-            <p>Website: {brewery.website}</p>
+            <p>Website: <a href={brewery.website} target="_blank">{brewery.website}</a></p>
             <p>Size: {brewery.size}</p>
             <p>History: {brewery.history}</p>
             <p>Brewery Picture:</p>
             {/* <img src={`/img/breweries/${brewery.brewery_pic.picture}`} alt="brewery logo" style={{width: "100px"}}/> */}
-            <h2>Beers:</h2>
+            <h2>More beers from this brewery:</h2>
             {brewery.beers.map((beer, i) => (
                 <div className="beer">
                     <Link to={`/beers/${beer.id}`}><p key={i}>{beer.name}</p></Link>

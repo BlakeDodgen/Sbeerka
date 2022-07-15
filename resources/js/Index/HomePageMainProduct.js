@@ -46,7 +46,7 @@ const HomePageMainProduct = () => {
                             <Link to={`/beers/${item.id}`}><img src={`img/beers/${item.beer_pic_id}.png`} className="main-product__img" alt="featured-beer-img" /></Link>
                         </div>
                         <div className="main-product__detail">
-                            <p className="main-product__name">{item.name}</p>
+                        <Link to={`/beers/${item.id}`}><p className="main-product__name">{item.name}</p></Link>
                             <p className="main-product__rating">Rating</p>
                         </div>
 

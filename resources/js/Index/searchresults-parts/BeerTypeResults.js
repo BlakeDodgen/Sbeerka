@@ -75,7 +75,7 @@ const BeerTypeResults = (props) => {
 
 
                             return (
-                                <Link to={`/beers/${value.id}`}><p>{value.type}</p></Link>
+                                <Link key={value.id} to={`/beers/${value.id}`}><p>{value.type}</p></Link>
                                 // <a className="search__items" key={index} >{value.name} </a>
                             )
 

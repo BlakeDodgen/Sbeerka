@@ -73,10 +73,14 @@ const BreweryResults = (props) => {
                     {!!newSearch.length ? (
                         newSearch.map((value, index) => {
 
+                          
+                            
+                           
 
-                            return (
-                                <Link to={`/breweries/${value.brewery.id}`}><p>{value.brewery_name}</p></Link>
-                                // <a className="search__items" key={index} >{value.name} </a>
+                            return (<>
+                                <Link key={value.id}to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link>
+                                <a className="search__items" key={index} >{value.name} </a>
+                            </>
                             )
 
                         })
