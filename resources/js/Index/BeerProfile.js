@@ -8,11 +8,17 @@ const BeerProfile = () => {
     const { id } = useParams();
     const [beer, setBeer] = useState(null);
     const { user } = useContext(UserContext);
+    const [reviewed, setReviewed] = useState(false);
 
     const loadData = async () => {
         const response = await axios.get(`/api/beers/${id}`);
         // console.log(response.data);
         // if (response.data.reviews == {}) {
+        response.data.reviews.forEach((review) => {
+            if (user && (review.user_id == user.id)) {
+                setReviewed(true);
+            }
+        })
 
         let ratingScore = 0;
         response.data.reviews.forEach((review) => {
@@ -134,7 +140,7 @@ const BeerProfile = () => {
         <p>Average Hoppy Rating: {beer.averages.hoppy}</p>
         <p>Average Bitter Rating: {beer.averages.bitter}</p>
         <p>Average Sour Rating: {beer.averages.sour}</p> */}
-                {user && (user.user_type == 1 || user.user_type == 3) && <ReviewForm user={user.id} beer={beer.data.id}/>}
+                {user && (user.user_type == 1 || user.user_type == 3) && (reviewed == false) && <ReviewForm user={user.id} beer={beer.data.id} setReviewed={setReviewed}/>}
                 <h2>Reviews:</h2>
                 {beer.data.reviews.map((review, i) => (
                     <p key={i}>{review.review}</p>

@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
 import React from "react";
+import axios from "axios";
 
-const ReviewForm = () => {
+const ReviewForm = ({ user, beer, setReviewed }) => {
+
     const [values, setValues] = useState({
         review: "",
         rating: 0,
@@ -13,6 +15,8 @@ const ReviewForm = () => {
         hoppy: 0,
         bitter: 0,
         sour: 0,
+        user_id: user,
+        beer_id: beer
     });
 
     const handleChange = (e) => {
@@ -23,6 +27,22 @@ const ReviewForm = () => {
             };
         });
     };
+
+    const handleSubmit = async (e) => {
+        
+        e.preventDefault();
+        try {
+            const response = await axios.post("/api/reviews/create", values);
+            const response_data = response.data;
+            setReviewed(true);
+        } catch (err) {
+            console.log(err);
+        }
+        
+
+        // return navigate("/");
+    };
+
     return (
         <div className="formRating">
             <form
