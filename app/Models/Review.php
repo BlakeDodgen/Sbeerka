@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app\Models\Beer;
-use app\Models\User;
+// use App\Models\Beer;
+// use App\Models\User;
 
 class Review extends Model
 {
@@ -13,7 +13,7 @@ class Review extends Model
 
     public function beer()
     {
-        return $this-> belongsTo(Beer::class);
+        return $this->belongsTo(Beer::class);
     }
 
     public function user()

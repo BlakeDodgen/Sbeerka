@@ -51,4 +51,14 @@ class UserController extends Controller
 
         return 'user deleted';
     }
+
+    // public function userinfo($id)
+    // {
+    //     $user = User::with([
+    //                 'reviews'
+    //                 ])
+    //                 ->findOrFail($id);
+
+    //     return $user;
+    // }
 }

@@ -10,8 +10,12 @@ class ReviewController extends Controller
 {
     public function create(Request $request)
     {
-        // validation
         $review = new Review;
+        
+        $this->validate($request, [
+            'user_id' => 'required',   
+            'beer_id' => 'required',
+        ]);
 
         $review->user_id = $request->input('user_id');
         $review->beer_id = $request->input('beer_id');
@@ -29,5 +33,13 @@ class ReviewController extends Controller
         $review->save();
 
         return 'worked';
+    }
+
+    public function userReviews($id)
+    {
+        $reviews = Review::where('user_id', '=', $id)
+                    ->with('beer:id,name')
+                    ->get();
+        return $reviews;
     }
 }
