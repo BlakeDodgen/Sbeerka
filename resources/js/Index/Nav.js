@@ -29,7 +29,8 @@ function Nav(props) {
                                     src="./img/profile.svg"
                                     alt="profile"
                                 />
-                                <span>{user.username}</span>
+                                {user.username ? <span>{user.username}</span> :
+                                <span>{user.brewery_name}</span>}
                             </div>
                         </button>
 

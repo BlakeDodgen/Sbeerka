@@ -23,6 +23,7 @@ class SearchController extends Controller
 
         if ($searchType == "beers") {
             $beers = Beer::where('name', 'like', ('%'.$searchText.'%'))
+                    ->orderBy('name', 'asc')
                     // ->with('beerType', 'brewery', 'beerPic')
                     ->with([
                         'beerType',
