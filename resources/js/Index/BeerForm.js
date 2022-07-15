@@ -30,7 +30,6 @@ const BeerForm = () => {
 
     return (
         <div className="form">
-            <h2> Beer Form </h2>
             <form
                 className="form__form"
                 // action=""
@@ -39,6 +38,7 @@ const BeerForm = () => {
                     handleSubmit(e);
                 }}
             >
+                <h2>Beer Form</h2>
                 <div className="form__container">
                     <label className="form__label form__label-beerType">
                         Beer Type:
@@ -131,7 +131,7 @@ const BeerForm = () => {
                 </div> */}
                 <br />
             </form>
-            <button>Cheers</button>
+            <button className="form__button">Add Beer To Sbeerka</button>
         </div>
     );
 };

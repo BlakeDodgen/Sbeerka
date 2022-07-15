@@ -29,6 +29,7 @@ const pathDefinition = points => {
     return d + 'z';
 };
 
+// shaping of graph ratings
 const shape = columns => (chartData, i) => {
     const data = chartData;
     return (
@@ -82,6 +83,8 @@ const BeerGraph = props => {
             angle: (Math.PI * 2 * i) / all.length
         };
     });
+
+    //axis, graph, and names
     groups.push(<g key={`group-axes`}>{columns.map(axis())}</g>);
     groups.push(<g key={`groups}`}>{data.map(shape(columns))}</g>);
     groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>);
@@ -114,9 +117,5 @@ const caption = () => col => (
         {col.key}
     </text>
 );
-
-// groups.push(<g key={`group-captions`}>{columns.map(caption())}</g>);
-
-
 
 export default BeerGraph;

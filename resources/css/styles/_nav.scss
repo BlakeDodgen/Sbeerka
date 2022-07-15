@@ -23,7 +23,13 @@
         &:visited {
             text-decoration: none; 
         }
-    }  
+    }
+    
+    &__logo {
+        font-weight: $logo-font-weight;
+        font-size: 2rem;
+        color: $primary-yellow;
+    }
 }
 
 .nav__login {

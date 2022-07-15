@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loadUser } from "../actions/auth";
 import UserContext from "../UserContext";
-import RadarChart from "../SpiderGraphTest";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -75,26 +74,35 @@ function SignUp() {
             <>
                 <div className="form__container">
                     <label id="first-name" className="form__label form__label-name">First Name</label>
+                    <br />
                     <input className="form__input form__input-name" type="text" name="first_name" value={values.first_name} onChange={handleChange} />
                 </div>
+                <br />
                 <div className="form__container">
                     <label className="form__label form__label-surname">Surname</label>
+                    <br />
                     <input className="form__input form__input-surname" type="text" name="surname" value={values.surname} onChange={handleChange} />
                 </div>
+                <br />
                 <div className="form__container">
                     <label className="form__label form__label-username">Username</label>
+                    <br />
                     <input className="form__input form__input-username" type="text" name="username" value={values.username} onChange={handleChange} />
                 </div>
+                <br />
             </>
         )
     }
 
     const Status2 = () => {
         return (
-            <div className="form__container">
-                <label className="form__label form__label-breweryname">Brewery Name</label>
-                <input className="form__input form__input-breweryname" type="text" name="brewery_name" value={values.brewery_name} onChange={handleChange} />
-            </div>
+            <>
+                <div className="form__container">
+                    <label className="form__label form__label-breweryname">Brewery Name</label>
+                    <br />
+                    <input className="form__input form__input-breweryname" type="text" name="brewery_name" value={values.brewery_name} onChange={handleChange} />
+                </div>
+            </>
         )
     }
 
@@ -105,9 +113,8 @@ function SignUp() {
                 <Radio />
 
                 <div className="form__container">
-                    <label className="form__label form__label-email">
-                        Email
-                    </label>
+                    <label className="form__label form__label-email">Email</label>
+                    <br />
                     <input
                         className="form__input form__input-email"
                         type="email"
@@ -116,10 +123,10 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
+                <br />
                 <div className="form__container">
-                    <label className="form__label form__label-password">
-                        Password
-                    </label>
+                    <label className="form__label form__label-password">Password</label>
+                    <br />
                     <input
                         className="form__input form__input-password"
                         type="password"
@@ -128,18 +135,18 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
+                <br />
                 <div className="form__container">
-                    <label className="form__label form__label-confirm">
-                        Confirm Password
-                    </label>
-                    <input
-                        className="form__input form__input-confirm"
+                    <label className="form__label form__label-confirm">Confirm Password</label>
+                    <br />
+                    <input className="form__input form__input-confirm"
                         type="password"
                         name="password_confirmation"
                         value={values.password_confirmation}
                         onChange={handleChange}
                     />
                 </div>
+                <br />
                 <label>I'm over 18</label>
                 <input
                     type="checkbox"
@@ -147,6 +154,7 @@ function SignUp() {
                     value={values.over18}
                     onChange={handleChange}
                 />
+                <br />
                 <label classname="form__label-member">User</label>
                 <label classname="form__label-brewery">Brewery</label>
                 <input
@@ -155,6 +163,7 @@ function SignUp() {
                     value={values.user_type}
                     onChange={handleChange}
                 />
+                <br />
 
                 <button className="form__button">Create Sbeerka Account</button>
             </form>
