@@ -1,10 +1,13 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import UserContext from "./UserContext";
+import ReviewForm from "./forms/ReviewForm";
 
 const BeerProfile = () => {
     const { id } = useParams();
     const [beer, setBeer] = useState(null);
+    const { user } = useContext(UserContext);
 
     const loadData = async () => {
         const response = await axios.get(`/api/beers/${id}`);
@@ -131,6 +134,7 @@ const BeerProfile = () => {
         <p>Average Hoppy Rating: {beer.averages.hoppy}</p>
         <p>Average Bitter Rating: {beer.averages.bitter}</p>
         <p>Average Sour Rating: {beer.averages.sour}</p> */}
+                {user && (user.user_type == 1 || user.user_type == 3) && <ReviewForm user={user.id} beer={beer.data.id}/>}
                 <h2>Reviews:</h2>
                 {beer.data.reviews.map((review, i) => (
                     <p key={i}>{review.review}</p>
