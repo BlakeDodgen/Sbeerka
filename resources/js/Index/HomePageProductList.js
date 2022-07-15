@@ -24,7 +24,7 @@ const HomePageProductList = () => {
                 <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
                 <div className="product-list__products-container">
                     {data.slice(0, 12).map((item, index) => {
-                        return <Product key={index} name={item.name} id={item.beer_pic.picture} />
+                        return <Product key={index} data={item} />
 
 
                     })}
