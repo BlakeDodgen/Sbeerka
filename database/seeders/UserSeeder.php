@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use DB;
@@ -25,7 +26,7 @@ class UserSeeder extends Seeder
                 'over18' => TRUE,
                 'brewery_name' => "",
                 'email' => "blake@sbeerka.beer",
-                'password' => "password",
+                'password' => Hash::make("password"),
                 'username' => "Blake42069",
                 'user_type' => "1",
             ], 
@@ -35,7 +36,7 @@ class UserSeeder extends Seeder
                 'over18' => TRUE,
                 'brewery_name' => "",
                 'email' => "ben@sbeerka.beer",
-                'password' => "password",
+                'password' => Hash::make("password"),
                 'username' => "Ben",
                 'user_type' => "1",
             ],
@@ -45,7 +46,7 @@ class UserSeeder extends Seeder
                 'over18' => TRUE,
                 'brewery_name' => "",
                 'email' => "tomas@sbeerka.beer",
-                'password' => "password",
+                'password' => Hash::make("password"),
                 'username' => "Tomáš",
                 'user_type' => "1",
             ],
@@ -55,7 +56,7 @@ class UserSeeder extends Seeder
                 'over18' => TRUE,
                 'brewery_name' => "",
                 'email' => "ivan@sbeerka.beer",
-                'password' => "password",
+                'password' => Hash::make("password"),
                 'username' => "Vukšić",
                 'user_type' => "1",
             ],
@@ -65,7 +66,7 @@ class UserSeeder extends Seeder
                 'over18' => TRUE,
                 'brewery_name' => "Sibeeria",
                 'email' => "sibeeria@sibeeria.com",
-                'password' => "password",
+                'password' => Hash::make("password"),
                 'username' => "",
                 'user_type' => "2",
             ],
@@ -75,7 +76,7 @@ class UserSeeder extends Seeder
                 'over18' => TRUE,
                 'brewery_name' => "Raven",
                 'email' => "raven@raven.com",
-                'password' => "password",
+                'password' => Hash::make("password"),
                 'username' => "",
                 'user_type' => "2",
             ],
@@ -85,7 +86,7 @@ class UserSeeder extends Seeder
                 'over18' => TRUE,
                 'brewery_name' => "Rogue",
                 'email' => "rogue@rogue.com",
-                'password' => "password",
+                'password' => Hash::make("password"),
                 'username' => "",
                 'user_type' => "2",
             ],
@@ -95,10 +96,20 @@ class UserSeeder extends Seeder
                 'over18' => TRUE,
                 'brewery_name' => "Mobcraft",
                 'email' => "mobcraft@mobcraft.com",
-                'password' => "password",
+                'password' => Hash::make("password"),
                 'username' => "",
                 'user_type' => "2",
             ],
+            [
+                'first_name' => "Pavel",
+                'surname' => "Pivo",
+                'over18' => TRUE,
+                'brewery_name' => "",
+                'email' => "admin@sbeerka.beer",
+                'password' => Hash::make("password"),
+                'username' => "Admin",
+                'user_type' => "3",
+            ]
         ];
 
         foreach($users as $userex) {
