@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loadUser } from "../actions/auth";
@@ -48,173 +49,188 @@ function SignUp() {
         });
     };
 
-    return (
-        <div>
-            <input
-                className="radio"
-                type="radio"
-                name="user-radio"
-                value={values.user_type}
-                checked={status === 1}
-                onClick={(e) => radioHandler(1)}
-                onChange={handleChange}
-            />
-            <label>Sbeerka Member</label>
-            <input
-                className="radio"
-                type="radio"
-                name="member-radio"
-                value={values.user_type}
-                checked={status === 2}
-                onClick={(e) => radioHandler(2)}
-                onChange={handleChange}
-            />
-            <label>Sbeerka Brewery</label>
-            <input
-                className="radio"
-                id="radio-brewery"
-                type="radio"
-                name="user-radio"
-                value={values.user_type}
-                onChange={handleChange}
-            />
+    const Radio = () => {
+        const [status, setStatus] = React.useState(1);
 
-            <div className="form__container">
-                <label id="first-name" className="form__label form__label-name">
-                    First Name
-                </label>
-                <br />
+        const radioHandler = (status) => {
+            setStatus(status);
+        };
+
+        return (
+            <div>
                 <input
-                    className="form__input form__input-name"
-                    type="text"
-                    name="first_name"
-                    value={values.first_name}
+                    className="radio"
+                    type="radio"
+                    name="user-radio"
+                    value={values.user_type}
+                    checked={status === 1}
+                    onClick={(e) => radioHandler(1)}
                     onChange={handleChange}
                 />
-            </div>
-            <br />
-            <div className="form__container">
-                <label className="form__label form__label-surname">
-                    Surname
-                </label>
-                <br />
+                <label>Sbeerka Member</label>
                 <input
-                    className="form__input form__input-surname"
-                    type="text"
-                    name="surname"
-                    value={values.surname}
+                    className="radio"
+                    type="radio"
+                    name="member-radio"
+                    value={values.user_type}
+                    checked={status === 2}
+                    onClick={(e) => radioHandler(2)}
                     onChange={handleChange}
                 />
+                <label>Sbeerka Brewery</label>
+                {status === 1 && Status1()}
+                {status === 2 && Status2()}
             </div>
-            <br />
-            <div className="form__container">
-                <label className="form__label form__label-username">
-                    Username
-                </label>
+        );
+    };
+
+    const Status1 = () => {
+        return (
+            <>
+                <div className="form__container">
+                    <label
+                        id="first-name"
+                        className="form__label form__label-name"
+                    >
+                        First Name
+                    </label>
+                    <br />
+                    <input
+                        className="form__input form__input-name"
+                        type="text"
+                        name="first_name"
+                        value={values.first_name}
+                        onChange={handleChange}
+                    />
+                </div>
                 <br />
+                <div className="form__container">
+                    <label className="form__label form__label-surname">
+                        Surname
+                    </label>
+                    <br />
+                    <input
+                        className="form__input form__input-surname"
+                        type="text"
+                        name="surname"
+                        value={values.surname}
+                        onChange={handleChange}
+                    />
+                </div>
+                <br />
+                <div className="form__container">
+                    <label className="form__label form__label-username">
+                        Username
+                    </label>
+                    <br />
+                    <input
+                        className="form__input form__input-username"
+                        type="text"
+                        name="username"
+                        value={values.username}
+                        onChange={handleChange}
+                    />
+                </div>
+                <br />
+            </>
+        );
+    };
+
+    const Status2 = () => {
+        return (
+            <>
+                <div className="form__container">
+                    <label className="form__label form__label-breweryname">
+                        Brewery Name
+                    </label>
+                    <br />
+                    <input
+                        className="form__input form__input-breweryname"
+                        type="text"
+                        name="brewery_name"
+                        value={values.brewery_name}
+                        onChange={handleChange}
+                    />
+                </div>
+            </>
+        );
+    };
+
+    return (
+        <div className="form">
+            <form
+                className="form__form"
+                action="/register"
+                method="post"
+                onSubmit={handleSignUp}
+            >
+                <h2 className="form__h2">Sign Up</h2>
+                <Radio />
+
+                <div className="form__container">
+                    <label className="form__label form__label-email">
+                        Email
+                    </label>
+                    <br />
+                    <input
+                        className="form__input form__input-email"
+                        type="email"
+                        name="email"
+                        value={values.email}
+                        onChange={handleChange}
+                    />
+                </div>
+                <br />
+                <div className="form__container">
+                    <label className="form__label form__label-password">
+                        Password
+                    </label>
+                    <br />
+                    <input
+                        className="form__input form__input-password"
+                        type="password"
+                        name="password"
+                        value={values.password}
+                        onChange={handleChange}
+                    />
+                </div>
+                <br />
+                <div className="form__container">
+                    <label className="form__label form__label-confirm">
+                        Confirm Password
+                    </label>
+                    <br />
+                    <input
+                        className="form__input form__input-confirm"
+                        type="password"
+                        name="password_confirmation"
+                        value={values.password_confirmation}
+                        onChange={handleChange}
+                    />
+                </div>
+                <br />
+                <label>I'm over 18</label>
                 <input
-                    className="form__input form__input-username"
-                    type="text"
-                    name="username"
-                    value={values.username}
+                    type="checkbox"
+                    name="over18"
+                    value={values.over18}
                     onChange={handleChange}
                 />
-            </div>
-            <br />
+                <br />
+                <label className="form__label-member">User</label>
+                <label className="form__label-brewery">Brewery</label>
+                <input
+                    type="number"
+                    name="user_type"
+                    value={values.user_type}
+                    onChange={handleChange}
+                />
+                <br />
+
+                <button className="form__button">Create Sbeerka Account</button>
+            </form>
         </div>
     );
 }
-const Status2 = () => {
-    return (
-        <>
-            <div className="form__container">
-                <label className="form__label form__label-breweryname">
-                    Brewery Name
-                </label>
-                <br />
-                <input
-                    className="form__input form__input-breweryname"
-                    type="text"
-                    name="brewery_name"
-                    value={values.brewery_name}
-                    onChange={handleChange}
-                />
-            </div>
-        </>
-    );
-};
-return (
-    <div className="form">
-        <form
-            className="form__form"
-            action="/register"
-            method="post"
-            onSubmit={handleSignUp}
-        >
-            <h2 className="form__h2">Sign Up</h2>
-            <Radio />
-
-            <div className="form__container">
-                <label className="form__label form__label-email">Email</label>
-                <br />
-                <input
-                    className="form__input form__input-email"
-                    type="email"
-                    name="email"
-                    value={values.email}
-                    onChange={handleChange}
-                />
-            </div>
-            <br />
-            <div className="form__container">
-                <label className="form__label form__label-password">
-                    Password
-                </label>
-                <br />
-                <input
-                    className="form__input form__input-password"
-                    type="password"
-                    name="password"
-                    value={values.password}
-                    onChange={handleChange}
-                />
-            </div>
-            <br />
-            <div className="form__container">
-                <label className="form__label form__label-confirm">
-                    Confirm Password
-                </label>
-                <br />
-                <input
-                    className="form__input form__input-confirm"
-                    type="password"
-                    name="password_confirmation"
-                    value={values.password_confirmation}
-                    onChange={handleChange}
-                />
-            </div>
-            <br />
-            <label>I'm over 18</label>
-            <input
-                type="checkbox"
-                name="over18"
-                value={values.over18}
-                onChange={handleChange}
-            />
-            <br />
-            <label className="form__label-member">User</label>
-            <label className="form__label-brewery">Brewery</label>
-            <input
-                type="number"
-                name="user_type"
-                value={values.user_type}
-                onChange={handleChange}
-            />
-            <br />
-
-            <button>Create Sbeerka Account</button>
-        </form>
-    </div>
-);
 
 export default SignUp;
