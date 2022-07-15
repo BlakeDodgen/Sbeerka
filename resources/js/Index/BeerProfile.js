@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
 
 const BeerProfile = () => {
     const { id } = useParams();
@@ -33,6 +34,7 @@ const BeerProfile = () => {
         response.data.reviews.forEach((review) => {
             lingerScore += review.linger;
         });
+        
         let avLinger = lingerScore / response.data.reviews.length.toFixed(1);
         if (isNaN(avLinger)) {
             avLinger = 0;

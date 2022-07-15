@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import BasicSwitches from "../mui/BasicSwitches";
 import FormPropsTextFields from "../mui/FormPropsTextFields";
 import Buttons from "../mui/Buttons";
+import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 
 function Login() {
     const [values, setValues] = useState({
@@ -16,6 +17,8 @@ function Login() {
     const { setUser, setLoadingUser } = useContext(UserContext);
     
     const [ errorResponse, setErrorResponse ] = useState(null);
+
+    
 
     const navigate = useNavigate()
 
@@ -50,6 +53,8 @@ function Login() {
         });    
     }
 
+   
+
     return (
         <>
         <form onSubmit={handleSubmit}>
@@ -65,11 +70,18 @@ function Login() {
             {/* <BasicSwitches /> */}
             {/* <FormPropsTextFields email={values.email}  pass={values.password}/> */}
             <Buttons/>
+
         </form>
         {/* <button onClick={async () => {
             const user = await loadUser()
             console.log(user)
             }}>Check User</button> */}
+            <DiscreteSliderMarks />
+            <DiscreteSliderMarks />
+            <DiscreteSliderMarks />
+            <DiscreteSliderMarks />
+            
+
         </>
     )
 }

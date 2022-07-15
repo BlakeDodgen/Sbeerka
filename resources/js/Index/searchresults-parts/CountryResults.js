@@ -64,7 +64,7 @@ const CountryResults = (props) => {
 
     return (
         <>
-            <h1>{search}</h1>
+            <h1>Countries</h1>
             {searchItems && (
                 <div className="search__result">
                     {/* loops in the array which contains updated search items */}
@@ -76,7 +76,7 @@ const CountryResults = (props) => {
 
                             return (<>
                                 <Link to={`/breweries/${value.id}`}><p>{value.country}</p></Link>
-                                <Link to={`/breweries/${value.id}`}><p>Brewery: {value.user.brewery_name}</p></Link>
+                                
                                  {/* <a className="search__items" key={index} >{value.name} </a> */}
                             </>
                             )

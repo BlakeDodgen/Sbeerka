@@ -64,7 +64,7 @@ const CityResults = (props) => {
 
     return (
         <>
-            <h1>{search}</h1>
+            <h1>Cities</h1>
             {searchItems && (
                 <div className="search__result">
                     {/* loops in the array which contains updated search items */}
