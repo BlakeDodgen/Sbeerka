@@ -28,10 +28,16 @@ import { loadUser } from "./actions/auth";
 import UserProfile from "./UserProfile";
 import About from "./about-page/About";
 
+import SetCookie from "./cookies/SetCookie";
+import GetCookie from "./cookies/GetCookie";
+import RemoveCookie from "./cookies/RemoveCookie";  
+
 const App = () => {
     const [user, setUser] = useState("");
     const [loadingUser, setLoadingUser] = useState(false);
     const [searchType, setSearchType] = useState("beers");
+
+    
 
     // const loadUser = async () => {
     //     const response = await axios.get('/api/user');
