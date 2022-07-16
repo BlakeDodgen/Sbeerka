@@ -138,7 +138,6 @@ function SignUp() {
     const handleSignUp = async (e) => {
         e.preventDefault();
         if (values.user_type == "brewery") {
-            values.first_name = "none";
             values.user_type = 2;
         } else if (values.user_type == "user") {
             values.user_type = 1;
@@ -163,11 +162,19 @@ function SignUp() {
     };
 
     const handleChange = (e) => {
+        // console.log(e)
         setValues((previous_values) => {
-            return {
-                ...previous_values,
-                [e.target.name]: e.target.value,
-            };
+            if (e.target.name === "over18") {
+                return {
+                    ...previous_values,
+                    [e.target.name]: e.target.checked,
+                }
+            } else {
+                return {
+                    ...previous_values,
+                    [e.target.name]: e.target.value,
+                };
+            }           
         });
     };
 
