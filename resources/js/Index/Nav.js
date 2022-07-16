@@ -4,6 +4,7 @@ import { Fragment, useContext, useState } from "react";
 import UserContext from "./UserContext";
 import Logout from "./auth/Logout";
 import About from "./about-page/About";
+import BasicModal from "./mui/BasicModal";
 
 function Nav(props) {
     const { user, text } = useContext(UserContext);
@@ -19,6 +20,7 @@ function Nav(props) {
             <Link className="nav__about" to="/about">
                 About
             </Link>
+            <BasicModal />
 
             {user ? (
                 <div className="dropdown">
