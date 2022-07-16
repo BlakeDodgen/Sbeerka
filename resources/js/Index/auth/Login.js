@@ -59,7 +59,6 @@ function Login() {
                         onChange={handleChange}
                     />
                 </div>
-                <br />
                 <div className="form__container">
                     <label>Password </label>
                     <br />
@@ -72,7 +71,8 @@ function Login() {
                 </div>
                 <br />
                 <button className="form__button">Log In</button>
-                {!!errorResponse && <span>Login Failed</span>}
+                {!!errorResponse && <span className="form__failed">Login Failed</span>}
+                <br />
             </form>
             {/* <button onClick={async () => {
             const user = await loadUser()

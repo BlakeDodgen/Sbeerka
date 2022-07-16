@@ -245,6 +245,7 @@ function SignUp() {
                     <br />
 
                     <button className="form__button">Create Sbeerka Account</button>
+                    <br />
                 </form>
 
             </div>
