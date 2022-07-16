@@ -31,8 +31,6 @@ const UserProfile = () => {
             <div className="userProfile">
             <p>User ID: {id}</p>
             <p>Username: {user.username}</p>
-            <p>First Name: {user.first_name}</p>
-            <p>Surname: {user.surname}</p>
             {(reviews.length > 0) && <p><strong>Reviewed Beers: </strong></p>}
             {reviews.map((review, i) => (
                     <p key={i}>{review.beer.name}</p>
@@ -43,9 +41,13 @@ const UserProfile = () => {
             }
             </div>
         )
-    } else {
+    } else if (user.user_type == 2) {
         return (
-            <h1>Not Beer User</h1>
+            <h1>Brewery User</h1>
+        )
+    } else if (user.user_type == 3){
+        return (
+            <h1>Admin</h1>
         )
     }
     
