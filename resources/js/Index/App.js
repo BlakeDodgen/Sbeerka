@@ -102,9 +102,8 @@ const App = () => {
                         <Route path="/about" element={<About />} />
                     </Routes>
 
-                    <Link to="/beers/review">Link</Link>
+                    {/* <Link to="/beers/review">Link</Link> */}
                 </div>
-
                 <Footer />
             </BrowserRouter>
         </UserContext.Provider>

@@ -1,16 +1,20 @@
+
 .form {
     display: flex;
     background-color: white;
-    border: 2px solid red;
     flex-direction: column;
     align-items: center;
     color: $secondary-blue;
     justify-content: space-around;
     height: 40rem;
+    max-height: fit-content;
+    padding-bottom: 4rem;
+    //height: fit-content;
     position: absolute;
     top: 7rem;
     width: 60%;
     overflow: auto;
+    border: 2px solid red;
 }
 
 .form__h2 {
@@ -21,12 +25,13 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    border: 2px solid red;
     align-items: flex-start;
+    justify-content: center;
     width: 90%;
     position: absolute;
     top: 0;
-    overflow: auto;
+    //overflow: auto;
+    max-height: fit-content;
 }
 
 .form__label {
@@ -136,9 +141,9 @@
 //     color: blue;
 // }
 
-input[type="radio"]#radio-brewery:checked + div #first-name {
-    display: hidden;
-}
+// input[type="radio"]#radio-brewery:checked + div #first-name {
+//     display: hidden;
+// }
 
 // //add just some hover effect
 // #radio-member:hover~ .nav__list {
