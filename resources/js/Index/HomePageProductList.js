@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 const HomePageProductList = () => {
     const [data, setData] = useState([]);
+    const [min, setMin] = useState(0);
+    const [max, setMax] = useState(6);
 
     const urlAll = `http://www.sbeerka.beer/api/beers`;
 
@@ -23,12 +25,17 @@ const HomePageProductList = () => {
 
                 <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
                 <div className="product-list__products-container">
-                    {data.slice(0, 12).map((item, index) => {
+                    {data.slice(min, max).map((item, index) => {
                         return <Product key={index} data={item} />
 
 
                     })}
+                  
                 </div>
+                {/* new feature loads another six items */}
+                {/* <button onClick={()=>setMax(max+6)}>Another round</button> */}
+                
+                
             </div>
         </div>
     );

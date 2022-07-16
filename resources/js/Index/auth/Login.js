@@ -3,6 +3,10 @@ import axios from "axios";
 import UserContext from "../UserContext";
 import { loadUser, login } from "../actions/auth";
 import { useNavigate } from "react-router-dom";
+import BasicSwitches from "../mui/BasicSwitches";
+import FormPropsTextFields from "../mui/FormPropsTextFields";
+import Buttons from "../mui/Buttons";
+import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 
 function Login() {
     const [values, setValues] = useState({
@@ -43,6 +47,8 @@ function Login() {
             };
         });
     };
+
+   
 
     return (
         <>

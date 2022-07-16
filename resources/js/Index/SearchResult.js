@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SearchResult = (props) => {
     //beertype , alcohol, degree, brewery review
 

@@ -42,6 +42,7 @@ const BeerProfile = () => {
         response.data.reviews.forEach((review) => {
             lingerScore += review.linger;
         });
+        
         let avLinger = lingerScore / response.data.reviews.length.toFixed(1);
         if (isNaN(avLinger)) {
             avLinger = 0;

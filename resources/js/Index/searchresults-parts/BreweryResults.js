@@ -64,7 +64,7 @@ const BreweryResults = (props) => {
 
     return (
         <>
-            <h1>{search}</h1>
+            <h1>Breweries</h1>
             {searchItems && (
                 <div className="search__result">
                     {/* loops in the array which contains updated search items */}
@@ -73,10 +73,14 @@ const BreweryResults = (props) => {
                     {!!newSearch.length ? (
                         newSearch.map((value, index) => {
 
+                          
+                            
+                           
 
-                            return (
-                                <Link to={`/breweries/${value.brewery.user_id}`}><p>{value.brewery_name}</p></Link>
-                                // <a className="search__items" key={index} >{value.name} </a>
+                            return (<>
+                                <Link key={value.id}to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link>
+                                <a className="search__items" key={index} >{value.name} </a>
+                            </>
                             )
 
                         })

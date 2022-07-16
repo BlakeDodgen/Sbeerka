@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import SearchIcon from '@mui/icons-material/Search';
 
 function SearchInput({ placeholder, data, search }) {
     const [searchString, setSearchString] = useState("");
@@ -57,7 +58,7 @@ function SearchInput({ placeholder, data, search }) {
                 onKeyDown={(e) => e.keyCode == "13" && redirect()}
                 autoComplete="off"
             />
-
+            
             {searchItems && (
                 <div className="search__result">
                     {/* loops in the array which contains updated search items */}

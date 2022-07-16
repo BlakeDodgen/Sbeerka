@@ -3,6 +3,7 @@ import { useContext } from "react";
 import UserContext from "./UserContext";
 import axios from "axios";
 
+
 const Settings = () => {
 
     const { id } = useParams();
@@ -26,7 +27,9 @@ const Settings = () => {
         <h2>Username: {user.username}</h2>
         {user.user_type != 3 &&
             <p onClick={clickHandler}>DELETE PROFILE</p>
+            
         }
+        
         </>
     )
 }

@@ -1,8 +1,5 @@
-import axios from "axios";
-import React, { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import UserContext from "./UserContext";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
+
 
 const BreweryForm = () => {
 
@@ -17,8 +14,24 @@ const BreweryForm = () => {
         website: "",
         size: "",
         history: "",
-        brewery_pic_id: ""
+        brewery_pic_id: "",
+        
+        // picture can or cannot be sent in this post req??
+        //if not second form has to be created
+        
     });
+
+    // const handleUpload = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         const response = await axios.post("/.....", values);
+    //         const response_data = response.data;
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+
+       //     return navigate("/....");
+    // };
 
     const handleChange = (e) => {
         setValues((previous_values) => {
@@ -29,30 +42,6 @@ const BreweryForm = () => {
         });
     };
 
-    const handleSubmit = async (e) => {
-
-        e.preventDefault();
-        values.user_id = user.id;
-        console.log(values)
-        const response = await axios.post("/api/breweries/create", values);
-        const response_data = response.data;
-        console.log(response)
-
-        if (typeof res === 'object') {
-            console.log(response)
-        }
-
-        return navigate(`/breweries/${user.id}`);
-    };
-
-    const loadData = async () => {
-        const responseData = await axios.get(`/api/breweries/number`);
-        setNumber(responseData.data);
-    };
-
-    useEffect(() => {
-        loadData();
-    }, []);
 
     return (
         <>
@@ -61,8 +50,9 @@ const BreweryForm = () => {
                 className="form"
                 // action=""
                 method="post"
+                enctype="multipart/form-data"
                 onSubmit={(e) => {
-                    handleSubmit(e);
+                    handleUpload(e);
                 }}
             >
                 <div className="form__container">
