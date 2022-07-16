@@ -240,7 +240,7 @@ function SignUp() {
                     value={values.user_type}
                     onChange={handleChange}
                 /> */}
-
+                <br />
                 <button className="form__button">Create Sbeerka Account</button>
                 <br />
 
