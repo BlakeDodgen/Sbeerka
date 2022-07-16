@@ -10,14 +10,15 @@ class BreweryController extends Controller
 {
     public function breweryinfo($id)
     {
-        $brewery = Brewery::with([
+        $brewery = Brewery::where('user_id', '=', $id)
+                    ->with([
                     'user',
                     'breweryPic',
                     'beers',
                     'beers.beerPic',
                     'beers.reviews'
-                ])
-                ->findOrFail($id);
+                    ])
+                ->get();
         return $brewery;
     }
 
@@ -68,5 +69,13 @@ class BreweryController extends Controller
             }   
         }
         return $number;
+    }
+
+    public function breweryByUser($id)
+    {
+        $brewery = Brewery::where('user_id', '=', $id)
+                            ->get();
+
+        return $brewery;
     }
 }

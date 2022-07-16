@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Brewery;
 
 class UserController extends Controller
 {
@@ -22,13 +23,11 @@ class UserController extends Controller
         return 'user deleted';
     }
 
-    // public function userinfo($id)
-    // {
-    //     $user = User::with([
-    //                 'reviews'
-    //                 ])
-    //                 ->findOrFail($id);
+    public function userinfo($id)
+    {
+        $user = User::with('brewery')
+                    ->findOrFail($id);
 
-    //     return $user;
-    // }
+        return $user;
+    }
 }
