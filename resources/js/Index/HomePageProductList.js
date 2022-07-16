@@ -33,7 +33,7 @@ const HomePageProductList = () => {
                   
                 </div>
                 {/* new feature loads another six items */}
-                <button onClick={()=>setMax(max+6)}>Another round</button>
+                {/* <button onClick={()=>setMax(max+6)}>Another round</button> */}
                 
                 
             </div>
