@@ -42,7 +42,7 @@ const BreweryForm = () => {
             console.log(response)
         }
 
-        return navigate(`/breweries/${number + 1}`);
+        return navigate(`/breweries/${user.id}`);
     };
 
     const loadData = async () => {
