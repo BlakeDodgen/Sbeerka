@@ -1,15 +1,48 @@
 .footer {
     display: flex;
-    height: 2.5rem;
+    height: 3rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 4rem;
     background-color: $primary-grey;
     font-weight: 200;
     color: white;
-    position: fixed;
-    left: 0;
+    position: absolute;
     bottom: 0;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    &__social {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 13%;
+    }
+}
+.footer__fb {
+    height: 1.5rem;
+
+    &:hover {
+        content: url('./img/FB-hover.svg');
+
+    }
+}
+
+.footer__ig {
+    height: 1.5rem;
+
+    &:hover {
+        content: url('./img/IG-hover.svg');
+
+    }
+}
+
+.footer__twitter {
+    height: 1.2rem;
+
+    &:hover {
+        content: url('./img/Twitter-hover.svg');
+
+    }
 }

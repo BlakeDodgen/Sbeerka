@@ -9,12 +9,13 @@ const Radio = () => {
     };
 
     return (
-        <div>
+        <>
             <input type="radio" name="release" checked={status === 1} onClick={(e) => radioHandler(1)} />
             <input type="radio" name="release" checked={status === 2} onClick={(e) => radioHandler(2)} />
+
             {status === 1 && Status1()}
             {status === 2 && Status2()}
-        </div>
+        </>
     )
 }
 
@@ -39,10 +40,12 @@ const Status1 = () => {
 
 const Status2 = () => {
     return (
-        <div className="form__container">
-            <label className="form__label form__label-breweryname">Brewery Name</label>
-            <input className="form__input form__input-breweryname" type="text" name="brewery_name" value={values.brewery_name} onChange={handleChange} />
-        </div>
+        <>
+            <div className="form__container">
+                <label className="form__label form__label-breweryname">Brewery Name</label>
+                <input className="form__input form__input-breweryname" type="text" name="brewery_name" value={values.brewery_name} onChange={handleChange} />
+            </div>
+        </>
     )
 }
 

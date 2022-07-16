@@ -18,3 +18,4 @@ yarn-error.log
 /public/mix.js.map
 /public/img/breweries
 /public/img/beers
+/.DS_Store

@@ -75,7 +75,7 @@ const BreweryResults = (props) => {
 
 
                             return (
-                                <Link to={`/breweries/${value.brewery.id}`}><p>{value.brewery_name}</p></Link>
+                                <Link to={`/breweries/${value.brewery.user_id}`}><p>{value.brewery_name}</p></Link>
                                 // <a className="search__items" key={index} >{value.name} </a>
                             )
 

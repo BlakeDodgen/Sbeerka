@@ -1,41 +1,69 @@
-.form {
-    display: flex;
-    background-color: white;
-    border: 2px solid red;
-    flex-direction: column;
-    align-items: center;
-    color: $secondary-blue;
-    justify-content: space-around;
-    height: 40rem;
-    position: absolute;
-    top: 10rem;
-    width: 60%;
-}
+
+// .form {
+//     display: flex;
+//     background-color: white;
+//     flex-direction: column;
+//     align-items: center;
+//     color: $secondary-blue;
+//     //height: 60%;
+//     justify-content: space-around;
+//     //height: 40rem;
+//     min-height: 60vh;
+//     padding-bottom: 4rem;
+//     height: fit-content;
+//     position: absolute;
+//     top: 7rem;
+//     width: 60%;
+//     overflow: auto;
+//     border: 2px solid red;
+// }
 
 .form__h2 {
-    font-weight: 600;
+    font-weight: $heading-font-weight;
 }
 
-.form__form {
+.form {
     display: flex;
     flex-direction: column;
     background-color: white;
+    justify-content: flex-start;
+    width: 50%;
+    margin: 4.5rem 0 7rem 0;
+    padding: 0 4.5rem;
+    min-height: fit-content;
     border: 2px solid red;
-    align-items: flex-start;
-    width: 80%;
-    position: absolute;
-    top: 0;
-}
 
-.form__label {
 }
 
 .form__input {
-    // border-color: transparent;
-    // outline-color: $primary-yellow;
-    // color: $primary-grey;
-    // border-top-right-radius: 15px;
-    // border-bottom-right-radius: 15px;
+    width: 100%;
+    //border-radius: 5px;
+    border: 2px solid red;
+}
+
+.form__button {
+  background-color: $secondary-orange;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  width: 100%;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+              rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  &:active {
+    transform: scale(0.99,0.95);
+  }
+
+  &:hover {
+    filter: brightness(85%);
+  }
 }
 
 // .form__label-name {
@@ -134,9 +162,9 @@
 //     color: blue;
 // }
 
-input[type="radio"]#radio-brewery:checked + div #first-name {
-    display: hidden;
-}
+// input[type="radio"]#radio-brewery:checked + div #first-name {
+//     display: hidden;
+// }
 
 // //add just some hover effect
 // #radio-member:hover~ .nav__list {

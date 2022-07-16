@@ -18,6 +18,7 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
         user_id: user,
         beer_id: beer
     });
+    const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
         setValues((previous_values) => {
@@ -31,14 +32,14 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
     const handleSubmit = async (e) => {
         
         e.preventDefault();
-        try {
             const response = await axios.post("/api/reviews/create", values);
             const response_data = response.data;
+            console.log(response)
+            
+            if (typeof res === 'object') {
+                console.log(response)
+            }
             setReviewed(true);
-        } catch (err) {
-            console.log(err);
-        }
-        
 
         // return navigate("/");
     };
@@ -54,6 +55,9 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
                 }}
             >
                 <div className="form__container">
+                {
+                    !!errorResponse && <span>Login Failed</span>
+                }
                     <label className="form__label form__label-review">
                         Review:
                     </label>
