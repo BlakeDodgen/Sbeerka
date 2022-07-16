@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import UserContext from "./UserContext";
 import ReactDOM from "react-dom";
 
 const BreweryForm = () => {
+
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
+    const [number, setNumber] = useState(0);
+
     const [values, setValues] = useState({
+        user_id: null,
         city: "",
         country: "",
         website: "",
         size: "",
         history: "",
-        brewery_pic_id: "",
+        brewery_pic_id: ""
     });
 
     const handleChange = (e) => {
@@ -19,6 +28,31 @@ const BreweryForm = () => {
             };
         });
     };
+
+    const handleSubmit = async (e) => {
+        
+        e.preventDefault();
+        values.user_id = user.id;
+        console.log(values)
+        const response = await axios.post("/api/breweries/create", values);
+        const response_data = response.data;
+        console.log(response)
+            
+        if (typeof res === 'object') {
+            console.log(response)
+        }
+
+        return navigate(`/breweries/${user.id}`);
+    };
+
+    const loadData = async () => {
+        const responseData = await axios.get(`/api/breweries/number`);
+        setNumber(responseData.data);
+    };
+
+    useEffect(() => {
+        loadData();
+    }, []);
 
     return (
         <div className="form">
@@ -38,11 +72,9 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-city"
                         type="text"
+                        name="city"
                         value={values.city}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <br />
@@ -54,11 +86,9 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-country"
                         type="text"
+                        name="country"
                         value={values.country}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <br />
@@ -69,11 +99,9 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-website"
                         type="text"
+                        name="website"
                         value={values.website}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <br />
@@ -86,11 +114,9 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-size"
                         type="text"
+                        name="size"
                         value={values.size}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="form__container">
@@ -99,18 +125,16 @@ const BreweryForm = () => {
                     </label>
                     <input
                         className="form__input form__input-history"
-                        type="text"
+                        type="textarea"
+                        name="history"
                         value={values.history}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <br />
 
-                {/* <br />
-                <div className="form__container">
+                <br />
+                {/* <div className="form__container">
                 <label
                  className="form__label form__label-image"
                 > Upload Image: </label>
@@ -118,14 +142,15 @@ const BreweryForm = () => {
                     className="breweryform__input"
                     type="text"
                     value={value.brewery_pic_id}
-                    required
+                    name="brewery_pic"
                     onChange={(e) => {
                         handleChange(e);
                     }}
-                /> </div>*/}
+                /> </div> */}
                 <br />
+                <button>Cheers</button>
             </form>
-            <button>Cheers</button>
+            
         </div>
     );
 };

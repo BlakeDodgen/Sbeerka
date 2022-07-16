@@ -20,8 +20,8 @@ class ReviewSeeder extends Seeder
 
         $reviews = [
             [
-                'beer_id' => '1',
-                'user_id' => '1',
+                'beer_id' => 1,
+                'user_id' => 1,
                 'review' => "This was a very tasty beer, shame about the price.",
                 'rating' => 4,
                 'favorite' => false,
@@ -33,8 +33,8 @@ class ReviewSeeder extends Seeder
                 'bitter' => 4,
                 'sour' => 2
             ], [
-                'beer_id' => '1',
-                'user_id' => '2',
+                'beer_id' => 1,
+                'user_id' => 2,
                 'review' => "I felt as though I had been elevated to another, higher plain of consciousness after drinking this amazing brew!",
                 'rating' => 5,
                 'favorite' => true,
@@ -46,8 +46,8 @@ class ReviewSeeder extends Seeder
                 'bitter' => 2,
                 'sour' => 2
             ], [
-                'beer_id' => '2',
-                'user_id' => '2',
+                'beer_id' => 2,
+                'user_id' => 2,
                 'review' => "Ok, that's all.",
                 'rating' => 2,
                 'favorite' => false,
@@ -59,8 +59,8 @@ class ReviewSeeder extends Seeder
                 'bitter' => 3,
                 'sour' => 1
             ], [
-                'beer_id' => '2',
-                'user_id' => '3',
+                'beer_id' => 2,
+                'user_id' => 3,
                 'review' => "Good stuff, I could drink this for hours.",
                 'rating' => 4,
                 'favorite' => true,
@@ -73,8 +73,8 @@ class ReviewSeeder extends Seeder
                 'sour' => 4
             ],
             [
-                'beer_id' => '2',
-                'user_id' => '4',
+                'beer_id' => 2,
+                'user_id' => 4,
                 'review' => "Nice colour, quite attractive looking liquid...",
                 'rating' => 4,
                 'favorite' => false,
@@ -87,8 +87,8 @@ class ReviewSeeder extends Seeder
                 'sour' => 1
             ],
             [
-                'beer_id' => '13',
-                'user_id' => '4',
+                'beer_id' => 13,
+                'user_id' => 4,
                 'review' => "Probaly the best beer I ever tasted, but I feel that waiteress was flirting with my partner so I deducted 3 stars",
                 'rating' => 2,
                 'favorite' => false,
@@ -101,8 +101,8 @@ class ReviewSeeder extends Seeder
                 'sour' => 3
             ],
             [
-                'beer_id' => '23',
-                'user_id' => '4',
+                'beer_id' => 23,
+                'user_id' => 4,
                 'review' => "Made me feel like a God, I woke up 3 days later",
                 'rating' => 5,
                 'favorite' => true,
@@ -115,8 +115,8 @@ class ReviewSeeder extends Seeder
                 'sour' => 2
             ],
             [
-                'beer_id' => '33',
-                'user_id' => '4',
+                'beer_id' => 33,
+                'user_id' => 4,
                 'review' => "Remindes me of a sunset in Giza, where I was visiting pyramides. I visited 92 countries so far and swam with dolphines. Quite sure that I saw a yeti, but not in Giza, in Nepal which I also visited",
                 'rating' => 5,
                 'favorite' => true,
@@ -128,8 +128,8 @@ class ReviewSeeder extends Seeder
                 'bitter' => 2,
                 'sour' => 3
             ], [
-                'beer_id' => '27',
-                'user_id' => '4',
+                'beer_id' => 27,
+                'user_id' => 4,
                 'review' => "It's good!!",
                 'rating' => 5,
                 'favorite' => true,
