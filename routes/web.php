@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
-
+use App\Http\Controllers\UploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +31,12 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
             ->name('logout');
+            
+Route::get('/upload/upload', ['App\Http\Controllers\UploadController', 'index']);
+Route::post('/upload/upload', ['App\Http\Controllers\UploadController', 'store']);
 
 Route::get('/{path?}', ['App\Http\Controllers\HomepageController', 'index'])->where('path', '.*');
+
 
 
 

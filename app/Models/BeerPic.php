@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app\Models\Beer;
+use app\Models\BeerPic;
 
 class BeerPic extends Model
 {
