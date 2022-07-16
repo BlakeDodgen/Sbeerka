@@ -177,87 +177,75 @@ function SignUp() {
 
     return (
         <>
-            <div className="form">
-                <form
-                    className="form__form"
-                    action="/register"
-                    method="post"
-                    onSubmit={handleSignUp}
-                >
-                    <h2 className="form__h2">Sign Up</h2>
-                    <Radio values={values} handleChange={handleChange} setValues={setValues} />
+            <form
+                className="form"
+                action="/register"
+                method="post"
+                onSubmit={handleSignUp}
+            >
+                <h2 className="form__h2">Sign Up</h2>
+                <Radio values={values} handleChange={handleChange} setValues={setValues} />
 
-                    <div className="form__container">
-                        <label className="form__label form__label-email">
-                            Email
-                        </label>
-                        <br />
-                        <input
-                            className="form__input form__input-email"
-                            type="email"
-                            name="email"
-                            value={values.email}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form__container">
-                        <label className="form__label form__label-password">
-                            Password
-                        </label>
-                        <br />
-                        <input
-                            className="form__input form__input-password"
-                            type="password"
-                            name="password"
-                            value={values.password}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form__container">
-                        <label className="form__label form__label-confirm">
-                            Confirm Password
-                        </label>
-                        <br />
-                        <input
-                            className="form__input form__input-confirm"
-                            type="password"
-                            name="password_confirmation"
-                            value={values.password_confirmation}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <label>I'm over 18</label>
+                <div className="form__container">
+                    <label className="form__label form__label-email">
+                        Email
+                    </label>
+                    <br />
                     <input
-                        type="checkbox"
-                        name="over18"
-                        value={values.over18}
+                        className="form__input form__input-email"
+                        type="email"
+                        name="email"
+                        value={values.email}
                         onChange={handleChange}
                     />
+                </div>
+                <div className="form__container">
+                    <label className="form__label form__label-password">
+                        Password
+                    </label>
                     <br />
-                    <label className="form__label-member">User</label>
-                    <label className="form__label-brewery">Brewery</label>
                     <input
-                        type="number"
-                        name="user_type"
-                        value={values.user_type}
+                        className="form__input form__input-password"
+                        type="password"
+                        name="password"
+                        value={values.password}
                         onChange={handleChange}
                     />
+                </div>
+                <div className="form__container">
+                    <label className="form__label form__label-confirm">
+                        Confirm Password
+                    </label>
                     <br />
+                    <input
+                        className="form__input form__input-confirm"
+                        type="password"
+                        name="password_confirmation"
+                        value={values.password_confirmation}
+                        onChange={handleChange}
+                    />
+                </div>
+                <label>I'm over 18<input
+                    type="checkbox"
+                    name="over18"
+                    value={values.over18}
+                    onChange={handleChange}
+                /></label>
 
-                    <button className="form__button">Create Sbeerka Account</button>
-                    <br />
-                </form>
+                {/* <label className="form__label-member">User</label>
+                <label className="form__label-brewery">Brewery</label>
+                <input
+                    type="number"
+                    name="user_type"
+                    value={values.user_type}
+                    onChange={handleChange}
+                /> */}
 
-            </div>
-            <br />
-            <label>I'm over 18</label>
-            <input
-                type="checkbox"
-                name="over18"
-                value={values.over18}
-                onChange={handleChange}
-            />
-            <br />
+                <button className="form__button">Create Sbeerka Account</button>
+                <br />
+
+            </form>
+
             {/* <label className="form__label-member">User</label>
                 <label className="form__label-brewery">Brewery</label>
                 <input

@@ -30,14 +30,14 @@ const BreweryForm = () => {
     };
 
     const handleSubmit = async (e) => {
-        
+
         e.preventDefault();
         values.user_id = user.id;
         console.log(values)
         const response = await axios.post("/api/breweries/create", values);
         const response_data = response.data;
         console.log(response)
-            
+
         if (typeof res === 'object') {
             console.log(response)
         }
@@ -55,10 +55,10 @@ const BreweryForm = () => {
     }, []);
 
     return (
-        <div className="form">
+        <>
             <h2> Brewery Form </h2>
             <form
-                className="form__form"
+                className="form"
                 // action=""
                 method="post"
                 onSubmit={(e) => {
@@ -150,8 +150,8 @@ const BreweryForm = () => {
                 <br />
                 <button>Cheers</button>
             </form>
-            
-        </div>
+
+        </>
     );
 };
 

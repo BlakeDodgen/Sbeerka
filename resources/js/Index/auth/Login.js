@@ -45,8 +45,8 @@ function Login() {
     };
 
     return (
-        <div className="form">
-            <form className="form__form" onSubmit={handleSubmit}>
+        <>
+            <form className="form" onSubmit={handleSubmit}>
                 <h2 className="form__h2">Login</h2>
 
                 <div className="form__container">
@@ -78,7 +78,7 @@ function Login() {
             const user = await loadUser()
             console.log(user)
             }}>Check User</button> */}
-        </div>
+        </>
     );
 }
 export default Login;

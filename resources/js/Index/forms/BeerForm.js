@@ -21,9 +21,9 @@ const BeerForm = () => {
         });
     };
     return (
-        <div className="form">
+        <>
             <form
-                className="form__form"
+                className="form"
                 // action=""
                 method="post"
                 onSubmit={(e) => {
@@ -121,9 +121,11 @@ const BeerForm = () => {
                     />
                 </div> */}
                 <br />
+                <button className="form__button">Add Beer To Sbeerka</button>
+                <br />
             </form>
-            <button className="form__button">Add Beer To Sbeerka</button>
-        </div>
+
+        </>
     );
 };
 
