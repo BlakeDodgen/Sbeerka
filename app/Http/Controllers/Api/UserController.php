@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $user = new User;
         $this->validate($request, [
-            // 'first_name' => 'string|nullable',   
+            'first_name' => 'string|nullable',   
             // 'surname' => 'string|nullable',  
             'over18' => 'accepted',
             // 'username' => 'string|nullable',
@@ -27,14 +27,22 @@ class UserController extends Controller
             // 'user_type' => 'required|integer',
         ]);
 
-        $user->first_name = $request->input('first_name');
-        $user->surname = $request->input('surname');
-        $user->over18 = true;
-        $user->username = $request->input('username');
-        $user->brewery_name = $request->input('brewery_name');
-        $user->password = $request->input('password');
-        $user->email = $request->input('email');
-        $user->user_type = $request->input('user_type');
+        if ($request->input('user_type') == 2) {
+            $user->over18 = true;
+            $user->first_name = ' ';
+            $user->brewery_name = $request->input('brewery_name');
+            $user->password = $request->input('password');
+            $user->email = $request->input('email');
+            $user->user_type = $request->input('user_type');   
+        } else {
+            $user->first_name = $request->input('first_name');
+            $user->surname = $request->input('surname');
+            $user->over18 = true;
+            $user->username = $request->input('username');
+            $user->password = $request->input('password');
+            $user->email = $request->input('email');
+            $user->user_type = $request->input('user_type');
+        }
 
         $user->save();
 

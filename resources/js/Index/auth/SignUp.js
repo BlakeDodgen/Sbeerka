@@ -14,8 +14,8 @@ const Radio = (props) => {
                 className="radio"
                 type="radio"
                 name="user_type"
-                value="user"
-                checked={props.values.user_type === 'user'}
+                value="1"
+                checked={props.values.user_type === 1}
                 onChange={props.handleChange}
             />
             <label>Sbeerka Member</label>
@@ -23,12 +23,12 @@ const Radio = (props) => {
                 className="radio"
                 type="radio"
                 name="user_type"
-                value="brewery"
-                checked={props.values.user_type === 'brewery'}
+                value="2"
+                checked={props.values.user_type === 2}
                 onChange={props.handleChange}
             />
             <label>Sbeerka Brewery</label>
-            {props.values.user_type === 'user' ?
+            {props.values.user_type === 1 ?
                 <Status1 values={props.values} handleChange={props.handleChange} setValues={props.setValues} /> :
                 <Status2 values={props.values} handleChange={props.handleChange} />
             }
@@ -132,11 +132,14 @@ function SignUp() {
         password: "",
         password_confirmation: "",
         over18: false,
-        user_type: "user",
+        user_type: 1,
     });
 
     const handleSignUp = async (e) => {
         e.preventDefault();
+        if (values.user_type == 2) {
+            values.first_name = "none";
+        }
         try {
             const response = await axios.post("/register", values);
             const response_data = response.data;
@@ -150,6 +153,9 @@ function SignUp() {
 
         await setLoadingUser(false);
 
+        if (userData.user_type == 2) {
+            return navigate("/signup/brewery")
+        }
         return navigate("/");
     };
 
