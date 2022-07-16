@@ -14,8 +14,8 @@ const Radio = (props) => {
                 className="radio"
                 type="radio"
                 name="user_type"
-                value="1"
-                checked={props.values.user_type === 1}
+                value="user"
+                checked={props.values.user_type === "user"}
                 onChange={props.handleChange}
             />
             <label>Sbeerka Member</label>
@@ -23,12 +23,12 @@ const Radio = (props) => {
                 className="radio"
                 type="radio"
                 name="user_type"
-                value="2"
-                checked={props.values.user_type === 2}
+                value="brewery"
+                checked={props.values.user_type === "brewery"}
                 onChange={props.handleChange}
             />
             <label>Sbeerka Brewery</label>
-            {props.values.user_type === 1 ?
+            {props.values.user_type === "user" ?
                 <Status1 values={props.values} handleChange={props.handleChange} setValues={props.setValues} /> :
                 <Status2 values={props.values} handleChange={props.handleChange} />
             }
@@ -132,13 +132,16 @@ function SignUp() {
         password: "",
         password_confirmation: "",
         over18: false,
-        user_type: 1,
+        user_type: "user",
     });
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-        if (values.user_type == 2) {
+        if (values.user_type == "brewery") {
             values.first_name = "none";
+            values.user_type = 2;
+        } else if (values.user_type == "user") {
+            values.user_type = 1;
         }
         try {
             const response = await axios.post("/register", values);
@@ -229,7 +232,7 @@ function SignUp() {
                     onChange={handleChange}
                 />
                 <br />
-                <label className="form__label-member">User</label>
+                {/* <label className="form__label-member">User</label>
                 <label className="form__label-brewery">Brewery</label>
                 <input
                     type="number"
@@ -237,7 +240,7 @@ function SignUp() {
                     value={values.user_type}
                     onChange={handleChange}
                 />
-                <br />
+                <br /> */}
 
                 <button className="form__button">Create Sbeerka Account</button>
                 <br />
