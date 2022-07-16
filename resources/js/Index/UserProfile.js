@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "./UserContext";
 import axios from "axios";
@@ -33,7 +33,12 @@ const UserProfile = () => {
             <p>Username: {user.username}</p>
             {(reviews.length > 0) && <p><strong>Reviewed Beers: </strong></p>}
             {reviews.map((review, i) => (
-                    <p key={i}>{review.beer.name}</p>
+                    <>
+                    <Link key={i} to={`/beers/${review.beer.id}`}>
+                        {review.beer.name}
+                    </Link>
+                    <img key={i} src={`/img/beers/${review.beer.beer_pic.picture}`} alt="beer logo" style={{width: "100px"}}/>
+                    </>
                 ))}
             
             {user.user_type != 3 &&

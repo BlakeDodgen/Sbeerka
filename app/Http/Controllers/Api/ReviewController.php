@@ -38,7 +38,7 @@ class ReviewController extends Controller
     public function userReviews($id)
     {
         $reviews = Review::where('user_id', '=', $id)
-                    ->with('beer:id,name')
+                    ->with('beer:id,name,beer_pic_id', 'beer.beerPic')
                     ->get();
         return $reviews;
     }
