@@ -1,9 +1,8 @@
 .search {
     width: 50%;
     display: flex;
-    gap: 3px;
+    gap: 1px;
     position: relative;
-    border: 2px solid red;
 
     &__container {
         width: 100%;
@@ -21,6 +20,12 @@
     text-indent: 6px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    background-image: url('./img/profile.svg');
+    background-repeat: no-repeat;
+    background-size: 3%;
+    background-position: 98%;
+
+    
 }
 
 .search__input-container {

@@ -8,10 +8,18 @@
 @import "styles/components";
 @import "styles/beerprofile";
 @import "styles/about";
+@import "styles/results";
 
 html {
     box-sizing: border-box;
-    position: relative;
+    overscroll-behavior: auto;
+    // background-color: $primary-grey;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+      }
 }
 
 *,
@@ -24,16 +32,25 @@ html {
     user-select: none;
 }
 
-body,
-#root {
-    height: 100%;
-}
+// body,
+// #root {
+//     //height: 200%;
+// }
 
 body {
     margin: 0;
     font-family: $primary-font;
+    background-color: $primary-grey;
     color: $secondary-blue;
-    background-color: $primary-yellow;
+    position: relative;
+    //height: auto;
+    // display: flex;
+    // justify-content: flex-end;
+    // flex-direction: column;
+    display: inline;
+    //margin-top: 0;
+    padding-bottom: 1000px;
+    margin-bottom: -1000px;
 }
 
 h2,

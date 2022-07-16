@@ -2,7 +2,13 @@ import React, { useState } from "react";
 
 
 const BreweryForm = () => {
+
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
+    const [number, setNumber] = useState(0);
+
     const [values, setValues] = useState({
+        user_id: null,
         city: "",
         country: "",
         website: "",
@@ -37,12 +43,11 @@ const BreweryForm = () => {
     };
 
 
-
     return (
-        <div className="form">
+        <>
             <h2> Brewery Form </h2>
             <form
-                className="form__form"
+                className="form"
                 // action=""
                 method="post"
                 enctype="multipart/form-data"
@@ -57,11 +62,9 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-city"
                         type="text"
+                        name="city"
                         value={values.city}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <br />
@@ -73,11 +76,9 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-country"
                         type="text"
+                        name="country"
                         value={values.country}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <br />
@@ -88,11 +89,9 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-website"
                         type="text"
+                        name="website"
                         value={values.website}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <br />
@@ -105,11 +104,9 @@ const BreweryForm = () => {
                     <input
                         className="form__input form__input-size"
                         type="text"
+                        name="size"
                         value={values.size}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="form__container">
@@ -118,34 +115,33 @@ const BreweryForm = () => {
                     </label>
                     <input
                         className="form__input form__input-history"
-                        type="text"
+                        type="textarea"
+                        name="history"
                         value={values.history}
-                        required
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
+                        onChange={handleChange}
                     />
                 </div>
                 <br />
 
                 <br />
-                <div className="form__container">
+                {/* <div className="form__container">
                 <label
                  className="form__label form__label-image"
                 > Upload Image: </label>
                 <input
                     className="breweryform__input"
-                    type="file" 
-                    name = "picture"
-                    required
-                    
-                /> </div>
+                    type="text"
+                    value={value.brewery_pic_id}
+                    name="brewery_pic"
+                    onChange={(e) => {
+                        handleChange(e);
+                    }}
+                /> </div> */}
                 <br />
-               
                 <button>Cheers</button>
             </form>
-            
-        </div>
+
+        </>
     );
 };
 

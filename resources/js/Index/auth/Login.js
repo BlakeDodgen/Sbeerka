@@ -52,8 +52,7 @@ function Login() {
 
     return (
         <>
-        <div className="form">
-            <form className="form__form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <h2 className="form__h2">Login</h2>
 
                 <div className="form__container">
@@ -66,7 +65,6 @@ function Login() {
                         onChange={handleChange}
                     />
                 </div>
-                <br />
                 <div className="form__container">
                     <label>Password </label>
                     <br />
@@ -79,13 +77,13 @@ function Login() {
                 </div>
                 <br />
                 <button className="form__button">Log In</button>
-                {!!errorResponse && <span>Login Failed</span>}
+                {!!errorResponse && <span className="form__failed">Login Failed</span>}
+                <br />
             </form>
             {/* <button onClick={async () => {
             const user = await loadUser()
             console.log(user)
             }}>Check User</button> */}
-        </div>
         </>
     );
 }

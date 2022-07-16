@@ -1,6 +1,6 @@
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useState, useEffect } from "react";
 import UserContext from "./UserContext";
 import Logout from "./auth/Logout";
 import About from "./about-page/About";
@@ -38,9 +38,12 @@ function Nav(props) {
                             )}
                         </div>
                     </button>
-
                     <div className="dropdown-content">
-                        <Link to={`/user/${user.id}`}>Profile</Link>
+                        {user.username ? (
+                            <Link to={`/user/${user.id}`}>Profile</Link>
+                        ) : (
+                            <Link to={`/breweries/${user.id}`}>Profile</Link>
+                        )}
                         <Link to="/">Beer Collection</Link>
                         <Logout />
                     </div>

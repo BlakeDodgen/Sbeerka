@@ -9,8 +9,8 @@ const BreweryProfile = () => {
 
     const loadData = async () => {
         const response = await axios.get(`/api/breweries/${id}`);
-        console.log(response.data)
-        setBrewery(response.data);
+        console.log(response.data[0])
+        setBrewery(response.data[0]);
     }
 
     useEffect(() => {

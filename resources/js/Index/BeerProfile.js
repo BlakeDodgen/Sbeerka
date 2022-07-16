@@ -122,7 +122,7 @@ const BeerProfile = () => {
                 <p>Name: {beer.data.name}</p>
                 <p>
                     Brewery:{" "}
-                    <Link to={`/breweries/${beer.data.brewery.id}`}>
+                    <Link to={`/breweries/${beer.data.brewery.user_id}`}>
                         {beer.data.brewery.user.brewery_name}
                     </Link>
                 </p>

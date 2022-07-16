@@ -51,8 +51,8 @@ const SearchResults = (props) => {
         // if (search === "beer-type") {
         //     return item.type.toLowerCase().includes(searchString.toLowerCase())
         // } if (search === "beers") {
-         return item.name.toLowerCase().includes(searchString.toLowerCase())
-       // }
+        return item.name.toLowerCase().includes(searchString.toLowerCase())
+        // }
 
     });
 
@@ -69,7 +69,7 @@ const SearchResults = (props) => {
         <>
             <h1>Beers</h1>
             {searchItems && (
-                <div className="search__result">
+                <div className="search-results">
                     {/* loops in the array which contains updated search items */}
                     {/* for less displayed results use splice method on array .splice(0,10) */}
 
