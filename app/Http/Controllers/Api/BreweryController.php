@@ -55,4 +55,18 @@ class BreweryController extends Controller
 
         return 'worked';
     }
+
+    public function number()
+    {
+        $breweries = Brewery::select('id')
+                        ->get();
+
+        $number = 0;
+        foreach($breweries as $value) {
+            if($value['id'] > $number) {
+                $number = $value['id'];
+            }   
+        }
+        return $number;
+    }
 }
