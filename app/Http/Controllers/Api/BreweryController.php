@@ -34,4 +34,25 @@ class BreweryController extends Controller
 
         return $breweries;
     }
+
+    public function create(Request $request)
+    {
+        $brewery = new Brewery;
+        
+        $this->validate($request, [
+            'user_id' => 'required'
+        ]);
+
+        $brewery->user_id = $request->input('user_id');
+        $brewery->city = $request->input('city');
+        $brewery->country = $request->input('country');
+        $brewery->website = $request->input('website');
+        $brewery->size = $request->input('size');
+        $brewery->history = $request->input('history');
+        $brewery->brewery_pic_id = $request->input('brewery_pic_id');
+
+        $brewery->save();
+
+        return 'worked';
+    }
 }

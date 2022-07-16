@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useContext, useEffect } from "react";
+import UserContext from "./UserContext";
 import ReactDOM from "react-dom";
 
 const BreweryForm = () => {
+
+    const { user } = useContext(UserContext);
+
     const [values, setValues] = useState({
+        user_id: user.id,
         city: "",
         country: "",
         website: "",
@@ -12,12 +18,27 @@ const BreweryForm = () => {
     });
 
     const handleChange = (e) => {
+        console.log(values)
         setValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
             };
         });
+    };
+
+    const handleSubmit = async (e) => {
+        
+        e.preventDefault();
+        const response = await axios.post("/api/breweries/create", values);
+        const response_data = response.data;
+        console.log(response)
+            
+        if (typeof res === 'object') {
+            console.log(response)
+        }
+
+        return navigate("/");
     };
 
     return (
@@ -99,7 +120,7 @@ const BreweryForm = () => {
                     </label>
                     <input
                         className="form__input form__input-history"
-                        type="text"
+                        type="textarea"
                         value={values.history}
                         required
                         onChange={(e) => {

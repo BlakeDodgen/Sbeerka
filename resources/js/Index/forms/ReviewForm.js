@@ -37,8 +37,7 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
             console.log(response)
             
             if (typeof res === 'object') {
-                setErrorResponse(response)
-                return setLoadingUser(false)
+                console.log(response)
             }
             setReviewed(true);
 
