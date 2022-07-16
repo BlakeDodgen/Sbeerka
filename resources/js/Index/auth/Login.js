@@ -51,6 +51,7 @@ function Login() {
    
 
     return (
+        <>
         <div className="form">
             <form className="form__form" onSubmit={handleSubmit}>
                 <h2 className="form__h2">Login</h2>
@@ -85,6 +86,7 @@ function Login() {
             console.log(user)
             }}>Check User</button> */}
         </div>
+        </>
     );
 }
 export default Login;

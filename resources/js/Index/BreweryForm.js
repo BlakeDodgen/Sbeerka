@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+
 
 const BreweryForm = () => {
     const [values, setValues] = useState({
@@ -9,7 +9,23 @@ const BreweryForm = () => {
         size: "",
         history: "",
         brewery_pic_id: "",
+        
+        // picture can or cannot be sent in this post req??
+        //if not second form has to be created
+        
     });
+
+    // const handleUpload = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         const response = await axios.post("/.....", values);
+    //         const response_data = response.data;
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+
+       //     return navigate("/....");
+    // };
 
     const handleChange = (e) => {
         setValues((previous_values) => {
@@ -20,6 +36,8 @@ const BreweryForm = () => {
         });
     };
 
+
+
     return (
         <div className="form">
             <h2> Brewery Form </h2>
@@ -27,8 +45,9 @@ const BreweryForm = () => {
                 className="form__form"
                 // action=""
                 method="post"
+                enctype="multipart/form-data"
                 onSubmit={(e) => {
-                    handleSubmit(e);
+                    handleUpload(e);
                 }}
             >
                 <div className="form__container">
@@ -109,23 +128,23 @@ const BreweryForm = () => {
                 </div>
                 <br />
 
-                {/* <br />
+                <br />
                 <div className="form__container">
                 <label
                  className="form__label form__label-image"
                 > Upload Image: </label>
                 <input
                     className="breweryform__input"
-                    type="text"
-                    value={value.brewery_pic_id}
+                    type="file" 
+                    name = "picture"
                     required
-                    onChange={(e) => {
-                        handleChange(e);
-                    }}
-                /> </div>*/}
+                    
+                /> </div>
                 <br />
+               
+                <button>Cheers</button>
             </form>
-            <button>Cheers</button>
+            
         </div>
     );
 };

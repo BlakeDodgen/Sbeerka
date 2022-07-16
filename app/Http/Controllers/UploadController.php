@@ -11,11 +11,12 @@ class UploadController extends Controller
     public function index(){
 
        
-
+        //testing blade, can be deleted after, same as its post path in web.php
         return view('upload');
     }
     public function store(Request $request){
 
+        //method what can be used with on the request
         //store()
         //asStore()
         //storePublicly
@@ -24,8 +25,11 @@ class UploadController extends Controller
         //getSize()
         //getError() 
         //isValid() --extension
+        
+        //display the properties of the request
         //dd($request->all());
 
+        
         $request->validate([
             'picture' => 'required|mimes:jpg,png,jpeg|max:300048'
 
