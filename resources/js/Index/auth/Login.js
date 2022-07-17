@@ -42,6 +42,7 @@ function Login() {
 
     const handleChange = (e) => {
         setValues((previous_values) => {
+            console.log(values)
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,

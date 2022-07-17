@@ -48,31 +48,33 @@ function SearchBar(props) {
     console.log(data)
     return (
 
-        <div className="search">
-            {/* create a new component ?? */}
-            <div className="search__categories">
-                <select value={search} onChange={handleSearchChange}>
-                    <option value="breweries">Breweries</option>
-                    <option value="beers">Beer</option>
-                    <option value="city">City</option>
-                    <option value="country">Country</option>
-                    <option value="beer-type">Beer Type</option>
-                    {/* <option value="random-beer">Random Beer</option> */}
-                </select>
-            </div>
+        <>
+            <div className="search">
+                {/* create a new component ?? */}
+
+                <div className="search__categories">
+                    <select value={search} onChange={handleSearchChange}>
+                        <option value="breweries">Breweries</option>
+                        <option value="beers">Beer</option>
+                        <option value="city">City</option>
+                        <option value="country">Country</option>
+                        <option value="beer-type">Beer Type</option>
+                        {/* <option value="random-beer">Random Beer</option> */}
+                    </select>
+                </div>
 
 
 
-            {/*input element as Component , data are passed with props */}
-            {/* <SearchInput
+                {/*input element as Component , data are passed with props */}
+                {/* <SearchInput
                 search={search}
                 data={data}
                 placeholder="Sbeerka beer search"
             /> */}
-            <SearchInput search={search} data={data} autocomplete="off" />
+                <SearchInput search={search} data={data} autocomplete="off" />
 
-        </div>
-
+            </div>
+        </>
 
     );
 }
