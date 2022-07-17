@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 const BeerForm = () => {
-    const navigate = useNavigate();
-    const [values, setValues] = useContext({
-        // beer_type_id: "",
+    // const navigate = useNavigate();
+    const [values, setValues] = useState({
+        beer_type_id: "",
         name: "",
         alcohol_volume: 0,
         degree: 0,
@@ -38,7 +38,7 @@ const BeerForm = () => {
                     <input
                         className="form__input form__input-beerType"
                         type="text"
-                        value={beerTypeId}
+                        value={values.beer_type_id}
                         required
                         onChange={(e) => {
                             handleChange(e);
