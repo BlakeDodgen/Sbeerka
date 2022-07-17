@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import {useState, useEffect} from "react";
 import GetCookie from '../cookies/GetCookie';
 import SetCookie from '../cookies/SetCookie';
-import RemoveCookie from '../cookies/RemoveCookie';
+
 
 const style = {
   position: 'absolute',
@@ -44,13 +44,6 @@ useEffect(()=>{
 },[stop])
 
 
-  // if(cookie) {    
-  //   console.log('checked');
-  // } else {    
-  // }
-      
-//    setStop(true)  
-
   return (
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
@@ -62,7 +55,7 @@ useEffect(()=>{
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Are you 18?
+            Are you at least 18, dear visitor? 
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <button onClick={handleClose}>YES</button>
