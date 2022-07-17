@@ -5,6 +5,7 @@ import SearchResult from "./SearchResult";
 
 
 
+
 const SearchResults = (props) => {
     const { search, searchString } = useParams();
 
@@ -46,6 +47,26 @@ const SearchResults = (props) => {
 
     });
 
+        // setSearchItems(newSearch);
+
+    //  setSearchItems(newSearch);
+    //  if (searchItems === "") {
+    //      setSearchItems([]);
+    //  } else {
+    //      setSearchItems(newSearch);
+    //  }
+
+    ///HOVERing /////////
+
+    // const [isHovering, setIsHovering] = useState(false);
+
+    // const handleMouseOver = (e) => {
+    //     setIsHovering(true);
+    // }
+
+    // const handleMouseOut = (e) => {
+    //     setIsHovering(false);
+    // }
  
     return (
         <>
@@ -60,6 +81,7 @@ const SearchResults = (props) => {
 
 
                             return (
+                                
                                 <SearchResult key={index}
                                     name={search === "beer-type" ? value.type : value.name}
                                     beer_pic_id={value.beer_pic_id}
@@ -67,7 +89,10 @@ const SearchResults = (props) => {
                                     type={value.beer_type.type}
                                     beer_id = {value.id}
                                     brewery_id = {value.brewery_id}
+                                    // handleMouseOver ={handleMouseOver}
+                                    // handleMouseOut = {handleMouseOut}
                                 />
+                                
                                 // <a className="search__items" key={index} >{value.name} </a>
                             )
 

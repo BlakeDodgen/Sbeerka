@@ -20,7 +20,7 @@ function Nav(props) {
             <Link className="nav__about" to="/about">
                 About
             </Link>
-            {/* <BasicModal /> */}
+            <BasicModal />
 
             {user ? (
                 <div className="dropdown">
