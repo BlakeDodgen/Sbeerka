@@ -1,9 +1,8 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import {useEffect} from "react";
+import {useState, useEffect} from "react";
 import GetCookie from '../cookies/GetCookie';
 import SetCookie from '../cookies/SetCookie';
 import RemoveCookie from '../cookies/RemoveCookie';
@@ -21,43 +20,43 @@ const style = {
 };
 
 export default function BasicModal() {
-  const [open, setOpen] = React.useState(false);
-  const [stop, setStop] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [stop, setStop] = useState(false);
  
   const handleOpen = () => {
     setOpen(true);
-    SetCookie('agecheck', false );
+   
   }
   const handleClose = () => {
-    RemoveCookie('agecheck')
+    
     setOpen(false);
-      
-      SetCookie('agecheck', true );
+    SetCookie('agecheck', true );
   } 
 
+ 
 const cookie = GetCookie('agecheck')
 
+useEffect(()=>{
+    if(cookie){
+      return setOpen(false)
+    }
+    handleOpen()
+},[stop])
 
 
-  if(cookie) {
-    console.log('checked');
-  } else {
-
-      handleOpen();
-  }
-
-       
-    //    setStop(true)
-        
-
-  
+  // if(cookie) {    
+  //   console.log('checked');
+  // } else {    
+  // }
+      
+//    setStop(true)  
 
   return (
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         open={open}
-        onClose={handleClose}
+        // onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -66,7 +65,9 @@ const cookie = GetCookie('agecheck')
             Are you 18?
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Click anywhere if so, if not, leave the site <a href="https://www.google.com">Here</a>.
+            <button onClick={handleClose}>YES</button>
+            <button><a href="https://www.google.com">NO</a></button>
+            
           </Typography>
         </Box>
       </Modal>
