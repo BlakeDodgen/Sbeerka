@@ -40,9 +40,9 @@ class BreweryController extends Controller
     {
         $brewery = new Brewery;
         
-        $this->validate($request, [
-            'user_id' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'user_id' => 'required'
+        // ]);
 
         $brewery->user_id = $request->input('user_id');
         $brewery->city = $request->input('city');
@@ -50,7 +50,7 @@ class BreweryController extends Controller
         $brewery->website = $request->input('website');
         $brewery->size = $request->input('size');
         $brewery->history = $request->input('history');
-        $brewery->brewery_pic_id = $request->input('brewery_pic_id');
+        // $brewery->brewery_pic_id = $request->input('brewery_pic_id');
 
         $brewery->save();
 

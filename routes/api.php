@@ -22,6 +22,8 @@ Route::post('/user/{id}/settings/delete', ['App\Http\Controllers\Api\UserControl
 // Route::get('/info/{id}', ['App\Http\Controllers\Api\UserController', 'userinfo']);
 Route::post('/reviews/create', ['App\Http\Controllers\Api\ReviewController', 'create']);
 Route::get('/reviews/{id}', ['App\Http\Controllers\Api\ReviewController', 'userReviews']);
+
+Route::post('/beers/create', ['App\Http\Controllers\Api\BeerController', 'create']);
 Route::get('/beers/{id}', ['App\Http\Controllers\Api\BeerController', 'beerinfo']);
 Route::get('/beers', ['App\Http\Controllers\Api\BeerController', 'beerindex']);
 
