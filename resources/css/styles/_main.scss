@@ -1,35 +1,25 @@
+// main yellow
 .main {
     background-color: $primary-yellow;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    //align-items: center;
     width: 100%;
     //border: 2px solid red;
     height: inherit;
     min-height: 100vh;
 }
 
-//featured beer -left side
+//featured (left window)
 .main-product {
-    display: flex;
-    align-items: flex-start;
-    justify-items: flex-start;
-    justify-content: center;
     width: 35%;
     // border: 2px solid red;
-    //height: 42rem;
-    height: inherit;
-
-    &__container {
-        margin-top: 1rem;
-        display: flex;
-        width: 80%;
-        //height: 100%;
-        flex-direction: column;
-        justify-content: flex-start;
-        // border: 2px solid red;
-    }
+    padding: 0 4.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1.5rem 0 3.5rem 0;
+    min-height: fit-content;
 
     &__image-container {
         border-radius: 7px;
@@ -38,6 +28,7 @@
         border: 1px solid $primary-grey;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
             rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        border: 2px solid red;
     }
 
     &__img {
@@ -57,42 +48,32 @@
     }
 }
 
-// list of beers - right side, 6items + headline
+// lists (right window)
 .product-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
     border-left: 1px solid $primary-grey;
     width: 65%;
-    //height: 42rem;
-    // border: 2px solid red;
-
-    &__container {
-        margin-top: 1rem;
-        display: flex;
-        width: 85%;
-        //height: 100%;
-        flex-direction: column;
-        justify-items: center;
-        // border: 2px solid red;
-
-    }
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    margin: 1.8rem 0 3.5rem 0;
+    padding: 0 4.5rem;
+    min-height: fit-content;
 
     &__products-container {
+        margin: 0.4rem 0 0 0;
         display: flex;
         width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        border: 2px solid red;
     }
 
     &__image-container {
         border-radius: 7px;
         overflow: hidden;
-        height: 14rem;
-        width: 14rem;
+        //height: 14rem;
+        //width: 14rem;
         border: 1px solid $primary-grey;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
             rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -101,6 +82,11 @@
         &:hover {
             transform: scale(1.05);
         }
+    }
+
+    &__rating-container {
+        display: flex;
+        justify-content: flex-end;
     }
 
     &__img {
@@ -130,11 +116,119 @@
 
     //name - bottom left corner of item
     &__name {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         font-weight: 300;
+
+        &:hover {
+            color: $secondary-orange;
+        }
     }
 
     //rating - bottom right corner of item
     &__rating {
     }
+}
+
+//font and image size handling
+@media screen and (max-width: 1350px) {
+    .product-list__name {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .product-list__name {
+        font-size: 0.59rem;
+    }
+
+    h2 {
+        font-size: 1.5rem !important; 
+    }
+
+    h3 {
+        font-size: 1.25rem !important; 
+    }
+
+    .form {
+
+        &__radio {
+            width: 85%;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .main-product {
+        width: 45%;
+    }
+
+    .product-list {
+        width: 65%;
+        
+        &__item {
+            width: 47%;
+        }
+    }
+
+    .form {
+        width: 60%;
+
+        &__radio {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .product-list__name {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.9rem !important; 
+    }
+
+    h3 {
+        font-size: 2.5rem !important; 
+    }
+
+    .main {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        //border: 2px solid red;
+        justify-content: flex-start;
+        justify-items: center;
+    }
+    .main-product {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .product-list {
+        width: 100%;
+        
+        &__item {
+            width: 80%;
+        }
+
+        &__image-container {
+            border: none;
+        }
+
+        &__products-container {
+            
+            flex-direction: column;
+            flex-wrap: nowrap;
+            
+            border: 2px solid red;
+        }
+
+    }
+}
+
+// change to mobile
+@media screen and (max-width: 480px) {
+    
 }

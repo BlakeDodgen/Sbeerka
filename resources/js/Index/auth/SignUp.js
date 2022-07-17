@@ -9,30 +9,40 @@ const Radio = (props) => {
     // const [status, setStatus] = React.useState(1);
 
     return (
-        <div>
-            <input
-                className="radio"
-                type="radio"
-                name="user_type"
-                value="user"
-                checked={props.values.user_type === "user"}
-                onChange={props.handleChange}
-            />
-            <label>Sbeerka Member</label>
-            <input
-                className="radio"
-                type="radio"
-                name="user_type"
-                value="brewery"
-                checked={props.values.user_type === "brewery"}
-                onChange={props.handleChange}
-            />
-            <label>Sbeerka Brewery</label>
+        <>
+            <div className="form__radio">
+                <div className="form__radio1">
+                    <label>
+                        <input
+                            className="radio"
+                            type="radio"
+                            name="user_type"
+                            value="user"
+                            checked={props.values.user_type === "user"}
+                            onChange={props.handleChange}
+                        />
+                        Sbeerka Member
+                    </label>
+                </div>
+                <div className="form__radio2">
+                    <label>
+                        <input
+                            className="radio"
+                            type="radio"
+                            name="user_type"
+                            value="brewery"
+                            checked={props.values.user_type === "brewery"}
+                            onChange={props.handleChange}
+                        />
+                        Sbeerka Brewery
+                    </label>
+                </div>
+            </div>
             {props.values.user_type === "user" ?
                 <Status1 values={props.values} handleChange={props.handleChange} setValues={props.setValues} /> :
                 <Status2 values={props.values} handleChange={props.handleChange} />
             }
-        </div>
+        </>
     );
 };
 
@@ -225,12 +235,17 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
-                <label>I'm over 18<input
-                    type="checkbox"
-                    name="over18"
-                    value={values.over18}
-                    onChange={handleChange}
-                /></label>
+                <br />
+                <label>
+                    <input
+                        type="checkbox"
+                        name="over18"
+                        value={values.over18}
+                        onChange={handleChange}
+                    />
+                    I'm over 18
+                </label>
+                <br />
 
                 {/* <label className="form__label-member">User</label>
                 <label className="form__label-brewery">Brewery</label>
@@ -240,7 +255,6 @@ function SignUp() {
                     value={values.user_type}
                     onChange={handleChange}
                 /> */}
-
                 <button className="form__button">Create Sbeerka Account</button>
                 <br />
 

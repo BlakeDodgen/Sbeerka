@@ -8,6 +8,7 @@ import FormPropsTextFields from "../mui/FormPropsTextFields";
 import Buttons from "../mui/Buttons";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 
+
 function Login() {
     const [values, setValues] = useState({
         email: "",
@@ -41,6 +42,7 @@ function Login() {
 
     const handleChange = (e) => {
         setValues((previous_values) => {
+            console.log(values)
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
@@ -48,7 +50,7 @@ function Login() {
         });
     };
 
-   
+
 
     return (
         <>
@@ -58,7 +60,7 @@ function Login() {
                 <div className="form__container">
                     <label>User name </label>
                     <br />
-                    <input
+                    <input className="form__input"
                         type="text"
                         name="email"
                         value={values.email}
@@ -68,7 +70,7 @@ function Login() {
                 <div className="form__container">
                     <label>Password </label>
                     <br />
-                    <input
+                    <input className="form__input"
                         type="password"
                         name="password"
                         value={values.password}
@@ -79,11 +81,13 @@ function Login() {
                 <button className="form__button">Log In</button>
                 {!!errorResponse && <span className="form__failed">Login Failed</span>}
                 <br />
+
             </form>
             {/* <button onClick={async () => {
             const user = await loadUser()
             console.log(user)
             }}>Check User</button> */}
+
         </>
     );
 }
