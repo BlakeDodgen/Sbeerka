@@ -9,30 +9,40 @@ const Radio = (props) => {
     // const [status, setStatus] = React.useState(1);
 
     return (
-        <div>
-            <input
-                className="radio"
-                type="radio"
-                name="user_type"
-                value="user"
-                checked={props.values.user_type === 'user'}
-                onChange={props.handleChange}
-            />
-            <label>Sbeerka Member</label>
-            <input
-                className="radio"
-                type="radio"
-                name="user_type"
-                value="brewery"
-                checked={props.values.user_type === 'brewery'}
-                onChange={props.handleChange}
-            />
-            <label>Sbeerka Brewery</label>
-            {props.values.user_type === 'user' ?
+        <>
+            <div className="form__radio">
+                <div className="form__radio1">
+                    <label>
+                        <input
+                            className="radio"
+                            type="radio"
+                            name="user_type"
+                            value="user"
+                            checked={props.values.user_type === "user"}
+                            onChange={props.handleChange}
+                        />
+                        Sbeerka Member
+                    </label>
+                </div>
+                <div className="form__radio2">
+                    <label>
+                        <input
+                            className="radio"
+                            type="radio"
+                            name="user_type"
+                            value="brewery"
+                            checked={props.values.user_type === "brewery"}
+                            onChange={props.handleChange}
+                        />
+                        Sbeerka Brewery
+                    </label>
+                </div>
+            </div>
+            {props.values.user_type === "user" ?
                 <Status1 values={props.values} handleChange={props.handleChange} setValues={props.setValues} /> :
                 <Status2 values={props.values} handleChange={props.handleChange} />
             }
-        </div>
+        </>
     );
 };
 
@@ -66,7 +76,6 @@ const Status1 = (props) => {
                     }}
                 />
             </div>
-            <br />
             <div className="form__container">
                 <label className="form__label form__label-surname">
                     Surname
@@ -80,7 +89,6 @@ const Status1 = (props) => {
                     onChange={props.handleChange}
                 />
             </div>
-            <br />
             <div className="form__container">
                 <label className="form__label form__label-username">
                     Username
@@ -94,7 +102,6 @@ const Status1 = (props) => {
                     onChange={props.handleChange}
                 />
             </div>
-            <br />
         </>
     );
 };
@@ -137,6 +144,11 @@ function SignUp() {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
+        if (values.user_type == "brewery") {
+            values.user_type = 2;
+        } else if (values.user_type == "user") {
+            values.user_type = 1;
+        }
         try {
             const response = await axios.post("/register", values);
             const response_data = response.data;
@@ -150,22 +162,33 @@ function SignUp() {
 
         await setLoadingUser(false);
 
+        if (userData.user_type == 2) {
+            return navigate("/signup/brewery")
+        }
         return navigate("/");
     };
 
     const handleChange = (e) => {
+        // console.log(e)
         setValues((previous_values) => {
-            return {
-                ...previous_values,
-                [e.target.name]: e.target.value,
-            };
+            if (e.target.name === "over18") {
+                return {
+                    ...previous_values,
+                    [e.target.name]: e.target.checked,
+                }
+            } else {
+                return {
+                    ...previous_values,
+                    [e.target.name]: e.target.value,
+                };
+            }
         });
     };
 
     return (
-        <div className="form">
+        <>
             <form
-                className="form__form"
+                className="form"
                 action="/register"
                 method="post"
                 onSubmit={handleSignUp}
@@ -186,7 +209,6 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
-                <br />
                 <div className="form__container">
                     <label className="form__label form__label-password">
                         Password
@@ -200,7 +222,6 @@ function SignUp() {
                         onChange={handleChange}
                     />
                 </div>
-                <br />
                 <div className="form__container">
                     <label className="form__label form__label-confirm">
                         Confirm Password
@@ -215,15 +236,31 @@ function SignUp() {
                     />
                 </div>
                 <br />
-                <label>I'm over 18</label>
-                <input
-                    type="checkbox"
-                    name="over18"
-                    value={values.over18}
-                    onChange={handleChange}
-                />
+                <label>
+                    <input
+                        type="checkbox"
+                        name="over18"
+                        value={values.over18}
+                        onChange={handleChange}
+                    />
+                    I'm over 18
+                </label>
                 <br />
-                <label className="form__label-member">User</label>
+
+                {/* <label className="form__label-member">User</label>
+                <label className="form__label-brewery">Brewery</label>
+                <input
+                    type="number"
+                    name="user_type"
+                    value={values.user_type}
+                    onChange={handleChange}
+                /> */}
+                <button className="form__button">Create Sbeerka Account</button>
+                <br />
+
+            </form>
+
+            {/* <label className="form__label-member">User</label>
                 <label className="form__label-brewery">Brewery</label>
                 <input
                     type="number"
@@ -231,11 +268,9 @@ function SignUp() {
                     value={values.user_type}
                     onChange={handleChange}
                 />
-                <br />
+                <br /> */}
+        </>
 
-                <button className="form__button">Create Sbeerka Account</button>
-            </form>
-        </div>
     );
 }
 

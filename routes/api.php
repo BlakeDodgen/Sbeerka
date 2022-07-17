@@ -19,10 +19,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/user/{id}/settings/delete', ['App\Http\Controllers\Api\UserController', 'destroy']);
+// Route::get('/info/{id}', ['App\Http\Controllers\Api\UserController', 'userinfo']);
 Route::post('/reviews/create', ['App\Http\Controllers\Api\ReviewController', 'create']);
+Route::get('/reviews/{id}', ['App\Http\Controllers\Api\ReviewController', 'userReviews']);
+
+Route::post('/beers/create', ['App\Http\Controllers\Api\BeerController', 'create']);
 Route::get('/beers/{id}', ['App\Http\Controllers\Api\BeerController', 'beerinfo']);
 Route::get('/beers', ['App\Http\Controllers\Api\BeerController', 'beerindex']);
 
+Route::get('/breweries/number', ['App\Http\Controllers\Api\BreweryController', 'number']);
+Route::get('/breweries/byUser/{id}', ['App\Http\Controllers\Api\BreweryController', 'breweryByUser']);
+Route::post('/breweries/create', ['App\Http\Controllers\Api\BreweryController', 'create']);
 Route::get('/breweries/{id}', ['App\Http\Controllers\Api\BreweryController', 'breweryinfo']);
 Route::get('/breweries', ['App\Http\Controllers\Api\BreweryController', 'breweryindex']);
 

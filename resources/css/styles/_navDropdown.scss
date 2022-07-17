@@ -1,19 +1,26 @@
 .dropbtn {
     background-color: $primary-grey;
     color: white;
-    padding: 16px;
+    padding: 1rem 0;
     border: none;
     
   }
   
   .dropdown {
     position: relative;
+    display: flex;
+    border: 2px solid red;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    
     //display: inline-block;
   }
   
   .dropdown-content {
     display: none;
     position: absolute;
+    top: 3rem;
     background-color: black;
     min-width: 160px;
     box-shadow: 
@@ -30,16 +37,18 @@
     display: block;
   }
   
-  .dropdown-content:hover {
+  .dropdown-content a:hover {
     background-color: $primary-grey;
     color: $primary-yellow;
     }
   
   .dropdown:hover .dropdown-content {
     display: block;
+    border: 2px solid red;
   }
   
   .dropdown:hover .dropbtn {
     background-color: $primary-grey;
+    border: 2px solid red;
   }
 

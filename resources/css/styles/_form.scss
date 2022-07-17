@@ -1,161 +1,50 @@
 .form {
     display: flex;
-    background-color: white;
-    border: 2px solid red;
     flex-direction: column;
-    align-items: center;
-    color: $secondary-blue;
-    justify-content: space-around;
-    height: 40rem;
-    position: absolute;
-    top: 10rem;
-    width: 60%;
+    background-color: white;
+    justify-content: flex-start;
+    width: 50%;
+    margin: 4.5rem 0 7rem 0;
+    padding: 0 4.5rem;
+    min-height: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .form__h2 {
-    font-weight: 600;
-}
-
-.form__form {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border: 2px solid red;
-    align-items: flex-start;
-    width: 80%;
-    position: absolute;
-    top: 0;
-}
-
-.form__label {
+    font-weight: $heading-font-weight;
 }
 
 .form__input {
-    // border-color: transparent;
-    // outline-color: $primary-yellow;
-    // color: $primary-grey;
-    // border-top-right-radius: 15px;
-    // border-bottom-right-radius: 15px;
+    width: 100%;
 }
 
-// .form__label-name {
-//     display:block;
-// }
-
-// .form__input-name {
-//     display:block;
-// }
-
-// .form__label-surname {
-//     display:block;
-// }
-// .form__input-surname {
-//     display:block;
-// }
-
-// .form__label-username {
-//     display:block;
-// }
-
-// .form__input-username {
-//     display:block;
-// }
-
-// .form__label-breweryname {
-//     display:none;
-// }
-
-// .form__input-breweryname {
-//     display:none;
-// }
-
-.form__label-email {
+.form__radio {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
 }
 
-.form__label-password {
+.form__button {
+  background-color: $secondary-orange;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  width: 100%;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+              rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+  &:active {
+    transform: scale(0.99,0.95);
+  }
+
+  &:hover {
+    filter: brightness(85%);
+  }
 }
-
-.form__label-confirm {
-}
-
-.form__label-member {
-}
-
-.form__label-brewery {
-}
-
-// #radio-member:checked~
-// div .form__label-name,
-// div .form__input-name,
-// div .form__label-surname,
-// div .form__input-surname,
-// div .form__label-username,
-// div .form__input-username {
-//     display:block;
-// }
-
-// #radio-member:checked~
-// div .form__label-breweryname,
-// div .form__input-breweryname {
-//     display:none;
-// }
-
-// #radio-brewery:checked~
-// .form__label-name,
-// .form__input-name,
-// .form__label-surname,
-// .form__input-surname,
-// .form__label-username,
-// .form__input-username {
-//     display:none;
-// }
-
-// #radio-brewery:checked~
-// .form__label-breweryname,
-// .form__input-breweryname {
-//     display:block;
-// }
-
-// #radio-member:checked ~
-// #first-name {
-//     display:none;
-// }
-
-// #radio-brewery:checked ~
-// #first-name {
-//     display:block;
-// }
-
-// input#radio-member:checked + div #first-name {
-//     color: red;
-// }
-
-// input#radio-brewery:checked + div #first-name {
-//     color: blue;
-// }
-
-input[type="radio"]#radio-brewery:checked + div #first-name {
-    display: hidden;
-}
-
-// //add just some hover effect
-// #radio-member:hover~ .nav__list {
-//     visibility: visible;
-//     opacity: 2;
-//     -webkit-transform: translateY(0px);
-//     transform: translateY(0px);
-// }
-
-// #radio-brewery:checked~ .nav__list {
-//     visibility: visible;
-//     opacity: 2;
-//     -webkit-transform: translateY(0px);
-//     transform: translateY(0px);
-// }
-// //add just some hover effect
-// #radio-brewery:hover~ .nav__list {
-//     visibility: visible;
-//     opacity: 2;
-//     -webkit-transform: translateY(0px);
-//     transform: translateY(0px);
-// }

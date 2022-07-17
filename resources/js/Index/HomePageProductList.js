@@ -20,23 +20,17 @@ const HomePageProductList = () => {
 
     return (
         <div className="product-list">
-            <div className="product-list__container">
-                {/* container for whole list of products, slice can set the range of products per page */}
+            {/* container for whole list of products, slice can set the range of products per page */}
 
-                <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
-                <div className="product-list__products-container">
-                    {data.slice(min, max).map((item, index) => {
-                        return <Product key={index} data={item} />
+            <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
+            <div className="product-list__products-container">
+                {data.slice(min, max).map((item, index) => {
+                    return <Product key={index} data={item} />
+                })}
 
-
-                    })}
-                  
-                </div>
-                {/* new feature loads another six items */}
-                <button onClick={()=>setMax(max+6)}>Another round</button>
-                
-                
             </div>
+            {/* new feature loads another six items */}
+            {/* <button onClick={()=>setMax(max+6)}>Another round</button> */}
         </div>
     );
 };

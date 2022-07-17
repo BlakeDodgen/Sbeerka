@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import BeerForm from './forms/BeerForm';
 
 const BreweryProfile = () => {
 
@@ -9,8 +10,8 @@ const BreweryProfile = () => {
 
     const loadData = async () => {
         const response = await axios.get(`/api/breweries/${id}`);
-        console.log(response.data)
-        setBrewery(response.data);
+        console.log(response.data[0])
+        setBrewery(response.data[0]);
     }
 
     useEffect(() => {
@@ -28,6 +29,7 @@ const BreweryProfile = () => {
             <p>History: {brewery.history}</p>
             <p>Brewery Picture:</p>
             {/* <img src={`/img/breweries/${brewery.brewery_pic.picture}`} alt="brewery logo" style={{width: "100px"}}/> */}
+
             <h2>More beers from this brewery:</h2>
             {brewery.beers.map((beer, i) => (
                 <div className="beer">
