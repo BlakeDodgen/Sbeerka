@@ -1,6 +1,6 @@
 import History from "./History";
 import Mission from "./Mission";
-import Carousel from "../carousel/Carousel";
+
 
 const About = () => {
     return (
@@ -9,7 +9,7 @@ const About = () => {
 
             <History />
 
-            <Carousel />
+           
         </div>
     );
 };
