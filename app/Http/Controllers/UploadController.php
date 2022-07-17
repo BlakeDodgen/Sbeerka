@@ -31,7 +31,7 @@ class UploadController extends Controller
 
         
         $request->validate([
-            'picture' => 'required|mimes:jpg,png,jpeg|max:300048'
+            'beer' => 'required|mimes:jpg,png,jpeg|max:300048'
 
                 
         ]);

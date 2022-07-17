@@ -17,34 +17,47 @@ const BreweryForm = () => {
         website: "",
         size: "",
         history: "",
-        // brewery_pic_id: "",
+               
+        //brewery_pic: "",
         
         // picture can or cannot be sent in this post req??
+        //images uses 
         //if not second form has to be created
         
     });
+    // new state for Image
+    const [image, setImage] = useState('');
 
     // const handleUpload = async (e) => {
     //     e.preventDefault();
+    //     const formdata = new FormData();
+    //     formData.append("image", image);   
+    //     
     //     try {
-    //         const response = await axios.post("/.....", values);
+    //         const response = await axios.post("/.....", formdata);
     //         const response_data = response.data;
     //     } catch (err) {
     //         console.log(err);
     //     }
-
-       //     return navigate("/....");
     // };
 
     const handleChange = (e) => {
+        console.log(values);
         setValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
             };
         });
+              
     };
+     
+    const handleImage = (e) => {
+        setImage(e.target.files[0])
+    }
 
+    console.log(image);
+   
     const handleSubmit = async (e) => { 
         e.preventDefault();
         values.user_id = user.id;
@@ -71,9 +84,9 @@ const BreweryForm = () => {
                 className="form"
                 // action=""
                 method="post"
-                enctype="multipart/form-data"
+                encType="multipart/form-data"
                 onSubmit={(e) => {
-                    handleUpload(e);
+                    handleSubmit(e);
                 }}
             >
                 <div className="form__container">
@@ -143,21 +156,18 @@ const BreweryForm = () => {
                     />
                 </div>
                 <br />
-
-                <br />
-                {/* <div className="form__container">
+         
+                <div className="form__container">
                 <label
                  className="form__label form__label-image"
                 > Upload Image: </label>
                 <input
                     className="breweryform__input"
-                    type="text"
-                    value={value.brewery_pic_id}
+                    type="file"
+                    
                     name="brewery_pic"
-                    onChange={(e) => {
-                        handleChange(e);
-                    }}
-                /> </div> */}
+                    onChange={handleImage}
+                /> </div>
                 <br />
                 <button>Cheers</button>
             </form>

@@ -7,7 +7,7 @@ import BasicSwitches from "../mui/BasicSwitches";
 import FormPropsTextFields from "../mui/FormPropsTextFields";
 import Buttons from "../mui/Buttons";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
-import Dropzone from "../forms/UploadForm";
+
 
 function Login() {
     const [values, setValues] = useState({
@@ -87,16 +87,6 @@ function Login() {
             console.log(user)
             }}>Check User</button> */}
 
-            <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
-                {({ getRootProps, getInputProps }) => (
-                    <section>
-                        <div {...getRootProps()}>
-                            <input {...getInputProps()} />
-                            <p>Drag 'n' drop some files here, or click to select files</p>
-                        </div>
-                    </section>
-                )}
-            </Dropzone>
         </>
     );
 }
