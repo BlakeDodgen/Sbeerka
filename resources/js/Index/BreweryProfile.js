@@ -28,7 +28,8 @@ const BreweryProfile = () => {
             <p>Size: {brewery.size}</p>
             <p>History: {brewery.history}</p>
             <p>Brewery Picture:</p>
-            {/* <img src={`/img/breweries/${brewery.brewery_pic.picture}`} alt="brewery logo" style={{width: "100px"}}/> */}
+            {console.log(brewery)}
+            <img src={`/img/breweries/${brewery.brewery_pic.picture}`} alt="brewery logo" style={{width: "100px"}}/>
 
             <h2>More beers from this brewery:</h2>
             {brewery.beers.map((beer, i) => (

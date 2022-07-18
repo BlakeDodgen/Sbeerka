@@ -38,7 +38,7 @@ class UploadController extends Controller
 
         //creates a new controlled name of the file
         $newImageName = time() . "-". $request->name . "." . $request->picture->extension();    
-
+        
         $request->picture->move(public_path('img/uploaded'), $newImageName);
 
         // dd($newImageName);
