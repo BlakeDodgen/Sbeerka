@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import React from "react";
 import axios from "axios";
+import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
+//import Slider from '@mui/material/Slider';
 
 
 const ReviewForm = ({ user, beer, setReviewed }) => {
@@ -31,22 +33,72 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
     };
 
     const handleSubmit = async (e) => {
-        
+
         e.preventDefault();
-            const response = await axios.post("/api/reviews/create", values);
-            const response_data = response.data;
+        const response = await axios.post("/api/reviews/create", values);
+        const response_data = response.data;
+        console.log(response)
+
+        if (typeof res === 'object') {
             console.log(response)
-            
-            if (typeof res === 'object') {
-                console.log(response)
-            }
-            setReviewed(true);
+        }
+        setReviewed(true);
 
         // return navigate("/");
     };
 
     return (
+
         <div className="formRating">
+            <DiscreteSliderMarks
+                value={values.body}
+                setValue={handleChange}
+                name="body"
+
+            />
+
+            <DiscreteSliderMarks
+                value={values.linger}
+                setValue={handleChange}
+                name="linger"
+
+            />
+
+            <DiscreteSliderMarks
+                value={values.herbal}
+                setValue={handleChange}
+                name="herbal"
+
+            />
+
+            <DiscreteSliderMarks
+                value={values.citrus}
+                setValue={handleChange}
+                name="citrus"
+
+            />
+
+            <DiscreteSliderMarks
+                value={values.hoppy}
+                setValue={handleChange}
+                name="hoppy"
+
+            />
+
+            <DiscreteSliderMarks
+                value={values.bitter}
+                setValue={handleChange}
+                name="bitter"
+
+            />
+
+            <DiscreteSliderMarks
+                value={values.sour}
+                setValue={handleChange}
+                name="sour"
+
+            />
+
             <form
                 className="form__form"
                 action="/beers/review"
@@ -54,11 +106,14 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
                 onSubmit={(e) => {
                     handleSubmit(e);
                 }}
+
             >
+
+
                 <div className="form__container">
-                {
-                    !!errorResponse && <span>Login Failed</span>
-                }
+                    {
+                        !!errorResponse && <span>Login Failed</span>
+                    }
                     <label className="form__label form__label-review">
                         Review:
                     </label>
