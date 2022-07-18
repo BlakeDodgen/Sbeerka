@@ -1,13 +1,19 @@
 .search-results {
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     align-content: center;
-    border-left: 1px solid $primary-grey;
-    width: 65%;
+    border: 2px solid red;
+    width: 100%;
+    position: relative;
 
+}
+
+.hover {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .search-result {
@@ -24,5 +30,11 @@
 .search-result__img {
     height: 10px;
     width: 10px;
+}
+
+.search-result__img-hover {
+    height: 20rem;
+    width: 20rem;
+
 }
 

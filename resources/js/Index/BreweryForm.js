@@ -64,6 +64,7 @@ const BreweryForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         values.user_id = user.id;
+<<<<<<< HEAD
 
         const options = {
             headers: {
@@ -81,6 +82,13 @@ const BreweryForm = () => {
         console.log(response_data)
 
         return navigate(`/breweries/${number + 1}`);
+=======
+        const response = await axios.post('/api/breweries/create', values);
+        const response_data = response.data;
+        console.log(response)
+
+        return navigate(`/breweries/${user.id}`);
+>>>>>>> main
     };
 
     const loadData = async () => {
@@ -110,6 +118,7 @@ const BreweryForm = () => {
                         type="text"
                         name="city"
                         value={values.city}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -124,6 +133,7 @@ const BreweryForm = () => {
                         type="text"
                         name="country"
                         value={values.country}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -137,6 +147,7 @@ const BreweryForm = () => {
                         type="text"
                         name="website"
                         value={values.website}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -152,6 +163,7 @@ const BreweryForm = () => {
                         type="text"
                         name="size"
                         value={values.size}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -164,6 +176,7 @@ const BreweryForm = () => {
                         type="textarea"
                         name="history"
                         value={values.history}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -176,8 +189,13 @@ const BreweryForm = () => {
                     <input
                         className="breweryform__input"
                         type="file"
+<<<<<<< HEAD
 
                         name="image"
+=======
+                        name="brewery_pic"
+                        autocomplete="off"
+>>>>>>> main
                         onChange={handleImage}
                     /> </div>
                 <br />

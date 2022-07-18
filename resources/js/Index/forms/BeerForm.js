@@ -61,6 +61,7 @@ const BeerForm = () => {
                         type="text"
                         value={values.beer_type_id}
                         required
+                        autocomplete="off"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -77,6 +78,7 @@ const BeerForm = () => {
                         type="text"
                         value={values.name}
                         required
+                        autocomplete="off"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -92,6 +94,7 @@ const BeerForm = () => {
                         type="number"
                         value={values.alcohol_volume}
                         required
+                        autocomplete="off"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -106,6 +109,7 @@ const BeerForm = () => {
                         className="form__input form__input-degree"
                         type="number"
                         value={values.degree}
+                        autocomplete="off"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -120,13 +124,14 @@ const BeerForm = () => {
                         className="form__input form__input-description"
                         type="text"
                         value={values.description}
+                        autocomplete="off"
                         required
                         onChange={(e) => {
                             handleChange(e);
                         }}
                     />
                 </div>
-                
+
                 <br />
                 <div className="form__container">
                     <label className="form__label form__label-image">
@@ -135,7 +140,8 @@ const BeerForm = () => {
                     <input
                         className="form__input form__input-image"
                         type="file"
-                        name = "beer_pic"
+                        name="beer_pic"
+                        autocomplete="off"
                         required
                         onChange={handleImage}
                     />

@@ -88,4 +88,9 @@ class BreweryController extends Controller
 
         return $brewery;
     }
+
+    public function test(Request $request)
+    {
+        dd($request);
+    }
 }

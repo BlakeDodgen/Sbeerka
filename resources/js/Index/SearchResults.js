@@ -78,6 +78,7 @@ const SearchResults = (props) => {
 
     return (
         <>
+<<<<<<< HEAD
             <h1>Tapping results for: <br /> {searchString}</h1>
 
             <div className="search-results">
@@ -89,6 +90,14 @@ const SearchResults = (props) => {
                     color='#19a991'
                     ariaLabel='loading'
                 />} */}
+=======
+            <div className="search-results">
+                <h1>Tapping results for: <br /> {searchString}</h1>
+
+                {/* loops in the array which contains updated search items */}
+                {/* for less displayed results use splice method on array .splice(0,10) */}
+
+>>>>>>> main
                 {!!newSearch.length ? (
                     newSearch.map((value, index) => {
 
