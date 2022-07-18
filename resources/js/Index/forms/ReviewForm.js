@@ -2,22 +2,20 @@ import { useState, useContext } from "react";
 import React from "react";
 import axios from "axios";
 
-
 const ReviewForm = ({ user, beer, setReviewed }) => {
-
     const [values, setValues] = useState({
         review: "",
         rating: 0,
         // favorite: false,
-        body: 0,
-        linger: 0,
-        herbal: 0,
-        citrus: 0,
-        hoppy: 0,
-        bitter: 0,
-        sour: 0,
+        // body: 5,
+        // linger: 5,
+        // herbal: 5,
+        // citrus: 5,
+        // hoppy: 5,
+        // bitter: 5,
+        // sour: 5,
         user_id: user,
-        beer_id: beer
+        beer_id: beer,
     });
     const [errorResponse, setErrorResponse] = useState(null);
 
@@ -31,16 +29,15 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
     };
 
     const handleSubmit = async (e) => {
-        
         e.preventDefault();
-            const response = await axios.post("/api/reviews/create", values);
-            const response_data = response.data;
-            console.log(response)
-            
-            if (typeof res === 'object') {
-                console.log(response)
-            }
-            setReviewed(true);
+        const response = await axios.post("/api/reviews/create", values);
+        const response_data = response.data;
+        console.log(response);
+
+        if (typeof res === "object") {
+            console.log(response);
+        }
+        setReviewed(true);
 
         // return navigate("/");
     };
@@ -56,9 +53,7 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
                 }}
             >
                 <div className="form__container">
-                {
-                    !!errorResponse && <span>Login Failed</span>
-                }
+                    {!!errorResponse && <span>Login Failed</span>}
                     <label className="form__label form__label-review">
                         Review:
                     </label>
@@ -85,7 +80,7 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form__container">
+                {/* <div className="form__container">
                     <label className="form__label form__label-body">
                         Body:
                     </label>
@@ -184,7 +179,7 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
                         value={values.sour}
                         onChange={handleChange}
                     />
-                </div>
+                </div> */}
 
                 <button className="form__button">Submit</button>
             </form>
