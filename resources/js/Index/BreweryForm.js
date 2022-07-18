@@ -26,7 +26,7 @@ const BreweryForm = () => {
 
     });
     // new state for Image
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
 
     // const handleUpload = async (e) => {
     //     e.preventDefault();
@@ -42,6 +42,9 @@ const BreweryForm = () => {
     // };
 
     const handleChange = (e) => {
+        if (e.target.files) {
+            return setImage(e.target.files[0])
+        }
         console.log(values);
         setValues((previous_values) => {
             return {
@@ -61,9 +64,26 @@ const BreweryForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         values.user_id = user.id;
-        const response = await axios.post('/api/breweries/create', values);
+
+        const options = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+
+        const formData = new FormData();
+
+        formData.append('image', image)
+        formData.append('values', JSON.stringify(values))
+
+        const response = await axios.post("/api/breweries/create", formData, options);
         const response_data = response.data;
-        console.log(response)
+        console.log(response_data)
+
+        
+        // const response = await axios.post('/api/breweries/create', values);
+        // const response_data = response.data;
+        // console.log(response)
 
         return navigate(`/breweries/${user.id}`);
     };
@@ -82,9 +102,6 @@ const BreweryForm = () => {
             <h2> Brewery Form </h2>
             <form
                 className="form"
-                // action=""
-                method="post"
-                encType="multipart/form-data"
                 onSubmit={(e) => {
                     handleSubmit(e);
                 }}
@@ -169,8 +186,8 @@ const BreweryForm = () => {
                     <input
                         className="breweryform__input"
                         type="file"
-                        name="brewery_pic"
-                        autocomplete="off"
+
+                        name="image"
                         onChange={handleImage}
                     /> </div>
                 <br />

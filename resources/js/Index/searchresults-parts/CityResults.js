@@ -50,7 +50,7 @@ const CityResults = (props) => {
 
                 {!!newSearch.length ? (
                     newSearch.map((value, index) => {
-
+                        console.log(value);
                         return (
                             <Link key={value.id} to={`/breweries/${value.user.id}`}><p>{value.user.brewery_name} / {value.city}</p></Link>
                         )
