@@ -48,7 +48,7 @@ const BreweryForm = () => {
     const handleSubmit = async (e) => { 
         e.preventDefault();
         values.user_id = user.id;
-        const response = await axios.post("/api/breweries/create", values);
+        const response = await axios.post('api/breweries/create', values);
         const response_data = response.data;
         console.log(response)
    
@@ -73,7 +73,7 @@ const BreweryForm = () => {
                 method="post"
                 enctype="multipart/form-data"
                 onSubmit={(e) => {
-                    handleUpload(e);
+                    handleSubmit(e);
                 }}
             >
                 <div className="form__container">
