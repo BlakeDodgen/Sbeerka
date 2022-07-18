@@ -58,23 +58,25 @@ function Login() {
                 <h2 className="form__h2">Login</h2>
 
                 <div className="form__container">
-                    <label>User name </label>
+                    <label>Email</label>
                     <br />
                     <input className="form__input"
                         type="text"
                         name="email"
                         value={values.email}
                         onChange={handleChange}
+                        autocomplete="off"
                     />
                 </div>
                 <div className="form__container">
-                    <label>Password </label>
+                    <label>Password</label>
                     <br />
                     <input className="form__input"
                         type="password"
                         name="password"
                         value={values.password}
                         onChange={handleChange}
+                        autocomplete="off"
                     />
                 </div>
                 <br />

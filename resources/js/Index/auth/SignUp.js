@@ -66,6 +66,7 @@ const Status1 = (props) => {
                     type="text"
                     name="first_name"
                     value={props.values.first_name}
+                    autocomplete="off"
                     onChange={(e) => {
                         props.setValues((previous_values) => {
                             return {
@@ -86,6 +87,7 @@ const Status1 = (props) => {
                     type="text"
                     name="surname"
                     value={props.values.surname}
+                    autocomplete="off"
                     onChange={props.handleChange}
                 />
             </div>
@@ -99,6 +101,7 @@ const Status1 = (props) => {
                     type="text"
                     name="username"
                     value={props.values.username}
+                    autocomplete="off"
                     onChange={props.handleChange}
                 />
             </div>
@@ -119,6 +122,7 @@ const Status2 = (props) => {
                     type="text"
                     name="brewery_name"
                     value={props.values.brewery_name}
+                    autocomplete="off"
                     onChange={props.handleChange}
                 />
             </div>
@@ -206,6 +210,7 @@ function SignUp() {
                         type="email"
                         name="email"
                         value={values.email}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -219,6 +224,7 @@ function SignUp() {
                         type="password"
                         name="password"
                         value={values.password}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -232,6 +238,7 @@ function SignUp() {
                         type="password"
                         name="password_confirmation"
                         value={values.password_confirmation}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
