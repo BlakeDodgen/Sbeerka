@@ -1,6 +1,6 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
 
 const marks = [
     {
@@ -86,7 +86,7 @@ export default function DiscreteSliderMarks({ setValue, name, value = 5 }) {
                 onChange={handleChange}
 
             />
-            <p>{innerValue}</p>
+            {/* <p>{innerValue}</p> */}
         </Box>
 
     );

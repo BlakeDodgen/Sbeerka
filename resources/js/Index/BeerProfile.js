@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
+import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
+import BeerGraph from "./ratings/BeerGraph";
 
 const BeerProfile = () => {
     const { id } = useParams();
@@ -15,10 +17,10 @@ const BeerProfile = () => {
         // console.log(response.data);
         // if (response.data.reviews == {}) {
         response.data.reviews.forEach((review) => {
-            if (user && (review.user_id == user.id)) {
+            if (user && review.user_id == user.id) {
                 setReviewed(true);
             }
-        })
+        });
 
         let ratingScore = 0;
         response.data.reviews.forEach((review) => {
@@ -42,7 +44,7 @@ const BeerProfile = () => {
         response.data.reviews.forEach((review) => {
             lingerScore += review.linger;
         });
-        
+
         let avLinger = lingerScore / response.data.reviews.length.toFixed(1);
         if (isNaN(avLinger)) {
             avLinger = 0;
@@ -117,23 +119,49 @@ const BeerProfile = () => {
 
     return (
         beer && (
-            <div className="beerprofile">
-                <h1>Beer Profile</h1>
-                <p>Name: {beer.data.name}</p>
-                <p>
-                    Brewery:{" "}
-                    <Link to={`/breweries/${beer.data.brewery.user_id}`}>
-                        {beer.data.brewery.user.brewery_name}
-                    </Link>
-                </p>
-                <p>Brewery Picture:</p>
-                {/* <img src={`/img/breweries/${beer.data.brewery.brewery_pic.picture}`} alt="brewery logo"/> */}
-                <p>Alcohol Volume: {beer.data.alcohol_volume}</p>
-                <p>Degree: {beer.data.degree}</p>
-                <p>Description: {beer.data.description}</p>
-                <p>Beer Picture:</p>
-                {/* <img src={`/img/beers/${beer.data.beer_pic.picture}`} alt="beer logo"/> */}
-                {/* <p>Average Beer Rating: {beer.averages.rating}</p>
+            <>
+                <div className="beerprofile">
+                    <div className="beerprofile__container">
+                        <h2> {beer.data.name}</h2>
+                        <div>
+                            <img
+                                className="beerprofile__container__image_beer"
+                                src={`/img/breweries/${beer.data.brewery.brewery_pic.picture}`}
+                                alt="brewery logo"
+                            />
+                        </div>
+
+                        <p>
+                            <Link
+                                to={`/breweries/${beer.data.brewery.user_id}`}
+                            >
+                                <em>{beer.data.brewery.user.brewery_name}</em>
+                            </Link>
+                        </p>
+                    </div>
+                    {/* <p className="beerprofile__image_brewery">
+                        Brewery Picture:
+                    </p> */}
+
+                    <div className="beerprofile__info">
+                        <div className="beerprofile__info__numbers">
+                            {" "}
+                            <h2> Description: </h2>
+                            {beer.data.alcohol_volume} % ABV, {beer.data.degree}{" "}
+                            °
+                        </div>{" "}
+                        <br />
+                        <div className="beerprofile__info__desc">
+                            {beer.data.description}
+                        </div>{" "}
+                        <br />
+                        <div className="beerprofile__info__graph">
+                            <BeerGraph />
+                        </div>
+                    </div>
+
+                    {/* <img src={`/img/beers/${beer.data.beer_pic.picture}`} alt="beer logo"/> */}
+                    {/* <p>Average Beer Rating: {beer.averages.rating}</p>
         <p>Average Body Rating: {beer.averages.body}</p>
         <p>Average Linger Rating: {beer.averages.linger}</p>
         <p>Average Herbal Rating: {beer.averages.herbal}</p>
@@ -141,12 +169,56 @@ const BeerProfile = () => {
         <p>Average Hoppy Rating: {beer.averages.hoppy}</p>
         <p>Average Bitter Rating: {beer.averages.bitter}</p>
         <p>Average Sour Rating: {beer.averages.sour}</p> */}
-                {user && (user.user_type == 1 || user.user_type == 3) && (reviewed == false) && <ReviewForm user={user.id} beer={beer.data.id} setReviewed={setReviewed}/>}
-                <h2>Reviews:</h2>
-                {beer.data.reviews.map((review, i) => (
-                    <p key={i}>{review.review}</p>
-                ))}
-            </div>
+
+                    <div className="beerprofile__slider">
+                        <h2>Intensity:</h2>
+                        <div className="beerprofile__slider__body">
+                            Body
+                            <DiscreteSliderMarks />
+                        </div>
+                        <div className="beerprofile__slider__linger">
+                            Linger
+                            <DiscreteSliderMarks />
+                        </div>
+                        <div className="beerprofile__slider__herbal">
+                            Herbal
+                            <DiscreteSliderMarks />
+                        </div>
+                        <div className="beerprofile__slider__citrus">
+                            Citrus
+                            <DiscreteSliderMarks />
+                        </div>
+                        <div className="beerprofile__slider__hoppy">
+                            Hoppy
+                            <DiscreteSliderMarks />
+                        </div>
+                        <div className="beerprofile__slider__bitter">
+                            Bitter
+                            <DiscreteSliderMarks />
+                        </div>
+                        <div className="beerprofile__slider__sour">
+                            Sour
+                            <DiscreteSliderMarks />
+                        </div>
+                    </div>
+                    <div className="beerprofile__review">
+                        <h2>Reviews:</h2>
+                        {user &&
+                            (user.user_type == 1 || user.user_type == 3) &&
+                            reviewed == false && (
+                                <ReviewForm
+                                    user={user.id}
+                                    beer={beer.data.id}
+                                    setReviewed={setReviewed}
+                                />
+                            )}
+
+                        {beer.data.reviews.map((review, i) => (
+                            <p key={i}>{review.review}</p>
+                        ))}
+                    </div>
+                </div>
+            </>
         )
     );
 };

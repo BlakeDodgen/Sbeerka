@@ -109,7 +109,6 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
 
             >
 
-
                 <div className="form__container">
                     {
                         !!errorResponse && <span>Login Failed</span>
