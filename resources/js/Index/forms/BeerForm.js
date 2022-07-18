@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const BeerForm = () => {
+const BeerForm = ({ brewery, setInputtingBeer }) => {
     // const navigate = useNavigate();
+
     const [values, setValues] = useState({
-        beer_type_id: "",
+        brewery_id: brewery,
+        beer_type_id: "1",
         name: "",
         alcohol_volume: 0,
         degree: 0,
@@ -41,6 +43,15 @@ const BeerForm = () => {
         });
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await axios.post('/api/beers/create', values);
+        const response_data = response.data;
+        console.log(response)
+        setInputtingBeer(false);
+        // return navigate(`/breweries/${user.id}`);
+    };
+
     return (
         <>
             <form
@@ -60,7 +71,7 @@ const BeerForm = () => {
                         className="form__input form__input-beerType"
                         type="text"
                         value={values.beer_type_id}
-                        required
+                        name="beer_type_id"
                         autocomplete="off"
                         onChange={(e) => {
                             handleChange(e);
@@ -79,6 +90,7 @@ const BeerForm = () => {
                         value={values.name}
                         required
                         autocomplete="off"
+                        name="name"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -95,6 +107,7 @@ const BeerForm = () => {
                         value={values.alcohol_volume}
                         required
                         autocomplete="off"
+                        name="alcohol_volume"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -108,6 +121,7 @@ const BeerForm = () => {
                     <input
                         className="form__input form__input-degree"
                         type="number"
+                        name="degree"
                         value={values.degree}
                         autocomplete="off"
                         onChange={(e) => {
@@ -126,6 +140,7 @@ const BeerForm = () => {
                         value={values.description}
                         autocomplete="off"
                         required
+                        name="description"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -133,7 +148,7 @@ const BeerForm = () => {
                 </div>
 
                 <br />
-                <div className="form__container">
+                {/* <div className="form__container">
                     <label className="form__label form__label-image">
                         Upload Image:
                     </label>
@@ -145,7 +160,7 @@ const BeerForm = () => {
                         required
                         onChange={handleImage}
                     />
-                </div>
+                </div> */}
                 <br />
                 <button className="form__button">Add Beer To Sbeerka</button>
                 <br />
