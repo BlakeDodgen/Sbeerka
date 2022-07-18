@@ -43,7 +43,7 @@ class BreweryController extends Controller
         // $this->validate($request, [
         //     'user_id' => 'required'
         // ]);
-
+        
         $brewery->user_id = $request->input('user_id');
         $brewery->city = $request->input('city');
         $brewery->country = $request->input('country');

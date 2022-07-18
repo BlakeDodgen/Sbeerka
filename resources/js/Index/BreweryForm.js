@@ -61,11 +61,11 @@ const BreweryForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         values.user_id = user.id;
-        const response = await axios.post('api/breweries/create', values);
+        const response = await axios.post('/api/breweries/create', values);
         const response_data = response.data;
         console.log(response)
 
-        return navigate(`/breweries/${number + 1}`);
+        return navigate(`/breweries/${user.id}`);
     };
 
     const loadData = async () => {
