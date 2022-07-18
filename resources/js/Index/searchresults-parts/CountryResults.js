@@ -64,7 +64,7 @@ const CountryResults = (props) => {
 
     return (
         <>
-            <h1>Countries</h1>
+            <h1>Tapping results for: <br /> {searchString}</h1>
             {searchItems && (
                 <div className="search__result">
                     {/* loops in the array which contains updated search items */}

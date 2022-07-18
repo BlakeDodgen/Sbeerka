@@ -20,12 +20,12 @@ function Nav(props) {
             <Link className="nav__about" to="/about">
                 About
             </Link>
-            {/* <BasicModal /> */}
+            <BasicModal />
 
             {user ? (
                 <div className="dropdown">
                     <button className="dropbtn">
-                        <div>
+                        <div className="dropdown__content">
                             <img
                                 className="nav__icon"
                                 src="./img/profile.svg"

@@ -8,6 +8,7 @@ import FormPropsTextFields from "../mui/FormPropsTextFields";
 import Buttons from "../mui/Buttons";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 
+
 function Login() {
     const [values, setValues] = useState({
         email: "",
@@ -41,6 +42,7 @@ function Login() {
 
     const handleChange = (e) => {
         setValues((previous_values) => {
+            console.log(values)
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
@@ -85,6 +87,7 @@ function Login() {
             const user = await loadUser()
             console.log(user)
             }}>Check User</button> */}
+
         </>
     );
 }

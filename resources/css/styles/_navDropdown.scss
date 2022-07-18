@@ -44,9 +44,11 @@
   
   .dropdown:hover .dropdown-content {
     display: block;
+    border: 2px solid red;
   }
   
   .dropdown:hover .dropbtn {
     background-color: $primary-grey;
+    border: 2px solid red;
   }
 

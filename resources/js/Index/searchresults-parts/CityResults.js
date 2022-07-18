@@ -3,16 +3,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const CityResults = (props) => {
-    const { search,searchString } = useParams();
+    const { search, searchString } = useParams();
 
 
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
-    // const [searchType, setSearchType] = useState(props.searchType);
-
-
-    console.log("props from CR:" + props.searchType)
-
 
     //parameters search + text passed into the string
     const url = `http://www.sbeerka.beer/api/search?search=city&text=${searchString}`;
@@ -38,51 +33,32 @@ const CityResults = (props) => {
 
     }, [props.searchType, searchString])
 
-    console.log(data);
-
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-        //return value if true-> if object.name includes search items 
-        //compare the user input and data-> lowercase both values
-        // console.log(item);
-        // if (search === "beer-type") {
-        //     return item.type.toLowerCase().includes(searchString.toLowerCase())
-        // } if (search === "beers") {
+
         return item.city.toLowerCase().includes(searchString.toLowerCase())
         // }
 
     });
 
-    // setSearchItems(newSearch);
-
-    //  setSearchItems(newSearch);
-    //  if (searchItems === "") {
-    //      setSearchItems([]);
-    //  } else {
-    //      setSearchItems(newSearch);
-    //  }
-
     return (
         <>
-            <h1>Cities</h1>
-            {searchItems && (
-                <div className="search__result">
-                    {/* loops in the array which contains updated search items */}
-                    {/* for less displayed results use splice method on array .splice(0,10) */}
+            <h1>Tapping results for: <br /> {searchString}</h1>
+            <div className="search__result">
 
-                    {!!newSearch.length ? (
-                        newSearch.map((value, index) => {
+                {/* for less displayed results use splice method on array .splice(0,10) */}
 
+                {!!newSearch.length ? (
+                    newSearch.map((value, index) => {
 
-                            return (
-                                <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.city}</p></Link>
-                                // <a className="search__items" key={index} >{value.name} </a>
-                            )
+                        return (
+                            <Link key={value.id} to={`/breweries/${value.user.id}`}><p>{value.user.brewery_name} / {value.city}</p></Link>
+                        )
 
-                        })
-                    ) : <h2>No {search} found</h2>}
-                </div>
-            )}
+                    })
+                ) : <h2>From this city we dont have a brewery</h2>}
+            </div>
+
 
 
 
