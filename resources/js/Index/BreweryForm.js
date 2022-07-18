@@ -56,6 +56,7 @@ const BreweryForm = () => {
     };
 
     const handleImage = (e) => {
+        console.log(e.target.value)
         setImage(e.target.files[0])
     }
 

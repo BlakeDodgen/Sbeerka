@@ -40,7 +40,7 @@ class BreweryController extends Controller
     public function create(Request $request)
     {
 
-        dd( $request->image->originalName);
+        dd( $request->all());
         $brewery = new Brewery;
         
         // $this->validate($request, [
@@ -48,7 +48,7 @@ class BreweryController extends Controller
         // ]);
 
         $values = json_decode($request->values);
-            
+    
         $brewery->user_id = $values->user_id;
         $brewery->city = $values->city;
         $brewery->country = $values->country;
