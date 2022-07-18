@@ -64,7 +64,6 @@ const BreweryForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         values.user_id = user.id;
-<<<<<<< HEAD
 
         const options = {
             headers: {
@@ -81,14 +80,12 @@ const BreweryForm = () => {
         const response_data = response.data;
         console.log(response_data)
 
-        return navigate(`/breweries/${number + 1}`);
-=======
-        const response = await axios.post('/api/breweries/create', values);
-        const response_data = response.data;
-        console.log(response)
+        
+        // const response = await axios.post('/api/breweries/create', values);
+        // const response_data = response.data;
+        // console.log(response)
 
         return navigate(`/breweries/${user.id}`);
->>>>>>> main
     };
 
     const loadData = async () => {
@@ -189,13 +186,8 @@ const BreweryForm = () => {
                     <input
                         className="breweryform__input"
                         type="file"
-<<<<<<< HEAD
 
                         name="image"
-=======
-                        name="brewery_pic"
-                        autocomplete="off"
->>>>>>> main
                         onChange={handleImage}
                     /> </div>
                 <br />
