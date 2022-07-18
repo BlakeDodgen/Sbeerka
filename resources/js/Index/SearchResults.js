@@ -12,7 +12,7 @@ const SearchResults = (props) => {
 
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
-   
+
     //parameters search + text passed into the string
     const url = `http://www.sbeerka.beer/api/search?search=${search}&text=${searchString}`;
 
@@ -41,13 +41,13 @@ const SearchResults = (props) => {
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-     
+
         return item.name.toLowerCase().includes(searchString.toLowerCase())
-     
+
 
     });
 
-        // setSearchItems(newSearch);
+    // setSearchItems(newSearch);
 
     //  setSearchItems(newSearch);
     //  if (searchItems === "") {
@@ -67,38 +67,38 @@ const SearchResults = (props) => {
     // const handleMouseOut = (e) => {
     //     setIsHovering(false);
     // }
- 
+
     return (
         <>
-            <h1>Tapping results for: <br /> {searchString}</h1>
-           
-                <div className="search-results">
-                    {/* loops in the array which contains updated search items */}
-                    {/* for less displayed results use splice method on array .splice(0,10) */}
+            <div className="search-results">
+                <h1>Tapping results for: <br /> {searchString}</h1>
 
-                    {!!newSearch.length ? (
-                        newSearch.map((value, index) => {
+                {/* loops in the array which contains updated search items */}
+                {/* for less displayed results use splice method on array .splice(0,10) */}
+
+                {!!newSearch.length ? (
+                    newSearch.map((value, index) => {
 
 
-                            return (
-                                
-                                <SearchResult key={index}
-                                    name={search === "beer-type" ? value.type : value.name}
-                                    beer_pic_id={value.beer_pic_id}
-                                    brewery={value.brewery.user.brewery_name}
-                                    type={value.beer_type.type}
-                                    beer_id = {value.id}
-                                    brewery_id = {value.brewery_id}
-                                    // handleMouseOver ={handleMouseOver}
-                                    // handleMouseOut = {handleMouseOut}
-                                />
-                                
-                                // <a className="search__items" key={index} >{value.name} </a>
-                            )
+                        return (
 
-                        })
-                    ) : <h2>No {search} found</h2>}
-                </div>           
+                            <SearchResult key={index}
+                                name={search === "beer-type" ? value.type : value.name}
+                                beer_pic_id={value.beer_pic_id}
+                                brewery={value.brewery.user.brewery_name}
+                                type={value.beer_type.type}
+                                beer_id={value.id}
+                                brewery_id={value.brewery_id}
+                            // handleMouseOver ={handleMouseOver}
+                            // handleMouseOut = {handleMouseOut}
+                            />
+
+                            // <a className="search__items" key={index} >{value.name} </a>
+                        )
+
+                    })
+                ) : <h2>No {search} found</h2>}
+            </div>
         </>
     );
 };

@@ -21,11 +21,11 @@ const SearchResult = (props) => {
         <>
             {isHovering && (
                 <div className="hover">
-                    <img src={`/img/beers/${props.beer_pic_id}.png`} className="search-result__img" alt="beer-item-img" />
+                    <img src={`/img/beers/${props.beer_pic_id}.png`} className="search-result__img-hover" alt="beer-item-img" />
                     <p className="search-result__name">{props.name}</p>
                     <p className="search-result__brewery">{props.brewery}</p>
                     <p className="search-result__type">{props.type}</p>
-                <   p className="search-result__rating">Rating</p>
+                    <   p className="search-result__rating">Rating</p>
                 </div>
 
             )}

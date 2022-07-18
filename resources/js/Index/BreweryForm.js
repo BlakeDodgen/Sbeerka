@@ -17,13 +17,13 @@ const BreweryForm = () => {
         website: "",
         size: "",
         history: "",
-               
+
         //brewery_pic: "",
-        
+
         // picture can or cannot be sent in this post req??
         //images uses 
         //if not second form has to be created
-        
+
     });
     // new state for Image
     const [image, setImage] = useState('');
@@ -49,32 +49,32 @@ const BreweryForm = () => {
                 [e.target.name]: e.target.value,
             };
         });
-              
+
     };
-     
+
     const handleImage = (e) => {
         setImage(e.target.files[0])
     }
 
     console.log(image);
-   
-    const handleSubmit = async (e) => { 
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         values.user_id = user.id;
         const response = await axios.post("/api/breweries/create", values);
         const response_data = response.data;
         console.log(response)
-   
+
         return navigate(`/breweries/${number + 1}`);
     };
-    
+
     const loadData = async () => {
         const responseData = await axios.get(`/api/breweries/number`);
         setNumber(responseData.data);
     }
 
     useEffect(() => {
-           loadData();
+        loadData();
     }, []);
 
     return (
@@ -98,6 +98,7 @@ const BreweryForm = () => {
                         type="text"
                         name="city"
                         value={values.city}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -112,6 +113,7 @@ const BreweryForm = () => {
                         type="text"
                         name="country"
                         value={values.country}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -125,6 +127,7 @@ const BreweryForm = () => {
                         type="text"
                         name="website"
                         value={values.website}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -140,6 +143,7 @@ const BreweryForm = () => {
                         type="text"
                         name="size"
                         value={values.size}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -152,22 +156,23 @@ const BreweryForm = () => {
                         type="textarea"
                         name="history"
                         value={values.history}
+                        autocomplete="off"
                         onChange={handleChange}
                     />
                 </div>
                 <br />
-         
+
                 <div className="form__container">
-                <label
-                 className="form__label form__label-image"
-                > Upload Image: </label>
-                <input
-                    className="breweryform__input"
-                    type="file"
-                    
-                    name="brewery_pic"
-                    onChange={handleImage}
-                /> </div>
+                    <label
+                        className="form__label form__label-image"
+                    > Upload Image: </label>
+                    <input
+                        className="breweryform__input"
+                        type="file"
+                        name="brewery_pic"
+                        autocomplete="off"
+                        onChange={handleImage}
+                    /> </div>
                 <br />
                 <button>Cheers</button>
             </form>

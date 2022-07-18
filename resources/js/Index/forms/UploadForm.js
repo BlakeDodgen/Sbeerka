@@ -6,7 +6,7 @@ import { useDropzone } from "react-dropzone";
 const Dropzone = () => {
 
     const [selectedFile, setSelectedFile] = useState([])
-    const captionRef= useRef(null)
+    const captionRef = useRef(null)
 
     // const uploadImage = async() => {
 
@@ -17,29 +17,29 @@ const Dropzone = () => {
         // Do something with the files
         setSelectedFile(acceptedFiles.map(file =>
             Object.assign(file, {
-                preview:URL.createObjectURL(file)
+                preview: URL.createObjectURL(file)
             })
-            ))
-      }, [])
-      const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
-    const selected_image = selectedFile?.map(file=>(
+        ))
+    }, [])
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+    const selected_image = selectedFile?.map(file => (
         <div>
-            <img src={file.preview} style={{width:"200px"}} alt="" />
+            <img src={file.preview} style={{ width: "200px" }} alt="" />
         </div>
     ))
-      return (
+    return (
         <div>
-        <div {...getRootProps()}>
-          <input {...getInputProps()} />
-          
-              <p>Drop the files here ...</p> 
-              
-              </div>
-              <input ref={captionRef} type="text" />
-              <button>send</button>
-              {selected_image}
-              </div>
-      )
+            <div {...getRootProps()}>
+                <input {...getInputProps()} />
+
+                <p>Drop the files here ...</p>
+
+            </div>
+            <input ref={captionRef} type="text" autocomplete="off" />
+            <button>send</button>
+            {selected_image}
+        </div>
+    )
 
     // const [values, setValues] = useState({
     //     review: "",
@@ -67,12 +67,12 @@ const Dropzone = () => {
     // };
 
     // const handleSubmit = async (e) => {
-        
+
     //     e.preventDefault();
     //         const response = await axios.post("/api/reviews/create", values);
     //         const response_data = response.data;
     //         console.log(response)
-            
+
     //         if (typeof res === 'object') {
     //             console.log(response)
     //         }
