@@ -40,12 +40,17 @@ class BreweryController extends Controller
     public function create(Request $request)
     {
 
-        dd( $request->all());
-        $brewery = new Brewery;
+         $brewery = new Brewery;
+         $breweryPic = new BreweryPic;
+
+       
         
         // $this->validate($request, [
         //     'user_id' => 'required'
         // ]);
+        
+        //dd($request->image->name);
+        //dd($request->image->getClientOriginalName());
 
         $values = json_decode($request->values);
     
@@ -56,13 +61,26 @@ class BreweryController extends Controller
         $brewery->size = $values->size;
         $brewery->history = $values->history;
 
-        $breweryPic = new BreweryPic;
-        $breweryPic->picture = $request->file('image')->name;
+        $newImageName = time() . "-". $request->image->getClientOriginalName(); 
+        $breweryPic->picture = $newImageName;
+
+        $breweryPics = BreweryPic::select('id')
+        ->get();
+
+        $number = 0;
+        foreach($breweryPics as $value) {
+        if($value['id'] > $number) {
+        $number = $value['id'];
+        }   
+        }
+        
+
+        $brewery->brewery_pic_id = $number + 1;
         $breweryPic->save();
-
-        $brewery->brewery_pic_id = $breweryPic->id;
-
         $brewery->save();
+
+       
+        $request->image->move(public_path('img/breweries'), $newImageName);
 
         return $brewery;
     }

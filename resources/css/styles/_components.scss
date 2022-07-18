@@ -26,9 +26,49 @@
             border-radius:0;
         }
     }
+}
 
-    
+// input[type='radio'] {
+//     width: 20px;
+//     height: 20px;
+//     border: 2px solid $secondary-orange;
+//     border-radius: 20px;
+//     //top: -2px;
+//     //left: -1px;
+//     position: relative;
+//     // background-color: #d1d3d1;
+//     // content: '';
+//     // display: inline-block;
+//     // visibility: visible;
+//     // border: 2px solid white;
+// }
 
+input[type='radio']:after {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $secondary-orange;
+    border-radius: 20px;
+    top: -3px;
+    left: -5px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+
+input[type='radio']:checked:after {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $secondary-orange;
+    border-radius: 20px;
+    top: -3px;
+    left: -5px;
+    position: relative;
+    background-color: #ffa500;
+    content: '';
+    display: inline-block;
+    visibility: visible;
 }
 
 
