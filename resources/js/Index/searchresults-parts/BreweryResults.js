@@ -8,6 +8,15 @@ const BreweryResults = (props) => {
 
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
+      //Hovering effect
+      const [isHovering, setIsHovering] = useState(false);
+      const handleMouseOver = (e) => {
+          setIsHovering(true);
+      }
+      const handleMouseOut = (e) => {
+          setIsHovering(false);
+      }
+  
 
     //parameters search + text passed into the string
     const url = `http://www.sbeerka.beer/api/search?search=breweries&text=${searchString}`;
@@ -43,14 +52,27 @@ const BreweryResults = (props) => {
         <>
             <h1>Tapping results for: <br /> {searchString}</h1>
             
+            {isHovering && (
+        <div className="hover">
+        <img src={`/img/beers/${props.beer_pic_id}.png`} className="search-result__img" alt="beer-item-img" />
+        <p className="search-result__name">{props.name}</p>
+        <p className="search-result__brewery">{props.brewery}</p>
+        <p className="search-result__type">{props.type}</p>
+    <   p className="search-result__rating">Rating</p>
+    </div>
 
-            <div className="search__result">
+            )}
+
+
+            <div className="search__result"
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}>
                 {/* loops in the array which contains updated search items */}
                 {/* for less displayed results use splice method on array .splice(0,10) */}
 
                 {!!newSearch.length ? (
                     newSearch.map((value, index) => {
-
+                        console.log(value);
                         return (<>
                             <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link>
                             <a className="search__items" key={index} >{value.name} </a>

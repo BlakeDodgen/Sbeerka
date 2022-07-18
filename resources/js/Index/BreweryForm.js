@@ -17,16 +17,16 @@ const BreweryForm = () => {
         website: "",
         size: "",
         history: "",
-               
+
         //brewery_pic: "",
-        
+
         // picture can or cannot be sent in this post req??
         //images uses 
         //if not second form has to be created
-        
+
     });
     // new state for Image
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
 
     // const handleUpload = async (e) => {
     //     e.preventDefault();
@@ -42,6 +42,9 @@ const BreweryForm = () => {
     // };
 
     const handleChange = (e) => {
+        if (e.target.files) {
+            return setImage(e.target.files[0])
+        }
         console.log(values);
         setValues((previous_values) => {
             return {
@@ -49,32 +52,44 @@ const BreweryForm = () => {
                 [e.target.name]: e.target.value,
             };
         });
-              
+
     };
-     
+
     const handleImage = (e) => {
         setImage(e.target.files[0])
     }
 
     console.log(image);
-   
-    const handleSubmit = async (e) => { 
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         values.user_id = user.id;
-        const response = await axios.post("/api/breweries/create", values);
+
+        const options = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+
+        const formData = new FormData();
+
+        formData.append('image', image)
+        formData.append('values', JSON.stringify(values))
+
+        const response = await axios.post("/api/breweries/create", formData, options);
         const response_data = response.data;
-        console.log(response)
-   
+        console.log(response_data)
+
         return navigate(`/breweries/${number + 1}`);
     };
-    
+
     const loadData = async () => {
         const responseData = await axios.get(`/api/breweries/number`);
         setNumber(responseData.data);
     }
 
     useEffect(() => {
-           loadData();
+        loadData();
     }, []);
 
     return (
@@ -82,9 +97,6 @@ const BreweryForm = () => {
             <h2> Brewery Form </h2>
             <form
                 className="form"
-                // action=""
-                method="post"
-                encType="multipart/form-data"
                 onSubmit={(e) => {
                     handleSubmit(e);
                 }}
@@ -156,18 +168,18 @@ const BreweryForm = () => {
                     />
                 </div>
                 <br />
-         
+
                 <div className="form__container">
-                <label
-                 className="form__label form__label-image"
-                > Upload Image: </label>
-                <input
-                    className="breweryform__input"
-                    type="file"
-                    
-                    name="brewery_pic"
-                    onChange={handleImage}
-                /> </div>
+                    <label
+                        className="form__label form__label-image"
+                    > Upload Image: </label>
+                    <input
+                        className="breweryform__input"
+                        type="file"
+
+                        name="image"
+                        onChange={handleImage}
+                    /> </div>
                 <br />
                 <button>Cheers</button>
             </form>
