@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Brewery;
+use App\Models\BreweryPic;
 
 class BreweryController extends Controller
 {
@@ -38,23 +39,32 @@ class BreweryController extends Controller
 
     public function create(Request $request)
     {
+
+        dd( $request->image->originalName);
         $brewery = new Brewery;
         
         // $this->validate($request, [
         //     'user_id' => 'required'
         // ]);
 
-        $brewery->user_id = $request->input('user_id');
-        $brewery->city = $request->input('city');
-        $brewery->country = $request->input('country');
-        $brewery->website = $request->input('website');
-        $brewery->size = $request->input('size');
-        $brewery->history = $request->input('history');
-        // $brewery->brewery_pic_id = $request->input('brewery_pic_id');
+        $values = json_decode($request->values);
+            
+        $brewery->user_id = $values->user_id;
+        $brewery->city = $values->city;
+        $brewery->country = $values->country;
+        $brewery->website = $values->website;
+        $brewery->size = $values->size;
+        $brewery->history = $values->history;
+
+        $breweryPic = new BreweryPic;
+        $breweryPic->picture = $request->file('image')->name;
+        $breweryPic->save();
+
+        $brewery->brewery_pic_id = $breweryPic->id;
 
         $brewery->save();
 
-        return 'worked';
+        return $brewery;
     }
 
     public function number()
@@ -77,5 +87,10 @@ class BreweryController extends Controller
                             ->get();
 
         return $brewery;
+    }
+
+    public function test(Request $request)
+    {
+        dd($request);
     }
 }

@@ -76,7 +76,7 @@ const CountryResults = (props) => {
                             
 
                             return (<>
-                                <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.country}</p></Link>
+                                <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.user.brewery_name} / {value.country}</p></Link>
                                 
                                  {/* <a className="search__items" key={index} >{value.name} </a> */}
                             </>

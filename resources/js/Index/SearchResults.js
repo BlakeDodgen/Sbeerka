@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SearchResult from "./SearchResult";
+import { Rings } from 'react-loader-spinner';
 
 
 
@@ -9,7 +10,7 @@ import SearchResult from "./SearchResult";
 const SearchResults = (props) => {
     const { search, searchString } = useParams();
 
-
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
 
@@ -24,14 +25,21 @@ const SearchResults = (props) => {
     // City search: http://www.sbeerka.beer/api/search?search=city&text=[search_query]
     // Country search: http://www.sbeerka.beer/api/search?search=country&text=[search_query]
 
-    console.log("url from SR:" + url);
+  
 
-    const fetchData = async () => {
-        const response = await fetch(url);
-        const parsedData = await response.json();
-        setData(parsedData);
+       // setLoading(true);
+        const fetchData = async () => {
+            const response = await fetch(url);
+            const parsedData = await response.json();
+            setData(parsedData);
+        }
 
-    }
+    
+    
+       // setLoading(false);
+    
+
+
     useEffect(() => {
         fetchData();
 
@@ -70,12 +78,17 @@ const SearchResults = (props) => {
 
     return (
         <>
-            <div className="search-results">
-                <h1>Tapping results for: <br /> {searchString}</h1>
+            <h1>Tapping results for: <br /> {searchString}</h1>
 
+            <div className="search-results">
                 {/* loops in the array which contains updated search items */}
                 {/* for less displayed results use splice method on array .splice(0,10) */}
-
+                {/* {loading && <Rings
+                    height="100"
+                    width="100"
+                    color='#19a991'
+                    ariaLabel='loading'
+                />} */}
                 {!!newSearch.length ? (
                     newSearch.map((value, index) => {
 
