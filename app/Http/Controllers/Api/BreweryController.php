@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Brewery;
+use App\Models\BreweryPic;
 
 class BreweryController extends Controller
 {
@@ -38,23 +39,55 @@ class BreweryController extends Controller
 
     public function create(Request $request)
     {
-        $brewery = new Brewery;
+
+         $brewery = new Brewery;
+         $breweryPic = new BreweryPic;
+
+       
         
         // $this->validate($request, [
         //     'user_id' => 'required'
         // ]);
         
-        $brewery->user_id = $request->input('user_id');
-        $brewery->city = $request->input('city');
-        $brewery->country = $request->input('country');
-        $brewery->website = $request->input('website');
-        $brewery->size = $request->input('size');
-        $brewery->history = $request->input('history');
-        // $brewery->brewery_pic_id = $request->input('brewery_pic_id');
+        //dd($request->image->name);
+        //dd($request->image->getClientOriginalName());
 
+        $values = json_decode($request->values);
+    
+        $brewery->user_id = $values->user_id;
+        $brewery->city = $values->city;
+        $brewery->country = $values->country;
+        $brewery->website = $values->website;
+        $brewery->size = $values->size;
+        $brewery->history = $values->history;
+
+
+        if ($request->image->getClientOriginalName() == null) {
+            $breweryPic->picture = 'Brewery.png';
+        } else {
+            $newImageName = time() . "-". $request->image->getClientOriginalName(); 
+            $breweryPic->picture = $newImageName;
+        }
+        
+        $breweryPics = BreweryPic::select('id')
+        ->get();
+
+        $number = 0;
+        foreach($breweryPics as $value) {
+        if($value['id'] > $number) {
+        $number = $value['id'];
+        }   
+        }
+        
+
+        $brewery->brewery_pic_id = $number + 1;
+        $breweryPic->save();
         $brewery->save();
 
-        return 'worked';
+       
+        $request->image->move(public_path('img/breweries'), $newImageName);
+
+        return $brewery;
     }
 
     public function number()

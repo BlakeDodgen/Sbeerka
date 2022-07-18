@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const BeerForm = () => {
-    // const navigate = useNavigate();
+const BeerForm = ({ brewery, setInputtingBeer }) => {
+
+    const [image, setImage] = useState(null);
+
     const [values, setValues] = useState({
-        beer_type_id: "",
+        brewery_id: brewery,
+        beer_type_id: "1",
         name: "",
         alcohol_volume: 0,
         degree: 0,
@@ -12,33 +15,49 @@ const BeerForm = () => {
         // beer_pic_id: 0,
     });
 
-    //POST IMage req 
-    //const [image, setImage] = useState('');
-    //const handleImage = (e) => {
-    //    setImage(e.target.files[0])
-    //}
-    //console.log(image);
-    //
-    // const handleUpload = async (e) => {
-    //     e.preventDefault();
-    //     const formdata = new FormData();
-    //     formData.append("image", image);   
-    //     
-    //     try {
-    //         const response = await axios.post("/.....", formdata);
-    //         const response_data = response.data;
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-
     const handleChange = (e) => {
+        if (e.target.files) {
+            return setImage(e.target.files[0])
+        }
+        console.log(values);
         setValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
             };
         });
+
+    };
+
+    const handleImage = (e) => {
+        // console.log(e.target.value)
+        setImage(e.target.files[0])
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const options = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+
+        const formData = new FormData();
+
+        formData.append('image', image)
+        formData.append('values', JSON.stringify(values))
+
+        const response = await axios.post("/api/beers/create", formData, options);
+        const response_data = response.data;
+        console.log(response_data)
+
+        
+        // const response = await axios.post('/api/breweries/create', values);
+        // const response_data = response.data;
+        // console.log(response)
+
+        return navigate(`/breweries/${user.id}`);
     };
 
     return (
@@ -60,7 +79,7 @@ const BeerForm = () => {
                         className="form__input form__input-beerType"
                         type="text"
                         value={values.beer_type_id}
-                        required
+                        name="beer_type_id"
                         autocomplete="off"
                         onChange={(e) => {
                             handleChange(e);
@@ -79,6 +98,7 @@ const BeerForm = () => {
                         value={values.name}
                         required
                         autocomplete="off"
+                        name="name"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -95,6 +115,7 @@ const BeerForm = () => {
                         value={values.alcohol_volume}
                         required
                         autocomplete="off"
+                        name="alcohol_volume"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -108,6 +129,7 @@ const BeerForm = () => {
                     <input
                         className="form__input form__input-degree"
                         type="number"
+                        name="degree"
                         value={values.degree}
                         autocomplete="off"
                         onChange={(e) => {
@@ -126,6 +148,7 @@ const BeerForm = () => {
                         value={values.description}
                         autocomplete="off"
                         required
+                        name="description"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -140,7 +163,7 @@ const BeerForm = () => {
                     <input
                         className="form__input form__input-image"
                         type="file"
-                        name="beer_pic"
+                        name="image"
                         autocomplete="off"
                         required
                         onChange={handleImage}

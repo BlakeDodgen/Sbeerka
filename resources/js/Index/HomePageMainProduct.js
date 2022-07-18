@@ -40,6 +40,11 @@ const HomePageMainProduct = () => {
                             <h2 className="main-product__title">
                                 FEATURED BEER
                             </h2>
+                            <Link to={`/beers/${item.id}`}>
+                                <p className="main-product__name">
+                                    {item.name}
+                                </p>
+                            </Link>
                             <div className="main-product__image-container">
                                 <Link to={`/beers/${item.id}`}>
                                     <img
@@ -50,9 +55,6 @@ const HomePageMainProduct = () => {
                                 </Link>
                             </div>
                             <div className="main-product__detail">
-                                <p className="main-product__name">
-                                    {item.name}
-                                </p>
                                 <p className="main-product__rating">Rating</p>
                             </div>
                         </>
