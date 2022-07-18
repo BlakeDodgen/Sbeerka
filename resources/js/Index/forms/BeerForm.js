@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const BeerForm = ({ brewery, setInputtingBeer }) => {
-    // const navigate = useNavigate();
+
+    const [image, setImage] = useState(null);
 
     const [values, setValues] = useState({
         brewery_id: brewery,
@@ -14,42 +15,49 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
         // beer_pic_id: 0,
     });
 
-    //POST IMage req 
-    //const [image, setImage] = useState('');
-    //const handleImage = (e) => {
-    //    setImage(e.target.files[0])
-    //}
-    //console.log(image);
-    //
-    // const handleUpload = async (e) => {
-    //     e.preventDefault();
-    //     const formdata = new FormData();
-    //     formData.append("image", image);   
-    //     
-    //     try {
-    //         const response = await axios.post("/.....", formdata);
-    //         const response_data = response.data;
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-
     const handleChange = (e) => {
+        if (e.target.files) {
+            return setImage(e.target.files[0])
+        }
+        console.log(values);
         setValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
             };
         });
+
     };
+
+    const handleImage = (e) => {
+        // console.log(e.target.value)
+        setImage(e.target.files[0])
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post('/api/beers/create', values);
+
+        const options = {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+
+        const formData = new FormData();
+
+        formData.append('image', image)
+        formData.append('values', JSON.stringify(values))
+
+        const response = await axios.post("/api/beers/create", formData, options);
         const response_data = response.data;
-        console.log(response)
-        setInputtingBeer(false);
-        // return navigate(`/breweries/${user.id}`);
+        console.log(response_data)
+
+        
+        // const response = await axios.post('/api/breweries/create', values);
+        // const response_data = response.data;
+        // console.log(response)
+
+        return navigate(`/breweries/${user.id}`);
     };
 
     return (
@@ -148,19 +156,19 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                 </div>
 
                 <br />
-                {/* <div className="form__container">
+                <div className="form__container">
                     <label className="form__label form__label-image">
                         Upload Image:
                     </label>
                     <input
                         className="form__input form__input-image"
                         type="file"
-                        name="beer_pic"
+                        name="image"
                         autocomplete="off"
                         required
                         onChange={handleImage}
                     />
-                </div> */}
+                </div>
                 <br />
                 <button className="form__button">Add Beer To Sbeerka</button>
                 <br />

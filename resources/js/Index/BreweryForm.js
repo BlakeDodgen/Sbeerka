@@ -89,11 +89,6 @@ const BreweryForm = () => {
         return navigate(`/breweries/${user.id}`);
     };
 
-    const loadData = async () => {
-        const responseData = await axios.get(`/api/breweries/number`);
-        setNumber(responseData.data);
-    }
-
     useEffect(() => {
         loadData();
     }, []);
