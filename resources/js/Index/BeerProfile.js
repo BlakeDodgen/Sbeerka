@@ -13,7 +13,8 @@ const BeerProfile = () => {
     const { user } = useContext(UserContext);
     const [reviewed, setReviewed] = useState(false);
 
-    const [graphValues, setGraphValues] = useState(null);
+    const [graphValues, setGraphValues] = useState("");
+    console.log(graphValues);
 
 
     const loadData = async () => {
@@ -23,7 +24,7 @@ const BeerProfile = () => {
         response.data.reviews.forEach((review) => {
             if (user && review.user_id == user.id) {
                 setReviewed(true);
-                console.log(beer);
+                
             }
         });
 
@@ -160,7 +161,7 @@ const BeerProfile = () => {
                     </div>{" "}
                     <br />
                     <div className="beerprofile__info__graph">
-                        <BeerGraph />
+                        <BeerGraph graphValues={graphValues}/>
                         {/* <StarRating /> */}
                     </div>
                 </div>
@@ -173,6 +174,7 @@ const BeerProfile = () => {
                                 user={user.id}
                                 beer={beer.data.id}
                                 setReviewed={setReviewed}
+                                setGraphValues = {setGraphValues}
                             />
                         )}
                     {beer.data.reviews.map((review, i) => (

@@ -5,7 +5,7 @@ import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 //import Slider from '@mui/material/Slider';
 
 
-const ReviewForm = ({ user, beer, setReviewed }) => {
+const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
     const [values, setValues] = useState({
         review: 0,
@@ -25,15 +25,17 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
+        setGraphValues(values);
         setValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
             };
         });
+         
     };
 
-    console.log(values);
+    // console.log(values);
     const handleSubmit = async (e) => {
 
         e.preventDefault();

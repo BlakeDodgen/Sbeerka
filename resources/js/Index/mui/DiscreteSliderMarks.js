@@ -56,15 +56,15 @@ function valuetext(value) {
     return `${value}`;
 }
 
-export default function DiscreteSliderMarks({ setGraphValues, setValue, name, value = 5 }) {
+export default function DiscreteSliderMarks({ setValue, name, value = 5 }) {
 
     const [innerValue, setInnerValue] = React.useState(value);
-
+    
     const handleChange = (event, newValue) => {
         console.log(newValue)
         setValue(event);
         setInnerValue(newValue)
-        setGraphValues(newValue)
+        
     };
 
     React.useEffect(() => {
