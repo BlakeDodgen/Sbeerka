@@ -19,15 +19,16 @@ const BreweryResult = (props) => {
         setIsHovering(false);
     }
 
-    
+    console.log(props.values.brewery.brewery_pic);
     return (
         <>
        
             {isHovering && (
                 <div className="hover2">
                     <p className="search-result__brewery">{props.name}</p>
-{/*                    
-                    <img src={`/img/breweries/${(props.values.brewery.brewery_pic['picture']  === null) ? "sibeeria.png" : props.values.brewery.brewery_pic['picture']}`} alt="img"/> */}
+                    
+                    {!props.values.brewery.brewery_pic ? <img src={`/img/breweries/sibeeria.png`} /> 
+                    : <img src= {`/img/breweries/${props.values.brewery.brewery_pic['picture']}`} alt="img"/> }
                 </div>
 
             )}

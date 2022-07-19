@@ -123,10 +123,11 @@ const BeerProfile = () => {
                 <div className="beerprofile">
                     <div className="beerprofile__container">
                         <h2> {beer.data.name}</h2>
+                        {console.log(beer.data)}
                         <div>
                             <img
                                 className="beerprofile__container__image_beer"
-                                src={`/img/breweries/${beer.data.brewery.brewery_pic.picture}`}
+                                src={`/img/beers/${beer.data.beer_pic.picture}`}
                                 alt="brewery logo"
                             />
                         </div>

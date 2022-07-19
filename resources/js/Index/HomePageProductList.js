@@ -14,9 +14,15 @@ const HomePageProductList = () => {
         setData(parsedData);
     };
 
+    const loadNewSet = () => {
+        
+    }
+
     useEffect(() => {
         fetchData();
     }, []);
+
+
 
     return (
         <div className="product-list">
@@ -30,7 +36,7 @@ const HomePageProductList = () => {
 
             </div>
             {/* new feature loads another six items */}
-            {/* <button onClick={()=>setMax(max+6)}>Another round</button> */}
+            <button onClick={()=>loadNewSet()}>Another round</button>
         </div>
     );
 };
