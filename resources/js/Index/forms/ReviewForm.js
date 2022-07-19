@@ -5,34 +5,34 @@ import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 //import Slider from '@mui/material/Slider';
 
 
-const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
+const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) => {
 
     const [values, setValues] = useState({
         review: 0,
         rating: 0,
         // favorite: false,
-        body: 0,
-        linger: 0,
-        herbal: 0,
-        citrus: 0,
-        hoppy: 0,
-        bitter: 0,
-        sour: 0,
-        user_id: user,
-        beer_id: beer
+        // body: averageValues.body,
+        // linger: averageValues.linger,
+        // herbal: averageValues.herbal,
+        // citrus: averageValues.citrus,
+        // hoppy: averageValues.hoppy,
+        // bitter: averageValues.bitter,
+        // sour: averageValues.sour,
+        // user_id: user,
+        // beer_id: beer
     });
-
+    
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-        setGraphValues(values);
+        
         setValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
             };
         });
-         
+        setGraphValues(values);  
     };
 
     // console.log(values);

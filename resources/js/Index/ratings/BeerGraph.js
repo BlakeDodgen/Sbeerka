@@ -72,31 +72,31 @@ const axis = () => (col, i) =>
 const BeerGraph = (props) => {
     //Data should be 0-1 rather than 0-10
 
- console.log(props.graphValues.body)   
+//  console.log(props.graphValues.body)   
 const data = [
     //inputed rating from user
     {
         
-        Sour: (props.graphValues.sour/10),
-        Bitter: (props.graphValues.bitter/10),
-        Herbal: (props.graphValues.herbal/10),
-        Body: (props.graphValues.body/10),
-        Linger: (props.graphValues.linger/10),
-        Citrus: (props.graphValues.citrus/10),
-        Hoppy: (props.graphValues.hoppy/10),
+        sour: (props.graphValues.sour/10),
+        bitter: (props.graphValues.bitter/10),
+        herbal: (props.graphValues.herbal/10),
+        body: (props.graphValues.body/10),
+        linger: (props.graphValues.linger/10),
+        citrus: (props.graphValues.citrus/10),
+        hoppy: (props.graphValues.hoppy/10),
     },
     //avarage rating
     {
-        Sour: 0.6,
-        Bitter: 0.9,
-        Herbal: 0.8,
-        Body: 0.7,
-        Linger: 0.6,
-        Citrus: 0.4,
-        Hoppy: 0.9,
+        sour: 0.6,
+        bitter: 0.9,
+        herbal: 0.8,
+        body: 0.7,
+        linger: 0.6,
+        citrus: 0.4,
+        hoppy: 0.9,
     },
 ];
-
+console.log(data[0].body) 
     const groups = [];
     const scales = [];
     for (let i = numberOfScales; i > 0; i--) {

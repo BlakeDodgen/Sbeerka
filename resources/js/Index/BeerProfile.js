@@ -14,8 +14,8 @@ const BeerProfile = () => {
     const [reviewed, setReviewed] = useState(false);
 
     const [graphValues, setGraphValues] = useState("");
-    console.log(graphValues);
-
+   
+    
 
     const loadData = async () => {
         const response = await axios.get(`/api/beers/${id}`);
@@ -175,6 +175,8 @@ const BeerProfile = () => {
                                 beer={beer.data.id}
                                 setReviewed={setReviewed}
                                 setGraphValues = {setGraphValues}
+                                // averageValues = {beer.averages}
+
                             />
                         )}
                     {beer.data.reviews.map((review, i) => (
