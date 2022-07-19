@@ -49,8 +49,6 @@ const BreweryResults = (props) => {
 
     });
 
-   
-
     return (
         <>
             <h1>Tapping results for: <br /> {searchString}</h1>
@@ -79,7 +77,7 @@ const BreweryResults = (props) => {
                         console.log(value)
                        
                         return (<>
-                        <BreweryResult key={value.id} link={`/breweries/${value.id}`} name={value.brewery_name} values={value}
+                        <BreweryResult key={value.id} name={value.brewery_name} values={value}
                        
                         />
                             {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link> */}
