@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import UserContext from "./UserContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
@@ -8,7 +8,8 @@ const BreweryForm = () => {
 
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
-    const [number, setNumber] = useState(0);
+    const { id } = useParams();
+    const [image, setImage] = useState(null);
 
     const [values, setValues] = useState({
         user_id: null,
@@ -17,29 +18,7 @@ const BreweryForm = () => {
         website: "",
         size: "",
         history: "",
-
-        //brewery_pic: "",
-
-        // picture can or cannot be sent in this post req??
-        //images uses 
-        //if not second form has to be created
-
     });
-    // new state for Image
-    const [image, setImage] = useState(null);
-
-    // const handleUpload = async (e) => {
-    //     e.preventDefault();
-    //     const formdata = new FormData();
-    //     formData.append("image", image);   
-    //     
-    //     try {
-    //         const response = await axios.post("/.....", formdata);
-    //         const response_data = response.data;
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
 
     const handleChange = (e) => {
         if (e.target.files) {
@@ -55,12 +34,21 @@ const BreweryForm = () => {
 
     };
 
+    const loadData = async () => {
+        if (id) {
+            const response = await axios.get(`/api/breweries/${id}`);
+            console.log(response.data[0])
+            setValues(...response.data);
+        }
+        
+    }
+
     const handleImage = (e) => {
         console.log(e.target.value)
         setImage(e.target.files[0])
     }
 
-    console.log(image);
+    // console.log(image);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -81,17 +69,12 @@ const BreweryForm = () => {
         const response_data = response.data;
         console.log(response_data)
 
-        
-        // const response = await axios.post('/api/breweries/create', values);
-        // const response_data = response.data;
-        // console.log(response)
-
         return navigate(`/breweries/${user.id}`);
     };
 
     useEffect(() => {
         loadData();
-    }, []);
+    }, [id]);
 
     return (
         <>

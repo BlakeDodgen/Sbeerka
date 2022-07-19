@@ -104,6 +104,7 @@ const App = () => {
                         <Route path="user/:id" element={<UserProfile />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
+                        <Route path="/edit/brewery/:id" element={<BreweryForm />} />
                         <Route path="/signup/brewery" element={<BreweryForm />} />
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/about" element={<About />} />
@@ -111,7 +112,7 @@ const App = () => {
 
                     {/* <Link to="/beers/review">Link</Link> */}
                 </div>
-                <Footer />
+                {/* <Footer /> */}
             </BrowserRouter>
         </UserContext.Provider>
     );

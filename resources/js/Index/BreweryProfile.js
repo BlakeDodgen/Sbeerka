@@ -38,7 +38,7 @@ const BreweryProfile = () => {
             <p>Brewery Picture:</p>
             {console.log(brewery)}
             <img src={`/img/breweries/${brewery.brewery_pic.picture}`} alt="brewery logo" style={{width: "100px"}}/>
-
+            {(user && user.id == brewery.user_id) && <Link to={`/edit/brewery/${user.id}`}><p>EDIT PROFILE INFORMATION</p></Link>}
             <h2>More beers from this brewery:</h2>
             {(user && user.id == brewery.user_id && (inputtingBeer == false)) && <button onClick={beerInputClickHandler}>Add a beer</button>}
             {(inputtingBeer == true) && <BeerForm brewery={brewery.id} setInputtingBeer={setInputtingBeer}/>}       
