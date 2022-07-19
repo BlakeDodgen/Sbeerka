@@ -53,7 +53,7 @@ class BreweryController extends Controller
         //dd($request->image->getClientOriginalName());
 
         $values = json_decode($request->values);
-            
+    
         $brewery->user_id = $values->user_id;
         $brewery->city = $values->city;
         $brewery->country = $values->country;
@@ -61,9 +61,14 @@ class BreweryController extends Controller
         $brewery->size = $values->size;
         $brewery->history = $values->history;
 
-        $newImageName = time() . "-". $request->image->getClientOriginalName(); 
-        $breweryPic->picture = $newImageName;
 
+        if ($request->image->getClientOriginalName() == null) {
+            $breweryPic->picture = 'Brewery.png';
+        } else {
+            $newImageName = time() . "-". $request->image->getClientOriginalName(); 
+            $breweryPic->picture = $newImageName;
+        }
+        
         $breweryPics = BreweryPic::select('id')
         ->get();
 

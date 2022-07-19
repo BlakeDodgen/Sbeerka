@@ -1,13 +1,17 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from "axios";
-import BeerForm from './forms/BeerForm';
+import UserContext from "./UserContext";
+import BeerForm from "./forms/BeerForm";
 
 const BreweryProfile = () => {
 
     const { id } = useParams();
     const [brewery, setBrewery] = useState(null);
+    const { user } = useContext(UserContext);
+    const [inputtingBeer, setInputtingBeer] = useState(false);
 
+    
     const loadData = async () => {
         const response = await axios.get(`/api/breweries/${id}`);
         console.log(response.data[0])
@@ -16,7 +20,11 @@ const BreweryProfile = () => {
 
     useEffect(() => {
         loadData();
-    }, []);
+    }, [inputtingBeer]);
+
+    const beerInputClickHandler = () => {
+        setInputtingBeer(true)
+    }
 
     return (brewery &&
         <div className="breweryprofile">
@@ -32,6 +40,8 @@ const BreweryProfile = () => {
             <img src={`/img/breweries/${brewery.brewery_pic.picture}`} alt="brewery logo" style={{width: "100px"}}/>
 
             <h2>More beers from this brewery:</h2>
+            {(user && user.id == brewery.user_id && (inputtingBeer == false)) && <button onClick={beerInputClickHandler}>Add a beer</button>}
+            {(inputtingBeer == true) && <BeerForm brewery={brewery.id} setInputtingBeer={setInputtingBeer}/>}       
             {brewery.beers.map((beer, i) => (
                 <div className="beer">
                     <Link to={`/beers/${beer.id}`}><p key={i}>{beer.name}</p></Link>

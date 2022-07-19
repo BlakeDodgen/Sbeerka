@@ -1,7 +1,6 @@
 import HomePageMainProduct from "./HomePageMainProduct";
 import HomePageProductList from "./HomePageProductList";
 
-
 function HomePage() {
 
 

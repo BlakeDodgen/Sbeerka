@@ -56,6 +56,7 @@ const BreweryForm = () => {
     };
 
     const handleImage = (e) => {
+        console.log(e.target.value)
         setImage(e.target.files[0])
     }
 
@@ -87,11 +88,6 @@ const BreweryForm = () => {
 
         return navigate(`/breweries/${user.id}`);
     };
-
-    const loadData = async () => {
-        const responseData = await axios.get(`/api/breweries/number`);
-        setNumber(responseData.data);
-    }
 
     useEffect(() => {
         loadData();

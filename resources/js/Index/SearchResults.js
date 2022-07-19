@@ -1,11 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SearchResult from "./SearchResult";
-import { Rings } from 'react-loader-spinner';
-
-
-
-
+// import { Rings } from 'react-loader-spinner';
 
 const SearchResults = (props) => {
     const { search, searchString } = useParams();
@@ -25,19 +21,19 @@ const SearchResults = (props) => {
     // City search: http://www.sbeerka.beer/api/search?search=city&text=[search_query]
     // Country search: http://www.sbeerka.beer/api/search?search=country&text=[search_query]
 
-  
 
-       // setLoading(true);
-        const fetchData = async () => {
-            const response = await fetch(url);
-            const parsedData = await response.json();
-            setData(parsedData);
-        }
 
-    
-    
-       // setLoading(false);
-    
+    // setLoading(true);
+    const fetchData = async () => {
+        const response = await fetch(url);
+        const parsedData = await response.json();
+        setData(parsedData);
+    }
+
+
+
+    // setLoading(false);
+
 
 
     useEffect(() => {
