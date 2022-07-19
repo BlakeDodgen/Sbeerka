@@ -8,7 +8,7 @@ import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 const ReviewForm = ({ user, beer, setReviewed }) => {
 
     const [values, setValues] = useState({
-        review: "",
+        review: 0,
         rating: 0,
         // favorite: false,
         body: 0,
@@ -21,6 +21,7 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
         user_id: user,
         beer_id: beer
     });
+
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
@@ -32,6 +33,7 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
         });
     };
 
+    console.log(values);
     const handleSubmit = async (e) => {
 
         e.preventDefault();

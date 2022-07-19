@@ -1,26 +1,6 @@
 
 
-//Data should be 0-1 rather than 0-10
-const data = [
-    {
-        Sour: 0.6,
-        Bitter: 1.0,
-        Herbal: 0.9,
-        Body: 0.6,
-        Linger: 0.8,
-        Citrus: 0.5,
-        Hoppy: 0.7,
-    },
-    {
-        Sour: 0.6,
-        Bitter: 0.9,
-        Herbal: 0.8,
-        Body: 0.7,
-        Linger: 0.6,
-        Citrus: 0.4,
-        Hoppy: 0.9,
-    },
-];
+
 
 // Circle size and concentric cirles
 const chartSize = 300;
@@ -90,6 +70,28 @@ const axis = () => (col, i) =>
 );
 
 const BeerGraph = (props) => {
+    //Data should be 0-1 rather than 0-10
+const data = [
+    {
+        //inputed 
+        Sour: 0.9,
+        Bitter: 1.0,
+        Herbal: 0.9,
+        Body: 0.6,
+        Linger: 0.8,
+        Citrus: 0.5,
+        Hoppy: 0.7,
+    },
+    {//avarage data
+        Sour: 0.6,
+        Bitter: 0.9,
+        Herbal: 0.8,
+        Body: 0.7,
+        Linger: 0.6,
+        Citrus: 0.4,
+        Hoppy: 0.9,
+    },
+];
     const groups = [];
     const scales = [];
     for (let i = numberOfScales; i > 0; i--) {
@@ -133,7 +135,7 @@ const caption = () => (col) =>
         dy={10 / 2}
         fill="#444"
         fontWeight="300"
-        textShadow="1px 1px 0 #fff"
+        textshadow="1px 1px 0 #fff"
     >
         {col.key}
     </text>

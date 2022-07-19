@@ -13,6 +13,9 @@ const BeerProfile = () => {
     const { user } = useContext(UserContext);
     const [reviewed, setReviewed] = useState(false);
 
+    const [graphValues, setGraphValues] = useState(null);
+
+
     const loadData = async () => {
         const response = await axios.get(`/api/beers/${id}`);
         // console.log(response.data);
@@ -178,11 +181,11 @@ const BeerProfile = () => {
                         <h2>Intensity:</h2>
                         <div className="beerprofile__slider__body">
                             Body
-                            <DiscreteSliderMarks />
+                            <DiscreteSliderMarks setGraph={setGraphValues}/>
                         </div>
                         <div className="beerprofile__slider__linger">
                             Linger
-                            <DiscreteSliderMarks />
+                            <DiscreteSliderMarks setGraph={setGraphValues}/>
                         </div>
                         <div className="beerprofile__slider__herbal">
                             Herbal
