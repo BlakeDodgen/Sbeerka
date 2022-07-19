@@ -57,10 +57,9 @@ const CountryResults = (props) => {
                         newSearch.map((value, index) => {
 
                             
-
                             return (<>
 
-                            <CountryResult key={value.id} link={`/breweries/${value.id}`} name={value.city   } values={value} />
+                            <CountryResult key={value.id} link={`/breweries/${value.id}`} name={value.city} values={value} />
                                 {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.user.brewery_name} / {value.country}</p></Link> */}
                                 
                                  {/* <a className="search__items" key={index} >{value.name} </a> */}

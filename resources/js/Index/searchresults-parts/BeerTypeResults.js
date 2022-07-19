@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { values } from "lodash";
+import BeerTypeResult from "./BeerTypeResult";
+
 
 const BeerTypeResults = (props) => {
     const { search, searchString } = useParams();
@@ -58,10 +59,19 @@ const BeerTypeResults = (props) => {
                     newSearch.map((value, index) => {
                          const beerName = value.beers.map((value,index) =>{
                              return value.name
+                             
                          })
+                         const beerPic = value.beers.map((value,index) =>{
+                            return value.beer_pic.picture
+                            
+                        })
                         console.log(beerName);
                         return (
-                            <Link key={value.id} to={`/beers/${value.id}`}><p> {beerName} / {value.type}</p></Link>
+
+                            <BeerTypeResult 
+                            key={value.id} link={`/breweries/${value.id}`} name={beerName} values={value}
+                            pic={beerPic} />
+                            // <Link key={value.id} to={`/beers/${value.id}`}><p> {beerName} / {value.type}</p></Link>
                            
                         )
 
