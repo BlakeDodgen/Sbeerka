@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
-import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
+// import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
 import BeerGraph from "./ratings/BeerGraph";
 import StarRating from "./ratings/StarRating";
 
@@ -126,49 +126,68 @@ const BeerProfile = () => {
         beer && (
             <>
                 <div className="beerprofile">
-                    <div className="beerprofile__container">
-                        <h2> {beer.data.name}</h2>
-                        {console.log(beer.data)}
-                        <div>
-                            <img
-                                className="beerprofile__container__image_beer"
-                                src={`/img/beers/${beer.data.beer_pic.picture}`}
-                                alt="beer logo"
-                            />
-                        </div>
-
-                        <p>
-                            <Link
-                                to={`/breweries/${beer.data.brewery.user_id}`}
-                            >
-                                <em>{beer.data.brewery.user.brewery_name}</em>
-                            </Link>
-                        </p>
+                    <h2> {beer.data.name}</h2>
+                    <div>
+                        <img
+                            className="beerprofile__beer-pic"
+                            src={`/img/beers/${beer.data.beer_pic.picture}`}
+                            alt="beer logo"
+                        />
                     </div>
-                    {/* <p className="beerprofile__image_brewery">
+
+                    <p>
+                        <Link
+                            to={`/breweries/${beer.data.brewery.user_id}`}
+                        >
+                            <em>{beer.data.brewery.user.brewery_name}</em>
+                        </Link>
+                    </p>
+                </div>
+                {/* <p className="beerprofile__image_brewery">
                         Brewery Picture:
                     </p> */}
 
-                    <div className="beerprofile__info">
-                        <div className="beerprofile__info__numbers">
-                            {" "}
-                            <h2> Description: </h2>
-                            {beer.data.alcohol_volume} % ABV, {beer.data.degree}{" "}
-                            °
-                        </div>{" "}
-                        <br />
-                        <div className="beerprofile__info__desc">
-                            {beer.data.description}
-                        </div>{" "}
-                        <br />
-                        <div className="beerprofile__info__graph">
-                            <BeerGraph />
-                            <StarRating />
-                        </div>
+                <div className="beerprofile__info">
+                    <div className="beerprofile__info__numbers">
+                        {" "}
+                        <h2> Description: </h2>
+                        {beer.data.alcohol_volume} % ABV, {beer.data.degree}{" "}
+                        °
+                    </div>{" "}
+                    <br />
+                    <div className="beerprofile__info__desc">
+                        {beer.data.description}
+                    </div>{" "}
+                    <br />
+                    <div className="beerprofile__info__graph">
+                        <BeerGraph />
+                        {/* <StarRating /> */}
                     </div>
+                </div>
+                <div className="beerprofile__review">
+                    <h2>Reviews:</h2>
+                    {user &&
+                        (user.user_type == 1 || user.user_type == 3) &&
+                        reviewed == false && (
+                            <ReviewForm
+                                user={user.id}
+                                beer={beer.data.id}
+                                setReviewed={setReviewed}
+                            />
+                        )}
+                    {beer.data.reviews.map((review, i) => (
+                        <p key={i}>{review.review}</p>
+                    ))}
+                </div>
+            </>
+        )
+    );
+};
 
-                    {/* <img src={`/img/beers/${beer.data.beer_pic.picture}`} alt="beer logo"/> */}
-                    {/* <p>Average Beer Rating: {beer.averages.rating}</p>
+export default BeerProfile;
+
+{/* <img src={`/img/beers/${beer.data.beer_pic.picture}`} alt="beer logo"/> */ }
+{/* <p>Average Beer Rating: {beer.averages.rating}</p>
         <p>Average Body Rating: {beer.averages.body}</p>
         <p>Average Linger Rating: {beer.averages.linger}</p>
         <p>Average Herbal Rating: {beer.averages.herbal}</p>
@@ -177,7 +196,7 @@ const BeerProfile = () => {
         <p>Average Bitter Rating: {beer.averages.bitter}</p>
         <p>Average Sour Rating: {beer.averages.sour}</p> */}
 
-                    <div className="beerprofile__slider">
+{/* <div className="beerprofile__slider">
                         <h2>Intensity:</h2>
                         <div className="beerprofile__slider__body">
                             Body
@@ -207,27 +226,4 @@ const BeerProfile = () => {
                             Sour
                             <DiscreteSliderMarks />
                         </div>
-                    </div>
-                    <div className="beerprofile__review">
-                        <h2>Reviews:</h2>
-                        {user &&
-                            (user.user_type == 1 || user.user_type == 3) &&
-                            reviewed == false && (
-                                <ReviewForm
-                                    user={user.id}
-                                    beer={beer.data.id}
-                                    setReviewed={setReviewed}
-                                />
-                            )}
-
-                        {beer.data.reviews.map((review, i) => (
-                            <p key={i}>{review.review}</p>
-                        ))}
-                    </div>
-                </div>
-            </>
-        )
-    );
-};
-
-export default BeerProfile;
+                    </div> */}

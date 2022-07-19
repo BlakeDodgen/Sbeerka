@@ -51,7 +51,7 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
 
     return (
 
-        <div className="formRating">
+        <div className="form-rating">
             <DiscreteSliderMarks
                 value={values.body}
                 setValue={handleChange}
@@ -102,13 +102,12 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
             />
 
             <form
-                className="form__form"
+                className="form"
                 action="/beers/review"
                 method="post"
                 onSubmit={(e) => {
                     handleSubmit(e);
                 }}
-
             >
 
                 <div className="form__container">
