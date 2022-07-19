@@ -1,4 +1,4 @@
-import React from "react";
+
 
 //Data should be 0-1 rather than 0-10
 const data = [

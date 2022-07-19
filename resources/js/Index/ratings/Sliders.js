@@ -12,6 +12,7 @@ const Sliders = () => {
         bitter: 5,
         sour: 5,
     });
+    
     return (
         <div className="slider">
             <div className="slider__body">
