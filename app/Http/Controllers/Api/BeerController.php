@@ -44,11 +44,11 @@ class BeerController extends Controller
         $beer= new Beer;
         $beerPic = new BeerPic;
         
-        // $this->validate($request, [
-        //     'name' => 'required'
-        // ]);
+
 
         $values = json_decode($request->values);
+
+        
 
         $beer->brewery_id = $values->brewery_id;
         $beer->beer_type_id = $values->beer_type_id;

@@ -167,6 +167,7 @@ const BreweryForm = () => {
                         type="file"
 
                         name="image"
+                        required
                         onChange={handleImage}
                     /> </div>
                 <br />

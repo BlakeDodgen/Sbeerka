@@ -112,7 +112,7 @@ const App = () => {
 
                     {/* <Link to="/beers/review">Link</Link> */}
                 </div>
-                {/* <Footer /> */}
+                <Footer />
             </BrowserRouter>
         </UserContext.Provider>
     );

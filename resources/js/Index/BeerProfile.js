@@ -5,22 +5,27 @@ import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
 import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
 import BeerGraph from "./ratings/BeerGraph";
+// import { forEach } from "lodash";
 
 const BeerProfile = () => {
     const { id } = useParams();
     const [beer, setBeer] = useState(null);
     const { user } = useContext(UserContext);
     const [reviewed, setReviewed] = useState(false);
-
+    // const [beerReview, setBeerReview] = useState(null)
+    // const [userReview, setUserReview] = useState(null);
+    // console.log(user)
     const loadData = async () => {
         const response = await axios.get(`/api/beers/${id}`);
         // console.log(response.data);
         // if (response.data.reviews == {}) {
-        response.data.reviews.forEach((review) => {
-            if (user && review.user_id == user.id) {
-                setReviewed(true);
-            }
-        });
+        // let userReview = null
+        // if (user) {
+        // response.data.reviews.forEach((review) => {
+        //     if (review.user_id == user.id) {
+        //         userReview = review;
+        //     }
+        // })};
 
         let ratingScore = 0;
         response.data.reviews.forEach((review) => {
@@ -87,13 +92,12 @@ const BeerProfile = () => {
         }
 
         let sourScore = 0;
-        response.data.reviews.forEach((review) => {
-            sourScore += review.sour;
-        });
         let avSour = sourScore / response.data.reviews.length.toFixed(1);
         if (isNaN(avSour)) {
             avSour = 0;
         }
+
+        // console.log(userReview)
 
         setBeer({
             data: response.data,
@@ -106,6 +110,7 @@ const BeerProfile = () => {
                 hoppy: avHoppy.toFixed(1),
                 bitter: avBitter.toFixed(1),
                 sour: avSour.toFixed(1),
+                // userReview: userReview
             },
         });
         // } else {
@@ -113,9 +118,22 @@ const BeerProfile = () => {
         // }
     };
 
+    // const findReview = () => {
+    //     if (beer) {
+    //     beer.reviews.forEach((review) => {
+    //         if (review.user_id == user.id) {
+    //             console.log('DONE')
+    //             setBeerReview(review)
+
+    //         }
+    //     })};
+    // } 
+    
+    
     useEffect(() => {
         loadData();
-    }, [reviewed]);
+        // findReview();
+    }, []);
 
     return (
         beer && (
@@ -203,18 +221,29 @@ const BeerProfile = () => {
                     </div>
                     <div className="beerprofile__review">
                         <h2>Reviews:</h2>
-                        {user &&
-                            (user.user_type == 1 || user.user_type == 3) &&
-                            reviewed == false && (
+                        {!user && <p>YOU MUST <Link to={`/login`}>LOG IN</Link> OR <Link to={`/signup`}>SIGN UP</Link> TO WRITE A REVIEW</p>}
+                        {/* {(user && userReview) && <p><Link to={`/login`}>EDIT YOUR REVIEW</Link></p>} */}
+                        {user && (user.user_type == 1) && (
                                 <ReviewForm
                                     user={user.id}
                                     beer={beer.data.id}
                                     setReviewed={setReviewed}
+                                    // review={userReview}
                                 />
                             )}
 
+                        {/* {(user && user.user_type == 1) &&
+                            (
+                                <ReviewForm
+                                    user={user.id}
+                                    beer={beer.data.id}
+                                    setReviewed={setReviewed}
+                                    review={userReview}
+                                />
+                            )
+                            } */}
                         {beer.data.reviews.map((review, i) => (
-                            <p key={i}>{review.review}</p>
+                            <p key={i}>{review.review} {(user && user.user_type == 3) && <span>DELETE</span>}</p>
                         ))}
                     </div>
                 </div>

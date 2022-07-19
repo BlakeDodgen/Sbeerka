@@ -2,11 +2,30 @@ import { useState, useContext } from "react";
 import React from "react";
 import axios from "axios";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
+import { Link } from "react-router-dom";
 //import Slider from '@mui/material/Slider';
 
 
-const ReviewForm = ({ user, beer, setReviewed }) => {
+const ReviewForm = ({ user, beer, setReviewed, review }) => {
 
+    if (review) {
+        const [values, setValues] = useState({
+            review: review.review,
+            rating: review.rating,
+            // favorite: false,
+            body: review.body,
+            linger: review.linger,
+            herbal: review.herbal,
+            citrus: review.citrus,
+            hoppy: review.hoppy,
+            bitter: review.bitter,
+            sour: review.sour,
+            user_id: user,
+            beer_id: beer
+        });
+    }
+    
+    
     const [values, setValues] = useState({
         review: "",
         rating: 0,
@@ -49,6 +68,8 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
 
     return (
 
+        <>
+        {!user && <p>YOU MUST <Link to={`/login`}>LOG IN</Link> OR <Link to={`/signup`}>SIGN UP</Link> TO WRITE A REVIEW</p>}
         <div className="formRating">
             <DiscreteSliderMarks
                 value={values.body}
@@ -110,9 +131,9 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
             >
 
                 <div className="form__container">
-                    {
+                    {/* {
                         !!errorResponse && <span>Login Failed</span>
-                    }
+                    } */}
                     <label className="form__label form__label-review">
                         Review:
                     </label>
@@ -239,10 +260,11 @@ const ReviewForm = ({ user, beer, setReviewed }) => {
                         onChange={handleChange}
                     />
                 </div>
-
-                <button className="form__button">Submit</button>
+                {user && <button className="form__button">Submit</button>}
+                
             </form>
         </div>
+        </>
     );
 };
 export default ReviewForm;

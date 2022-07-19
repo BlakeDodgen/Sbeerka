@@ -28,6 +28,10 @@ return new class extends Migration
             $table->integer('bitter')->nullable();
             $table->integer('sour')->nullable();
             $table->timestamps();
+            $table->unique([
+                'beer_id',
+                'user_id',
+            ]);
         });
     }
 

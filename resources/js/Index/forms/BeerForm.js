@@ -57,7 +57,8 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
         // const response_data = response.data;
         // console.log(response)
 
-        return navigate(`/breweries/${user.id}`);
+        // return navigate(`/breweries/${user.id}`);
+        setInputtingBeer(false)
     };
 
     return (
