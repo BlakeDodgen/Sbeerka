@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
 import BeerForm from "./forms/BeerForm";
-import StarRating from "./ratings/StarRating";
+
 const BreweryProfile = () => {
     const { id } = useParams();
     const [brewery, setBrewery] = useState(null);
@@ -27,7 +27,6 @@ const BreweryProfile = () => {
     return (
         brewery && (
             <div className="breweryprofile">
-                <StarRating />
                 <h1>Brewery Profile</h1>
                 <p>Name: {brewery.user.brewery_name}</p>
                 <p>City: {brewery.city}</p>
