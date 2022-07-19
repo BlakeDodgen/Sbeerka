@@ -69,7 +69,7 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
     return (
 
         <>
-        {!user && <p>YOU MUST <Link to={`/login`}>LOG IN</Link> OR <Link to={`/signup`}>SIGN UP</Link> TO WRITE A REVIEW</p>}
+        {/* {!user && <p>YOU MUST <Link to={`/login`}>LOG IN</Link> OR <Link to={`/signup`}>SIGN UP</Link> TO WRITE A REVIEW</p>} */}
         <div className="formRating">
             <DiscreteSliderMarks
                 value={values.body}

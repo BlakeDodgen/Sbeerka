@@ -77,7 +77,9 @@ const BreweryForm = () => {
     }, [id]);
 
     return (
-        <>
+
+            <>
+            {(id != user.id) ? <p>YOU ARE NOT AUTHORIZED TO EDIT THIS PROFILE</p> : <>
             <h2> Brewery Form </h2>
             <form
                 className="form"
@@ -173,7 +175,7 @@ const BreweryForm = () => {
                 <br />
                 <button>Cheers</button>
             </form>
-
+                </>}
         </>
     );
 };

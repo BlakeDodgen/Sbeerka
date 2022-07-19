@@ -12,6 +12,7 @@ const BeerProfile = () => {
     const [beer, setBeer] = useState(null);
     const { user } = useContext(UserContext);
     const [reviewed, setReviewed] = useState(false);
+    const [reviewInfo, setReviewInfo] = useState(null)
     // const [beerReview, setBeerReview] = useState(null)
     // const [userReview, setUserReview] = useState(null);
     // console.log(user)
@@ -19,13 +20,7 @@ const BeerProfile = () => {
         const response = await axios.get(`/api/beers/${id}`);
         // console.log(response.data);
         // if (response.data.reviews == {}) {
-        response.data.reviews.forEach((review) => {
-            if (user && review.user_id == user.id) {
-                setReviewed(true);
-                console.log(beer);
-            }
-        });
-
+        
         let ratingScore = 0;
         response.data.reviews.forEach((review) => {
             ratingScore += review.rating;
@@ -100,6 +95,7 @@ const BeerProfile = () => {
 
         setBeer({
             data: response.data,
+            // userReviewSelected: userReview,
             averages: {
                 rating: avRating.toFixed(1),
                 body: avBody.toFixed(1),
@@ -109,13 +105,23 @@ const BeerProfile = () => {
                 hoppy: avHoppy.toFixed(1),
                 bitter: avBitter.toFixed(1),
                 sour: avSour.toFixed(1),
-                // userReview: userReview
+                
             },
         });
         // } else {
         //     setBeer({data: response.data, averages: {rating: 0, body: 0, linger: 0, herbal: 0, citrus: 0, hoppy: 0, bitter: 0, sour: 0}})
         // }
     };
+
+    const checkReview = () => {
+        if (user && beer) {
+            beer.data.reviews.forEach((review) => {
+                if (review.user_id == user.id) {
+                    setReviewed(true);
+                }
+            })
+        }
+    }
 
     // const findReview = () => {
     //     if (beer) {
@@ -128,11 +134,12 @@ const BeerProfile = () => {
     //     })};
     // } 
     
-    
     useEffect(() => {
         loadData();
-        // findReview();
-    }, []);
+        checkReview();
+    }, [user, reviewed]);
+
+    
 
     return (
         beer && (
@@ -221,9 +228,14 @@ const BeerProfile = () => {
                     </div>
                     <div className="beerprofile__review">
                         <h2>Reviews:</h2>
+                        <p>REVIEW STATUS: </p>
+                        {reviewed ? <p>Reviewed</p> : <p>Not Reviewed</p>}
+                        {/* {reviewed && <p onClick={editHandler}></p>} */}
+                        {beer.userReviewSelected && <p>YOUR REVIEW: {beer.userReviewSelected.review}</p>}
                         {!user && <p>YOU MUST <Link to={`/login`}>LOG IN</Link> OR <Link to={`/signup`}>SIGN UP</Link> TO WRITE A REVIEW</p>}
                         {/* {(user && userReview) && <p><Link to={`/login`}>EDIT YOUR REVIEW</Link></p>} */}
-                        {user && (user.user_type == 1) && (
+                        
+                        {user && (user.user_type == 1) && (reviewed == false) && (
                                 <ReviewForm
                                     user={user.id}
                                     beer={beer.data.id}
@@ -243,7 +255,7 @@ const BeerProfile = () => {
                             )
                             } */}
                         {beer.data.reviews.map((review, i) => (
-                            <p key={i}>{review.review} {(user && user.user_type == 3) && <span>DELETE</span>}</p>
+                            <p key={i}>{review.review} (by {review.user.username}){(user && user.user_type == 3) && <span>DELETE</span>}</p>
                         ))}
                     </div>
                 </div>

@@ -28,6 +28,7 @@ Route::get('/reviews/{id}', ['App\Http\Controllers\Api\ReviewController', 'userR
 
 
 Route::post('/beers/create', ['App\Http\Controllers\Api\BeerController', 'create']);
+Route::get('/beers/typeslist', ['App\Http\Controllers\Api\BeerController', 'beerTypesList']);
 Route::get('/beers/{id}', ['App\Http\Controllers\Api\BeerController', 'beerinfo']);
 Route::get('/beers', ['App\Http\Controllers\Api\BeerController', 'beerindex']);
 

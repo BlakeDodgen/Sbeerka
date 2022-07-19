@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const BeerForm = ({ brewery, setInputtingBeer }) => {
 
     const [image, setImage] = useState(null);
+    const [types, setTypes] = useState([]);
 
     const [values, setValues] = useState({
         brewery_id: brewery,
-        beer_type_id: "1",
+        beer_type_id: 0,
         name: "",
         alcohol_volume: 0,
         degree: 0,
@@ -61,8 +62,23 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
         setInputtingBeer(false)
     };
 
+    const closeHandler = () => {
+        setInputtingBeer(false)
+    }
+
+    const loadData = async () => {
+        const response = await axios.get(`/api/beers/typeslist`);
+        console.log(response);
+        setTypes(response.data);
+    }
+
+    useEffect(() => {
+        loadData();
+    }, []);
+
     return (
         <>
+            
             <form
                 className="form"
                 // action=""
@@ -72,11 +88,19 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                 }}
             >
                 <h2 className="form__h2">Beer Form</h2>
+                <p onClick={closeHandler}>CLOSE</p>
                 <div className="form__container">
                     <label className="form__label form__label-beerType">
                         Beer Type:
                     </label>
-                    <input
+                    <select name="beer_type_id" value={values.beer_type_id} onChange={(e) => {
+                            handleChange(e);
+                        }}>
+                    {types.map((type, i) => (
+                            <option value={type.id}>{type.type}</option>
+                        ))}
+                    </select>
+                    {/* <input
                         className="form__input form__input-beerType"
                         type="text"
                         value={values.beer_type_id}
@@ -85,7 +109,7 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                         onChange={(e) => {
                             handleChange(e);
                         }}
-                    />
+                    /> */}
                 </div>
                 <br />
                 <div className="form__container">
