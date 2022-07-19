@@ -28,8 +28,8 @@ const CountryResult = (props) => {
                     <p className="search-result__brewery">{props.values.history}</p>
                    
                     
-                    {/* {!props.values.brewery.brewery_pic ? <img src={`/img/breweries/sibeeria.png`} />
-                        : <img src={`/img/breweries/${props.values.brewery.brewery_pic['picture']}`} alt="img" />} */}
+                    {!props.values.brewery_pic ? <img src={`/img/breweries/sibeeria.png`} />
+                        : <img src={`/img/breweries/${props.values.brewery_pic['picture']}`} alt="img" />}
                 </div>
 
             )}
