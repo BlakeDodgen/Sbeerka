@@ -30,14 +30,12 @@ import About from "./about-page/About";
 
 import SetCookie from "./cookies/SetCookie";
 import GetCookie from "./cookies/GetCookie";
-import RemoveCookie from "./cookies/RemoveCookie";  
+import RemoveCookie from "./cookies/RemoveCookie";
 
 const App = () => {
     const [user, setUser] = useState("");
     const [loadingUser, setLoadingUser] = useState(false);
     const [searchType, setSearchType] = useState("beers");
-
-    
 
     // const loadUser = async () => {
     //     const response = await axios.get('/api/user');
@@ -106,6 +104,7 @@ const App = () => {
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/edit/brewery/:id" element={<BreweryForm />} />
                         <Route path="/signup/brewery" element={<BreweryForm />} />
+
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/about" element={<About />} />
                     </Routes>

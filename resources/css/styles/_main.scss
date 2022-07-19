@@ -118,7 +118,6 @@
     &__name {
         font-size: 0.8rem;
         font-weight: 300;
-
     }
 
     //rating - bottom right corner of item
@@ -141,15 +140,14 @@
     }
 
     h2 {
-        font-size: 1.5rem !important; 
+        font-size: 1.5rem !important;
     }
 
     h3 {
-        font-size: 1.25rem !important; 
+        font-size: 1.25rem !important;
     }
 
     .form {
-
         &__radio {
             width: 85%;
         }
@@ -164,7 +162,7 @@
     .product-list {
         width: 65%;
         padding: 0 3.9rem;
-        
+
         &__item {
             width: 47%;
         }
@@ -180,15 +178,12 @@
 }
 
 @media screen and (max-width: 800px) {
-
-    
-
     h2 {
-        font-size: 2.5rem !important; 
+        font-size: 2.5rem !important;
     }
 
     h3 {
-        font-size: 2rem !important; 
+        font-size: 2rem !important;
     }
 
     .main {
@@ -207,7 +202,7 @@
 
     .product-list {
         width: 100%;
-        
+
         &__item {
             width: 100%;
         }
@@ -221,10 +216,9 @@
         }
 
         &__products-container {
-            
             flex-direction: column;
             flex-wrap: nowrap;
-            
+
             border: 2px solid red;
         }
     }
@@ -238,14 +232,15 @@
 // change to mobile
 @media screen and (max-width: 480px) {
     h2 {
-        font-size: 2rem !important; 
+        font-size: 2rem !important;
     }
 
     h3 {
-        font-size: 1.5rem !important; 
+        font-size: 1.5rem !important;
     }
 
-    .main-product, .product-list {
+    .main-product,
+    .product-list {
         margin: 1rem 0.5rem;
         padding: 0 2rem;
     }
@@ -257,5 +252,5 @@
     .form {
         width: 85%;
         font-size: 1rem;
-    }  
+    }
 }

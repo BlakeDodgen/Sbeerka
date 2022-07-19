@@ -5,7 +5,7 @@ import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
 import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
 import BeerGraph from "./ratings/BeerGraph";
-// import { forEach } from "lodash";
+import StarRating from "./ratings/StarRating";
 
 const BeerProfile = () => {
     const { id } = useParams();
@@ -19,13 +19,12 @@ const BeerProfile = () => {
         const response = await axios.get(`/api/beers/${id}`);
         // console.log(response.data);
         // if (response.data.reviews == {}) {
-        // let userReview = null
-        // if (user) {
-        // response.data.reviews.forEach((review) => {
-        //     if (review.user_id == user.id) {
-        //         userReview = review;
-        //     }
-        // })};
+        response.data.reviews.forEach((review) => {
+            if (user && review.user_id == user.id) {
+                setReviewed(true);
+                console.log(beer);
+            }
+        });
 
         let ratingScore = 0;
         response.data.reviews.forEach((review) => {
@@ -144,8 +143,8 @@ const BeerProfile = () => {
                         <div>
                             <img
                                 className="beerprofile__container__image_beer"
-                                src={`/img/breweries/${beer.data.brewery.brewery_pic.picture}`}
-                                alt="brewery logo"
+                                src={`/img/beers/${beer.data.beer_pic.picture}`}
+                                alt="beer logo"
                             />
                         </div>
 
@@ -175,6 +174,7 @@ const BeerProfile = () => {
                         <br />
                         <div className="beerprofile__info__graph">
                             <BeerGraph />
+                            <StarRating />
                         </div>
                     </div>
 
