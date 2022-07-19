@@ -8,7 +8,7 @@ const About = () => {
             <Mission />
 
             <History />
-            <StarRating />
+            {/* <StarRating /> */}
         </div>
     );
 };
