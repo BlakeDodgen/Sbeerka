@@ -5,6 +5,7 @@ import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
 import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
 import BeerGraph from "./ratings/BeerGraph";
+import StarRating from "./ratings/StarRating";
 
 const BeerProfile = () => {
     const { id } = useParams();
@@ -19,6 +20,7 @@ const BeerProfile = () => {
         response.data.reviews.forEach((review) => {
             if (user && review.user_id == user.id) {
                 setReviewed(true);
+                console.log(beer);
             }
         });
 
@@ -126,8 +128,8 @@ const BeerProfile = () => {
                         <div>
                             <img
                                 className="beerprofile__container__image_beer"
-                                src={`/img/breweries/${beer.data.brewery.brewery_pic.picture}`}
-                                alt="brewery logo"
+                                src={`/img/beers/${beer.data.beer_pic.picture}`}
+                                alt="beer logo"
                             />
                         </div>
 
@@ -157,6 +159,7 @@ const BeerProfile = () => {
                         <br />
                         <div className="beerprofile__info__graph">
                             <BeerGraph />
+                            <StarRating />
                         </div>
                     </div>
 
