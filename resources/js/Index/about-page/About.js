@@ -1,6 +1,6 @@
 import History from "./History";
 import Mission from "./Mission";
-
+import StarRating from "../ratings/StarRating";
 
 const About = () => {
     return (
@@ -8,8 +8,7 @@ const About = () => {
             <Mission />
 
             <History />
-
-           
+            <StarRating />
         </div>
     );
 };
