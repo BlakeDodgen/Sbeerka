@@ -22,10 +22,10 @@ const CityResult = (props) => {
 
             {isHovering && (
                 <div className="hover">
-                    <p className="search-result__city">{props.values.user.brewery_name}</p>
-                    <p className="search-result__city">{props.values.city}</p>
-                    <p className="search-result__city">{props.values.country}</p>
-                    <p className="search-result__city">{props.values.history}</p>
+                    <p className="search-result__brewery">{props.values.user.brewery_name}</p>
+                    <p className="search-result__brewery">{props.values.city}</p>
+                    <p className="search-result__brewery">{props.values.country}</p>
+                    <p className="search-result__brewery">{props.values.history}</p>
                    
                     
                     {/* {!props.values.brewery.brewery_pic ? <img src={`/img/breweries/sibeeria.png`} />
@@ -41,7 +41,7 @@ const CityResult = (props) => {
 
                 {/* <p className="search-result__name">{props.name}</p> */}
                 {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link> */}
-                <Link to={`/breweries/${props.values.id}`}><p className="search-result__city"> {props.values.user.brewery_name} / {props.name}</p></Link>
+                <Link to={`/breweries/${props.values.id}`}><p className="search-result__brewery"> {props.values.user.brewery_name} / {props.name}</p></Link>
                 {/* <p className="search-result__type">{props.type}</p> */}
 
             </div>

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CountryResult from "./CountryResult";
 
 const CountryResults = (props) => {
     const { search,searchString } = useParams();
@@ -8,10 +9,7 @@ const CountryResults = (props) => {
 
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
-    // const [searchType, setSearchType] = useState(props.searchType);
-
-
-    console.log("props from CoutryR:" + props.searchType)
+   
 
 
     //parameters search + text passed into the string
@@ -42,41 +40,28 @@ const CountryResults = (props) => {
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-        //return value if true-> if object.name includes search items 
-        //compare the user input and data-> lowercase both values
-        // console.log(item);
-        // if (search === "beer-type") {
-        //     return item.type.toLowerCase().includes(searchString.toLowerCase())
-        // } if (search === "beers") {
+  
         return item.country.toLowerCase().includes(searchString.toLowerCase())
-        // }
+       
 
     });
 
-    // setSearchItems(newSearch);
-
-    //  setSearchItems(newSearch);
-    //  if (searchItems === "") {
-    //      setSearchItems([]);
-    //  } else {
-    //      setSearchItems(newSearch);
-    //  }
-
+ 
     return (
         <>
             <h1>Tapping results for: <br /> {searchString}</h1>
             {searchItems && (
                 <div className="search__result">
-                    {/* loops in the array which contains updated search items */}
-                    {/* for less displayed results use splice method on array .splice(0,10) */}
-
+            
                     {!!newSearch.length ? (
                         newSearch.map((value, index) => {
 
                             
 
                             return (<>
-                                <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.user.brewery_name} / {value.country}</p></Link>
+
+                            <CountryResult key={value.id} link={`/breweries/${value.id}`} name={value.city   } values={value} />
+                                {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.user.brewery_name} / {value.country}</p></Link> */}
                                 
                                  {/* <a className="search__items" key={index} >{value.name} </a> */}
                             </>

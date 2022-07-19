@@ -58,7 +58,7 @@ const CityResults = (props) => {
                         return (
 
                          <CityResult
-                          key={value.id} link={`/breweries/${value.id}`} name={value.city   } values={value}/>  
+                          key={value.id} link={`/breweries/${value.id}`} name={value.country} values={value}/>  
 
                             // <Link key={value.id} to={`/breweries/${value.user.id}`}><p>{value.user.brewery_name} / {value.city}</p></Link>
                         )
