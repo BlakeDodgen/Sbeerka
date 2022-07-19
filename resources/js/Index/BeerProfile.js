@@ -147,6 +147,7 @@ const BeerProfile = () => {
                 <div className="beerprofile">
                     <div className="beerprofile__container">
                         <h2> {beer.data.name}</h2>
+                        {console.log(beer.data)}
                         <div>
                             <img
                                 className="beerprofile__container__image_beer"

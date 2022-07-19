@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CityResult from "./CityResult";
 
 const CityResults = (props) => {
     const { search, searchString } = useParams();
@@ -8,7 +9,14 @@ const CityResults = (props) => {
 
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
-
+    //Hovering effect
+    const [isHovering, setIsHovering] = useState(false);
+    const handleMouseOver = (e) => {
+        setIsHovering(true);
+    }
+    const handleMouseOut = (e) => {
+        setIsHovering(false);
+    }
     //parameters search + text passed into the string
     const url = `http://www.sbeerka.beer/api/search?search=city&text=${searchString}`;
 
@@ -19,8 +27,6 @@ const CityResults = (props) => {
     // Beer type search: http://www.sbeerka.beer/api/search?search=beer-type&text=[search_query]
     // City search: http://www.sbeerka.beer/api/search?search=city&text=[search_query]
     // Country search: http://www.sbeerka.beer/api/search?search=country&text=[search_query]
-
-    console.log("url from CR:" + url);
 
     const fetchData = async () => {
         const response = await fetch(url);
@@ -37,8 +43,7 @@ const CityResults = (props) => {
     const newSearch = data.filter((item) => {
 
         return item.city.toLowerCase().includes(searchString.toLowerCase())
-        // }
-
+        
     });
 
     return (
@@ -46,25 +51,21 @@ const CityResults = (props) => {
             <h1>Tapping results for: <br /> {searchString}</h1>
             <div className="search__result">
 
-                {/* for less displayed results use splice method on array .splice(0,10) */}
-
+               
                 {!!newSearch.length ? (
                     newSearch.map((value, index) => {
                         console.log(value);
                         return (
-                            <Link key={value.id} to={`/breweries/${value.user.id}`}><p>{value.user.brewery_name} / {value.city}</p></Link>
+
+                         <CityResult
+                          key={value.id} link={`/breweries/${value.id}`} name={value.country} values={value}/>  
+
+                            // <Link key={value.id} to={`/breweries/${value.user.id}`}><p>{value.user.brewery_name} / {value.city}</p></Link>
                         )
 
                     })
                 ) : <h2>From this city we dont have a brewery</h2>}
             </div>
-
-
-
-
-
-
-
         </>
     )
 }

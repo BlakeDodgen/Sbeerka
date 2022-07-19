@@ -1,8 +1,9 @@
-import React from "react";
 
+
+//Data should be 0-1 rather than 0-10
 const data = [
     {
-        Sour: 0.7,
+        Sour: 0.6,
         Bitter: 1.0,
         Herbal: 0.9,
         Body: 0.6,
@@ -73,20 +74,20 @@ const points = (points) => {
 };
 
 const axis = () => (col, i) =>
-    (
-        <polyline
-            key={`poly-axis-${i}`}
-            points={points([
-                [0, 0],
-                [
-                    polarToX(col.angle, chartSize / 2),
-                    polarToY(col.angle, chartSize / 2),
-                ],
-            ])}
-            stroke="#555"
-            strokeWidth=".2"
-        />
-    );
+(
+    <polyline
+        key={`poly-axis-${i}`}
+        points={points([
+            [0, 0],
+            [
+                polarToX(col.angle, chartSize / 2),
+                polarToY(col.angle, chartSize / 2),
+            ],
+        ])}
+        stroke="#555"
+        strokeWidth=".2"
+    />
+);
 
 const BeerGraph = (props) => {
     const groups = [];
@@ -124,18 +125,18 @@ const BeerGraph = (props) => {
 };
 
 const caption = () => (col) =>
-    (
-        <text
-            key={`caption-of-${col.key}`}
-            x={polarToX(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
-            y={polarToY(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
-            dy={10 / 2}
-            fill="#444"
-            fontWeight="300"
-            textShadow="1px 1px 0 #fff"
-        >
-            {col.key}
-        </text>
-    );
+(
+    <text
+        key={`caption-of-${col.key}`}
+        x={polarToX(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
+        y={polarToY(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
+        dy={10 / 2}
+        fill="#444"
+        fontWeight="300"
+        textShadow="1px 1px 0 #fff"
+    >
+        {col.key}
+    </text>
+);
 
 export default BeerGraph;

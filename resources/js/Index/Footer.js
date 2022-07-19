@@ -9,13 +9,16 @@ function Footer() {
 
     // }
 
+
+    // <button onClick={async () => {
+    //     const user = await loadUser()
+    //     console.log(user)
+    // }}>Check User</button>
+
     return (
         <div className="footer">
             <span className="footer__copyright">© Copyright Sbeerka, 2022</span>
-            <button onClick={async () => {
-                const user = await loadUser()
-                console.log(user)
-            }}>Check User</button>
+
             <div className="footer__social">
                 <a href="#">
                     <img className="footer__fb" src="./img/FB.svg" alt="Facebook" />

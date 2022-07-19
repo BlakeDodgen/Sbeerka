@@ -1,49 +1,25 @@
 .about {
-    background-color: $primary-yellow;
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 200%;
-    position: relative;
 }
 
 .mission {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    width: 30%;
-    height: 42rem;
-
-    &__container {
-        margin-top: 1rem;
-        display: flex;
-        width: 80%;
-        height: 100%;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
+    width: 35%;
+    padding: 0 4rem 0 4rem;
+    margin: 1.5rem 0 3.5rem 0;
 }
 
 .history {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    align-content: center;
     border-left: 1px solid $primary-grey;
     width: 65%;
-    height: 42rem;
-
-    &__container {
-        margin-top: 1rem;
-        display: flex;
-        width: 85%;
-        height: 100%;
-        flex-direction: column;
-        justify-items: center;
-    }
+    padding: 0 4rem 0 4rem;
+    margin: 1.5rem 0 3.5rem 0;
 
     &__image-container {
         border-radius: 7px;
@@ -54,9 +30,5 @@
         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
             rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
         transition: transform 0.4s;
-
-        &:hover {
-            transform: scale(1.05);
-        }
     }
 }
