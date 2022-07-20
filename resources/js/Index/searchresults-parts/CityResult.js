@@ -42,7 +42,7 @@ const CityResult = (props) => {
                 {/* <p className="search-result__name">{props.name}</p> */}
                 {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link> */}
 
-                <Link to={`/breweries/${props.values.id}`}>
+                <Link to={`/breweries/${props.values.user.id}`}>
                     <div className="search-result__container">
                         <div className="search-result__img-card">
                         </div>

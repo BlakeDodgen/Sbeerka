@@ -13,6 +13,8 @@ const BeerTypeResult = (props) => {
         setIsHovering(false);
     }
     const img = props.values.beers.map((item) => item.id)
+    const brewery = props.values.beers.map((item) => item.brewery_id)
+    console.log(props.values);
     return (
         <>
            
@@ -45,7 +47,7 @@ const BeerTypeResult = (props) => {
                 {/* <p className="search-result__name">{props.name}</p> */}
                 {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link> */}
 
-                <Link to={`/breweries/${props.values.id}`}>
+                <Link to={`/beers/${img[0]}`}>
                     <div className="search-result__container">
                         <div className="search-result__img-card">
 
