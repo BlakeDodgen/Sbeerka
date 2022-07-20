@@ -26,7 +26,7 @@ const SearchResult = (props) => {
                     <p className="search-result__name">{props.name}</p>
                     <p className="search-result__brewery">{props.brewery}</p>
                     <p className="search-result__type">{props.type}</p>
-                    <   p className="search-result__rating">Rating</p>
+                    <p className="search-result__rating">Rating</p>
                 </div>
 
             )}
@@ -36,12 +36,14 @@ const SearchResult = (props) => {
                 onMouseOut={handleMouseOut}
             >
                 <div className="search-result__container">
-                    <img src={`/img/beers/${props.beer_pic_id}.png`} className="search-result__img" alt="beer-item-img" />
+                    <div className="search-result__img-card">
+                        <img className="search-result__img" src={`/img/beers/${props.beer_pic_id}.png`} alt="beer-item-img" />
+                    </div>
+                    <p className="search-result__name">
+                        <strong>{props.name}</strong><br />
+                        <em>{props.type}  |  {props.brewery} | {props.alcohol_content}</em>
+                    </p>
                 </div>
-                <p className="search-result__name">{props.name}</p>
-                <p className="search-result__brewery">{props.brewery}</p>
-                <p className="search-result__type">{props.type}</p>
-                <p className="search-result__rating">Rating</p>
 
 
             </div>

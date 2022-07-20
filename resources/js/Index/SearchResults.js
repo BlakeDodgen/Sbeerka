@@ -74,7 +74,7 @@ const SearchResults = (props) => {
 
     return (
         <>
-            <h1>Tapping results for: <br /> {searchString}</h1>
+            {/* <h1>Tapping results for: <br /> {searchString}</h1> */}
 
             <div className="search-results">
                 {/* loops in the array which contains updated search items */}
@@ -98,6 +98,7 @@ const SearchResults = (props) => {
                                 type={value.beer_type.type}
                                 beer_id={value.id}
                                 brewery_id={value.brewery_id}
+                                alcohol_content={value.alcohol_content}
                             // handleMouseOver ={handleMouseOver}
                             // handleMouseOut = {handleMouseOut}
                             />
