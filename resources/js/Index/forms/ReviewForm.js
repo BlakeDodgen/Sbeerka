@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 //import Slider from '@mui/material/Slider';
 
 
-const ReviewForm = ({ user, beer, setReviewed, review }) => {
+const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) => {
 
     if (review) {
         const [values, setValues] = useState({
@@ -30,27 +30,31 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
         review: "",
         rating: 0,
         // favorite: false,
-        body: 0,
-        linger: 0,
-        herbal: 0,
-        citrus: 0,
-        hoppy: 0,
-        bitter: 0,
-        sour: 0,
-        user_id: user,
-        beer_id: beer
+        // body: averageValues.body,
+        // linger: averageValues.linger,
+        // herbal: averageValues.herbal,
+        // citrus: averageValues.citrus,
+        // hoppy: averageValues.hoppy,
+        // bitter: averageValues.bitter,
+        // sour: averageValues.sour,
+        // user_id: user,
+        // beer_id: beer
     });
+
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
+
         setValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
             };
         });
+        setGraphValues(values);
     };
 
+    // console.log(values);
     const handleSubmit = async (e) => {
 
         e.preventDefault();
@@ -70,7 +74,7 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
 
         <>
         {/* {!user && <p>YOU MUST <Link to={`/login`}>LOG IN</Link> OR <Link to={`/signup`}>SIGN UP</Link> TO WRITE A REVIEW</p>} */}
-        <div className="formRating">
+        <div className="form-rating">
             <DiscreteSliderMarks
                 value={values.body}
                 setValue={handleChange}
@@ -121,24 +125,21 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
             />
 
             <form
-                className="form__form"
+                className="review"
                 action="/beers/review"
                 method="post"
                 onSubmit={(e) => {
                     handleSubmit(e);
                 }}
-
             >
-
-                <div className="form__container">
-                    {/* {
+                <div className="review__container">
+                    {
                         !!errorResponse && <span>Login Failed</span>
-                    } */}
-                    <label className="form__label form__label-review">
+                    }
+                    <label>
                         Review:
                     </label>
                     <textarea
-                        className="form__input form__input-review"
                         placeholder="Tell us how you really feel..."
                         rows="10"
                         name="review"
@@ -146,26 +147,21 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form__container">
-                    <label className="form__label form__label-rating">
+                <div className="review__container">
+                    <label>
                         Rating:
                     </label>
                     <input
-                        className="form__input form__input-rating"
                         type="number"
                         min="0"
-                        max="10"
+                        max="5"
                         name="rating"
                         value={values.rating}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form__container">
-                    <label className="form__label form__label-body">
-                        Body:
-                    </label>
+                <div className="review__container-hidden">
                     <input
-                        className="form__input form__input-body"
                         type="number"
                         name="body"
                         min="0"
@@ -174,12 +170,8 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form__container">
-                    <label className="form__label form__label-linger">
-                        Linger:
-                    </label>
+                <div className="review__container-hidden">
                     <input
-                        className="form__input form__input-linger"
                         type="number"
                         name="linger"
                         min="0"
@@ -189,12 +181,8 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
                     />
                 </div>
 
-                <div className="form__container">
-                    <label className="form__label form__label-herbal">
-                        Herbal:
-                    </label>
+                <div className="review__container-hidden">
                     <input
-                        className="form__input form__input-herbal"
                         type="number"
                         name="herbal"
                         min="0"
@@ -203,12 +191,8 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form__container">
-                    <label className="form__label form__label-citrus">
-                        Citrus:
-                    </label>
+                <div className="review__container-hidden">
                     <input
-                        className="form__input form__input-citrus"
                         type="number"
                         name="citrus"
                         min="0"
@@ -217,13 +201,8 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
                         onChange={handleChange}
                     />
                 </div>
-
-                <div className="form__container">
-                    <label className="form__label form__label-hoppy">
-                        Hoppy:
-                    </label>
+                <div className="review__container-hidden">
                     <input
-                        className="form__input form__input-hoppy"
                         type="number"
                         name="hoppy"
                         min="0"
@@ -232,12 +211,8 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form__container">
-                    <label className="form__label form__label-bitter">
-                        Bitter:
-                    </label>
+                <div className="review__container-hidden">
                     <input
-                        className="form__input form__input-bitter"
                         type="number"
                         name="bitter"
                         min="0"
@@ -246,12 +221,8 @@ const ReviewForm = ({ user, beer, setReviewed, review }) => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form__container">
-                    <label className="form__label form__label-sour">
-                        Sour:
-                    </label>
+                <div className="review__container-hidden">
                     <input
-                        className="form__input form__input-sour"
                         type="number"
                         name="sour"
                         min="0"

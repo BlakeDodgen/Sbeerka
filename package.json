@@ -32,6 +32,7 @@
         "react-loader-spinner": "^5.1.5",
         "react-rating": "^2.0.5",
         "react-router-dom": "^6.3.0",
+        "react-simple-star-rating": "^4.0.5",
         "react-slick": "^0.29.0",
         "slick-carousel": "^1.8.1"
     }

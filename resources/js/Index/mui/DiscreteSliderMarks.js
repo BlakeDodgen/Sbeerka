@@ -5,49 +5,49 @@ import Slider from "@mui/material/Slider";
 const marks = [
     {
         value: 0,
-        label: '',
+        label: '0',
     },
     {
         value: 1,
-        label: '',
+        label: '·',
     },
     {
         value: 2,
-        label: '',
+        label: '·',
     },
     {
         value: 3,
-        label: '',
+        label: '·',
     },
 
     {
         value: 4,
-        label: '',
+        label: '·',
     },
     {
         value: 5,
-        label: '',
+        label: '5',
     },
     {
         value: 6,
-        label: '',
+        label: '·',
     },
     {
         value: 7,
-        label: '',
+        label: '·',
     },
 
     {
         value: 8,
-        label: '',
+        label: '·',
     },
     {
         value: 9,
-        label: '',
+        label: '·',
     },
     {
         value: 10,
-        label: '',
+        label: '10',
     }
 
 ];
@@ -56,7 +56,7 @@ function valuetext(value) {
     return `${value}`;
 }
 
-export default function DiscreteSliderMarks({ setValue, name, value = 5 }) {
+export default function DiscreteSliderMarks({ setValue, name, value = 1 }) {
 
     const [innerValue, setInnerValue] = React.useState(value);
 
@@ -64,6 +64,7 @@ export default function DiscreteSliderMarks({ setValue, name, value = 5 }) {
         console.log(newValue)
         setValue(event);
         setInnerValue(newValue)
+
     };
 
     React.useEffect(() => {
@@ -71,12 +72,13 @@ export default function DiscreteSliderMarks({ setValue, name, value = 5 }) {
     }, [])
 
     return (
-        <Box sx={{ width: 100 }}>
+        <Box sx={{ width: 150 }}>
             <Slider
-                aria-label="Custom marks"
+                //aria-label="Custom marks"
                 defaultValue={innerValue}
                 getAriaValueText={valuetext}
                 step={1}
+                size="small"
                 valueLabelDisplay="auto"
                 marks={marks}
                 min={0}
