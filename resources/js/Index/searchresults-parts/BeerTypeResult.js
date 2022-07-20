@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const BeerTypeResult = (props) => {
- 
+
     const [isHovering, setIsHovering] = useState(false);
 
     const handleMouseOver = (e) => {
@@ -18,12 +18,13 @@ const BeerTypeResult = (props) => {
            
             {isHovering && (
                 <div className="hover">
-                    <p className="search-result__brewery">{props.name}</p>
+                    <img className="search-result__img-hover" src={`/img/breweries/sibeeria.png`} />
+                    <h2 className="search-result__brewery">{props.name}</h2>
                     {/* <p className="search-result__brewery">{props.values.city}</p>
                     <p className="search-result__brewery">{props.values.country}</p>
                     <p className="search-result__brewery">{props.values.history}</p> */}
-                   
-                 
+
+
                     {!props.pic ? <img src={`/img/breweries/sibeeria.png`} />
                         : <img src={`/img/beers/${img[0]}.png`} alt="img" />}
                 </div>
