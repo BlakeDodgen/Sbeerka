@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchResultBig from "./searchresults-parts/SearchResultBig";
+
 
 
 
 const SearchResult = (props) => {
-    //beertype , alcohol, degree, brewery review
-
-    // change the path beer_pic.
-
+   
     const [isHovering, setIsHovering] = useState(false);
 
     const handleMouseOver = (e) => {

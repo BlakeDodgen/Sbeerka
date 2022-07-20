@@ -9,7 +9,7 @@ function SearchInput({ placeholder, data, search }) {
     const [searchItems, setSearchItems] = useState([]);
 
     //const [searchOption, setSearchOption] = useState(search);
-    //responsible for redirection
+    
     const navigate = useNavigate();
 
    
@@ -25,8 +25,7 @@ function SearchInput({ placeholder, data, search }) {
             return item.toLowerCase().match(searchString.toLowerCase());
         });
 
-        //array with results is updated in state
-        //if search imput is empty nothing is show
+        
         if (searchItems === "") {
             setSearchItems([]);
         } else {
@@ -47,9 +46,9 @@ function SearchInput({ placeholder, data, search }) {
 
             navigate(`/results/${search}/${searchString}`);
         }
-        //clearinput func
+        
     };
-    // console.log(data);
+    
 
     return (
         <div className="search__container">
@@ -76,9 +75,7 @@ function SearchInput({ placeholder, data, search }) {
                         );
                     })}
                 </div>
-            )}
-
-            {/* new route , not defined yet, for search results listed and rendered, filltered array passed via props */}
+            )}           
 
             {/* <Routes >
                 <Redirect to="/results" element={<SearchResults results={searchItems} />} />
