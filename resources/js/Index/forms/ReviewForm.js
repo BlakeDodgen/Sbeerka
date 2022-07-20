@@ -29,11 +29,12 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-        console.log(e);
+        console.log(rating);
         setValues((previous_values) => {
             return {
                 ...previous_values,
-                [e.target.name]: e.target.value,
+                    // ["rating"] : rating/20,
+                 [e.target.name]: e.target.value,
             };
         });
         setGraphValues(values);
@@ -41,16 +42,17 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
   
     
       // Catch Rating value
-//   const handleRating = (rating) => {
-//     setValues((previous_values) => {
-//         return {
-//             ...previous_values,
-//             [rating]: rating,
-//         };
-//     });
-//     console.log(values.rating)
-//   }
-  
+  const handleRating = (rating) => {
+    setValues((previous_values) => {
+        return {
+            ...previous_values,
+            ['rating']: rating/20,
+        };
+    });
+    
+  }
+  console.log(values);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await axios.post("/api/reviews/create", values);
@@ -212,7 +214,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                         />
                     </div>
                     <Rating
-                     onClick={handleChange}
+                     onClick={handleRating}
                      ratingValue={rating}
                      size={20}
                      label='false'  

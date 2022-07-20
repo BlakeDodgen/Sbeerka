@@ -86,6 +86,9 @@ export default function DiscreteSliderMarks({ setValue, name, value = 1 }) {
                 name={name}
                 value={innerValue}
                 onChange={handleChange}
+                sx={{
+                    color:"red"
+                }}
 
             />
             {/* <p>{innerValue}</p> */}
