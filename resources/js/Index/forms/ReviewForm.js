@@ -5,23 +5,23 @@ import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 //import Slider from '@mui/material/Slider';
 
 
-const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) => {
-
+const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
+   
     const [values, setValues] = useState({
         review: "",
-        rating: 0,
-        // favorite: false,
-        // body: averageValues.body,
-        // linger: averageValues.linger,
-        // herbal: averageValues.herbal,
-        // citrus: averageValues.citrus,
-        // hoppy: averageValues.hoppy,
-        // bitter: averageValues.bitter,
-        // sour: averageValues.sour,
-        // user_id: user,
-        // beer_id: beer
+        rating: 5,
+        favorite: false,
+        body: 5,
+        linger: 5,
+        herbal: 5,
+        citrus: 5,
+        hoppy: 5,
+        bitter: 5,
+        sour: 5,
+        user_id: user,
+        beer_id: beer
     });
-
+    
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
@@ -35,16 +35,16 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
         setGraphValues(values);
     };
 
-    // console.log(values);
+  
     const handleSubmit = async (e) => {
 
         e.preventDefault();
         const response = await axios.post("/api/reviews/create", values);
         const response_data = response.data;
-        console.log(response)
+        
 
         if (typeof res === 'object') {
-            console.log(response)
+            
         }
         setReviewed(true);
 

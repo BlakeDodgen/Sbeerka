@@ -41,7 +41,7 @@ const SearchResults = (props) => {
 
     }, [search, searchString])
 
-    console.log(data);
+    
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {

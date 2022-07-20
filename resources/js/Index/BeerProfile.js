@@ -117,8 +117,9 @@ const BeerProfile = () => {
         // } else {
         //     setBeer({data: response.data, averages: {rating: 0, body: 0, linger: 0, herbal: 0, citrus: 0, hoppy: 0, bitter: 0, sour: 0}})
         // }
+        
     };
-
+    
     useEffect(() => {
         loadData();
     }, [reviewed]);
@@ -157,7 +158,10 @@ const BeerProfile = () => {
                     </div>{" "}
                     <br />
                     <div className="beerprofile__info__graph">
-                        <BeerGraph graphValues={graphValues} />
+                        <p>{beer.averages.bitter}</p>
+                        <BeerGraph 
+                          graphValues={graphValues}
+                          averageValues = {beer.averages} />
                         {/* <StarRating /> */}
                     </div>
                 </div>
@@ -170,9 +174,7 @@ const BeerProfile = () => {
                                 user={user.id}
                                 beer={beer.data.id}
                                 setReviewed={setReviewed}
-                                setGraphValues={setGraphValues}
-                            // averageValues = {beer.averages}
-
+                                setGraphValues={setGraphValues}                          
                             />
                         )}
                     {beer.data.reviews.map((review, i) => (

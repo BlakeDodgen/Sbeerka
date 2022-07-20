@@ -61,7 +61,7 @@ export default function DiscreteSliderMarks({ setValue, name, value = 1 }) {
     const [innerValue, setInnerValue] = React.useState(value);
 
     const handleChange = (event, newValue) => {
-        console.log(newValue)
+        
         setValue(event);
         setInnerValue(newValue)
 
