@@ -1,11 +1,26 @@
+.beerprofile {
+    border: 2px solid red;
+    display: flex;
+    margin: 4.5rem 0 7rem 0;
+    min-height: 150vh;
+}
+
 .form-rating {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     border: 2px solid red;
+}
 
-    &__beer-pic {
-        width: 20px;
-        height: 20px;
-    }
+.review__container-hidden {
+    visibility: hidden;
+}
+
+.beerprofile__beer-pic {
+    height: 20px;
+    width: 20px;
+}
+
+.beer-graph {
+    border: 2px solid red;
 }

@@ -5,13 +5,17 @@ import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
 // import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
 import BeerGraph from "./ratings/BeerGraph";
-import StarRating from "./ratings/StarRating";
+//import StarRating from "./ratings/StarRating";
 
 const BeerProfile = () => {
     const { id } = useParams();
     const [beer, setBeer] = useState(null);
     const { user } = useContext(UserContext);
     const [reviewed, setReviewed] = useState(false);
+
+    const [graphValues, setGraphValues] = useState("");
+
+
 
     const loadData = async () => {
         const response = await axios.get(`/api/beers/${id}`);
@@ -20,7 +24,7 @@ const BeerProfile = () => {
         response.data.reviews.forEach((review) => {
             if (user && review.user_id == user.id) {
                 setReviewed(true);
-                console.log(beer);
+
             }
         });
 
@@ -124,21 +128,17 @@ const BeerProfile = () => {
             <>
                 <div className="beerprofile">
                     <h2> {beer.data.name}</h2>
-                    <div>
-                        <img
-                            className="beerprofile__beer-pic"
-                            src={`/img/beers/${beer.data.beer_pic.picture}`}
-                            alt="beer logo"
-                        />
-                    </div>
 
-                    <p>
-                        <Link
-                            to={`/breweries/${beer.data.brewery.user_id}`}
-                        >
-                            <em>{beer.data.brewery.user.brewery_name}</em>
-                        </Link>
-                    </p>
+                    <img
+                        className="beerprofile__beer-pic"
+                        src={`/img/beers/${beer.data.beer_pic.picture}`}
+                        alt="beer logo"
+                    />
+                    <Link
+                        to={`/breweries/${beer.data.brewery.user_id}`}
+                    >
+                        <em>{beer.data.brewery.user.brewery_name}</em>
+                    </Link>
                 </div>
                 {/* <p className="beerprofile__image_brewery">
                         Brewery Picture:
@@ -157,7 +157,7 @@ const BeerProfile = () => {
                     </div>{" "}
                     <br />
                     <div className="beerprofile__info__graph">
-                        <BeerGraph />
+                        <BeerGraph graphValues={graphValues} />
                         {/* <StarRating /> */}
                     </div>
                 </div>
@@ -170,6 +170,9 @@ const BeerProfile = () => {
                                 user={user.id}
                                 beer={beer.data.id}
                                 setReviewed={setReviewed}
+                                setGraphValues={setGraphValues}
+                            // averageValues = {beer.averages}
+
                             />
                         )}
                     {beer.data.reviews.map((review, i) => (
@@ -197,11 +200,11 @@ export default BeerProfile;
                         <h2>Intensity:</h2>
                         <div className="beerprofile__slider__body">
                             Body
-                            <DiscreteSliderMarks />
+                            <DiscreteSliderMarks setGraph={setGraphValues}/>
                         </div>
                         <div className="beerprofile__slider__linger">
                             Linger
-                            <DiscreteSliderMarks />
+                            <DiscreteSliderMarks setGraph={setGraphValues}/>
                         </div>
                         <div className="beerprofile__slider__herbal">
                             Herbal
