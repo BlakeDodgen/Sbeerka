@@ -5,27 +5,17 @@ import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 
 //import Slider from '@mui/material/Slider';
 
-<<<<<<< HEAD
-const ReviewForm = ({ user, beer, setReviewed }) => {
-=======
-const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) => {
-
->>>>>>> main
+const ReviewForm = ({
+    user,
+    beer,
+    averageValues,
+    setReviewed,
+    setGraphValues,
+}) => {
     const [values, setValues] = useState({
         review: "",
         rating: 0,
         // favorite: false,
-<<<<<<< HEAD
-        body: 0,
-        linger: 0,
-        herbal: 0,
-        citrus: 0,
-        hoppy: 0,
-        bitter: 0,
-        sour: 0,
-        user_id: user,
-        beer_id: beer,
-=======
         // body: averageValues.body,
         // linger: averageValues.linger,
         // herbal: averageValues.herbal,
@@ -35,13 +25,11 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
         // sour: averageValues.sour,
         // user_id: user,
         // beer_id: beer
->>>>>>> main
     });
 
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -67,7 +55,6 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
     };
 
     return (
-
         <div className="form-rating">
             <DiscreteSliderMarks
                 value={values.body}
@@ -120,12 +107,8 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
                 }}
             >
                 <div className="review__container">
-                    {
-                        !!errorResponse && <span>Login Failed</span>
-                    }
-                    <label>
-                        Review:
-                    </label>
+                    {!!errorResponse && <span>Login Failed</span>}
+                    <label>Review:</label>
                     <textarea
                         placeholder="Tell us how you really feel..."
                         rows="10"
@@ -135,9 +118,7 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
                     />
                 </div>
                 <div className="review__container">
-                    <label>
-                        Rating:
-                    </label>
+                    <label>Rating:</label>
                     <input
                         type="number"
                         min="0"
