@@ -45,7 +45,7 @@ function SearchBar(props) {
 
     // }, [search])
 
-    console.log(data)
+    
     return (
 
         <>

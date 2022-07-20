@@ -24,7 +24,7 @@ const BreweryForm = () => {
         if (e.target.files) {
             return setImage(e.target.files[0])
         }
-        console.log(values);
+      
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -44,7 +44,7 @@ const BreweryForm = () => {
     }
 
     const handleImage = (e) => {
-        console.log(e.target.value)
+       
         setImage(e.target.files[0])
     }
 
@@ -67,7 +67,7 @@ const BreweryForm = () => {
 
         const response = await axios.post("/api/breweries/create", formData, options);
         const response_data = response.data;
-        console.log(response_data)
+        
 
         return navigate(`/breweries/${user.id}`);
     };

@@ -12,7 +12,7 @@ function SearchInput({ placeholder, data, search }) {
     //responsible for redirection
     const navigate = useNavigate();
 
-    console.log("searchitems: " + searchItems);
+   
     //function triggered after each keystroke and runs the filter, results saved in new array
     const handleSearchQuery = (e) => {
         //const searchItem = e.target.value;
@@ -21,7 +21,7 @@ function SearchInput({ placeholder, data, search }) {
             //return value if true-> if object.name includes search items
             //compare the user input and data-> lowercase both values
             // console.log(item);
-            console.log(item);
+            
             return item.toLowerCase().match(searchString.toLowerCase());
         });
 
