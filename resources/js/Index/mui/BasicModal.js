@@ -48,18 +48,18 @@ export default function BasicModal() {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
+                <Box className="modal-box" sx={style}>
                     <Typography
                         id="modal-modal-title"
                         variant="h6"
                         component="h2"
                     >
-                        Are you at least 18, dear visitor?
+                        Are you at least 18 years of age?
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        <button onClick={handleClose}>YES</button>
-                        <button>
-                            <a href="https://www.google.com">NO</a>
+                        <button className="button-modal-yes" onClick={handleClose}>YES</button>
+                        <button className="button-modal-no">NO
+                            <a href="https://www.google.com" />
                         </button>
                     </Typography>
                 </Box>
