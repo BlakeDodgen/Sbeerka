@@ -1,25 +1,6 @@
-import React from "react";
 
-const data = [
-    {
-        Sour: 0.7,
-        Bitter: 1.0,
-        Herbal: 0.9,
-        Body: 0.6,
-        Linger: 0.8,
-        Citrus: 0.5,
-        Hoppy: 0.7,
-    },
-    {
-        Sour: 0.6,
-        Bitter: 0.9,
-        Herbal: 0.8,
-        Body: 0.7,
-        Linger: 0.6,
-        Citrus: 0.4,
-        Hoppy: 0.9,
-    },
-];
+
+
 
 // Circle size and concentric cirles
 const chartSize = 300;
@@ -73,22 +54,49 @@ const points = (points) => {
 };
 
 const axis = () => (col, i) =>
-    (
-        <polyline
-            key={`poly-axis-${i}`}
-            points={points([
-                [0, 0],
-                [
-                    polarToX(col.angle, chartSize / 2),
-                    polarToY(col.angle, chartSize / 2),
-                ],
-            ])}
-            stroke="#555"
-            strokeWidth=".2"
-        />
-    );
+(
+    <polyline
+        key={`poly-axis-${i}`}
+        points={points([
+            [0, 0],
+            [
+                polarToX(col.angle, chartSize / 2),
+                polarToY(col.angle, chartSize / 2),
+            ],
+        ])}
+        stroke="#555"
+        strokeWidth=".2"
+    />
+);
 
 const BeerGraph = (props) => {
+    //Data should be 0-1 rather than 0-10
+
+    //  console.log(props.graphValues.body)   
+    const data = [
+        //inputed rating from user
+        {
+
+            sour: (props.graphValues.sour / 10),
+            bitter: (props.graphValues.bitter / 10),
+            herbal: (props.graphValues.herbal / 10),
+            body: (props.graphValues.body / 10),
+            linger: (props.graphValues.linger / 10),
+            citrus: (props.graphValues.citrus / 10),
+            hoppy: (props.graphValues.hoppy / 10),
+        },
+        //avarage rating
+        {
+            sour: 0.6,
+            bitter: 0.9,
+            herbal: 0.8,
+            body: 0.7,
+            linger: 0.6,
+            citrus: 0.4,
+            hoppy: 0.9,
+        },
+    ];
+    console.log(data[0].body)
     const groups = [];
     const scales = [];
     for (let i = numberOfScales; i > 0; i--) {
@@ -115,6 +123,7 @@ const BeerGraph = (props) => {
             width={chartSize}
             height={chartSize}
             viewBox={`0 0 ${chartSize} ${chartSize}`}
+            className="beer-graph"
         >
             <g transform={`translate(${middleOfChart},${middleOfChart})`}>
                 {groups}
@@ -124,18 +133,18 @@ const BeerGraph = (props) => {
 };
 
 const caption = () => (col) =>
-    (
-        <text
-            key={`caption-of-${col.key}`}
-            x={polarToX(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
-            y={polarToY(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
-            dy={10 / 2}
-            fill="#444"
-            fontWeight="300"
-            textShadow="1px 1px 0 #fff"
-        >
-            {col.key}
-        </text>
-    );
+(
+    <text
+        key={`caption-of-${col.key}`}
+        x={polarToX(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
+        y={polarToY(col.angle, (chartSize / 2) * 0.75).toFixed(4)}
+        dy={10 / 2}
+        fill="#444"
+        fontWeight="300"
+        textshadow="1px 1px 0 #fff"
+    >
+        {col.key}
+    </text>
+);
 
 export default BeerGraph;

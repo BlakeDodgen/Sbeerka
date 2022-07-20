@@ -16,7 +16,7 @@ function SearchBar(props) {
     const handleSearchChange = (e) => {
         props.setSearchType(e.target.value)
         setSearch(e.target.value);
-        console.log("select:" + e.target.value);
+        
     };
 
     //chooses url according to selected value in state ,,search,,
