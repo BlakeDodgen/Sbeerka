@@ -41,7 +41,7 @@ const SearchResults = (props) => {
 
     }, [search, searchString])
 
-    
+
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
@@ -98,7 +98,8 @@ const SearchResults = (props) => {
                                 type={value.beer_type.type}
                                 beer_id={value.id}
                                 brewery_id={value.brewery_id}
-                                alcohol_content={value.alcohol_content}
+                                alcohol_volume={value.alcohol_volume}
+                                degree={value.degree}
                             // handleMouseOver ={handleMouseOver}
                             // handleMouseOut = {handleMouseOut}
                             />

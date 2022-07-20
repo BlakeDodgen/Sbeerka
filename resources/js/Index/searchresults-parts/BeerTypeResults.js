@@ -49,30 +49,30 @@ const BeerTypeResults = (props) => {
 
     return (
         <>
-            <h1>Tapping results for : <br /> {searchString}</h1>
+            {/* <h1>Tapping results for : <br /> {searchString}</h1> */}
 
-            <div className="search__result">
+            <div className="search__results">
                 {/* loops in the array which contains updated search items */}
                 {/* for less displayed results use splice method on array .splice(0,10) */}
 
                 {!!newSearch.length ? (
                     newSearch.map((value, index) => {
-                         const beerName = value.beers.map((value,index) =>{
-                             return value.name
-                             
-                         })
-                         const beerPic = value.beers.map((value,index) =>{
+                        const beerName = value.beers.map((value, index) => {
+                            return value.name
+
+                        })
+                        const beerPic = value.beers.map((value, index) => {
                             return value.beer_pic.picture
-                            
+
                         })
                         console.log(beerName);
                         return (
 
-                            <BeerTypeResult 
-                            key={value.id} link={`/breweries/${value.id}`} name={beerName} values={value}
-                            pic={beerPic} />
+                            <BeerTypeResult
+                                key={value.id} link={`/breweries/${value.id}`} name={beerName} values={value}
+                                pic={beerPic} />
                             // <Link key={value.id} to={`/beers/${value.id}`}><p> {beerName} / {value.type}</p></Link>
-                           
+
                         )
 
                     })
