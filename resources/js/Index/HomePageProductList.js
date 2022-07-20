@@ -17,6 +17,10 @@ const HomePageProductList = () => {
     const loadNewSet = () => {
         setMin(min+6);
         setMax(max+6);
+        if(max>=data.length){
+            setMin(0);
+            setMax(6);
+        }
     }
 
     console.log(data.length);
