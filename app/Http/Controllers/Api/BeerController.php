@@ -18,7 +18,8 @@ class BeerController extends Controller
                     'brewery',
                     'brewery.breweryPic',
                     'brewery.user',
-                    'reviews'
+                    'reviews',
+                    'reviews.user'
                     ])
                     ->findOrFail($id);
 
@@ -44,11 +45,11 @@ class BeerController extends Controller
         $beer= new Beer;
         $beerPic = new BeerPic;
         
-        // $this->validate($request, [
-        //     'name' => 'required'
-        // ]);
+
 
         $values = json_decode($request->values);
+
+        
 
         $beer->brewery_id = $values->brewery_id;
         $beer->beer_type_id = $values->beer_type_id;
@@ -79,5 +80,12 @@ class BeerController extends Controller
         $request->image->move(public_path('img/beers'), $newImageName);
 
         return 'worked';
+    }
+
+    public function beerTypesList()
+    {
+        $beerTypes = BeerType::get();
+
+        return $beerTypes;
     }
 }

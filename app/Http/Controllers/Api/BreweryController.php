@@ -45,14 +45,18 @@ class BreweryController extends Controller
 
        
         
-        // $this->validate($request, [
-        //     'user_id' => 'required'
-        // ]);
+        $this->validate($request, [
+            'image' => 'required'
+        ]);
         
-        //dd($request->image->name);
-        //dd($request->image->getClientOriginalName());
+        // dd($request->image->name);
+        // dd($request->image->getClientOriginalName());
 
         $values = json_decode($request->values);
+
+        // $this->validate($values, [
+        //     'city' => 'required'
+        // ]);
     
         $brewery->user_id = $values->user_id;
         $brewery->city = $values->city;
@@ -79,7 +83,6 @@ class BreweryController extends Controller
         }   
         }
         
-
         $brewery->brewery_pic_id = $number + 1;
         $breweryPic->save();
         $brewery->save();

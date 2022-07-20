@@ -42,4 +42,14 @@ class ReviewController extends Controller
                     ->get();
         return $reviews;
     }
+
+    public function destroy(Request $request)
+    {
+       dd($request);
+        // $user = Review::where;
+        
+        // $user->delete();
+
+        return 'user deleted';
+    }
 }

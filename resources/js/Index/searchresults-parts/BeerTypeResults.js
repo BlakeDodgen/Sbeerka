@@ -14,7 +14,7 @@ const BeerTypeResults = (props) => {
 
 
     //parameters search + text passed into the string
-    const url = `http://www.sbeerka.beer/api/search?search=beer-type&text=${searchString}`;
+    const url = `/api/search?search=beer-type&text=${searchString}`;
 
     // Search
     // General form: http://www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]

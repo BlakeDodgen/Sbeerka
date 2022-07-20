@@ -21,12 +21,12 @@ const BeerProfile = () => {
         const response = await axios.get(`/api/beers/${id}`);
         // console.log(response.data);
         // if (response.data.reviews == {}) {
-        response.data.reviews.forEach((review) => {
-            if (user && review.user_id == user.id) {
-                setReviewed(true);
+        // response.data.reviews.forEach((review) => {
+        //     if (user && review.user_id == user.id) {
+        //         setReviewed(true);
 
-            }
-        });
+        //     }
+        // });
 
         let ratingScore = 0;
         response.data.reviews.forEach((review) => {
@@ -93,16 +93,16 @@ const BeerProfile = () => {
         }
 
         let sourScore = 0;
-        response.data.reviews.forEach((review) => {
-            sourScore += review.sour;
-        });
         let avSour = sourScore / response.data.reviews.length.toFixed(1);
         if (isNaN(avSour)) {
             avSour = 0;
         }
 
+        // console.log(userReview)
+
         setBeer({
             data: response.data,
+            // userReviewSelected: userReview,
             averages: {
                 rating: avRating.toFixed(1),
                 body: avBody.toFixed(1),
@@ -112,6 +112,7 @@ const BeerProfile = () => {
                 hoppy: avHoppy.toFixed(1),
                 bitter: avBitter.toFixed(1),
                 sour: avSour.toFixed(1),
+                
             },
         });
         // } else {
@@ -119,10 +120,34 @@ const BeerProfile = () => {
         // }
         
     };
+
+    const checkReview = () => {
+        if (user && beer) {
+            beer.data.reviews.forEach((review) => {
+                if (review.user_id == user.id) {
+                    setReviewed(true);
+                }
+            })
+        }
+    }
+
+    // const findReview = () => {
+    //     if (beer) {
+    //     beer.reviews.forEach((review) => {
+    //         if (review.user_id == user.id) {
+    //             console.log('DONE')
+    //             setBeerReview(review)
+
+    //         }
+    //     })};
+    // } 
     
     useEffect(() => {
         loadData();
-    }, [reviewed]);
+        checkReview();
+    }, [user, reviewed]);
+
+    
 
     return (
         beer && (

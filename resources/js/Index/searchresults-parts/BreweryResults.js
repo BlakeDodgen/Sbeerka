@@ -20,7 +20,7 @@ const BreweryResults = (props) => {
   
 
     //parameters search + text passed into the string
-    const url = `http://www.sbeerka.beer/api/search?search=breweries&text=${searchString}`;
+    const url = `/api/search?search=breweries&text=${searchString}`;
       
     // Search
     // General form: http://www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]

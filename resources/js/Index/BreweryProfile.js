@@ -40,7 +40,7 @@ const BreweryProfile = () => {
                 <p>Size: {brewery.size}</p>
                 <p>History: {brewery.history}</p>
                 <p>Brewery Picture:</p>
-
+                {(user && user.id == brewery.user_id) && <Link to={`/edit/brewery/${user.id}`}><p>EDIT PROFILE INFORMATION</p></Link>}
                 {console.log(brewery)}
                 <img
                     src={`/img/breweries/${brewery.brewery_pic.picture}`}

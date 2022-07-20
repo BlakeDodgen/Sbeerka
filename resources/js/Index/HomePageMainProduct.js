@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const HomePageMainProduct = () => {
     const [data, setData] = useState([]);
 
-    const urlAll = `http://www.sbeerka.beer/api/beers`;
+    const urlAll = `/api/beers`;
 
     const fetchData = async () => {
         const response = await fetch(urlAll);

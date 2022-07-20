@@ -13,7 +13,7 @@ const CountryResults = (props) => {
 
 
     //parameters search + text passed into the string
-    const url = `http://www.sbeerka.beer/api/search?search=country&text=${searchString}`;
+    const url = `/api/search?search=country&text=${searchString}`;
 
     // Search
     // General form: http://www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
