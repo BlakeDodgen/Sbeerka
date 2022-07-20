@@ -9,7 +9,7 @@ const SearchResults = (props) => {
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
-
+    console.log(data);
     //parameters search + text passed into the string
     const url = `/api/search?search=${search}&text=${searchString}`;
 

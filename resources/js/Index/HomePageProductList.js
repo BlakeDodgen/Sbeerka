@@ -17,6 +17,10 @@ const HomePageProductList = () => {
     const loadNewSet = () => {
         setMin(min+6);
         setMax(max+6);
+        if(max>=data.length){
+            setMin(0);
+            setMax(6);
+        }
     }
 
     console.log(data.length);
@@ -34,15 +38,14 @@ const HomePageProductList = () => {
         <div className="product-list">
             {/* container for whole list of products, slice can set the range of products per page */}
 
-            <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
-          { min >= data.length ?  <h2>"You empty the bar"</h2>          
-            : <div className="product-list__products-container">
+            <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>                
+            <div className="product-list__products-container">
             {data.slice(min, max).map((item, index) => {
                 return <Product key={index} data={item} />
             })}
 
-        </div>}
-            {/* new feature loads another six items */}
+        </div>
+            {/* loads another six items, if it hits the last , resets to beggining */}
             <button onClick={()=>loadNewSet()}>Another round</button>
         </div>
     );
