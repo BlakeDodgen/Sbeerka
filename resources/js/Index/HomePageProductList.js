@@ -6,7 +6,7 @@ const HomePageProductList = () => {
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(6);
 
-    const urlAll = `http://www.sbeerka.beer/api/beers`;
+    const urlAll = `/api/beers`;
 
     const fetchData = async () => {
         const response = await fetch(urlAll);
