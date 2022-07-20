@@ -2,30 +2,16 @@ import { useState, useContext } from "react";
 import React from "react";
 import axios from "axios";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
-import { Link } from "react-router-dom";
+
 //import Slider from '@mui/material/Slider';
 
-
-const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) => {
-
-    if (review) {
-        const [values, setValues] = useState({
-            review: review.review,
-            rating: review.rating,
-            // favorite: false,
-            body: review.body,
-            linger: review.linger,
-            herbal: review.herbal,
-            citrus: review.citrus,
-            hoppy: review.hoppy,
-            bitter: review.bitter,
-            sour: review.sour,
-            user_id: user,
-            beer_id: beer
-        });
-    }
-    
-    
+const ReviewForm = ({
+    user,
+    beer,
+    averageValues,
+    setReviewed,
+    setGraphValues,
+}) => {
     const [values, setValues] = useState({
         review: "",
         rating: 0,
@@ -44,7 +30,6 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -56,14 +41,13 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
 
     // console.log(values);
     const handleSubmit = async (e) => {
-
         e.preventDefault();
         const response = await axios.post("/api/reviews/create", values);
         const response_data = response.data;
-        console.log(response)
+        console.log(response);
 
-        if (typeof res === 'object') {
-            console.log(response)
+        if (typeof res === "object") {
+            console.log(response);
         }
         setReviewed(true);
 
@@ -71,57 +55,47 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
     };
 
     return (
-
-        <>
-        {/* {!user && <p>YOU MUST <Link to={`/login`}>LOG IN</Link> OR <Link to={`/signup`}>SIGN UP</Link> TO WRITE A REVIEW</p>} */}
         <div className="form-rating">
             <DiscreteSliderMarks
                 value={values.body}
                 setValue={handleChange}
                 name="body"
-
             />
 
             <DiscreteSliderMarks
                 value={values.linger}
                 setValue={handleChange}
                 name="linger"
-
             />
 
             <DiscreteSliderMarks
                 value={values.herbal}
                 setValue={handleChange}
                 name="herbal"
-
             />
 
             <DiscreteSliderMarks
                 value={values.citrus}
                 setValue={handleChange}
                 name="citrus"
-
             />
 
             <DiscreteSliderMarks
                 value={values.hoppy}
                 setValue={handleChange}
                 name="hoppy"
-
             />
 
             <DiscreteSliderMarks
                 value={values.bitter}
                 setValue={handleChange}
                 name="bitter"
-
             />
 
             <DiscreteSliderMarks
                 value={values.sour}
                 setValue={handleChange}
                 name="sour"
-
             />
 
             <form
@@ -133,12 +107,8 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
                 }}
             >
                 <div className="review__container">
-                    {
-                        !!errorResponse && <span>Login Failed</span>
-                    }
-                    <label>
-                        Review:
-                    </label>
+                    {!!errorResponse && <span>Login Failed</span>}
+                    <label>Review:</label>
                     <textarea
                         placeholder="Tell us how you really feel..."
                         rows="10"
@@ -148,9 +118,7 @@ const ReviewForm = ({ user, beer, averageValues, setReviewed, setGraphValues }) 
                     />
                 </div>
                 <div className="review__container">
-                    <label>
-                        Rating:
-                    </label>
+                    <label>Rating:</label>
                     <input
                         type="number"
                         min="0"
