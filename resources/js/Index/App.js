@@ -12,7 +12,7 @@ import {
     Link,
     UNSAFE_RouteContext,
 } from "react-router-dom";
-import { useReducer, useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import UserContext from "./UserContext";
 import BreweryForm from "./BreweryForm";
 // import BeerForm from "./BeerForm";
@@ -27,10 +27,6 @@ import ReviewForm from "./forms/ReviewForm";
 import { loadUser } from "./actions/auth";
 import UserProfile from "./UserProfile";
 import About from "./about-page/About";
-
-import SetCookie from "./cookies/SetCookie";
-import GetCookie from "./cookies/GetCookie";
-import RemoveCookie from "./cookies/RemoveCookie";
 
 const App = () => {
     const [user, setUser] = useState("");

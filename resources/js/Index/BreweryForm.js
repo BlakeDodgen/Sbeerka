@@ -48,8 +48,6 @@ const BreweryForm = () => {
         setImage(e.target.files[0])
     }
 
-    // console.log(image);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         values.user_id = user.id;

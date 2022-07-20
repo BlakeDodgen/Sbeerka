@@ -97,7 +97,7 @@ const BeerProfile = () => {
             avSour = 0;
         }
 
-        // console.log(userReview)
+      
 
         setBeer({
             data: response.data,

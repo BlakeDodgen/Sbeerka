@@ -15,7 +15,7 @@ function SearchInput({ placeholder, data, search }) {
    
     //function triggered after each keystroke and runs the filter, results saved in new array
     const handleSearchQuery = (e) => {
-        //const searchItem = e.target.value;
+        const searchItem = e.target.value;
         //const prop = searchOption;
         const newSearch = data.filter((item) => {
             //return value if true-> if object.name includes search items
