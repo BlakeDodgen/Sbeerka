@@ -2,15 +2,18 @@ import { useState, useContext } from "react";
 import React from "react";
 import axios from "axios";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
+import { Rating } from 'react-simple-star-rating';
 
 //import Slider from '@mui/material/Slider';
 
 
 const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
    
+    const [rating, setRating] = useState(0)
+   
     const [values, setValues] = useState({
         review: "",
-        rating: 5,
+        rating: 0,
         favorite: false,
         body: 5,
         linger: 5,
@@ -22,10 +25,11 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         user_id: user,
         beer_id: beer
     });
-    
+   
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
+        console.log(e);
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -34,7 +38,18 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         });
         setGraphValues(values);
     };
-
+  
+    
+      // Catch Rating value
+//   const handleRating = (rating) => {
+//     setValues((previous_values) => {
+//         return {
+//             ...previous_values,
+//             [rating]: rating,
+//         };
+//     });
+//     console.log(values.rating)
+//   }
   
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -196,6 +211,17 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                             onChange={handleChange}
                         />
                     </div>
+                    <Rating
+                     onClick={handleChange}
+                     ratingValue={rating}
+                     size={20}
+                     label='false'  
+                     transition
+                     fillColor='orange'
+                     emptyColor='gray'
+                     className='foo' /* Available Props */ />
+
+                    
                     {user && <button className="form__button">Submit</button>}
 
                 </form>

@@ -12,11 +12,10 @@ const BeerTypeResult = (props) => {
     const handleMouseOut = (e) => {
         setIsHovering(false);
     }
-
-    console.log(props.values);
+  
     return (
         <>
-
+           
             {isHovering && (
                 <div className="hover">
                     <p className="search-result__brewery">{props.name}</p>
@@ -24,9 +23,9 @@ const BeerTypeResult = (props) => {
                     <p className="search-result__brewery">{props.values.country}</p>
                     <p className="search-result__brewery">{props.values.history}</p> */}
                    
-                    
+                 
                     {!props.pic ? <img src={`/img/breweries/sibeeria.png`} />
-                        : <img src={`/img/breweries/${props.pic}`} alt="img" />}
+                        : <img src={`/img/beers/${img[0]}.png`} alt="img" />}
                 </div>
 
             )}
