@@ -41,7 +41,12 @@ function SearchInput({ placeholder, data, search }) {
     }
 
     const redirect = () => {
-        navigate(`/results/${search}/${searchString}`);
+        if(searchString===""){
+            return null
+        } else {
+
+            navigate(`/results/${search}/${searchString}`);
+        }
         //clearinput func
     };
     // console.log(data);

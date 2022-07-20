@@ -3,9 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
-// import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
 import BeerGraph from "./ratings/BeerGraph";
-//import StarRating from "./ratings/StarRating";
+import StarRating from "./ratings/StarRating";
 
 const BeerProfile = () => {
     const { id } = useParams();
