@@ -23,7 +23,7 @@ import CityResults from "./searchresults-parts/CityResults";
 import CountryResults from "./searchresults-parts/CountryResults";
 import BeerTypeResults from "./searchresults-parts/BeerTypeResults";
 import ReviewForm from "./forms/ReviewForm";
-import BeerCollection from "../BeerCollection";
+import BeerCollection from "./BeerCollection";
 
 import { loadUser } from "./actions/auth";
 import UserProfile from "./UserProfile";
