@@ -97,6 +97,7 @@ const App = () => {
                         />
                         <Route path="user/:id" element={<UserProfile />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/edit/brewery/:id" element={<BreweryForm />} />
                         <Route path="/signup/brewery" element={<BreweryForm />} />
