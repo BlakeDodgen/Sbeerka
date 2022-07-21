@@ -19,7 +19,7 @@ const UserProfile = () => {
     const loadData = async () => {
         const response = await axios.get(`/api/reviews/${id}`);
         setReviews(response.data);
-        console.log(response.data)
+        // console.log(response.data)
     }
 
     useEffect(() => {
