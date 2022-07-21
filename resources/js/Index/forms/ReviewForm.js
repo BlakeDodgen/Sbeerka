@@ -65,8 +65,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        values.favorite = parseInt(values.favorite)
-        console.log(values.favorite)
+        values.favorite = parseInt(values.favorite);
         const response = await axios.post("/api/reviews/create", values);
         const response_data = response.data;
 

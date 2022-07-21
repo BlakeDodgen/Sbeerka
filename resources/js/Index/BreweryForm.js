@@ -94,7 +94,7 @@ const BreweryForm = () => {
                         type="text"
                         name="city"
                         value={values.city}
-                        autocomplete="off"
+                        // autoComplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -109,7 +109,7 @@ const BreweryForm = () => {
                         type="text"
                         name="country"
                         value={values.country}
-                        autocomplete="off"
+                        // autoComplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -123,7 +123,7 @@ const BreweryForm = () => {
                         type="text"
                         name="website"
                         value={values.website}
-                        autocomplete="off"
+                        // autoComplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -139,7 +139,7 @@ const BreweryForm = () => {
                         type="text"
                         name="size"
                         value={values.size}
-                        autocomplete="off"
+                        // autoComplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -152,7 +152,7 @@ const BreweryForm = () => {
                         type="textarea"
                         name="history"
                         value={values.history}
-                        autocomplete="off"
+                        // autoComplete="off"
                         onChange={handleChange}
                     />
                 </div>
