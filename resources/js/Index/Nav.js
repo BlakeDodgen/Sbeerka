@@ -28,7 +28,7 @@ function Nav(props) {
                         <div className="dropdown__content">
                             <img
                                 className="nav__icon"
-                                src="./img/profile.png"
+                                src="./img/profile.svg"
                                 alt="profile"
                             />
                             {user.username ? (
