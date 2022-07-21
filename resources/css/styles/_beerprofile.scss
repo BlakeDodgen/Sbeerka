@@ -1,26 +1,53 @@
 .beerprofile {
-    border: 2px solid red;
+    // border: 2px solid red;
     display: flex;
+    flex-direction: row;
     margin: 4.5rem 0 7rem 0;
-    min-height: 150vh;
+    // min-height: 150vh;
+    padding: 0 4.5rem;
+}
+
+.beerprofile__container {
+    // border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 40%;
 }
 
 .form-rating {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
-    border: 2px solid red;
+    // border: 2px solid red;
 }
 
 .review__container-hidden {
     display: none;
 }
 
+.beerprofile__review {
+    width: 30%;
+}
+
 .beerprofile__beer-pic {
-    height: 20px;
-    width: 20px;
+    height: 25rem;
+    width: 25rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .beer-graph {
-    border: 2px solid red;
+    // border: 2px solid red;
+    // position: absolute;
+    // right: 10rem;
+    // top: 4rem;
+}
+
+.review {
+    // border: 2px solid red;
+}
+
+.review__stars {
+    // border: 2px solid red;
 }

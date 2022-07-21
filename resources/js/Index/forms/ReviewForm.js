@@ -30,7 +30,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-        
+
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -61,7 +61,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         });
 
     }
-   
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -77,58 +77,60 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
         // return navigate("/");
     };
-    
+
     return (
         <>
-            <label>Body</label>
-            <div className="form-rating">
-                <DiscreteSliderMarks
-                    value={values.body}
-                    setValue={handleChange}
-                    name="body"
-                />
+            <div className="sliders__container">
+                <label>Body</label>
+                <div className="form-rating">
+                    <DiscreteSliderMarks
+                        value={values.body}
+                        setValue={handleChange}
+                        name="body"
+                    />
 
-                <label>Linger</label>
-                <DiscreteSliderMarks
-                    value={values.linger}
-                    setValue={handleChange}
-                    name="linger"
-                />
+                    <label>Linger</label>
+                    <DiscreteSliderMarks
+                        value={values.linger}
+                        setValue={handleChange}
+                        name="linger"
+                    />
 
-                <label>Sour</label>
-                <DiscreteSliderMarks
-                    value={values.sour}
-                    setValue={handleChange}
-                    name="sour"
-                />
+                    <label>Sour</label>
+                    <DiscreteSliderMarks
+                        value={values.sour}
+                        setValue={handleChange}
+                        name="sour"
+                    />
 
-                <label>Citrus</label>
-                <DiscreteSliderMarks
-                    value={values.citrus}
-                    setValue={handleChange}
-                    name="citrus"
-                />
+                    <label>Citrus</label>
+                    <DiscreteSliderMarks
+                        value={values.citrus}
+                        setValue={handleChange}
+                        name="citrus"
+                    />
 
-                <label>Hoppy</label>
-                <DiscreteSliderMarks
-                    value={values.hoppy}
-                    setValue={handleChange}
-                    name="hoppy"
-                />
+                    <label>Hoppy</label>
+                    <DiscreteSliderMarks
+                        value={values.hoppy}
+                        setValue={handleChange}
+                        name="hoppy"
+                    />
 
-                <label>Bitter</label>
-                <DiscreteSliderMarks
-                    value={values.bitter}
-                    setValue={handleChange}
-                    name="bitter"
-                />
+                    <label>Bitter</label>
+                    <DiscreteSliderMarks
+                        value={values.bitter}
+                        setValue={handleChange}
+                        name="bitter"
+                    />
 
-                <label>Herbal</label>
-                <DiscreteSliderMarks
-                    value={values.herbal}
-                    setValue={handleChange}
-                    name="herbal"
-                />
+                    <label>Herbal</label>
+                    <DiscreteSliderMarks
+                        value={values.herbal}
+                        setValue={handleChange}
+                        name="herbal"
+                    />
+                </div>
 
                 <form
                     className="review"
@@ -239,16 +241,17 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                         transition
                         fillColor='#c2702a'
                         emptyColor='#2c2d2d'
-                        className='foo' /* Available Props */ />
+                        className="review__stars" />
 
                     <Button
-                     variant="outlined"
-                     onClick={handleLike}
-                     value={values.favorite==0? 1:0}
-                     name='favorite'
-                     id="btn_like"
-                     sx={{color: values.favorite==0?"#c2702a": "#2c2d2d", borderColor: '#c2702a', backgroundColor:values.favorite==0?"none": "#c2702a"}}
-                     >Like</Button>         
+                        className="review__liked"
+                        variant="outlined"
+                        onClick={handleLike}
+                        value={values.favorite == 0 ? 1 : 0}
+                        name='favorite'
+                        id="btn_like"
+                        sx={{ color: values.favorite == 0 ? "#c2702a" : "#2c2d2d", borderColor: '#c2702a', backgroundColor: values.favorite == 0 ? "none" : "#c2702a" }}
+                    >Like</Button>
 
 
                     {user && <button className="form__button">Submit</button>}

@@ -153,45 +153,33 @@ const BeerProfile = () => {
             <>
                 <div className="beerprofile">
                     <div className="beerprofile__container">
-                        <h2> {beer.data.name}</h2>
-
+                        <h1> {beer.data.name}</h1>
                         <img
                             className="beerprofile__beer-pic"
                             src={`/img/beers/${beer.data.beer_pic.picture}`}
-                            alt="beer logo"
-                        />
+                            alt="beer logo" /> <br />
                         <Link
-                            to={`/breweries/${beer.data.brewery.user_id}`}
-                        >
+                            to={`/breweries/${beer.data.brewery.user_id}`}>
                             <em>{beer.data.brewery.user.brewery_name}</em>
                         </Link>
-                    </div>
-                    {/* <p className="beerprofile__image_brewery">
+
+                        {/* <p className="beerprofile__image_brewery">
                         Brewery Picture:
                     </p> */}
 
-                    <div className="beerprofile__info">
-                        <div className="beerprofile__info__numbers">
-                            {" "}
-                            <h2> Description: </h2>
-                            {beer.data.alcohol_volume} % ABV, {beer.data.degree}{" "}
-                            °
-                        </div>{" "}
-                        <br />
-                        <div className="beerprofile__info__desc">
+                        <div className="beerprofile__info">
+                            <div className="beerprofile__info__numbers">
+                                {beer.data.alcohol_volume}% Alcohol by Volume
+                                {/* {beer.data.degree}° */}
+                            </div>
                             {beer.data.description}
-                        </div>{" "}
-                        <br />
-                        <div className="beerprofile__info__graph">
-                            <p>{beer.averages.bitter}</p>
-                            <BeerGraph
-                                graphValues={graphValues}
-                                averageValues={beer.averages} />
-                            {/* <StarRating /> */}
                         </div>
+
                     </div>
+                    <BeerGraph
+                        graphValues={graphValues}
+                        averageValues={beer.averages} />
                     <div className="beerprofile__review">
-                        <h2>Reviews:</h2>
                         {user &&
                             (user.user_type == 1 || user.user_type == 3) &&
                             reviewed == false && (
