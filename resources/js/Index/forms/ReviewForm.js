@@ -15,7 +15,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [values, setValues] = useState({
         review: "",
         rating: 0,
-        favorite: false,
+        favorite: 'false',
         body: 5,
         linger: 5,
         sour: 5,
@@ -30,7 +30,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-        console.log(rating); 
+        console.log(e.target.value); 
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -41,6 +41,15 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         setGraphValues(values);
     };
 
+    const handleLike = (e) => {
+        setValues((previous_values) => {
+            return {
+                ...previous_values,
+                [e.target.name]: e.target.value,
+            };
+        });
+
+    }
 
     // Catch Rating value
     const handleRating = (rating) => {
@@ -233,6 +242,9 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
                     <Button
                      variant="outlined"
+                     onClick={handleLike}
+                     value={values.favorite==='false'? 'true':'false'}
+                     name='favorite'
                      >Like</Button>         
 
 
