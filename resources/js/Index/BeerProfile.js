@@ -3,9 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
-// import DiscreteSliderMarks from "./mui/DiscreteSliderMarks";
 import BeerGraph from "./ratings/BeerGraph";
-//import StarRating from "./ratings/StarRating";
+import StarRating from "./ratings/StarRating";
 
 const BeerProfile = () => {
     const { id } = useParams();
@@ -21,12 +20,12 @@ const BeerProfile = () => {
         const response = await axios.get(`/api/beers/${id}`);
         // console.log(response.data);
         // if (response.data.reviews == {}) {
-        response.data.reviews.forEach((review) => {
-            if (user && review.user_id == user.id) {
-                setReviewed(true);
+        // response.data.reviews.forEach((review) => {
+        //     if (user && review.user_id == user.id) {
+        //         setReviewed(true);
 
-            }
-        });
+        //     }
+        // });
 
         let ratingScore = 0;
         response.data.reviews.forEach((review) => {
@@ -98,7 +97,7 @@ const BeerProfile = () => {
             avSour = 0;
         }
 
-        // console.log(userReview)
+      
 
         setBeer({
             data: response.data,
@@ -118,6 +117,7 @@ const BeerProfile = () => {
         // } else {
         //     setBeer({data: response.data, averages: {rating: 0, body: 0, linger: 0, herbal: 0, citrus: 0, hoppy: 0, bitter: 0, sour: 0}})
         // }
+        
     };
 
     const checkReview = () => {
@@ -182,7 +182,10 @@ const BeerProfile = () => {
                     </div>{" "}
                     <br />
                     <div className="beerprofile__info__graph">
-                        <BeerGraph graphValues={graphValues} />
+                        <p>{beer.averages.bitter}</p>
+                        <BeerGraph 
+                          graphValues={graphValues}
+                          averageValues = {beer.averages} />
                         {/* <StarRating /> */}
                     </div>
                 </div>
@@ -195,9 +198,7 @@ const BeerProfile = () => {
                                 user={user.id}
                                 beer={beer.data.id}
                                 setReviewed={setReviewed}
-                                setGraphValues={setGraphValues}
-                            // averageValues = {beer.averages}
-
+                                setGraphValues={setGraphValues}                          
                             />
                         )}
                     {beer.data.reviews.map((review, i) => (

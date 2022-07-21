@@ -11,9 +11,9 @@ const scale = (value) => (
         cx={0}
         cy={0}
         r={((value / numberOfScales) * chartSize) / 2}
-        fill="white"
-        stroke="#999"
-        strokeWidth="0.2"
+        fill="#fbc014"
+        stroke="#31475e"
+        strokeWidth="3"
     />
 );
 const polarToX = (angle, distance) => Math.cos(angle - Math.PI / 2) * distance;
@@ -41,7 +41,7 @@ const shape = (columns) => (chartData, i) => {
                     ];
                 })
             )}
-            stroke={`#edc951-${1}`}
+            stroke={`#c2702a-${1}`}
             fill={`#c2702a`}
             className="graph-data__1"
         />
@@ -64,22 +64,21 @@ const axis = () => (col, i) =>
                 polarToY(col.angle, chartSize / 2),
             ],
         ])}
-        stroke="#555"
-        strokeWidth=".2"
+        stroke="#31475e"
+        strokeWidth="1"
     />
 );
 
 const BeerGraph = (props) => {
     //Data should be 0-1 rather than 0-10
 
-    //  console.log(props.graphValues.body)   
+
     const data = [
         //inputed rating from user
         {
-
-            sour: (props.graphValues.sour / 10),
-            bitter: (props.graphValues.bitter / 10),
             herbal: (props.graphValues.herbal / 10),
+            bitter: (props.graphValues.bitter / 10),
+            sour: (props.graphValues.sour / 10),
             body: (props.graphValues.body / 10),
             linger: (props.graphValues.linger / 10),
             citrus: (props.graphValues.citrus / 10),
@@ -87,16 +86,16 @@ const BeerGraph = (props) => {
         },
         //avarage rating
         {
-            sour: 0.6,
-            bitter: 0.9,
-            herbal: 0.8,
-            body: 0.7,
-            linger: 0.6,
-            citrus: 0.4,
-            hoppy: 0.9,
+            herbal: (props.averageValues.herbal / 10),
+            bitter: (props.averageValues.bitter / 10),
+            sour: (props.averageValues.sour / 10),
+            body: (props.averageValues.body / 10),
+            linger: (props.averageValues.linger / 10),
+            citrus: (props.averageValues.citrus / 10),
+            hoppy: (props.averageValues.hoppy / 10)
         },
     ];
-    console.log(data[0].body)
+
     const groups = [];
     const scales = [];
     for (let i = numberOfScales; i > 0; i--) {

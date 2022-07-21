@@ -54,9 +54,9 @@ const HomePageMainProduct = () => {
                                     />
                                 </Link>
                             </div>
-                            <div className="main-product__detail">
+                            {/* <div className="main-product__detail">
                                 <p className="main-product__rating">Rating</p>
-                            </div>
+                            </div> */}
                         </>
                     );
                 })}
