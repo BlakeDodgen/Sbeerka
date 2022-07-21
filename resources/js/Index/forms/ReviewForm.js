@@ -30,7 +30,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-        console.log(e.target.value); 
+        
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -48,7 +48,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                 [e.target.name]: e.target.value,
             };
         });
-
+        console.log(values)
     }
 
     // Catch Rating value
@@ -61,11 +61,11 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         });
 
     }
-    console.log(values);
+   
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        values.favorite = int(values.favorite);
+        values.favorite = parseInt(values.favorite);
         const response = await axios.post("/api/reviews/create", values);
         const response_data = response.data;
 
@@ -77,7 +77,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
         // return navigate("/");
     };
-
+    
     return (
         <>
             <label>Body</label>
@@ -244,9 +244,10 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                     <Button
                      variant="outlined"
                      onClick={handleLike}
-                     value={values.favorite===0? 1:0}
+                     value={values.favorite==0? 1:0}
                      name='favorite'
-                     sx={{color: '#c2702a', borderColor: '#c2702a'}}
+                     id="btn_like"
+                     sx={{color: values.favorite==0?"#c2702a": "#2c2d2d", borderColor: '#c2702a', backgroundColor:values.favorite==0?"none": "#c2702a"}}
                      >Like</Button>         
 
 

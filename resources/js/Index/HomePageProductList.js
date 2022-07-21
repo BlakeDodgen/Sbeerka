@@ -50,7 +50,10 @@ const HomePageProductList = () => {
 
             </div>
             {/* loads another six items, if it hits the last , resets to beggining */}
-            <button className="product-list__button" onClick={() => loadNewSet()}><a href="#"> Another round</a></button>
+            { data.length>0&& 
+                <button className="product-list__button" onClick={() => loadNewSet()}><a href="#"> Another round</a></button>
+                || <p>Crafting beers....</p>
+            }
         </div>
     );
 };
