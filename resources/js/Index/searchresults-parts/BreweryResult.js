@@ -25,7 +25,7 @@ const BreweryResult = (props) => {
                     {!props.values.brewery.brewery_pic ?
                         <img className="search-result__img-hover" src={`/img/breweries/sibeeria.png`} />
                         : <img className="search-result__img-hover" src={`/img/breweries/${props.values.brewery.brewery_pic['picture']}`} alt="img" />}
-                    <h2 className="search-result__brewery">{props.name}</h2>
+                    <h2 className="search-result__name">{props.name}</h2>
                     {/* <p className="search-result__brewery">{props.values.brewery.city}</p>
                     <p className="search-result__brewery">{props.values.brewery.country}</p> */}
                 </div>

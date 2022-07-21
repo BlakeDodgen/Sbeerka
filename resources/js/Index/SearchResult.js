@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const SearchResult = (props) => {
-   
+
     const [isHovering, setIsHovering] = useState(false);
 
     const handleMouseOver = (e) => {
@@ -35,7 +35,7 @@ const SearchResult = (props) => {
                 <Link to={`/beers/${props.beer_id}`}>
                     <div className="search-result__container">
                         <div className="search-result__img-card">
-                            <img className="search-result__img" src={`/img/beers/${props.beer_pic_id}.png`} alt="beer-item-img" />
+                            {/* <img className="search-result__img" src={`/img/beers/${props.beer_pic_id}.png`} alt="beer-item-img" /> */}
                         </div>
                         <p className="search-result__name">
                             <strong>{props.name}</strong><br />

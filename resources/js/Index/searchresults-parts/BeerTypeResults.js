@@ -51,7 +51,7 @@ const BeerTypeResults = (props) => {
         <>
             {/* <h1>Tapping results for : <br /> {searchString}</h1> */}
 
-            <div className="search__results">
+            <div className="search-results">
                 {/* loops in the array which contains updated search items */}
                 {/* for less displayed results use splice method on array .splice(0,10) */}
 

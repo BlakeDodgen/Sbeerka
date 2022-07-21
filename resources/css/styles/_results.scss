@@ -9,6 +9,10 @@
     position: relative;
 }
 
+.search-result__name {
+    font-size: 1rem;
+}
+
 .hover {
     position: absolute;
     right: 4rem;
@@ -35,9 +39,9 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
             rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
-            &:hover {
-                filter: brightness(95%);
-            }
+            // &:hover {
+            //     filter: brightness(95%);
+            // }
 }
 
 // .search-result__img-card {
@@ -56,6 +60,8 @@
 .search-result__img-hover {
     height: 20rem;
     width: 20rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
 }
 
