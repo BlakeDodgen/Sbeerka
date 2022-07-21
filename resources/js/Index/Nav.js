@@ -28,7 +28,7 @@ function Nav(props) {
                         <div className="dropdown__content">
                             <img
                                 className="nav__icon"
-                                src="./img/profile.svg"
+                                src="./img/assets/profile.svg"
                                 alt="profile"
                             />
                             {user.username ? (
@@ -53,7 +53,7 @@ function Nav(props) {
                     <Link className="nav__login" to="/login">
                         <img
                             className="nav__icon"
-                            src="./img/profile.png"
+                            src="./img/assets/profile.svg"
                             alt="profile"
                         />
                         Log In

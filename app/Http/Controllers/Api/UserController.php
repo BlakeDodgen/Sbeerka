@@ -30,4 +30,24 @@ class UserController extends Controller
 
         return $user;
     }
+
+    public function editUser(Request $request)
+    {
+        // dd($request->input('id'));
+        $user = User::findOrFail($request->input('id'));
+        
+        // $this->validate($request, [
+        //     'user_id' => 'required',   
+        //     'beer_id' => 'required',
+        // ]);
+
+        $user->first_name = $request->input('first_name');
+        $user->surname = $request->input('surname');
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+
+        $user->save();
+
+        return 'User Profile Updated';
+    }
 }
