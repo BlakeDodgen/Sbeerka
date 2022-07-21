@@ -9,10 +9,14 @@
   .dropdown {
     position: relative;
     display: flex;
-    border: 2px solid red;
+    // border: 2px solid red;
     align-items: center;
     justify-content: center;
     justify-items: center;
+
+    &:hover {
+      color: $primary-yellow;
+    }
     
     //display: inline-block;
   }
@@ -44,11 +48,14 @@
   
   .dropdown:hover .dropdown-content {
     display: block;
-    border: 2px solid red;
+    // border: 2px solid red;
   }
   
   .dropdown:hover .dropbtn {
     background-color: $primary-grey;
-    border: 2px solid red;
+    // border: 2px solid red;
+    &:hover {
+      color: $primary-yellow;
+    }
   }
 
