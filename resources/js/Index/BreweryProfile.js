@@ -27,32 +27,34 @@ const BreweryProfile = () => {
     return (
         brewery && (
             <div className="breweryprofile">
-                <h1>Brewery Profile</h1>
-                <p>Name: {brewery.user.brewery_name}</p>
-                <p>City: {brewery.city}</p>
-                <p>Country: {brewery.country}</p>
-                <p>
-                    Website:{" "}
-                    <a href={brewery.website} target="_blank">
-                        {brewery.website}
-                    </a>
-                </p>
-                <p>Size: {brewery.size}</p>
-                <p>History: {brewery.history}</p>
-                <p>Brewery Picture:</p>
-                {(user && user.id == brewery.user_id) && <Link to={`/edit/brewery/${user.id}`}><p>EDIT PROFILE INFORMATION</p></Link>}
-                {console.log(brewery)}
-                <img
-                    src={`/img/breweries/${brewery.brewery_pic.picture}`}
-                    alt="brewery logo"
-                    style={{ width: "100px" }}
-                />
+                <div className="breweryprofile__container">
+
+                    <div className="breweryprofile__content">
+                        <h1>{brewery.user.brewery_name}</h1>
+                        <p><em>{brewery.city}, {brewery.country}</em></p>
+                        <p>
+                            Website:{" "}
+                            <a href={brewery.website} target="_blank">
+                                {brewery.website}
+                            </a>
+                        </p>
+                        <p>{brewery.history}</p>
+                        <img className="breweryprofile__image"
+                            src={`/img/breweries/${brewery.brewery_pic.picture}`}
+                            alt="brewery logo"
+                            style={{ width: "100px" }}
+                        />
+
+                    </div>
+                    {(user && user.id == brewery.user_id) && <Link to={`/edit/brewery/${user.id}`}><button className="edit__button">EDIT PROFILE INFORMATION</button></Link>}
+                </div>
+
 
                 <h2>More beers from this brewery:</h2>
                 {user &&
                     user.id == brewery.user_id &&
                     inputtingBeer == false && (
-                        <button onClick={beerInputClickHandler}>
+                        <button className="add-beer__button" onClick={beerInputClickHandler}>
                             Add a beer
                         </button>
                     )}
@@ -63,14 +65,18 @@ const BreweryProfile = () => {
                     />
                 )}
                 {brewery.beers.map((beer, i) => (
-                    <div className="beer">
-                        <Link to={`/beers/${beer.id}`}>
-                            <p key={i}>{beer.name}</p>
-                        </Link>
+                    <div className="search-result__container">
+                        <p className="search-result__name">
+                            <Link to={`/beers/${beer.id}`}>
+                                <p key={i}>{beer.name}</p>
+                            </Link>
+                        </p>
                         {/* <img src={`/img/beers/${beer.beer_pic.picture}`} alt="beer logo" style={{width: "50px"}}/> */}
                     </div>
-                ))}
-            </div>
+
+                ))
+                }
+            </div >
         )
     );
 };

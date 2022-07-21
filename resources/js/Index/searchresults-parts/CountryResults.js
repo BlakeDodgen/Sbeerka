@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import CountryResult from "./CountryResult";
 
 const CountryResults = (props) => {
-    const { search,searchString } = useParams();
+    const { search, searchString } = useParams();
 
 
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
-   
+
 
 
     //parameters search + text passed into the string
@@ -40,29 +40,29 @@ const CountryResults = (props) => {
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-  
+
         return item.country.toLowerCase().includes(searchString.toLowerCase())
-       
+
 
     });
 
- 
+
     return (
         <>
-            <h1>Tapping results for: <br /> {searchString}</h1>
+            {/* <h1>Tapping results for: <br /> {searchString}</h1> */}
             {searchItems && (
-                <div className="search__result">
-            
+                <div className="search-results">
+
                     {!!newSearch.length ? (
                         newSearch.map((value, index) => {
 
-                            
+
                             return (<>
 
-                            <CountryResult key={value.id} link={`/breweries/${value.id}`} name={value.city} values={value} />
+                                <CountryResult key={value.id} link={`/breweries/${value.id}`} name={value.city} values={value} />
                                 {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.user.brewery_name} / {value.country}</p></Link> */}
-                                
-                                 {/* <a className="search__items" key={index} >{value.name} </a> */}
+
+                                {/* <a className="search__items" key={index} >{value.name} </a> */}
                             </>
                             )
 
