@@ -61,7 +61,7 @@ export default function DiscreteSliderMarks({ setValue, name, value = 1 }) {
     const [innerValue, setInnerValue] = React.useState(value);
 
     const handleChange = (event, newValue) => {
-        console.log(newValue)
+
         setValue(event);
         setInnerValue(newValue)
 
@@ -86,6 +86,9 @@ export default function DiscreteSliderMarks({ setValue, name, value = 1 }) {
                 name={name}
                 value={innerValue}
                 onChange={handleChange}
+                sx={{
+                    color: "#c2702a"
+                }}
 
             />
             {/* <p>{innerValue}</p> */}

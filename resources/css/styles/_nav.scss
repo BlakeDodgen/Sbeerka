@@ -38,8 +38,8 @@
     text-decoration: none;
     color: white;
     display: flex;
-    justify-content: space-between;
-    width: 5.5%;
+    //justify-content: space-between;
+    //width: 5.5%;
 
     &:hover {
         color: $primary-yellow;
@@ -52,7 +52,8 @@
 }
 
 .nav__icon {
-    width: 1rem;
+    width: 0.5rem;
+    height: auto;
 }
 
 // .nav__log-in {

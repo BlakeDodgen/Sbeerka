@@ -65,7 +65,7 @@ input[type='radio']:checked:after {
     top: -3px;
     left: -5px;
     position: relative;
-    background-color: #ffa500;
+    background-color: $primary-yellow;
     content: '';
     display: inline-block;
     visibility: visible;
@@ -114,6 +114,76 @@ input[type='radio']:checked:after {
         rgba(0, 0, 0, 0.09) 0px -3px 5px;
         border: none;
 }
+
+
+
+.check__container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .check__container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .check__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 2px solid $secondary-orange;
+    background-color: white;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .check__container:hover input ~ .check__checkmark {
+    background-color: $secondary-grey;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .check__container input:checked ~ .check__checkmark {
+    background-color: $primary-yellow;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .check__checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .check__container input:checked ~ .check__checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .check__container .check__checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 
 
 

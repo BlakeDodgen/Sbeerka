@@ -43,28 +43,28 @@ const CityResults = (props) => {
     const newSearch = data.filter((item) => {
 
         return item.city.toLowerCase().includes(searchString.toLowerCase())
-        
+
     });
 
     return (
         <>
-            <h1>Tapping results for: <br /> {searchString}</h1>
-            <div className="search__result">
+            {/* <h1>Tapping results for: <br /> {searchString}</h1> */}
+            <div className="search-results">
 
-               
+
                 {!!newSearch.length ? (
                     newSearch.map((value, index) => {
                         console.log(value);
                         return (
 
-                         <CityResult
-                          key={value.id} link={`/breweries/${value.id}`} name={value.country} values={value}/>  
+                            <CityResult
+                                key={value.id} link={`/breweries/${value.id}`} name={value.country} values={value} />
 
                             // <Link key={value.id} to={`/breweries/${value.user.id}`}><p>{value.user.brewery_name} / {value.city}</p></Link>
                         )
 
                     })
-                ) : <h2>From this city we dont have a brewery</h2>}
+                ) : <h2>No breweries match your city search</h2>}
             </div>
         </>
     )

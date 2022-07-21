@@ -9,19 +9,19 @@ const BreweryResults = (props) => {
 
     const [data, setData] = useState([])
     const [searchItems, setSearchItems] = useState([])
-      //Hovering effect
-      const [isHovering, setIsHovering] = useState(false);
-      const handleMouseOver = (e) => {
-          setIsHovering(true);
-      }
-      const handleMouseOut = (e) => {
-          setIsHovering(false);
-      }
-  
+    //Hovering effect
+    const [isHovering, setIsHovering] = useState(false);
+    const handleMouseOver = (e) => {
+        setIsHovering(true);
+    }
+    const handleMouseOut = (e) => {
+        setIsHovering(false);
+    }
+
 
     //parameters search + text passed into the string
     const url = `/api/search?search=breweries&text=${searchString}`;
-      
+
     // Search
     // General form: http://www.sbeerka.beer/api/search?search=[search_type]&text=[search_query]
     // Beer search: http://www.sbeerka.beer/api/search?search=beers&text=[search_query]
@@ -51,8 +51,8 @@ const BreweryResults = (props) => {
 
     return (
         <>
-            <h1>Tapping results for: <br /> {searchString}</h1>
-            
+            {/* <h1>Tapping results for: <br /> {searchString}</h1> */}
+
             {/* {isHovering && (
         <div className="hover2">
         <img src={`/img/beers/${props.beer_pic_id}.png`} className="search-result__img" alt="beer-item-img" />
@@ -65,7 +65,7 @@ const BreweryResults = (props) => {
             )} */}
 
 
-            <div className="search__result"
+            <div className="search-results"
             // onMouseOver={handleMouseOver}
             // onMouseOut={handleMouseOut}
             >
@@ -75,11 +75,15 @@ const BreweryResults = (props) => {
                 {newSearch.length > 0 ? (
                     newSearch.map((value, index) => {
                         console.log(value)
-                       
+
                         return (<>
-                        <BreweryResult key={value.id} name={value.brewery_name} values={value}
-                       
-                        />
+                            <BreweryResult
+                                key={value.id}
+                                name={value.brewery_name}
+                                values={value}
+                                country={value.country}
+
+                            />
                             {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link> */}
                             {/* <a className="search__items" key={index} >{value.name} </a> */}
                         </>
