@@ -40,6 +40,9 @@ const BeerCollection = (props) => {
                 {/* for less displayed results use splice method on array .splice(0,10) */}
 
                 {!!beers ? (
+
+
+
                     beers.map((value, index) => {
 
                         console.log(value)
@@ -56,8 +59,7 @@ const BeerCollection = (props) => {
 
                             )}
                             <div className="search-result"
-                                onMouseOver={handleMouseOver}
-                                onMouseOut={handleMouseOut}
+                                
                             >
                                 <Link to={`/beers/${value.beer.id}`}>
                                     <div className="search-result__container">
@@ -73,26 +75,9 @@ const BeerCollection = (props) => {
                             </div>
                         </>
                         )
-                        //  const beerName = value.beers.map((value, index) => {
-                        //      return value.name
-
-                        //  })
-                        // //  const beerPic = value.beers.map((value, index) => {
-                        // //      return value.beer_pic.picture
-
-                        // //  })
-                        //  console.log(beerName);
-                        //  return (
-
-                        //     //  <BeerTypeResult
-                        //     //      key={value.id} link={`/breweries/${value.id}`} name={beerName} values={value}
-                        //     //      pic={beerPic} />
-                        //     //   <Link key={value.id} to={`/beers/${value.id}`}><p> {beerName} / {value.type}</p></Link>
-
-                        //  )
-
+                     
                     })
-                ) : <h2>This kind of beer type is not on the menu</h2>}
+                ) : <h2>No beers in collection</h2>}
             </div>
         </>
     )
