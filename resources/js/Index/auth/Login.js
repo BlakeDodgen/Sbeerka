@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
-import axios from "axios";
+// import axios from "axios";
 import UserContext from "../UserContext";
 import { loadUser, login } from "../actions/auth";
 import { useNavigate } from "react-router-dom";
-import BasicSwitches from "../mui/BasicSwitches";
-import FormPropsTextFields from "../mui/FormPropsTextFields";
-import Buttons from "../mui/Buttons";
-import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
+// import BasicSwitches from "../mui/BasicSwitches";
+// import FormPropsTextFields from "../mui/FormPropsTextFields";
+// import Buttons from "../mui/Buttons";
+// import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 
 
 function Login() {
@@ -50,8 +50,6 @@ function Login() {
         });
     };
 
-
-
     return (
         <>
             <form className="form" onSubmit={handleSubmit}>
@@ -65,7 +63,7 @@ function Login() {
                         name="email"
                         value={values.email}
                         onChange={handleChange}
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                 </div>
                 <div className="form__container">
@@ -76,7 +74,7 @@ function Login() {
                         name="password"
                         value={values.password}
                         onChange={handleChange}
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                 </div>
                 <br />
