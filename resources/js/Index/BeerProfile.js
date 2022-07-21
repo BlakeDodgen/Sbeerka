@@ -4,7 +4,7 @@ import axios from "axios";
 import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
 import BeerGraph from "./ratings/BeerGraph";
-import StarRating from "./ratings/StarRating";
+
 
 const BeerProfile = () => {
     const { id } = useParams();

@@ -67,7 +67,7 @@ const CountryResults = (props) => {
                             )
 
                         })
-                    ) : <h2>No {search} found</h2>}
+                    ) : <h2>No countries found</h2>}
                 </div>
             )}
 
