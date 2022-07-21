@@ -1,0 +1,38 @@
+.breweryprofile {
+    //min-height: 150vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15rem 0 4rem;
+    margin: 1.5rem 0 3.5rem 0;
+    border: 2px solid red;
+}
+
+.breweryprofile__container {
+    display: flex;
+    border: 2px solid red;
+    flex-direction: column;
+
+}
+
+.breweryprofile__content {
+    border: 2px solid red;
+    width: 40%;
+    display: flex;
+}
+
+
+
+.breweryprofile__image {
+    height: 12rem;
+    width: 12rem;
+    border: 2px solid red;
+    margin-top: 3rem;
+}
+
+.edit__button {
+
+}
+
+.add-beer__button {
+
+}

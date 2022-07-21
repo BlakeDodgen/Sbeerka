@@ -8,24 +8,24 @@ import { Rating } from 'react-simple-star-rating';
 
 
 const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
-   
+
     const [rating, setRating] = useState(0)
-   
+
     const [values, setValues] = useState({
         review: "",
         rating: 0,
         favorite: false,
         body: 5,
         linger: 5,
-        herbal: 5,
+        sour: 5,
         citrus: 5,
         hoppy: 5,
         bitter: 5,
-        sour: 5,
+        herbal: 5,
         user_id: user,
         beer_id: beer
     });
-   
+
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
@@ -33,34 +33,34 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         setValues((previous_values) => {
             return {
                 ...previous_values,
-                    // ["rating"] : rating/20,
-                 [e.target.name]: e.target.value,
+                // ["rating"] : rating/20,
+                [e.target.name]: e.target.value,
             };
         });
         setGraphValues(values);
     };
-  
-    
-      // Catch Rating value
-  const handleRating = (rating) => {
-    setValues((previous_values) => {
-        return {
-            ...previous_values,
-            ['rating']: rating/20,
-        };
-    });
-    
-  }
-  console.log(values);
+
+
+    // Catch Rating value
+    const handleRating = (rating) => {
+        setValues((previous_values) => {
+            return {
+                ...previous_values,
+                ['rating']: rating / 20,
+            };
+        });
+
+    }
+    console.log(values);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await axios.post("/api/reviews/create", values);
         const response_data = response.data;
-        
+
 
         if (typeof res === 'object') {
-            
+
         }
         setReviewed(true);
 
@@ -69,6 +69,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
     return (
         <>
+            <label>Body</label>
             <div className="form-rating">
                 <DiscreteSliderMarks
                     value={values.body}
@@ -76,40 +77,46 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                     name="body"
                 />
 
+                <label>Linger</label>
                 <DiscreteSliderMarks
                     value={values.linger}
                     setValue={handleChange}
                     name="linger"
                 />
 
+                <label>Sour</label>
                 <DiscreteSliderMarks
-                    value={values.herbal}
+                    value={values.sour}
                     setValue={handleChange}
-                    name="herbal"
+                    name="sour"
                 />
 
+                <label>Citrus</label>
                 <DiscreteSliderMarks
                     value={values.citrus}
                     setValue={handleChange}
                     name="citrus"
                 />
 
+                <label>Hoppy</label>
                 <DiscreteSliderMarks
                     value={values.hoppy}
                     setValue={handleChange}
                     name="hoppy"
                 />
 
+                <label>Bitter</label>
                 <DiscreteSliderMarks
                     value={values.bitter}
                     setValue={handleChange}
                     name="bitter"
                 />
 
+                <label>Herbal</label>
                 <DiscreteSliderMarks
-                    value={values.sour}
+                    value={values.herbal}
                     setValue={handleChange}
-                    name="sour"
+                    name="herbal"
                 />
 
                 <form
@@ -131,7 +138,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="review__container">
+                    <div className="review__container-hidden">
                         <label>Rating:</label>
                         <input
                             type="number"
@@ -214,16 +221,16 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                         />
                     </div>
                     <Rating
-                     onClick={handleRating}
-                     ratingValue={rating}
-                     size={20}
-                     label='false'  
-                     transition
-                     fillColor='orange'
-                     emptyColor='gray'
-                     className='foo' /* Available Props */ />
+                        onClick={handleRating}
+                        ratingValue={rating}
+                        size={20}
+                        label='false'
+                        transition
+                        fillColor='#c2702a'
+                        emptyColor='#2c2d2d'
+                        className='foo' /* Available Props */ />
 
-                    
+
                     {user && <button className="form__button">Submit</button>}
 
                 </form>
