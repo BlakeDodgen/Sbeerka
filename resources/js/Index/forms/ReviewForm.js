@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 import { Rating } from 'react-simple-star-rating';
+import Button from '@mui/material/Button';
 
 //import Slider from '@mui/material/Slider';
 
@@ -14,7 +15,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [values, setValues] = useState({
         review: "",
         rating: 0,
-        favorite: false,
+        favorite: 0,
         body: 5,
         linger: 5,
         sour: 5,
@@ -29,7 +30,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-        console.log(rating);
+        console.log(e.target.value); 
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -40,6 +41,15 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         setGraphValues(values);
     };
 
+    const handleLike = (e) => {
+        setValues((previous_values) => {
+            return {
+                ...previous_values,
+                [e.target.name]: e.target.value,
+            };
+        });
+
+    }
 
     // Catch Rating value
     const handleRating = (rating) => {
@@ -55,6 +65,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        values.favorite = int(values.favorite);
         const response = await axios.post("/api/reviews/create", values);
         const response_data = response.data;
 
@@ -229,6 +240,14 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                         fillColor='#c2702a'
                         emptyColor='#2c2d2d'
                         className='foo' /* Available Props */ />
+
+                    <Button
+                     variant="outlined"
+                     onClick={handleLike}
+                     value={values.favorite===0? 1:0}
+                     name='favorite'
+                     sx={{color: '#c2702a', borderColor: '#c2702a'}}
+                     >Like</Button>         
 
 
                     {user && <button className="form__button">Submit</button>}
