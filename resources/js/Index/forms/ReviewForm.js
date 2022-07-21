@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
 import { Rating } from 'react-simple-star-rating';
+import Button from '@mui/material/Button';
 
 //import Slider from '@mui/material/Slider';
 
@@ -29,7 +30,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-        console.log(rating);
+        console.log(rating); 
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -229,6 +230,10 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                         fillColor='#c2702a'
                         emptyColor='#2c2d2d'
                         className='foo' /* Available Props */ />
+
+                    <Button
+                     variant="outlined"
+                     >Like</Button>         
 
 
                     {user && <button className="form__button">Submit</button>}
