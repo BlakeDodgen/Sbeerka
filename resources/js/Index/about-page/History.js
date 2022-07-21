@@ -9,18 +9,15 @@ const History = () => {
                     <img src="#"></img>
                 </div>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing
-                    elit. Accusantium deserunt inventore cupiditate saepe
-                    quaerat consectetur cum architecto vel iusto! Aut esse
-                    iure dolorem. Suscipit rerum repudiandae molestiae
-                    deserunt nobis consectetur?
+                    Sbeerka grew out of our collective appreciation of hoppy
+                    bewerages. Inspiration struck whilst we were enjoying one of
+                    Prague's many watering holes and we wanted to share our
+                    opinion with the others. This happened in 1898.
                 </p>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ratione blanditiis architecto odit, nemo velit dolorem?
-                    Maxime est ducimus architecto, nam quasi soluta ea
-                    exercitationem expedita sequi sit libero molestias
-                    culpa?
+                    Group focused on researching Prague's liquid cuisine and
+                    after many lines of code written and tears shed, Sbeerka was
+                    conceived. It's not perfect but it's our child.
                 </p>
             </div>
         </div>

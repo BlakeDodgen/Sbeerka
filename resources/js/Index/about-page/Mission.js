@@ -4,26 +4,20 @@ import { useState, useEffect } from "react";
 const Mission = () => {
     return (
         <div className="mission">
-
             {/* <h2 className="mission__container__title">Our Mission</h2> */}
             <div className="mission__container_text">
                 <h2 className="mission__container__title">Our Mission</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing
-                    elit. Accusantium deserunt inventore cupiditate saepe
-                    quaerat consectetur cum architecto vel iusto! Aut esse
-                    iure dolorem. Suscipit rerum repudiandae molestiae
-                    deserunt nobis consectetur?
+                    Sbeerka is an app that allows beer connoisseurs to rate
+                    beers and allows craft breweries to present their beers
                 </p>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Ratione blanditiis architecto odit, nemo velit dolorem?
                     Maxime est ducimus architecto, nam quasi soluta ea
-                    exercitationem expedita sequi sit libero molestias
-                    culpa?
+                    exercitationem expedita sequi sit libero molestias culpa?
                 </p>
             </div>
-
         </div>
     );
 };
