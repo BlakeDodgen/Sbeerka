@@ -22,11 +22,12 @@ const BreweryResult = (props) => {
 
             {isHovering && (
                 <div className="hover">
-                    <p className="search-result__brewery">{props.name}</p>
-                    <p className="search-result__brewery">{props.values.brewery.city}</p>
-                    <p className="search-result__brewery">{props.values.brewery.country}</p>
-                    {!props.values.brewery.brewery_pic ? <img src={`/img/breweries/sibeeria.png`} />
-                        : <img src={`/img/breweries/${props.values.brewery.brewery_pic['picture']}`} alt="img" />}
+                    {!props.values.brewery.brewery_pic ?
+                        <img className="search-result__img-hover" src={`/img/breweries/sibeeria.png`} />
+                        : <img className="search-result__img-hover" src={`/img/breweries/${props.values.brewery.brewery_pic['picture']}`} alt="img" />}
+                    <h2 className="search-result__brewery">{props.name}</h2>
+                    {/* <p className="search-result__brewery">{props.values.brewery.city}</p>
+                    <p className="search-result__brewery">{props.values.brewery.country}</p> */}
                 </div>
 
             )}
@@ -45,7 +46,10 @@ const BreweryResult = (props) => {
                         <div className="search-result__img-card">
 
                         </div>
-                        <p className="search-result__name">{props.name}</p>
+                        <p className="search-result__name">
+                            <strong>{props.name}</strong><br />
+                            <em>{props.values.brewery.city}, {props.values.brewery.country}</em>
+                        </p>
                     </div>
                 </Link>
 

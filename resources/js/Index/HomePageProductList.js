@@ -15,9 +15,9 @@ const HomePageProductList = () => {
     };
 
     const loadNewSet = () => {
-        setMin(min+6);
-        setMax(max+6);
-        if(max>=data.length){
+        setMin(min + 6);
+        setMax(max + 6);
+        if (max >= data.length) {
             setMin(0);
             setMax(6);
         }
@@ -25,7 +25,7 @@ const HomePageProductList = () => {
 
     console.log(data.length);
 
-    if(min >= data.length) {
+    if (min >= data.length) {
 
     }
     useEffect(() => {
@@ -35,18 +35,22 @@ const HomePageProductList = () => {
 
 
     return (
+
+
         <div className="product-list">
+
+
             {/* container for whole list of products, slice can set the range of products per page */}
 
-            <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>                
+            <h3 className="product-list__title">BEERS YOU MIGHT LIKE</h3>
             <div className="product-list__products-container">
-            {data.slice(min, max).map((item, index) => {
-                return <Product key={index} data={item} />
-            })}
+                {data.slice(min, max).map((item, index) => {
+                    return <Product key={index} data={item} />
+                })}
 
-        </div>
+            </div>
             {/* loads another six items, if it hits the last , resets to beggining */}
-            <button onClick={()=>loadNewSet()}>Another round</button>
+            <button className="product-list__button" onClick={() => loadNewSet()}><a href="#"> Another round</a></button>
         </div>
     );
 };

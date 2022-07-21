@@ -48,7 +48,7 @@ const CityResults = (props) => {
 
     return (
         <>
-            <h1>Tapping results for: <br /> {searchString}</h1>
+            {/* <h1>Tapping results for: <br /> {searchString}</h1> */}
             <div className="search-results">
 
 
@@ -64,7 +64,7 @@ const CityResults = (props) => {
                         )
 
                     })
-                ) : <h2>From this city we dont have a brewery</h2>}
+                ) : <h2>No breweries match your city search</h2>}
             </div>
         </>
     )

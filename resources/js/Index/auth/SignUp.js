@@ -243,14 +243,14 @@ function SignUp() {
                     />
                 </div>
                 <br />
-                <label>
+                <label className="check__container">I'm over 18
                     <input
                         type="checkbox"
                         name="over18"
                         value={values.over18}
                         onChange={handleChange}
                     />
-                    I'm over 18
+                    <span class="check__checkmark"></span>
                 </label>
                 <br />
 

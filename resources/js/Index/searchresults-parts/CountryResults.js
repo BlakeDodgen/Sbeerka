@@ -49,7 +49,7 @@ const CountryResults = (props) => {
 
     return (
         <>
-            <h1>Tapping results for: <br /> {searchString}</h1>
+            {/* <h1>Tapping results for: <br /> {searchString}</h1> */}
             {searchItems && (
                 <div className="search-results">
 

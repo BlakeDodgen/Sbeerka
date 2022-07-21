@@ -22,10 +22,10 @@ const CityResult = (props) => {
 
             {isHovering && (
                 <div className="hover">
-                    <p className="search-result__brewery">{props.values.user.brewery_name}</p>
-                    <p className="search-result__brewery">{props.values.city}</p>
-                    <p className="search-result__brewery">{props.values.country}</p>
-                    <p className="search-result__brewery">{props.values.history}</p>
+                    {/* <h2 className="search-result__brewery">{props.values.user.brewery_name}</h2>
+                    <p className="search-result__brewery">{props.values.city}</p> */}
+                    {/* <p className="search-result__brewery">{props.values.country}</p>
+                    <p className="search-result__brewery">{props.values.history}</p> */}
 
 
                     {/* {!props.values.brewery.brewery_pic ? <img src={`/img/breweries/sibeeria.png`} />
@@ -46,7 +46,9 @@ const CityResult = (props) => {
                     <div className="search-result__container">
                         <div className="search-result__img-card">
                         </div>
-                        <p className="search-result__name"> {props.values.user.brewery_name} / {props.name}</p>
+                        <p className="search-result__name">
+                            <strong>{props.values.city}</strong>, {props.name} <br />
+                            <em>{props.values.user.brewery_name}</em></p>
                     </div>
                 </Link>
 
