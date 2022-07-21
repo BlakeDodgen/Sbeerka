@@ -2,8 +2,7 @@
     background-color: $primary-grey;
     color: white;
     padding: 1rem 0;
-    border: none;
-    
+    border: none; 
   }
   
   .dropdown {
@@ -17,10 +16,8 @@
     &:hover {
       color: $primary-yellow;
     }
-    
-    //display: inline-block;
   }
-  
+
   .dropdown-content {
     display: none;
     position: absolute;

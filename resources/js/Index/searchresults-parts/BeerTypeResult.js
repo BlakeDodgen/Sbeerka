@@ -17,17 +17,16 @@ const BeerTypeResult = (props) => {
     console.log(props.values);
     return (
         <>
-           
+
             {isHovering && (
                 <div className="hover">
 
                     {!props.pic ? <img src={`/img/breweries/sibeeria.png`} />
-                        : <img src={`/img/beers/${img[0]}.png`} alt="img" />}
+                        : <img className="search-result__img-hover" src={`/img/beers/${img[0]}.png`} alt="img" />}
 
-
+                    <h2 className="search-result__name">{props.name}</h2>
 
                     {/* <img className="search-result__img-hover" src={`/img/breweries/sibeeria.png`} /> */}
-                    <h2 className="search-result__brewery">{props.name}</h2>
                     {/* <p className="search-result__brewery">{props.values.city}</p>
                     <p className="search-result__brewery">{props.values.country}</p>
                     <p className="search-result__brewery">{props.values.history}</p> */}
@@ -54,7 +53,7 @@ const BeerTypeResult = (props) => {
                         </div>
                         <p className="search-result__name">
                             <strong>{props.values.type}</strong><br />
-                            <em>{props.name} | </em></p>
+                            <em>{props.name}</em></p>
                     </div>
                 </Link>
 

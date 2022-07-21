@@ -1,10 +1,10 @@
 .graph-data__1 {
-    opacity: 0.4;
+    opacity: 0.6;
     border-radius: 7px;
     transition: all .3s ease-in-out;
 
     &:hover {
-        opacity: 0.7;
+        opacity: 0.8;
     }
 }
 
@@ -27,21 +27,6 @@
         }
     }
 }
-
-// input[type='radio'] {
-//     width: 20px;
-//     height: 20px;
-//     border: 2px solid $secondary-orange;
-//     border-radius: 20px;
-//     //top: -2px;
-//     //left: -1px;
-//     position: relative;
-//     // background-color: #d1d3d1;
-//     // content: '';
-//     // display: inline-block;
-//     // visibility: visible;
-//     // border: 2px solid white;
-// }
 
 input[type='radio']:after {
     width: 20px;
@@ -114,8 +99,6 @@ input[type='radio']:checked:after {
         rgba(0, 0, 0, 0.09) 0px -3px 5px;
         border: none;
 }
-
-
 
 .check__container {
     display: block;

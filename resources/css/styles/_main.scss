@@ -96,7 +96,7 @@
         text-decoration: none;
         display: inline-block;
         font-weight: 500;
-        width: 30%;
+        width: 100%;
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 3px;
@@ -139,10 +139,6 @@
     &__name {
         font-size: 0.8rem;
         font-weight: 300;
-    }
-
-    //rating - bottom right corner of item
-    &__rating {
     }
 }
 

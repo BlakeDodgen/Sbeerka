@@ -15,7 +15,8 @@
 
     &__logo,
     &__signup,
-    &__about {
+    &__about,
+    &__login {
         color: white;
         text-decoration: none;
 
@@ -34,22 +35,22 @@
     }
 }
 
-.nav__login {
-    text-decoration: none;
-    color: white;
-    display: flex;
-    //justify-content: space-between;
-    //width: 5.5%;
+// .nav__login {
+//     text-decoration: none;
+//     color: white;
+//     display: flex;
+//     //justify-content: space-between;
+//     //width: 5.5%;
 
-    &:hover {
-        color: $primary-yellow;
-    }
+//     &:hover {
+//         color: $primary-yellow;
+//     }
 
     // &:visited {
     //     //text-decoration: none;
     // // color: white;
     // }
-}
+// }
 
 .nav__icon {
     width: 0.5rem;
