@@ -4,7 +4,7 @@ import axios from "axios";
 import UserContext from "./UserContext";
 import ReviewForm from "./forms/ReviewForm";
 import BeerGraph from "./ratings/BeerGraph";
-
+// import StarRating from "./ratings/StarRating";
 
 const BeerProfile = () => {
     const { id } = useParams();
@@ -97,7 +97,7 @@ const BeerProfile = () => {
             avSour = 0;
         }
 
-      
+
 
         setBeer({
             data: response.data,
@@ -111,13 +111,13 @@ const BeerProfile = () => {
                 hoppy: avHoppy.toFixed(1),
                 bitter: avBitter.toFixed(1),
                 sour: avSour.toFixed(1),
-                
+
             },
         });
         // } else {
         //     setBeer({data: response.data, averages: {rating: 0, body: 0, linger: 0, herbal: 0, citrus: 0, hoppy: 0, bitter: 0, sour: 0}})
         // }
-        
+
     };
 
     const checkReview = () => {
@@ -140,70 +140,72 @@ const BeerProfile = () => {
     //         }
     //     })};
     // } 
-    
+
     useEffect(() => {
         loadData();
         checkReview();
     }, [user, reviewed]);
 
-    
+
 
     return (
         beer && (
             <>
                 <div className="beerprofile">
-                    <h2> {beer.data.name}</h2>
+                    <div className="beerprofile__container">
+                        <h2> {beer.data.name}</h2>
 
-                    <img
-                        className="beerprofile__beer-pic"
-                        src={`/img/beers/${beer.data.beer_pic.picture}`}
-                        alt="beer logo"
-                    />
-                    <Link
-                        to={`/breweries/${beer.data.brewery.user_id}`}
-                    >
-                        <em>{beer.data.brewery.user.brewery_name}</em>
-                    </Link>
-                </div>
-                {/* <p className="beerprofile__image_brewery">
+                        <img
+                            className="beerprofile__beer-pic"
+                            src={`/img/beers/${beer.data.beer_pic.picture}`}
+                            alt="beer logo"
+                        />
+                        <Link
+                            to={`/breweries/${beer.data.brewery.user_id}`}
+                        >
+                            <em>{beer.data.brewery.user.brewery_name}</em>
+                        </Link>
+                    </div>
+                    {/* <p className="beerprofile__image_brewery">
                         Brewery Picture:
                     </p> */}
 
-                <div className="beerprofile__info">
-                    <div className="beerprofile__info__numbers">
-                        {" "}
-                        <h2> Description: </h2>
-                        {beer.data.alcohol_volume} % ABV, {beer.data.degree}{" "}
-                        °
-                    </div>{" "}
-                    <br />
-                    <div className="beerprofile__info__desc">
-                        {beer.data.description}
-                    </div>{" "}
-                    <br />
-                    <div className="beerprofile__info__graph">
-                        <p>{beer.averages.bitter}</p>
-                        <BeerGraph 
-                          graphValues={graphValues}
-                          averageValues = {beer.averages} />
-                        {/* <StarRating /> */}
+                    <div className="beerprofile__info">
+                        <div className="beerprofile__info__numbers">
+                            {" "}
+                            <h2> Description: </h2>
+                            {beer.data.alcohol_volume} % ABV, {beer.data.degree}{" "}
+                            °
+                        </div>{" "}
+                        <br />
+                        <div className="beerprofile__info__desc">
+                            {beer.data.description}
+                        </div>{" "}
+                        <br />
+                        <div className="beerprofile__info__graph">
+                            <p>{beer.averages.bitter}</p>
+                            <BeerGraph
+                                graphValues={graphValues}
+                                averageValues={beer.averages} />
+                            {/* <StarRating /> */}
+                        </div>
                     </div>
-                </div>
-                <div className="beerprofile__review">
-                    <h2>Reviews:</h2>
-                    {user &&
-                        (user.user_type == 1 || user.user_type == 3) &&
-                        reviewed == false && (
-                            <ReviewForm
-                                user={user.id}
-                                beer={beer.data.id}
-                                setReviewed={setReviewed}
-                                setGraphValues={setGraphValues}                          
-                            />
-                        )}
-                    {beer.data.reviews.map((review, i) => (
-                        <p key={i}>{review.review}</p>
-                    ))}
+                    <div className="beerprofile__review">
+                        <h2>Reviews:</h2>
+                        {user &&
+                            (user.user_type == 1 || user.user_type == 3) &&
+                            reviewed == false && (
+                                <ReviewForm
+                                    user={user.id}
+                                    beer={beer.data.id}
+                                    setReviewed={setReviewed}
+                                    setGraphValues={setGraphValues}
+                                />
+                            )}
+                        {beer.data.reviews.map((review, i) => (
+                            <p key={i}>{review.review}</p>
+                        ))}
+                    </div>
                 </div>
             </>
         )

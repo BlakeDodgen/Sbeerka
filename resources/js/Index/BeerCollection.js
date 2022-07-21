@@ -31,7 +31,7 @@ const BeerCollection = (props) => {
     return (
 
         <>
-            <h1>Beer Collection</h1>
+            {/* <h1>Beer Collection</h1> */}
             {/* <h1>My Favorites: <br /> {searchString}</h1> */}
 
             <div className="search-results">
@@ -47,21 +47,28 @@ const BeerCollection = (props) => {
 
                         console.log(value)
                         return (<>
-                            
-                      
+
+                            {isHovering && (
+                                <div className="hover">
+                                    {/* <img src={`/img/beers/${value.beer.beer_pic_id}.png`} className="search-result__img-hover" alt="beer-item-img" />
+                                    <h2 className="search-result__name">{value.beer.name}</h2> */}
+                                    {/* <p className="search-result__brewery">{props.brewery}</p>
+                                    <p className="search-result__type">{props.type}</p>
+                                    <p className="search-result__rating">Rating</p> */}
+                                </div>
+
+                            )}
                             <div className="search-result"
                                 
                             >
                                 <Link to={`/beers/${value.beer.id}`}>
                                     <div className="search-result__container">
-                                        <div className="search-result__img-card"
-                                        onMouseOver={handleMouseOver}
-                                        onMouseOut={handleMouseOut}>
-                                            <img className="search-result__img" src={`/img/beers/${value.beer.beer_pic_id}.png`} alt="beer-item-img" />
+                                        <div className="search-result__img-card">
+                                            {/* <img className="search-result__img" src={`/img/beers/${value.beer.beer_pic_id}.png`} alt="beer-item-img" /> */}
                                         </div>
                                         <p className="search-result__name">
                                             <strong>{value.beer.name}</strong><br />
-                                            <em>{value.beer.alcohol_volume}% Alcohol By Volume | {value.review}</em>
+                                            <em>{value.beer.alcohol_volume}% Alcohol By Volume | My Review: {value.review}</em>
                                         </p>
                                     </div>
                                 </Link>

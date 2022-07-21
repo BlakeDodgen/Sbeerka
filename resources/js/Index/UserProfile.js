@@ -2,6 +2,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "./UserContext";
 import axios from "axios";
+import UpdateUserForm from "./forms/UpdateUserForm";
 
 const UserProfile = () => {
 
@@ -9,11 +10,10 @@ const UserProfile = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
     const [reviews, setReviews] = useState([]);
+    const [updatingUser, setUpdatingUser] = useState(false);
 
-    const clickHandler = async () => {
-        const res = await axios.post(`/api/user/${user.id}/settings/delete`);
-        await setUser(null);
-        return navigate("/");
+    const editClickHandler = () => {
+        setUpdatingUser(true);
     }
 
     const loadData = async () => {
@@ -24,9 +24,9 @@ const UserProfile = () => {
 
     useEffect(() => {
         loadData();
-    }, []);
+    }, [updatingUser]);
 
-    if (user.user_type == 1) {
+    if (user.user_type == 1 && user.id == id) {
         return (
             <div className="userProfile">
                 <p>User ID: {id}</p>
@@ -44,12 +44,19 @@ const UserProfile = () => {
                 ))}
 
 
-
-
-
-                {user.user_type != 3 &&
-                    <p onClick={clickHandler}>DELETE PROFILE</p>
+                {user.user_type == 1 && user.id == id && updatingUser == false &&
+                    <button onClick={editClickHandler}>Update Profile</button>
                 }
+                {updatingUser == true && (
+                    <UpdateUserForm
+                        user={user.id}
+                        setUpdatingUser={setUpdatingUser}
+                    />
+                )}
+
+                {/* {user.user_type != 3 &&
+                    <p onClick={clickHandler}>DELETE PROFILE</p>
+                } */}
             </div>
         )
     } else if (user.user_type == 2) {

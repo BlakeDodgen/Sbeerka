@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/test', ['App\Http\Controllers\Api\BreweryController', 'test']);
 Route::post('/breweries/create', ['App\Http\Controllers\Api\BreweryController', 'create']);
+Route::post('/users/edit', ['App\Http\Controllers\Api\UserController', 'editUser']);
 Route::post('/user/{id}/settings/delete', ['App\Http\Controllers\Api\UserController', 'destroy']);
 // Route::get('/info/{id}', ['App\Http\Controllers\Api\UserController', 'userinfo']);
 Route::post('/reviews/create', ['App\Http\Controllers\Api\ReviewController', 'create']);
