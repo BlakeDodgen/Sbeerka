@@ -15,7 +15,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     const [values, setValues] = useState({
         review: "",
         rating: 0,
-        favorite: 'false',
+        favorite: 0,
         body: 5,
         linger: 5,
         sour: 5,
@@ -65,6 +65,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        values.favorite = int(values.favorite);
         const response = await axios.post("/api/reviews/create", values);
         const response_data = response.data;
 
@@ -243,8 +244,9 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                     <Button
                      variant="outlined"
                      onClick={handleLike}
-                     value={values.favorite==='false'? 'true':'false'}
+                     value={values.favorite===0? 1:0}
                      name='favorite'
+                     sx={{color: '#c2702a', borderColor: '#c2702a'}}
                      >Like</Button>         
 
 
