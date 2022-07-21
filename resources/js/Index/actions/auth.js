@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const loadUser = async () => {
     const res = await axios.get("/api/user");
-    console.log(res.data)
+    // console.log(res.data)
     return res.data;
 };
 

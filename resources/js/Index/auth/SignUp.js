@@ -49,7 +49,7 @@ const Radio = (props) => {
 const Status1 = (props) => {
     const [lol, setLol] = useState(true)
 
-    console.log(props.values)
+    // console.log(props.values)
 
     return (
         <>
@@ -210,7 +210,7 @@ function SignUp() {
                         type="email"
                         name="email"
                         value={values.email}
-                        autocomplete="off"
+                        autoComplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -224,7 +224,7 @@ function SignUp() {
                         type="password"
                         name="password"
                         value={values.password}
-                        autocomplete="off"
+                        autoComplete="off"
                         onChange={handleChange}
                     />
                 </div>
@@ -238,7 +238,7 @@ function SignUp() {
                         type="password"
                         name="password_confirmation"
                         value={values.password_confirmation}
-                        autocomplete="off"
+                        autoComplete="off"
                         onChange={handleChange}
                     />
                 </div>

@@ -23,6 +23,7 @@ import CityResults from "./searchresults-parts/CityResults";
 import CountryResults from "./searchresults-parts/CountryResults";
 import BeerTypeResults from "./searchresults-parts/BeerTypeResults";
 import ReviewForm from "./forms/ReviewForm";
+import BeerCollection from "../BeerCollection";
 
 import { loadUser } from "./actions/auth";
 import UserProfile from "./UserProfile";
@@ -65,6 +66,7 @@ const App = () => {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/beers/review" element={<ReviewForm />} />
                         <Route path="/beers/:id" element={<BeerProfile />} />
+                        <Route path="/favorites/:id" element={<BeerCollection />} />
                         <Route
                             path="/breweries/:id"
                             element={<BreweryProfile />}

@@ -28,7 +28,7 @@ class ReviewController extends Controller
         $review->hoppy = $request->input('hoppy');
         $review->bitter = $request->input('bitter');
         $review->sour = $request->input('sour');
-        $review->favorite = false;
+        $review->favorite = $request->input('favorite');
 
         $review->save();
 
@@ -51,5 +51,15 @@ class ReviewController extends Controller
         // $user->delete();
 
         return 'user deleted';
+    }
+
+    public function favoriteBeers($id)
+    {
+        $beers = Review::where('user_id', '=', $id)
+                        ->where('favorite', '=', 1)
+                        ->with('beer')
+                        ->get();
+
+        return $beers;
     }
 }
