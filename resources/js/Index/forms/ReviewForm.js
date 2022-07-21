@@ -251,7 +251,6 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
 
                     {user && <button className="form__button">Submit</button>}
-
                 </form>
             </div>
         </>

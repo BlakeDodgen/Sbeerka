@@ -9,22 +9,33 @@ function Logout() {
 
     const logout = async () => {
         const res = await axios.post("/logout");
-        return res.data;
-    };
-
-    const clickHandler = async () => {
-        const res = await logout();
-
-        if (res) {
-            return console.log(res);
-        }
+        // if (res) {
+        //     return console.log(res);
+        // }
         setUser(null);
+
         return navigate("/");
     };
 
+    // const clickHandler = async () => {
+    //     const res = await logout();
+
+    //     if (res) {
+    //         return console.log(res);
+    //     }
+    //     setUser(null);
+        
+    // };
+
     // if (!user) return null;
 
-    return <p onClick={clickHandler}>Logout</p>;
+    useEffect(() => {
+        logout();
+    }, []);
+
+    return (
+        <></>
+    )
 }
 
 export default Logout;

@@ -45,7 +45,7 @@ function Nav(props) {
                             <Link to={`/breweries/${user.id}`}>Profile</Link>
                         )}
                         <Link to="/">Beer Collection</Link>
-                        <Logout />
+                        <Link to="/logout">Log out</Link>
                     </div>
                 </div>
             ) : (
