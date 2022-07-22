@@ -3,7 +3,7 @@
 
 
 // Circle size and concentric cirles
-const chartSize = 300;
+const chartSize = 450;
 const numberOfScales = 5;
 const scale = (value) => (
     <circle

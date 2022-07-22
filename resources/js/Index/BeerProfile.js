@@ -153,28 +153,24 @@ const BeerProfile = () => {
             <>
                 <div className="beerprofile">
                     <div className="beerprofile__container">
-                        <h1> {beer.data.name}</h1>
-                        <img
-                            className="beerprofile__beer-pic"
-                            src={`/img/beers/${beer.data.beer_pic.picture}`}
-                            alt="beer logo" /> <br />
-                        <Link
-                            to={`/breweries/${beer.data.brewery.user_id}`}>
-                            <em>{beer.data.brewery.user.brewery_name}</em>
-                        </Link>
-
-                        {/* <p className="beerprofile__image_brewery">
-                        Brewery Picture:
-                    </p> */}
-
+                        <div className="beerprofile__main">
+                            <h1> {beer.data.name}</h1>
+                            <img
+                                className="beerprofile__beer-pic"
+                                src={`/img/beers/${beer.data.beer_pic.picture}`}
+                                alt="beer logo" /> <br />
+                        </div>
                         <div className="beerprofile__info">
-                            <div className="beerprofile__info__numbers">
-                                {beer.data.alcohol_volume}% Alcohol by Volume
-                                {/* {beer.data.degree}° */}
-                            </div>
+                            <Link
+                                to={`/breweries/${beer.data.brewery.user_id}`}>
+                                <em>{beer.data.brewery.user.brewery_name}</em>
+                            </Link>
+                            {beer.data.alcohol_volume}% Alcohol by Volume
+                            {/* {beer.data.degree}° */}
+                            <br />
+                            <br />
                             {beer.data.description}
                         </div>
-
                     </div>
                     <BeerGraph
                         graphValues={graphValues}

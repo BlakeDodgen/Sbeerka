@@ -35,34 +35,18 @@
     }
 }
 
-// .nav__login {
-//     text-decoration: none;
-//     color: white;
-//     display: flex;
-//     //justify-content: space-between;
-//     //width: 5.5%;
-
-//     &:hover {
-//         color: $primary-yellow;
-//     }
-
-    // &:visited {
-    //     //text-decoration: none;
-    // // color: white;
-    // }
-// }
-
 .nav__icon {
-    width: 0.5rem;
+    width: 1rem;
     height: auto;
+    offset: 10px
 }
 
-// .nav__log-in {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     width: 4rem;
-// }
+.nav__log-in {
+    display: flex;
+    // align-items: flex-end;
+    // justify-content: flex-end;
+    // justify-items: flex-end;
+}
 
 //mobile
 @media screen and (max-width: 480px) {
@@ -72,11 +56,9 @@
     }
     
     .nav {
-        
         //position: sticky;
         background-color: $secondary-orange;
         position: unset;
-
     }
 }
 

@@ -1,8 +1,12 @@
 .dropbtn {
     background-color: $primary-grey;
     color: white;
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     border: none; 
+    display: flex;
+    font-size: 0.9rem;
+    align-items: center;
+    justify-content: center;
   }
   
   .dropdown {
@@ -21,9 +25,10 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    top: 3rem;
-    background-color: black;
-    min-width: 160px;
+    top: 56px;
+    background-color: $primary-grey;
+    //padding: 2px 0 2px 4px;
+    min-width: 170px;
     box-shadow: 
        rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, 
        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -33,13 +38,14 @@
   
   .dropdown-content a {
     //color: white;
-    //padding: 12px 12px;
+    padding: 12px 12px;
     text-decoration: none;
     display: block;
+    // border: 2px solid red;
+    color: white;
   }
   
   .dropdown-content a:hover {
-    background-color: $primary-grey;
     color: $primary-yellow;
     }
   
@@ -50,6 +56,8 @@
   
   .dropdown:hover .dropbtn {
     background-color: $primary-grey;
+    display: flex;
+    justify-content: center;
     // border: 2px solid red;
     &:hover {
       color: $primary-yellow;

@@ -80,163 +80,13 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
 
     return (
         <>
-            <div className="sliders__container">
-                <label>Body</label>
-                <div className="form-rating">
-                    <DiscreteSliderMarks
-                        value={values.body}
-                        setValue={handleChange}
-                        name="body"
-                    />
+            <div className="beer-review__container">
 
-                    <label>Linger</label>
-                    <DiscreteSliderMarks
-                        value={values.linger}
-                        setValue={handleChange}
-                        name="linger"
-                    />
-
-                    <label>Sour</label>
-                    <DiscreteSliderMarks
-                        value={values.sour}
-                        setValue={handleChange}
-                        name="sour"
-                    />
-
-                    <label>Citrus</label>
-                    <DiscreteSliderMarks
-                        value={values.citrus}
-                        setValue={handleChange}
-                        name="citrus"
-                    />
-
-                    <label>Hoppy</label>
-                    <DiscreteSliderMarks
-                        value={values.hoppy}
-                        setValue={handleChange}
-                        name="hoppy"
-                    />
-
-                    <label>Bitter</label>
-                    <DiscreteSliderMarks
-                        value={values.bitter}
-                        setValue={handleChange}
-                        name="bitter"
-                    />
-
-                    <label>Herbal</label>
-                    <DiscreteSliderMarks
-                        value={values.herbal}
-                        setValue={handleChange}
-                        name="herbal"
-                    />
-                </div>
-
-                <form
-                    className="review"
-                    action="/beers/review"
-                    method="post"
-                    onSubmit={(e) => {
-                        handleSubmit(e);
-                    }}
-                >
-                    <div className="review__container">
-                        {!!errorResponse && <span>Login Failed</span>}
-                        <label>Review:</label>
-                        <textarea
-                            placeholder="Tell us how you really feel..."
-                            rows="10"
-                            name="review"
-                            value={values.review}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="review__container-hidden">
-                        <label>Rating:</label>
-                        <input
-                            type="number"
-                            min="0"
-                            max="5"
-                            name="rating"
-                            value={values.rating}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="review__container-hidden">
-                        <input
-                            type="number"
-                            name="body"
-                            min="0"
-                            max="10"
-                            value={values.body}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="review__container-hidden">
-                        <input
-                            type="number"
-                            name="linger"
-                            min="0"
-                            max="10"
-                            value={values.linger}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className="review__container-hidden">
-                        <input
-                            type="number"
-                            name="herbal"
-                            min="0"
-                            max="10"
-                            value={values.herbal}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="review__container-hidden">
-                        <input
-                            type="number"
-                            name="citrus"
-                            min="0"
-                            max="10"
-                            value={values.citrus}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="review__container-hidden">
-                        <input
-                            type="number"
-                            name="hoppy"
-                            min="0"
-                            max="10"
-                            value={values.hoppy}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="review__container-hidden">
-                        <input
-                            type="number"
-                            name="bitter"
-                            min="0"
-                            max="10"
-                            value={values.bitter}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="review__container-hidden">
-                        <input
-                            type="number"
-                            name="sour"
-                            min="0"
-                            max="10"
-                            value={values.sour}
-                            onChange={handleChange}
-                        />
-                    </div>
+                <div className="stars__container">
                     <Rating
                         onClick={handleRating}
                         ratingValue={rating}
-                        size={20}
+                        size={35}
                         label='false'
                         transition
                         fillColor='#c2702a'
@@ -252,10 +102,175 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                         id="btn_like"
                         sx={{ color: values.favorite == 0 ? "#c2702a" : "#2c2d2d", borderColor: '#c2702a', backgroundColor: values.favorite == 0 ? "none" : "#c2702a" }}
                     >Like</Button>
+                </div>
 
+                <br /><br /><br />
+                <div className="sliders__container">
+                    <label>Body</label>
+                    <div className="form-rating">
+                        <DiscreteSliderMarks
+                            value={values.body}
+                            setValue={handleChange}
+                            name="body"
+                        />
 
-                    {user && <button className="form__button">Submit</button>}
-                </form>
+                        <label>Linger</label>
+                        <DiscreteSliderMarks
+                            value={values.linger}
+                            setValue={handleChange}
+                            name="linger"
+                        />
+
+                        <label>Sour</label>
+                        <DiscreteSliderMarks
+                            value={values.sour}
+                            setValue={handleChange}
+                            name="sour"
+                        />
+
+                        <label>Citrus</label>
+                        <DiscreteSliderMarks
+                            value={values.citrus}
+                            setValue={handleChange}
+                            name="citrus"
+                        />
+
+                        <label>Hoppy</label>
+                        <DiscreteSliderMarks
+                            value={values.hoppy}
+                            setValue={handleChange}
+                            name="hoppy"
+                        />
+
+                        <label>Bitter</label>
+                        <DiscreteSliderMarks
+                            value={values.bitter}
+                            setValue={handleChange}
+                            name="bitter"
+                        />
+
+                        <label>Herbal</label>
+                        <DiscreteSliderMarks
+                            value={values.herbal}
+                            setValue={handleChange}
+                            name="herbal"
+                        />
+                    </div>
+                    <br />
+
+                    <form
+                        className="review"
+                        action="/beers/review"
+                        method="post"
+                        onSubmit={(e) => {
+                            handleSubmit(e);
+                        }}
+                    >
+                        <div className="review__container">
+                            {!!errorResponse && <span>Login Failed</span>}
+                            <textarea
+                                placeholder="Tell us how you really feel..."
+                                rows="10"
+                                name="review"
+                                value={values.review}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="review__container-hidden">
+                            <label>Rating:</label>
+                            <input
+                                type="number"
+                                min="0"
+                                max="5"
+                                name="rating"
+                                value={values.rating}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="review__container-hidden">
+                            <input
+                                type="number"
+                                name="body"
+                                min="0"
+                                max="10"
+                                value={values.body}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="review__container-hidden">
+                            <input
+                                type="number"
+                                name="linger"
+                                min="0"
+                                max="10"
+                                value={values.linger}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="review__container-hidden">
+                            <input
+                                type="number"
+                                name="herbal"
+                                min="0"
+                                max="10"
+                                value={values.herbal}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="review__container-hidden">
+                            <input
+                                type="number"
+                                name="citrus"
+                                min="0"
+                                max="10"
+                                value={values.citrus}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="review__container-hidden">
+                            <input
+                                type="number"
+                                name="hoppy"
+                                min="0"
+                                max="10"
+                                value={values.hoppy}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="review__container-hidden">
+                            <input
+                                type="number"
+                                name="bitter"
+                                min="0"
+                                max="10"
+                                value={values.bitter}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="review__container-hidden">
+                            <input
+                                type="number"
+                                name="sour"
+                                min="0"
+                                max="10"
+                                value={values.sour}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        {/* <Rating
+                            onClick={handleRating}
+                            ratingValue={rating}
+                            size={20}
+                            label='false'
+                            transition
+                            fillColor='#c2702a'
+                            emptyColor='#2c2d2d'
+                            className="review__stars" /> */}
+
+                        {user && <button className="form__button">Submit</button>}
+                    </form>
+                </div>
             </div>
         </>
     );
