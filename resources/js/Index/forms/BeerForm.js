@@ -8,7 +8,7 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
 
     const [values, setValues] = useState({
         brewery_id: brewery,
-        beer_type_id: 0,
+        beer_type_id: 1,
         name: "",
         alcohol_volume: 0,
         degree: 0,
@@ -53,7 +53,7 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
         const response_data = response.data;
         console.log(response_data)
 
-        
+
         // const response = await axios.post('/api/breweries/create', values);
         // const response_data = response.data;
         // console.log(response)
@@ -78,7 +78,7 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
 
     return (
         <>
-            
+
             <form
                 className="form"
                 // action=""
@@ -94,9 +94,9 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                         Beer Type:
                     </label>
                     <select name="beer_type_id" value={values.beer_type_id} onChange={(e) => {
-                            handleChange(e);
-                        }}>
-                    {types.map((type, i) => (
+                        handleChange(e);
+                    }}>
+                        {types.map((type, i) => (
                             <option value={type.id}>{type.type}</option>
                         ))}
                     </select>
@@ -139,7 +139,7 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                         type="number"
                         value={values.alcohol_volume}
                         required
-                        autocomplete="off"
+                        autoComplete="off"
                         name="alcohol_volume"
                         onChange={(e) => {
                             handleChange(e);
@@ -156,7 +156,7 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                         type="number"
                         name="degree"
                         value={values.degree}
-                        autocomplete="off"
+                        autoComplete="off"
                         onChange={(e) => {
                             handleChange(e);
                         }}
@@ -171,7 +171,7 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                         className="form__input form__input-description"
                         type="text"
                         value={values.description}
-                        autocomplete="off"
+                        autoComplete="off"
                         required
                         name="description"
                         onChange={(e) => {
@@ -189,7 +189,7 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                         className="form__input form__input-image"
                         type="file"
                         name="image"
-                        autocomplete="off"
+                        autoComplete="off"
                         required
                         onChange={handleImage}
                     />
