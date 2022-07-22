@@ -34,16 +34,15 @@ const CityResult = (props) => {
 
             )}
 
-            <div className="search-result"
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-            >
+            <div className="search-result">
 
                 {/* <p className="search-result__name">{props.name}</p> */}
                 {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link> */}
 
                 <Link to={`/breweries/${props.values.user.id}`}>
-                    <div className="search-result__container">
+                    <div className="search-result__container"
+                        onMouseOver={handleMouseOver}
+                        onMouseOut={handleMouseOut}>
                         <div className="search-result__img-card">
                         </div>
                         <p className="search-result__name">

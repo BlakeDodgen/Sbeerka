@@ -72,13 +72,12 @@ export default function DiscreteSliderMarks({ setValue, name, value = 1 }) {
     }, [])
 
     return (
-        <Box sx={{ width: 150 }}>
+        <Box sx={{ width: 350 }}>
             <Slider
                 //aria-label="Custom marks"
                 defaultValue={innerValue}
                 getAriaValueText={valuetext}
                 step={1}
-                size="small"
                 valueLabelDisplay="auto"
                 marks={marks}
                 min={0}

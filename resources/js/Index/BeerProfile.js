@@ -144,6 +144,7 @@ const BeerProfile = () => {
     useEffect(() => {
         loadData();
         checkReview();
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, [user, reviewed]);
 
 
@@ -154,11 +155,14 @@ const BeerProfile = () => {
                 <div className="beerprofile">
                     <div className="beerprofile__container">
                         <div className="beerprofile__main">
-                            <h1> {beer.data.name}</h1>
-                            <img
-                                className="beerprofile__beer-pic"
-                                src={`/img/beers/${beer.data.beer_pic.picture}`}
-                                alt="beer logo" /> <br />
+                            <h1 className="beerprofile__title"> {beer.data.name}</h1>
+                            <div className="main-product__image-container">
+                                <img
+                                    className="beerprofile__beer-pic"
+                                    src={`/img/beers/${beer.data.beer_pic.picture}`}
+                                    alt="beer logo" />
+                            </div>
+                            <br />
                         </div>
                         <div className="beerprofile__info">
                             <Link
@@ -186,9 +190,12 @@ const BeerProfile = () => {
                                     setGraphValues={setGraphValues}
                                 />
                             )}
-                        {beer.data.reviews.map((review, i) => (
-                            <p key={i}>{review.review}</p>
-                        ))}
+                        <h3>What Others Think:</h3>
+                        <div>
+                            {beer.data.reviews.map((review, i) => (
+                                <p className="beerprofile__user-review" key={i}>{review.review} (by {review.user.username})</p>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </>

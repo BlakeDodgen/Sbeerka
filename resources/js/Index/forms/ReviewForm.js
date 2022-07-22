@@ -171,6 +171,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                             <textarea
                                 placeholder="Tell us how you really feel..."
                                 rows="10"
+                                cols="43"
                                 name="review"
                                 value={values.review}
                                 onChange={handleChange}

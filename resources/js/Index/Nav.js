@@ -10,7 +10,7 @@ function Nav(props) {
     const { user, text } = useContext(UserContext);
 
     return (
-        <div className="nav">
+        <div className="nav" id="top">
             <a className="nav__logo" href="/">
                 SBEERKA
             </a>

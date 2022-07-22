@@ -28,12 +28,13 @@ const SearchResult = (props) => {
 
             )}
 
-            <div className="search-result"
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-            >
-                <Link to={`/beers/${props.beer_id}`}>
-                    <div className="search-result__container">
+            <div className="search-result">
+                <Link to={`/beers/${props.beer_id}`} >
+
+                    <div className="search-result__container"
+                        onMouseOver={handleMouseOver}
+                        onMouseOut={handleMouseOut}>
+
                         <div className="search-result__img-card">
                             {/* <img className="search-result__img" src={`/img/beers/${props.beer_pic_id}.png`} alt="beer-item-img" /> */}
                         </div>

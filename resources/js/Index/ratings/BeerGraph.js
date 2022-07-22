@@ -3,14 +3,16 @@
 
 
 // Circle size and concentric cirles
-const chartSize = 450;
-const numberOfScales = 5;
+const chartSize = 520;
+// const numberOfScales = 5;
+const numberOfScales = 4;
 const scale = (value) => (
     <circle
+        className="graph__circles"
         key={`scale-${value}`}
         cx={0}
         cy={0}
-        r={((value / numberOfScales) * chartSize) / 2}
+        r={((value / (numberOfScales + 1)) * chartSize) / 2}
         fill="#fbc014"
         stroke="#31475e"
         strokeWidth="3"
