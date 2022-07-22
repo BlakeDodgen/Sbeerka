@@ -1,14 +1,12 @@
 import axios from "axios";
-import { loadUser } from './Functions.js';
+import { loadUser } from "./Functions.js";
 
 function Footer() {
-
     // const loadUser = async () => {
     //     const res = await axios.get('/api/user');
     //     return res.data;
 
     // }
-
 
     // <button onClick={async () => {
     //     const user = await loadUser()
@@ -21,17 +19,29 @@ function Footer() {
 
             <div className="footer__social">
                 <a href="#">
-                    <img className="footer__fb" src="./img/assets/FB.svg" alt="Facebook" />
+                    <img
+                        className="footer__fb"
+                        src="./img/assets/FB.svg"
+                        alt="Facebook"
+                    />
                 </a>
                 <a href="#">
-                    <img className="footer__ig" src="./img/assets/IG.svg" alt="Instagram" />
+                    <img
+                        className="footer__ig"
+                        src="./img/assets/IG.svg"
+                        alt="Instagram"
+                    />
                 </a>
                 <a href="#">
-                    <img className="footer__twitter" src="./img/assets/Twitter.svg" alt="Twitter" />
+                    <img
+                        className="footer__twitter"
+                        src="./img/assets/Twitter.svg"
+                        alt="Twitter"
+                    />
                 </a>
             </div>
         </div>
-    )
+    );
 }
 
 export default Footer;

@@ -2,15 +2,13 @@ import { useState, useContext } from "react";
 import React from "react";
 import axios from "axios";
 import DiscreteSliderMarks from "../mui/DiscreteSliderMarks";
-import { Rating } from 'react-simple-star-rating';
-import Button from '@mui/material/Button';
+import { Rating } from "react-simple-star-rating";
+import Button from "@mui/material/Button";
 
 //import Slider from '@mui/material/Slider';
 
-
 const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
-
-    const [rating, setRating] = useState(0)
+    const [rating, setRating] = useState(0);
 
     const [values, setValues] = useState({
         review: "",
@@ -24,13 +22,12 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         bitter: 5,
         herbal: 5,
         user_id: user,
-        beer_id: beer
+        beer_id: beer,
     });
 
     const [errorResponse, setErrorResponse] = useState(null);
 
     const handleChange = (e) => {
-
         setValues((previous_values) => {
             return {
                 ...previous_values,
@@ -48,20 +45,18 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                 [e.target.name]: e.target.value,
             };
         });
-        console.log(values)
-    }
+        // console.log(values)
+    };
 
     // Catch Rating value
     const handleRating = (rating) => {
         setValues((previous_values) => {
             return {
                 ...previous_values,
-                ['rating']: rating / 20,
+                ["rating"]: rating / 20,
             };
         });
-
-    }
-
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -69,9 +64,7 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
         const response = await axios.post("/api/reviews/create", values);
         const response_data = response.data;
 
-
-        if (typeof res === 'object') {
-
+        if (typeof res === "object") {
         }
         setReviewed(true);
 
@@ -81,30 +74,39 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
     return (
         <>
             <div className="beer-review__container">
-
                 <div className="stars__container">
                     <Rating
                         onClick={handleRating}
                         ratingValue={rating}
                         size={35}
-                        label='false'
+                        label="false"
                         transition
-                        fillColor='#c2702a'
-                        emptyColor='#2c2d2d'
-                        className="review__stars" />
+                        fillColor="#c2702a"
+                        emptyColor="#2c2d2d"
+                        className="review__stars"
+                    />
 
                     <Button
                         className="review__liked"
                         variant="outlined"
                         onClick={handleLike}
                         value={values.favorite == 0 ? 1 : 0}
-                        name='favorite'
+                        name="favorite"
                         id="btn_like"
-                        sx={{ color: values.favorite == 0 ? "#c2702a" : "#2c2d2d", borderColor: '#c2702a', backgroundColor: values.favorite == 0 ? "none" : "#c2702a" }}
-                    >Like</Button>
+                        sx={{
+                            color: values.favorite == 0 ? "#c2702a" : "#2c2d2d",
+                            borderColor: "#c2702a",
+                            backgroundColor:
+                                values.favorite == 0 ? "none" : "#c2702a",
+                        }}
+                    >
+                        Like
+                    </Button>
                 </div>
 
-                <br /><br /><br />
+                <br />
+                <br />
+                <br />
                 <div className="sliders__container">
                     <label>Body</label>
                     <div className="form-rating">
@@ -269,7 +271,9 @@ const ReviewForm = ({ user, beer, setReviewed, setGraphValues }) => {
                             emptyColor='#2c2d2d'
                             className="review__stars" /> */}
 
-                        {user && <button className="form__button">Submit</button>}
+                        {user && (
+                            <button className="form__button">Submit</button>
+                        )}
                     </form>
                 </div>
             </div>

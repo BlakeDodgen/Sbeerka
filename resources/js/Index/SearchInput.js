@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 
 function SearchInput({ placeholder, data, search }) {
     const [searchString, setSearchString] = useState("");
@@ -9,10 +9,9 @@ function SearchInput({ placeholder, data, search }) {
     const [searchItems, setSearchItems] = useState([]);
 
     //const [searchOption, setSearchOption] = useState(search);
-    
+
     const navigate = useNavigate();
 
-   
     //function triggered after each keystroke and runs the filter, results saved in new array
     const handleSearchQuery = (e) => {
         const searchItem = e.target.value;
@@ -21,11 +20,10 @@ function SearchInput({ placeholder, data, search }) {
             //return value if true-> if object.name includes search items
             //compare the user input and data-> lowercase both values
             // console.log(item);
-            
+
             return item.toLowerCase().match(searchString.toLowerCase());
         });
 
-        
         if (searchItems === "") {
             setSearchItems([]);
         } else {
@@ -36,19 +34,15 @@ function SearchInput({ placeholder, data, search }) {
     const handleSearchBarChange = (e) => {
         handleSearchQuery(e);
         setSearchString(e.target.value);
-
-    }
+    };
 
     const redirect = () => {
-        if(searchString===""){
-            return null
+        if (searchString === "") {
+            return null;
         } else {
-
             navigate(`/results/${search}/${searchString}`);
         }
-        
     };
-    
 
     return (
         <div className="search__container">
@@ -75,7 +69,7 @@ function SearchInput({ placeholder, data, search }) {
                         );
                     })}
                 </div>
-            )}           
+            )}
 
             {/* <Routes >
                 <Redirect to="/results" element={<SearchResults results={searchItems} />} />

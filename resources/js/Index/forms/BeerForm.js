@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const BeerForm = ({ brewery, setInputtingBeer }) => {
-
     const [image, setImage] = useState(null);
     const [types, setTypes] = useState([]);
 
@@ -18,59 +17,61 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
 
     const handleChange = (e) => {
         if (e.target.files) {
-            return setImage(e.target.files[0])
+            return setImage(e.target.files[0]);
         }
-        console.log(values);
+        // console.log(values);
         setValues((previous_values) => {
             return {
                 ...previous_values,
                 [e.target.name]: e.target.value,
             };
         });
-
     };
 
     const handleImage = (e) => {
         // console.log(e.target.value)
-        setImage(e.target.files[0])
-    }
+        setImage(e.target.files[0]);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const options = {
             headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }
+                "Content-Type": "multipart/form-data",
+            },
+        };
 
         const formData = new FormData();
 
-        formData.append('image', image)
-        formData.append('values', JSON.stringify(values))
+        formData.append("image", image);
+        formData.append("values", JSON.stringify(values));
 
-        const response = await axios.post("/api/beers/create", formData, options);
+        const response = await axios.post(
+            "/api/beers/create",
+            formData,
+            options
+        );
         const response_data = response.data;
-        console.log(response_data)
-
+        // console.log(response_data);
 
         // const response = await axios.post('/api/breweries/create', values);
         // const response_data = response.data;
         // console.log(response)
 
         // return navigate(`/breweries/${user.id}`);
-        setInputtingBeer(false)
+        setInputtingBeer(false);
     };
 
     const closeHandler = () => {
-        setInputtingBeer(false)
-    }
+        setInputtingBeer(false);
+    };
 
     const loadData = async () => {
         const response = await axios.get(`/api/beers/typeslist`);
         console.log(response);
         setTypes(response.data);
-    }
+    };
 
     useEffect(() => {
         loadData();
@@ -78,7 +79,6 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
 
     return (
         <>
-
             <form
                 className="form"
                 // action=""
@@ -93,9 +93,13 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                     <label className="form__label form__label-beerType">
                         Beer Type:
                     </label>
-                    <select name="beer_type_id" value={values.beer_type_id} onChange={(e) => {
-                        handleChange(e);
-                    }}>
+                    <select
+                        name="beer_type_id"
+                        value={values.beer_type_id}
+                        onChange={(e) => {
+                            handleChange(e);
+                        }}
+                    >
                         {types.map((type, i) => (
                             <option value={type.id}>{type.type}</option>
                         ))}
@@ -198,7 +202,6 @@ const BeerForm = ({ brewery, setInputtingBeer }) => {
                 <button className="form__button">Add Beer To Sbeerka</button>
                 <br />
             </form>
-
         </>
     );
 };

@@ -14,8 +14,6 @@ const BeerProfile = () => {
 
     const [graphValues, setGraphValues] = useState("");
 
-
-
     const loadData = async () => {
         const response = await axios.get(`/api/beers/${id}`);
         // console.log(response.data);
@@ -97,8 +95,6 @@ const BeerProfile = () => {
             avSour = 0;
         }
 
-
-
         setBeer({
             data: response.data,
             // userReviewSelected: userReview,
@@ -111,13 +107,11 @@ const BeerProfile = () => {
                 hoppy: avHoppy.toFixed(1),
                 bitter: avBitter.toFixed(1),
                 sour: avSour.toFixed(1),
-
             },
         });
         // } else {
         //     setBeer({data: response.data, averages: {rating: 0, body: 0, linger: 0, herbal: 0, citrus: 0, hoppy: 0, bitter: 0, sour: 0}})
         // }
-
     };
 
     const checkReview = () => {
@@ -126,9 +120,9 @@ const BeerProfile = () => {
                 if (review.user_id == user.id) {
                     setReviewed(true);
                 }
-            })
+            });
         }
-    }
+    };
 
     // const findReview = () => {
     //     if (beer) {
@@ -139,15 +133,13 @@ const BeerProfile = () => {
 
     //         }
     //     })};
-    // } 
+    // }
 
     useEffect(() => {
         loadData();
         checkReview();
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }, [user, reviewed]);
-
-
 
     return (
         beer && (
@@ -155,18 +147,23 @@ const BeerProfile = () => {
                 <div className="beerprofile">
                     <div className="beerprofile__container">
                         <div className="beerprofile__main">
-                            <h1 className="beerprofile__title"> {beer.data.name}</h1>
+                            <h1 className="beerprofile__title">
+                                {" "}
+                                {beer.data.name}
+                            </h1>
                             <div className="main-product__image-container">
                                 <img
                                     className="beerprofile__beer-pic"
                                     src={`/img/beers/${beer.data.beer_pic.picture}`}
-                                    alt="beer logo" />
+                                    alt="beer logo"
+                                />
                             </div>
                             <br />
                         </div>
                         <div className="beerprofile__info">
                             <Link
-                                to={`/breweries/${beer.data.brewery.user_id}`}>
+                                to={`/breweries/${beer.data.brewery.user_id}`}
+                            >
                                 <em>{beer.data.brewery.user.brewery_name}</em>
                             </Link>
                             {beer.data.alcohol_volume}% Alcohol by Volume
@@ -178,7 +175,8 @@ const BeerProfile = () => {
                     </div>
                     <BeerGraph
                         graphValues={graphValues}
-                        averageValues={beer.averages} />
+                        averageValues={beer.averages}
+                    />
                     <div className="beerprofile__review">
                         {user &&
                             (user.user_type == 1 || user.user_type == 3) &&
@@ -193,7 +191,9 @@ const BeerProfile = () => {
                         <h3>What Others Think:</h3>
                         <div>
                             {beer.data.reviews.map((review, i) => (
-                                <p className="beerprofile__user-review" key={i}>{review.review} (by {review.user.username})</p>
+                                <p className="beerprofile__user-review" key={i}>
+                                    {review.review} (by {review.user.username})
+                                </p>
                             ))}
                         </div>
                     </div>
@@ -205,17 +205,22 @@ const BeerProfile = () => {
 
 export default BeerProfile;
 
-{/* <img src={`/img/beers/${beer.data.beer_pic.picture}`} alt="beer logo"/> */ }
-{/* <p>Average Beer Rating: {beer.averages.rating}</p>
+{
+    /* <img src={`/img/beers/${beer.data.beer_pic.picture}`} alt="beer logo"/> */
+}
+{
+    /* <p>Average Beer Rating: {beer.averages.rating}</p>
         <p>Average Body Rating: {beer.averages.body}</p>
         <p>Average Linger Rating: {beer.averages.linger}</p>
         <p>Average Herbal Rating: {beer.averages.herbal}</p>
         <p>Average Citrus Rating: {beer.averages.citrus}</p>
         <p>Average Hoppy Rating: {beer.averages.hoppy}</p>
         <p>Average Bitter Rating: {beer.averages.bitter}</p>
-        <p>Average Sour Rating: {beer.averages.sour}</p> */}
+        <p>Average Sour Rating: {beer.averages.sour}</p> */
+}
 
-{/* <div className="beerprofile__slider">
+{
+    /* <div className="beerprofile__slider">
                         <h2>Intensity:</h2>
                         <div className="beerprofile__slider__body">
                             Body
@@ -245,4 +250,5 @@ export default BeerProfile;
                             Sour
                             <DiscreteSliderMarks />
                         </div>
-                    </div> */}
+                    </div> */
+}

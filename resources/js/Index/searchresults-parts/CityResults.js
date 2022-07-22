@@ -6,17 +6,16 @@ import CityResult from "./CityResult";
 const CityResults = (props) => {
     const { search, searchString } = useParams();
 
-
-    const [data, setData] = useState([])
-    const [searchItems, setSearchItems] = useState([])
+    const [data, setData] = useState([]);
+    const [searchItems, setSearchItems] = useState([]);
     //Hovering effect
     const [isHovering, setIsHovering] = useState(false);
     const handleMouseOver = (e) => {
         setIsHovering(true);
-    }
+    };
     const handleMouseOut = (e) => {
         setIsHovering(false);
-    }
+    };
     //parameters search + text passed into the string
     const url = `/api/search?search=city&text=${searchString}`;
 
@@ -32,42 +31,40 @@ const CityResults = (props) => {
         const response = await fetch(url);
         const parsedData = await response.json();
         setData(parsedData);
-
-    }
+    };
     useEffect(() => {
         fetchData();
-
-    }, [props.searchType, searchString])
+    }, [props.searchType, searchString]);
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-
-        return item.city.toLowerCase().includes(searchString.toLowerCase())
-
+        return item.city.toLowerCase().includes(searchString.toLowerCase());
     });
 
     return (
         <>
             {/* <h1>Tapping results for: <br /> {searchString}</h1> */}
             <div className="search-results">
-
-
                 {!!newSearch.length ? (
                     newSearch.map((value, index) => {
-                        console.log(value);
+                        // console.log(value);
                         return (
-
                             <CityResult
-                                key={value.id} link={`/breweries/${value.id}`} name={value.country} values={value} />
+                                key={value.id}
+                                link={`/breweries/${value.id}`}
+                                name={value.country}
+                                values={value}
+                            />
 
                             // <Link key={value.id} to={`/breweries/${value.user.id}`}><p>{value.user.brewery_name} / {value.city}</p></Link>
-                        )
-
+                        );
                     })
-                ) : <h2>No breweries match your city search</h2>}
+                ) : (
+                    <h2>No breweries match your city search</h2>
+                )}
             </div>
         </>
-    )
-}
+    );
+};
 
 export default CityResults;

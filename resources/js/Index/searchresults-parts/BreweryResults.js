@@ -6,18 +6,16 @@ import BreweryResult from "./BreweryResult";
 const BreweryResults = (props) => {
     const { search, searchString } = useParams();
 
-
-    const [data, setData] = useState([])
-    const [searchItems, setSearchItems] = useState([])
+    const [data, setData] = useState([]);
+    const [searchItems, setSearchItems] = useState([]);
     //Hovering effect
     const [isHovering, setIsHovering] = useState(false);
     const handleMouseOver = (e) => {
         setIsHovering(true);
-    }
+    };
     const handleMouseOut = (e) => {
         setIsHovering(false);
-    }
-
+    };
 
     //parameters search + text passed into the string
     const url = `/api/search?search=breweries&text=${searchString}`;
@@ -34,19 +32,16 @@ const BreweryResults = (props) => {
         const response = await fetch(url);
         const parsedData = await response.json();
         setData(parsedData);
-
-    }
+    };
     useEffect(() => {
         fetchData();
-
-    }, [props.searchType, searchString])
-
+    }, [props.searchType, searchString]);
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-
-        return item.brewery_name.toLowerCase().includes(searchString.toLowerCase())
-
+        return item.brewery_name
+            .toLowerCase()
+            .includes(searchString.toLowerCase());
     });
 
     return (
@@ -64,36 +59,37 @@ const BreweryResults = (props) => {
 
             )} */}
 
-
-            <div className="search-results"
-            // onMouseOver={handleMouseOver}
-            // onMouseOut={handleMouseOut}
+            <div
+                className="search-results"
+                // onMouseOver={handleMouseOver}
+                // onMouseOut={handleMouseOut}
             >
                 {/* loops in the array which contains updated search items */}
                 {/* for less displayed results use splice method on array .splice(0,10) */}
 
                 {newSearch.length > 0 ? (
                     newSearch.map((value, index) => {
-                        console.log(value)
+                        // console.log(value);
 
-                        return (<>
-                            <BreweryResult
-                                key={value.id}
-                                name={value.brewery_name}
-                                values={value}
-                                country={value.country}
-
-                            />
-                            {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link> */}
-                            {/* <a className="search__items" key={index} >{value.name} </a> */}
-                        </>
-                        )
-
+                        return (
+                            <>
+                                <BreweryResult
+                                    key={value.id}
+                                    name={value.brewery_name}
+                                    values={value}
+                                    country={value.country}
+                                />
+                                {/* <Link key={value.id} to={`/breweries/${value.id}`}><p>{value.brewery_name}</p></Link> */}
+                                {/* <a className="search__items" key={index} >{value.name} </a> */}
+                            </>
+                        );
                     })
-                ) : (<h2>No breweries were found</h2>)}
+                ) : (
+                    <h2>No breweries were found</h2>
+                )}
             </div>
         </>
-    )
-}
+    );
+};
 
 export default BreweryResults;

@@ -12,7 +12,7 @@ const BreweryProfile = () => {
 
     const loadData = async () => {
         const response = await axios.get(`/api/breweries/${id}`);
-        console.log(response.data[0]);
+        // console.log(response.data[0]);
         setBrewery(response.data[0]);
     };
 
@@ -28,10 +28,13 @@ const BreweryProfile = () => {
         brewery && (
             <div className="breweryprofile">
                 <div className="breweryprofile__container">
-
                     <div className="breweryprofile__content">
                         <h1>{brewery.user.brewery_name}</h1>
-                        <p><em>{brewery.city}, {brewery.country}</em></p>
+                        <p>
+                            <em>
+                                {brewery.city}, {brewery.country}
+                            </em>
+                        </p>
                         <p>
                             Website:{" "}
                             <a href={brewery.website} target="_blank">
@@ -39,25 +42,31 @@ const BreweryProfile = () => {
                             </a>
                         </p>
                         <p>{brewery.history}</p>
-                        <img className="breweryprofile__image"
+                        <img
+                            className="breweryprofile__image"
                             src={`/img/breweries/${brewery.brewery_pic.picture}`}
                             alt="brewery logo"
                             style={{ width: "100px" }}
                         />
-
                     </div>
-                    {(user && user.id == brewery.user_id) && <Link to={`/edit/brewery/${user.id}`}><button className="edit__button">EDIT PROFILE INFORMATION</button></Link>}
+                    {user && user.id == brewery.user_id && (
+                        <Link to={`/edit/brewery/${user.id}`}>
+                            <button className="edit__button">
+                                EDIT PROFILE INFORMATION
+                            </button>
+                        </Link>
+                    )}
                 </div>
 
-
                 <h2>More beers from this brewery:</h2>
-                {user &&
-                    user.id == brewery.user_id &&
-                    inputtingBeer == false && (
-                        <button className="add-beer__button" onClick={beerInputClickHandler}>
-                            Add a beer
-                        </button>
-                    )}
+                {user && user.id == brewery.user_id && inputtingBeer == false && (
+                    <button
+                        className="add-beer__button"
+                        onClick={beerInputClickHandler}
+                    >
+                        Add a beer
+                    </button>
+                )}
                 {inputtingBeer == true && (
                     <BeerForm
                         brewery={brewery.id}
@@ -73,10 +82,8 @@ const BreweryProfile = () => {
                         </p>
                         {/* <img src={`/img/beers/${beer.beer_pic.picture}`} alt="beer logo" style={{width: "50px"}}/> */}
                     </div>
-
-                ))
-                }
-            </div >
+                ))}
+            </div>
         )
     );
 };

@@ -38,26 +38,31 @@ const Radio = (props) => {
                     </label>
                 </div>
             </div>
-            {props.values.user_type === "user" ?
-                <Status1 values={props.values} handleChange={props.handleChange} setValues={props.setValues} /> :
-                <Status2 values={props.values} handleChange={props.handleChange} />
-            }
+            {props.values.user_type === "user" ? (
+                <Status1
+                    values={props.values}
+                    handleChange={props.handleChange}
+                    setValues={props.setValues}
+                />
+            ) : (
+                <Status2
+                    values={props.values}
+                    handleChange={props.handleChange}
+                />
+            )}
         </>
     );
 };
 
 const Status1 = (props) => {
-    const [lol, setLol] = useState(true)
+    const [lol, setLol] = useState(true);
 
     // console.log(props.values)
 
     return (
         <>
             <div className="form__container">
-                <label
-                    id="first-name"
-                    className="form__label form__label-name"
-                >
+                <label id="first-name" className="form__label form__label-name">
                     First Name
                 </label>
                 <br />
@@ -73,7 +78,7 @@ const Status1 = (props) => {
                                 ...previous_values,
                                 [e.target.name]: e.target.value,
                             };
-                        })
+                        });
                     }}
                 />
             </div>
@@ -157,7 +162,7 @@ function SignUp() {
             const response = await axios.post("/register", values);
             const response_data = response.data;
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
 
         const userData = await loadUser();
@@ -167,7 +172,7 @@ function SignUp() {
         await setLoadingUser(false);
 
         if (userData.user_type == 2) {
-            return navigate("/signup/brewery")
+            return navigate("/signup/brewery");
         }
         return navigate("/");
     };
@@ -179,7 +184,7 @@ function SignUp() {
                 return {
                     ...previous_values,
                     [e.target.name]: e.target.checked,
-                }
+                };
             } else {
                 return {
                     ...previous_values,
@@ -198,7 +203,11 @@ function SignUp() {
                 onSubmit={handleSignUp}
             >
                 <h2 className="form__h2">Sign Up</h2>
-                <Radio values={values} handleChange={handleChange} setValues={setValues} />
+                <Radio
+                    values={values}
+                    handleChange={handleChange}
+                    setValues={setValues}
+                />
 
                 <div className="form__container">
                     <label className="form__label form__label-email">
@@ -243,7 +252,8 @@ function SignUp() {
                     />
                 </div>
                 <br />
-                <label className="check__container">I'm over 18
+                <label className="check__container">
+                    I'm over 18
                     <input
                         type="checkbox"
                         name="over18"
@@ -264,7 +274,6 @@ function SignUp() {
                 /> */}
                 <button className="form__button">Create Sbeerka Account</button>
                 <br />
-
             </form>
 
             {/* <label className="form__label-member">User</label>
@@ -277,7 +286,6 @@ function SignUp() {
                 />
                 <br /> */}
         </>
-
     );
 }
 

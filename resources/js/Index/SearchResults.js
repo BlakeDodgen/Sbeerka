@@ -6,11 +6,11 @@ import SearchResult from "./SearchResult";
 const SearchResults = (props) => {
     const { search, searchString } = useParams();
 
-    const [loading, setLoading] = useState(false)
-    const [data, setData] = useState([])
-    const [searchItems, setSearchItems] = useState([])
-    console.log(data.length);
-    
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+    const [searchItems, setSearchItems] = useState([]);
+    // console.log(data.length);
+
     const url = `/api/search?search=${search}&text=${searchString}`;
 
     // Search
@@ -21,37 +21,29 @@ const SearchResults = (props) => {
     // City search: http://www.sbeerka.beer/api/search?search=city&text=[search_query]
     // Country search: http://www.sbeerka.beer/api/search?search=country&text=[search_query]
 
-
     // setLoading(true);
     const fetchData = async () => {
         const response = await fetch(url);
         const parsedData = await response.json();
         setData(parsedData);
-    }
-
+    };
 
     // setLoading(false);
 
     useEffect(() => {
         fetchData();
-
-    }, [search, searchString])
-
-
+    }, [search, searchString]);
 
     //data are fetch after each selection in searchbar
     const newSearch = data.filter((item) => {
-
-        return item.name.toLowerCase().includes(searchString.toLowerCase())
+        return item.name.toLowerCase().includes(searchString.toLowerCase());
     });
 
-   
     return (
         <>
             {/* <h1>Tapping results for: <br /> {searchString}</h1> */}
 
             <div className="search-results">
-           
                 {/* {loading && <Rings
                     height="100"
                     width="100"
@@ -60,12 +52,14 @@ const SearchResults = (props) => {
                 />} */}
                 {data.length > 0 ? (
                     newSearch.map((value, index) => {
-
-
                         return (
-
-                            <SearchResult key={index}
-                                name={search === "beer-type" ? value.type : value.name}
+                            <SearchResult
+                                key={index}
+                                name={
+                                    search === "beer-type"
+                                        ? value.type
+                                        : value.name
+                                }
                                 beer_pic_id={value.beer_pic_id}
                                 brewery={value.brewery.user.brewery_name}
                                 type={value.beer_type.type}
@@ -73,14 +67,16 @@ const SearchResults = (props) => {
                                 brewery_id={value.brewery_id}
                                 alcohol_volume={value.alcohol_volume}
                                 degree={value.degree}
-                            // handleMouseOver ={handleMouseOver}
-                            // handleMouseOut = {handleMouseOut}
+                                // handleMouseOver ={handleMouseOver}
+                                // handleMouseOut = {handleMouseOut}
                             />
 
                             // <a className="search__items" key={index} >{value.name} </a>
-                        )
+                        );
                     })
-                ) : <h2>No {search} found</h2>}
+                ) : (
+                    <h2>No {search} found</h2>
+                )}
             </div>
         </>
     );
