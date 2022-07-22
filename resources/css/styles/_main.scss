@@ -205,7 +205,7 @@
         flex-direction: column;
         width: 100%;
         align-items: center;
-        //border: 2px solid red;
+        //border: 2px solid
         justify-content: flex-start;
         justify-items: center;
         //font-size: 1.5rem;
@@ -233,8 +233,6 @@
         &__products-container {
             flex-direction: column;
             flex-wrap: nowrap;
-
-            border: 2px solid red;
         }
     }
 
